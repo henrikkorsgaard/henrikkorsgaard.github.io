@@ -17,7 +17,7 @@ website:
     pinned: true
     title: false
     logo: "images/henrik-transparent.png"
-    logo-href: index.qmd
+    logo-href: /
     left:
       - href: pages/notes.qmd
         text: NOTES

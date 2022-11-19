@@ -7,6 +7,20 @@
     "text": "About this site"
   },
   {
+    "objectID": "pages/things.html",
+    "href": "pages/things.html",
+    "title": "Things",
+    "section": "",
+    "text": "Recent things"
+  },
+  {
+    "objectID": "pages/notes.html",
+    "href": "pages/notes.html",
+    "title": "Notes",
+    "section": "",
+    "text": "Recent notes"
+  },
+  {
     "objectID": "pages/research.html",
     "href": "pages/research.html",
     "title": "Research",

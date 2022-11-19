@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  title: "Henrik Korsgaard"
+  search: false
+  page-footer:
+    center:
+      - href: https://hci.social/web/@heenrik
+        icon: "mastodon"
+      - href: mailto:korsgaard@protonmail.com?Subject=I%20saw%20your%20website...
+        icon: "envelope"
+      - href: https://github.com/henrikkorsgaard
+        icon: "github"
+  navbar:
+    collapse: false
+    pinned: true
+    title: false
+    logo: "images/henrik-transparent.png"
+    left:
+      - href: pages/notes.qmd
+        text: NOTES
+      - href: pages/things.qmd
+        text: THINGS
+      - href: pages/research.qmd
+        text: RESEARCH
+      - href: pages/about.qmd
+        text: ABOUT
+       
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

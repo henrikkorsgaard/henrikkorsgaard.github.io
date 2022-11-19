@@ -1,0 +1,67 @@
+/* css styles */
+@import url('https://fonts.googleapis.com/css?family=Lora|Work+Sans&display=swap');
+body {
+    font-family: 'Lora', serif;
+    min-width:1024px;
+    margin:0px auto;
+}
+
+.navbar {
+    margin:auto;
+    font-family: 'Work Sans', sans-serif;
+    background: white;
+    color: #222255;
+    height:80px;
+    border-bottom: 1px solid #222255;
+    width: 1000px !important;
+    min-width:1000px !important;
+    overflow:hidden !important;
+    box-shadow: 0px 2px 2px 2px white;
+    margin-bottom:30px;
+    padding-top:20px;
+    background-color: white;
+}
+
+main#quarto-document-content {
+    width:950px !important;
+    min-width:950px !important;
+}
+
+
+.navbar-nav {
+    margin-top:28px;
+}
+
+header#quarto-header {
+    min-width:1000px !important;
+}
+
+.navbar .menu-text {
+    color: #222255;
+    margin-right:5px;
+    font-size: 1.1em;
+    background:none;
+}
+
+.navbar a.nav-link.active .menu-text {
+    color:red;
+}
+
+.navbar .navbar-container {
+    margin:0;
+    padding:0;
+    height:100px;
+}
+
+.navbar img.navbar-logo {
+    border:none;
+    margin:0;
+    padding:0;
+    width:400px;
+    min-width:400px;
+    max-height: 60px;
+}
+
+.footer .nav-footer {
+    border:none !important;
+}

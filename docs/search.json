@@ -23,9 +23,16 @@
   {
     "objectID": "pages/research.html",
     "href": "pages/research.html",
-    "title": "Research",
+    "title": "Henrik Korsgaard",
     "section": "",
-    "text": "List of my research"
+    "text": "The following is a list of the publications I have co-authored together with collegues and collaborators. If you find anything interesting or have questions, then feel free to contact me. I welcome any form of discussion of my work."
+  },
+  {
+    "objectID": "pages/research.html#conference-publications",
+    "href": "pages/research.html#conference-publications",
+    "title": "Henrik Korsgaard",
+    "section": "Conference publications",
+    "text": "Conference publications\n\n\n\nCollectives and their Artifact Ecologies\n\nHenrik Korsgaard, Peter Lyle, Joanna Saad-Sulonen, Clemens Klokmose, Midas Neuwens and Susanne Bødker\n\nProceedings of the ACM on Human-Computer Interaction 6 (CSCW2), 1-26 (2022)\n\n[PDF] [doi:10.1145/3555533]\n\n\n\nEfficiency and Care in Community-led Initiatives\n\nChiara Rossitto, Henrik Korsgaard, Airi Lampinen, Susanne Bødker\n\nProceedings of the ACM on Human-Computer Interaction 5 (CSCW2), 1-27 (2021)\n\n[PDF] [doi:10.1145/3479611]\n\n\n\nWhat’s the Situation with Situated Visualization? A Survey and Perspectives on Situatedness\n\nNathalie Bressa, Henrik Korsgaard, Aurélien Tabard, Steven Houben and Jo Vermeulen\n\nIEEE Transactions on Visualization and Computer Graphics 28 (1), 107-117 (2021)\n\n[PDF] [doi:10.1109/TVCG.2021.3114835]\n\n\n\nWhat’s in a Pattern: A Vocabulary to Articulate Group Routines and Practices\n\nSusanne Bødker, Henrik Korsgaard and Peter Lyle\n\nC&T’21: Proceedings of the 10th International Conference on Communities & Technologies (2021)\n\n[PDF] [doi:110.1145/3461564.3461570]\n\n\n\nTerritorial Functioning in Collaborative Writing\n\nIda Larsen-Ledet and Henrik Korsgaard\n\nComputer Supported Cooperative Work (CSCW) 28 (3), 391-433 (2019)\n\n[PDF] [doi:10.1007/s10606-019-09359-8]\n\n\n\n\n‘A Farmer, a Place and at least 20 Members’: The Development of Artifact Ecologies in Volunteer-based Communities\n\nSusanne Bødker, Henrik Korsgaard and Joanna Saad-Sulonen\n\nProceedings of the 19th ACM Conference on Computer-Supported Cooperative Work & Social Computing\n\n[PDF] [doi:10.1145/3555533]"
   },
   {
     "objectID": "index.html",

@@ -23,8 +23,9 @@ body {
 }
 
 main#quarto-document-content {
-    width:950px !important;
-    min-width:950px !important;
+    margin-left:-50px !important;
+    width:900px !important;
+    min-width:900px !important;
 }
 
 
@@ -64,4 +65,36 @@ header#quarto-header {
 
 .footer .nav-footer {
     border:none !important;
+}
+/* Publication css */
+
+.pub {
+    margin-left:40px;
+    font-size:1em;
+}
+
+.pub i.bi {
+    margin-left:-40px;
+    padding:8px;
+}
+
+.pub .pub-title {
+    display:inline-block;
+    font-weight: bold;
+}
+
+.pub author {
+    display:block;
+    font-size: 0.8em;
+}
+
+.pub .published-at {
+    display:block;
+    font-size: 0.8em;
+    color:#666;
+}
+
+.pub a{
+    display:inline-block;
+    font-size: 0.8em;
 }

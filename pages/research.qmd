@@ -4,7 +4,7 @@ title: ""
 
 The following is a list of the publications I have co-authored together with collegues and collaborators. If you find anything interesting or have questions, then feel free to contact me. I welcome any form of discussion of my work.
 
-## Conference publications
+### Conference publications
 <div class="pub">
 <i class="bi bi-trophy"></i><div class="pub-title">Collectives and their Artifact Ecologies</div>
 <author>Henrik Korsgaard, Peter Lyle, Joanna Saad-Sulonen, Clemens Klokmose, Midas Neuwens and Susanne Bødker</author>
@@ -37,6 +37,21 @@ The following is a list of the publications I have co-authored together with col
 <a href="https://dl.acm.org/doi/abs/10.1145/3461564.3461570" target="new">[doi:110.1145/3461564.3461570]</a>
 </div>
 
+<div class="pub">
+<div class="pub-title">What’s in an ecology? A review of artifact, communicative, device and information ecologies</div> 
+<author>Peter Lyle, Henrik Korsgaard and Susanne Bødker</author>
+<div class="published-at">Proceedings of the 11th Nordic Conference on Human-Computer Interaction (2020)</div>
+<a href="/pdfs/artifact-ecology-survey.pdf" target="new">[PDF]</a> 
+<a href="https://dl.acm.org/doi/abs/10.1145/3419249.3420185" target="new">[doi:10.1145/3419249.3420185]</a>
+</div>
+
+<div class="pub">
+<div class="pub-title">Collaborative Writing Across Multiple Artifact Ecologies</div> 
+<author>Ida Larsen-Ledet, Henrik Korsgaard and Susanne Bødker</author>
+<div class="published-at">Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems(2020)</div>
+<a href="/pdfs/collaborative-writing-artifact-ecologies.pdf" target="new">[PDF]</a> 
+<a href="https://dl.acm.org/doi/abs/10.1145/3313831.3376422" target="new">[doi:10.1145/3313831.3376422]</a>
+</div>
 
 <div class="pub">
 <div class="pub-title">Territorial Functioning in Collaborative Writing</div> 
@@ -44,6 +59,54 @@ The following is a list of the publications I have co-authored together with col
 <div class="published-at">Computer Supported Cooperative Work (CSCW) 28 (3), 391-433 (2019)</div>
 <a href="/pdfs/territorial-functioning-in-collaborative-writing.pdf" target="new">[PDF]</a> 
 <a href="https://link.springer.com/article/10.1007/s10606-019-09359-8" target="new">[doi:10.1007/s10606-019-09359-8]</a>
+</div>
+
+<div class="pub">
+<div class="pub-title">Sketching and Ideation Activities for Situated Visualization Design</div> 
+<author>Nathalie Bressa, Kendra Wannamaker, Henrik Korsgaard, Wesley Willett and Jo Vermeulen</author>
+<div class="published-at">Proceedings of the 2019 on Designing Interactive Systems Conference (2019)</div>
+<a href="/pdfs/sketching-ideation-situated-visualisation.pdf" target="new">[PDF]</a> 
+<a href="https://dl.acm.org/doi/abs/10.1145/3322276.3322326" target="new">[doi:10.1145/3322276.3322326]</a>
+</div>
+
+<div class="pub">
+<div class="pub-title">Working Across Boundaries in Smart City Research</div> 
+<author>Henrik Korsgaard, Sarah-Kristin Theil, Vanessa Thomas and Titiana Ertiö</author>
+<div class="published-at">Proceedings of the 19th Annual International Conference on Digital Government Research (2018)</div>
+<a href="/pdfs/working-across-boundaries-smart-city.pdf" target="new">[PDF]</a> 
+<a href="https://dl.acm.org/doi/abs/10.1145/3209281.3209315" target="new">[doi:10.1145/3209281.3209315]</a>
+</div>
+
+<div class="pub">
+<div class="pub-title">PARTICIPATE: Capturing Knowledge in Public Library Activities</div> 
+<author>Carla Gröschel, Peter Dalsgaard, Clemens N. Klokmose, Henrik Korsgaard, Eva Eriksson, Raphaëlle Bats, Aurélien Tabard, Alix Ducros and Sofia E. Serholt</author>
+<div class="published-at">Extended Abstracts of the 2018 CHI Conference on Human Factors in Computing Systems (2018)</div>
+<a href="/pdfs/Participate2018.pdf" target="new">[PDF]</a> 
+<a href="https://dl.acm.org/doi/abs/10.1145/3170427.3188605" target="new">[doi:10.1145/3170427.3188605]</a>
+</div>
+
+<div class="pub">
+<div class="pub-title">PARTICIPATE: Capturing Knowledge in Public Library Activities</div> 
+<author>Carla Gröschel, Peter Dalsgaard, Clemens N. Klokmose, Henrik Korsgaard, Eva Eriksson, Raphaëlle Bats, Aurélien Tabard, Alix Ducros and Sofia E. Serholt</author>
+<div class="published-at">Extended Abstracts of the 2018 CHI Conference on Human Factors in Computing Systems (2018)</div>
+<a href="/pdfs/Participate2018.pdf" target="new">[PDF]</a> 
+<a href="https://dl.acm.org/doi/abs/10.1145/3170427.3188605" target="new">[doi:10.1145/3170427.3188605]</a>
+</div>
+
+<div class="pub">
+<div class="pub-title">Proxemic Transitions: Designing Shape-changing Furniture for Informal Meetings</div> 
+<author>Jens Emil Grønbæk, Henrik Korsgaard, Marianne Graves Petersen, Morten Henriksen Birk and Peter Gall Krogh</author>
+<div class="published-at">Proceedings of the 2017 CHI conference on human factors in computing systems (2017)</div>
+<a href="/pdfs/proxemic-transitions.pdf" target="new">[PDF]</a> 
+<a href="https://dl.acm.org/doi/abs/10.1145/3025453.3025487" target="new">[doi:10.1145/3025453.3025487]</a>
+</div>
+
+<div class="pub">
+<div class="pub-title">Happenstance, Strategies and Tactics: Intrinsic Design in a Volunteer-based Community</div> 
+<author>Susanne Bødker, Henrik Korsgaard, Peter Lyle and Joanna Saad-Sulonen</author>
+<div class="published-at">Proceedings of the 9th Nordic Conference on Human-Computer Interaction (2016)</div>
+<a href="/pdfs/happenstance-strategies-tactics.pdf" target="new">[PDF]</a> 
+<a href="https://dl.acm.org/doi/abs/10.1145/2971485.2971564" target="new">[doi:10.1145/2971485.2971564]</a>
 </div>
 
 <div class="pub">

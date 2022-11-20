@@ -1,5 +1,2 @@
----
-title: "Notes"
----
-
-Recent notes
+#### [Conversation about HCI interdisciplinarity, its ‘core’, pedagogy and being kicked around by technology](/pages/notes/converstaion-about-hci-interdisciplinarity-core-and-being-kicked-around-by-technology.qmd)
+<author>By Stuart Reeves and Henrik Korsgaard 2022</author>

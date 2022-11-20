@@ -28,6 +28,10 @@ main#quarto-document-content {
     min-width:900px !important;
 }
 
+main#quarto-document-content p{
+    line-height: 1.6 !important;
+}
+
 
 .navbar-nav {
     margin-top:28px;

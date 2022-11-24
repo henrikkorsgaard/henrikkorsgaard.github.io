@@ -1,6 +1,4 @@
-//Just design it as a good old module, but not as a module
-
-async function initShell(parentElement){
+export async function initShell(parentElement){
     const sqlPromise = initSqlJs({
         locateFile: file => `/js/sql/${file}`
     });
@@ -17,5 +15,3 @@ async function initShell(parentElement){
         }
     }
 }
-
-initShell()

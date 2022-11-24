@@ -1,6 +1,10 @@
 project:
   type: website
   output-dir: docs
+  resources: data
+  preview:
+    port: 4200
+    browser: false
 website:
   title: "Henrik Korsgaard"
   search: false

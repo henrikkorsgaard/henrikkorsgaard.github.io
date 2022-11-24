@@ -9,21 +9,8 @@ Sections:
     - instrumental interaction
     - instrumental data interaction
 
-
-<div>
-<!--
+<div id="sql-shell"></div>
 <script type="text/javascript" src="/js/sql/sql-wasm.js"></script>
-<script type="module">
-    import {hello} from '/js/sql-shell.js'
-    hello("hep")
-</script>
--->
-<script>
-const importObject = {
-  imports: { imported_func: (arg) => console.log(arg) },
-};
-WebAssembly.instantiateStreaming(fetch("simple.wasm"), importObject).then(
-  (obj) => obj.instance.exports.exported_func()
-);
-</script>
-</div>
+<script type="text/wasm" src="/js/sql/sql-wasm.wasm"></script>
+<script type="module" src="/js/sql-shell.js" ></script>
+

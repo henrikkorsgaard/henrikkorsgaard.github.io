@@ -118,12 +118,16 @@ ul.task-list li input[type="checkbox"] {
 <li>instrumental data interaction</li>
 </ul></li>
 </ul>
-<div id="sql-shell">
+<div id="shell" style="height:300px;">
 
 </div>
 <script type="text/javascript" src="../../js/sql/sql-wasm.js"></script>
-<script type="text/wasm" src="../../js/sql/sql-wasm.wasm"></script>
-<script type="module" src="../../js/sql-shell.js"></script>
+<script type="application/wasm" src="../../js/sql/sql-wasm.wasm"></script>
+<script type="text/javascript" src="../../js/sql-shell.js"></script>
+<script type="text/javascript">
+var el = document.querySelector("#shell")
+var shell = new SQLShell(el, "/data/publications.sqlite.db")
+</script>
 
 
 

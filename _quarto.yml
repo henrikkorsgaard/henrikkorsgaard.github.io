@@ -18,7 +18,7 @@ website:
         icon: "github"
   navbar:
     collapse: false
-    pinned: true
+    pinned: false
     title: false
     logo: "images/henrik-transparent.png"
     logo-href: /

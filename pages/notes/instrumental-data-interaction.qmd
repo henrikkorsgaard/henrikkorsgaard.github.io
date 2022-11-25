@@ -1,14 +1,26 @@
 ---
-title: "Instrumental data interaction"
+title: "Instrumental Data Interaction"
+bibliography: references.bib
+cls: apa.cls
+citation:
+  type: manuscript
+  author: "Henrik Korsgaard"
+  version: "0.5"
+  issued: "November 2022"
+  url: http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html
 ---
+Status: Early draft
+## Introduction
 
-Sections:
-
-- Introduction
-    - motivation
+    - motivation - HDI
     - instrumental interaction
     - instrumental data interaction
 
+## Instrumental interaction with databases
+One of the most fundamental way to interact with data is by using the **S**tructured **Q**uery **L**anguage (SQL). Together with the relationel database, it was developed to help _the non-professional user into effective communication with a formatted database_ [@chamberlin1974sequel, p250] and _to put end users into direct touch with the information stored in computers_ [@codd2007relational, p109]. SQL was considered an ideal way for non-programmers to access and query data. It was developed with an onset in English (Structured English Query Language -- SEQUEL) and a declarative approach to data querying.  While SQL turned out to be hugely succesful [@helland2016sql] and is one of the commonly used technologies [today](https://survey.stackoverflow.co/2022/#most-popular-technologies-language), the idea that it would be commonplace for non-programmers to use SQL to interact directly with a database has not come true. 
+
+<div class="interactive-element">
+<div class="caption" label="interaction 1">Interaction 1: SQL shell connected to a publication database</div>
 <div id="shell" style="height:300px;">
 </div>
 <script type="text/javascript" src='/js/sql/sql-wasm.js'></script>
@@ -18,3 +30,7 @@ Sections:
 var el = document.querySelector("#shell")
 var shell = new SQLShell(el, "/data/publications.sqlite.db")
 </script>
+</div>
+
+We know it's at tool because so much is about using: query formulation problem or query writing challenge.
+

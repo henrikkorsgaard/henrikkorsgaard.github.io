@@ -1,6 +1,5 @@
 class SQLShell {
-    self = "hap"
-
+    
     static html = `<div class="sqlshell" id="output"></div>
     <div class="sqlshell" id="prompt">sqlite></div><input class="sqlshell" type="text">`
 

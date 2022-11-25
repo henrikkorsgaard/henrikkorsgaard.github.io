@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Henrik Korsgaard - Instrumental data interaction</title>
+<title>Henrik Korsgaard - Instrumental Data Interaction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,10 +20,30 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -94,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Instrumental data interaction</h1>
+<h1 class="title">Instrumental Data Interaction</h1>
 </div>
 
 
@@ -109,15 +129,19 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Sections:</p>
-<ul>
-<li>Introduction
-<ul>
-<li>motivation</li>
-<li>instrumental interaction</li>
-<li>instrumental data interaction</li>
-</ul></li>
-</ul>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<pre><code>- motivation - HDI
+- instrumental interaction
+- instrumental data interaction</code></pre>
+</section>
+<section id="instrumental-interaction-with-databases" class="level2">
+<h2 class="anchored" data-anchor-id="instrumental-interaction-with-databases">Instrumental interaction with databases</h2>
+<p>One of the most fundamental way to interact with data is by using the <strong>S</strong>tructured <strong>Q</strong>uery <strong>L</strong>anguage (SQL). Together with the relationel database, it was developed to help <em>the non-professional user into effective communication with a formatted database</em> <span class="citation" data-cites="chamberlin1974sequel">(<a href="#ref-chamberlin1974sequel" role="doc-biblioref">Chamberlin and Boyce 1974, p250</a>)</span> and <em>to put end users into direct touch with the information stored in computers</em> <span class="citation" data-cites="codd2007relational">(<a href="#ref-codd2007relational" role="doc-biblioref">Codd 2007, p109</a>)</span>. SQL was considered an ideal way for non-programmers to access and query data. It was developed with an onset in English (Structured English Query Language – SEQUEL) and a declarative approach to data querying. While SQL turned out to be hugely succesful <span class="citation" data-cites="helland2016sql">(<a href="#ref-helland2016sql" role="doc-biblioref">Helland 2016</a>)</span> and is one of the commonly used technologies <a href="https://survey.stackoverflow.co/2022/#most-popular-technologies-language">today</a>, the idea that it would be commonplace for non-programmers to use SQL to interact directly with a database has not come true.</p>
+<div class="interactive-element">
+<div class="caption" label="interaction 1">
+Interaction 1: SQL shell connected to a publication database
+</div>
 <div id="shell" style="height:300px;">
 
 </div>
@@ -128,10 +152,32 @@ ul.task-list li input[type="checkbox"] {
 var el = document.querySelector("#shell")
 var shell = new SQLShell(el, "/data/publications.sqlite.db")
 </script>
+</div>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-chamberlin1974sequel" class="csl-entry" role="doc-biblioentry">
+Chamberlin, Donald D, and Raymond F Boyce. 1974. <span>“SEQUEL: A Structured English Query Language.”</span> In <em>Proceedings of the 1974 ACM SIGFIDET (Now SIGMOD) Workshop on Data Description, Access and Control</em>, 249–64.
+</div>
+<div id="ref-codd2007relational" class="csl-entry" role="doc-biblioentry">
+Codd, Edgar F. 2007. <span>“Relational Database: A Practical Foundation for Productivity.”</span> In <em>ACM Turing Award Lectures</em>, 1981.
+</div>
+<div id="ref-helland2016sql" class="csl-entry" role="doc-biblioentry">
+Helland, Pat. 2016. <span>“The Singular Success of SQL.”</span> <em>Commun. ACM</em> 59 (8). <a href="https://doi.org/10.1145/2948983">https://doi.org/10.1145/2948983</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{korsgaard2022,
+  author = {Henrik Korsgaard},
+  title = {Instrumental {Data} {Interaction}},
+  date = {2022-11-01},
+  url = {http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-korsgaard2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Henrik Korsgaard. 2022. <span>“Instrumental Data Interaction.”</span> <a href="http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html">http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

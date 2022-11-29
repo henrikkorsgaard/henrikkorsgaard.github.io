@@ -20,7 +20,7 @@ Below are some details on the different genres of projects I typically supervise
 ### Chosing an approach
 When doing a project, it is important to consider which approach to take. This will determine the kind of project, required steps and outcomes, how the work is evaluated and assessed, and the activities that will take priority in the project. I supervise three different types of projects or combinations thereof. If you have taken the course I teach on [Experimental Systems Developement](https://kursuskatalog.au.dk/en/course/117940/Experimental-System-Development), the approches should be familiar:
 
-- Experimental prototyping: Develop and evaluate tools and technigues for X 
+- Experimental prototyping: Develop and evaluate tools and techniques for X 
 - Design project: Involve users (U) in exploring and designing a prototype on X for U
 - Empirical research: Study X within a specific context and activity
 
@@ -32,7 +32,7 @@ For **empirical research**, you will have to identify an appropriate domain and 
 
 Some projects combine elements from the above. Every project develop differently.
 
-For data-centric projects exploring interaction technigues, I recommend chosing a startning point from each perspective below:
+For data-centric projects exploring interaction techniques, I recommend chosing a startning point from each perspective below:
 
 - A step in the data analysis process: discovery, exploration, wrangling, analysis and/or presentation
 - A genre of interaction techniques: traditional user interface, visual programing or interaction, physicalizations, sketching, colleborative, natural language, embodied interaction etc?

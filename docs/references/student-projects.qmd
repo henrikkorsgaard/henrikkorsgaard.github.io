@@ -1,0 +1,111 @@
+---
+title: "Student projects"
+---
+Status: draft^[Feedback is welcome. Will be iterated upon when next supervision round is over by June 2023]
+
+If you want to do a student project with me as a supervisor there are a couple of topics (X) that I am interested in at the moment:
+
+- Human-Data Interaction
+- Computer Supported Cooperative Work
+- HCI theory 
+
+### Chosing an approach
+It is important to consider which approach to take. This will determine the kind of project, required steps and outcomes, how the work is evaluated and assessed, and the activities that will take priority in the project. I supervise three different types of projects:
+
+- Prototyping project: Develop and evaluate tools and technigues for X
+- Design project: Involve users (U) in exploring and designing a prototype on X for U
+- Empirical project: Study X within a specific context
+
+For **constructive projects**, you will spend time reading related work, developing various experimental prototypes and evaluate these in a user study. This involves designing the study and analysing the qualitative and quantitative results. 
+
+For **design projects**, you will have to recruit a group of users and go through a full design project with workshops and iterations toward a final prototype. This can be evaluated through a user study, a qualitative analysis or through how the participants responded to the process and design.
+
+For **empirical projects**, you will have to identify an appropriate domain and work-related context to study. This will typically be studying how people work with X, their activities, tools and challenges. You will spend time doing field work, identifying appropriate ways of analysing the insights and develop rich descriptions and/or design implications. 
+
+Some projects combine elements from the above. Every project develop differently.
+
+For data-centric projects exploring interaction technigues, I recommend chosing a couple of starting points to focus on:
+
+- A step in the data analysis process: discovery, exploration, wrangling, analysis and/or presentation
+- A genre of interaction techniques: traditional user interface, graphical interaction, physicalizations, sketching, colleborative, natural language, embodied etc?
+- Data set/platform: traffic, weather, energy, statistical, business, cultural, political, publications data.
+
+### Developing the problem statement
+The first step is to develop a problem statement. I follow the approach outlined in the book "Craft of Research" () on moving from topics to questions to problems (section II). Before we start the project, I will guide you in and ask you to write a short half/full page synopsis outlining the project. The synopsis should contain the following elements:
+
+- Title
+- Motivation
+- Problem-statement
+- Methodology
+- Plan
+- Short literature review
+
+This sounds like a lot, but it should not be. It is a sketch (but not incoherent or unclear) of the project. It should not contain answers, but questions and ideas about where to start informing these questions. The intention is to help you identify the following:
+
+- What is the **current** focus of the project?
+- Why (do you think) this is important?
+- What is the methodology and plan for the project?
+- What do you know right now?
+- **What do you not know right now -- what are the important questions and steps?**
+
+This helps *us* identify the starting point of the project. And more importantly, if you cannot o write a short synopsis on something you intend to spend a semester on -- how are you going to complete the project and write up the final assignment?
+
+### Project and supervision
+You will start the project from the synopsis. The task is to expand it into a full assignment that can be evaluated and graded towards the end. This has to happen in parallel with the activities (the prototyping, design project or empirical work) to ensure that the document is updated and grows as you start honing in on the problem and begin to find answers. 
+
+I will be stressing working on writing on the synopsis and paper througout the project, because I so often see students spend **all** the time on prototyping or designing, and then forgetting to document and update the project. **Remember, the reason why you prototype, design or study people is to inform the final report**. We cannot grade you on code or designs alonge. You cannot write a good final assignment in the final week (where you are also finishing up other activities). 
+
+
+#### Process and milestone
+When I supervise there are certain milestones I encurage the students to follow (see table 1 below). It is important to write stuff down *when you can* and not when you *have to*; it is important that the right steps inform the next steps. Within the first couple of weeks, you should be ready to start drafting:
+
+- Introduction and problem statement
+- Related work
+- Methodology section
+
+Depending on the chosen approach, additional milestones include:
+
+- Constructive: Describing the prototype / implementation
+- Constructive: Describe the study design
+- Empirical / design: Describe the context, activities and users
+- Design: Document and describe the design process
+- Empirical: Introduce and describe the theoretical / analytical framing
+
+Towards the end, all projects will have to focus on:
+- Present and analyse results
+- Discussing what this means for the work, problem statement and the topic
+
+We will schedule meetings througout the project following the milestones above, the project needs and where you are in the project.
+
+While projects develop differently, the milestones are important in aligning expectations. It is important that you start developing the background sections (introduction, related work, methodology) as early as possible. You cannot progress meaningfully before you have an idea of the project focus and background. 
+
+| **Month** | **Project type** | **Project focus** |
+| - | --- | -------- |
+| 1 | Constructive | Identifying technical setup and resources | 
+| 1 | Design | Identify focus and recrut participants |
+| 1 | Empirical | Develop methodology and recruit participants |
+|**1** | **M1: All** | **Draft introduction, related work/background and methodology** |
+| 2 | Constructive | First "hello world" prototype/demonstrator |
+| 2 | Design | Contextual inqury and workshops |
+| 2 | Empirical | Field work, analysis and reading |
+| **2** | **M2: All** | **Update drafts, describe context, activities** |
+| 3 | Constructive | Identify prototypes and develop these |
+| 3 | Design | Co-design activities and protyping |
+| 3 | Emprical | Field work, continued |
+| **3** | **M3:All**|**Draft assignment structure and table of contents**|
+| **3** | **M3: Constructive** | **Identify and develop study design** |
+| **3** | **M3: Design** | **Identify final design and evaluation** |
+|**3** | **M3: Empirical** | **Identify analytical themse and theory** |
+| 4 | Constructive | Iterate final prototype, plan and recruit for user study, conduct user study |
+| 4 | Design | Develop final design and evaluated |
+| 4 | Empirical | Follow-up activities, developing themes, write analysis |
+| **4** | **M4: Constructive/Design** | **Finish prototype *and* evaluation** |
+| **4**| **M4: Empirical**| **Finish all data collection** |
+| **5** | **M5: All** | **WRITE, EDIT, WRITE** |
+
+: Table 1: Project milestone overview -- milage and order may vary depending on project
+
+#### A note on expectations
+There is a clear division of labour and responsibility. The student is responsible for doing the work, bring attention to challenges and barriers, and ask for help with particularities. This includes paying attention to deadlines, deliverables, local rules for student projects etc. My role as a supervisor is to supervise the student and project towards the best possible result.
+
+My supervision tend to follow the progression of the work. This also means that if there is a lot of progress, then I am more available for supervision.  If you do not make progress, then it is better to cancel a meeting and do the work, than us discussing the lack of progress (unless there are reasons for the lack of progress that you need supervision on). 

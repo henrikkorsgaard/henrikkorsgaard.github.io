@@ -134,7 +134,7 @@ div.csl-indent {
 <p>Disclaimer: This is a thinking-draft. I skip over some parts and ignore some aspects of both the theoretical foundation for instrumental interaction and an entire section of reviewing other tools for manipulating databases and related work exploring different interaction techniques. Those I will dive into elsewhere in a proper related work section.</p>
 <section id="instrumental-interaction-with-databases" class="level2">
 <h2 class="anchored" data-anchor-id="instrumental-interaction-with-databases">Instrumental interaction with databases</h2>
-<p>One of the most fundamental ways to interact with data is by using the <strong>S</strong>tructured <strong>Q</strong>uery <strong>L</strong>anguage (SQL). Together with the relationel database, it was developed to help <em>“the non-professional user into effective communication with a formatted database”</em> <span class="citation" data-cites="chamberlin1974sequel">(<a href="#ref-chamberlin1974sequel" role="doc-biblioref">Chamberlin and Boyce 1974, p250</a>)</span> and <em>“to put end users into direct touch with the information stored in computers”</em> <span class="citation" data-cites="codd2007relational">(<a href="#ref-codd2007relational" role="doc-biblioref">Codd 2007, p109</a>)</span>. SQL was considered an ideal way for non-programmers to access and query data. It was developed with an onset in English (Structured English Query Language – SEQUEL) and a declarative approach to data querying. While SQL turned out to be hugely succesful <span class="citation" data-cites="helland2016sql">(<a href="#ref-helland2016sql" role="doc-biblioref">Helland 2016</a>)</span> and is one of the commonly used technologies <a href="https://survey.stackoverflow.co/2022/#most-popular-technologies-language">today</a>. However, the vision that the casual user without programming experience would use SQL to interact with databases on a frequent basis have not come true (yet).</p>
+<p>One of the most fundamental ways to interact with data is by using the <strong>S</strong>tructured <strong>Q</strong>uery <strong>L</strong>anguage (SQL). Together with the relationel database, it was developed to help <em>“the non-professional user into effective communication with a formatted database”</em> <span class="citation" data-cites="chamberlin1974sequel">(<a href="#ref-chamberlin1974sequel" role="doc-biblioref">Chamberlin &amp; Boyce, 1974, p. 250</a>)</span> and <em>“to put end users into direct touch with the information stored in computers”</em> <span class="citation" data-cites="codd2007relational">(<a href="#ref-codd2007relational" role="doc-biblioref">Codd, 2007, p. 109</a>)</span>. SQL was considered an ideal way for non-programmers to access and query data. It was developed with an onset in English (Structured English Query Language – SEQUEL) and a declarative approach to data querying. While SQL turned out to be hugely succesful <span class="citation" data-cites="helland2016sql">(<a href="#ref-helland2016sql" role="doc-biblioref">Helland, 2016</a>)</span> and is one of the commonly used technologies <a href="https://survey.stackoverflow.co/2022/#most-popular-technologies-language">today</a>. However, the vision that the casual user without programming experience would use SQL to interact with databases on a frequent basis have not come true (yet).</p>
 <div class="interactive-element">
 <div class="caption" label="interaction 1">
 Interaction 1: SQL shell connected to a publication database
@@ -178,7 +178,7 @@ var shell = new SQLShell(el, "/public/data/publications.sqlite.db")
 <p>TODO: Interactive quiz SQL -&gt; Database quiz</p>
 <section id="sql-as-an-instrument-for-interacting-with-data" class="level3">
 <h3 class="anchored" data-anchor-id="sql-as-an-instrument-for-interacting-with-data">SQL as an instrument for interacting with data</h3>
-<p>I know, I know – SQL has <em>language</em> in its name. How is it an instrument then<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>? It is a formal language that can be used to communicate between entities that can interpret it. However, it is not a natual language and the query formulation problem – the act of translating a question from a natural language into a formalized language – is a still a challenging problem under research <span class="citation" data-cites="hofstede1996query papenmeier2020">(<a href="#ref-hofstede1996query" role="doc-biblioref">Hofstede, Proper, and Weide 1996</a>; <a href="#ref-papenmeier2020" role="doc-biblioref">Papenmeier et al. 2020</a>)</span>. I am not sure recasting SQL from a language to an instrument will resolve the query formulation problem, but thinking about it conceptually can be illuminating (which I will return to below)</p>
+<p>I know, I know – SQL has <em>language</em> in its name. How is it an instrument then<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>? It is a formal language that can be used to communicate between entities that can interpret it. However, it is not a natual language and the query formulation problem – the act of translating a question from a natural language into a formalized language – is a still a challenging problem under research <span class="citation" data-cites="hofstede1996query papenmeier2020">(<a href="#ref-hofstede1996query" role="doc-biblioref">Hofstede et al., 1996</a>; <a href="#ref-papenmeier2020" role="doc-biblioref">Papenmeier et al., 2020</a>)</span>. I am not sure recasting SQL from a language to an instrument will resolve the query formulation problem, but thinking about it conceptually can be illuminating (which I will return to below)</p>
 <p>There are many small signs that one could discuss SQL as an instrument. It is an invention, a technology that has undergone significant development since its inception in 1975. Knowing how to <em>use</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> SQL is also a highly valuable skill<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> and it is something that needs to be learned in order to use it proficiently, and the way we learn it is through using it.</p>
 <p>These losely collected observations are just hints. The main reason I think it makes sense to consider SQL as an instrument is that SQL is a means to an end; we <em>use</em> SQL <em>on</em> a database towards a desired <em>outcome</em>. If we venture a bit into activity theory,</p>
 <p>Vygotsky has his famous -&gt; continue from slides</p>
@@ -203,33 +203,33 @@ var shell = new SQLShell(el, "/public/data/publications.sqlite.db")
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
 <div id="ref-chamberlin1974sequel" class="csl-entry" role="doc-biblioentry">
-Chamberlin, Donald D, and Raymond F Boyce. 1974. <span>“SEQUEL: A Structured English Query Language.”</span> In <em>Proceedings of the 1974 ACM SIGFIDET (Now SIGMOD) Workshop on Data Description, Access and Control</em>, 249–64.
+Chamberlin, D. D., &amp; Boyce, R. F. (1974). SEQUEL: A structured english query language. <em>Proceedings of the 1974 ACM SIGFIDET (Now SIGMOD) Workshop on Data Description, Access and Control</em>, 249–264.
 </div>
 <div id="ref-codd2007relational" class="csl-entry" role="doc-biblioentry">
-Codd, Edgar F. 2007. <span>“Relational Database: A Practical Foundation for Productivity.”</span> In <em>ACM Turing Award Lectures</em>, 1981.
+Codd, E. F. (2007). Relational database: A practical foundation for productivity. In <em>ACM turing award lectures</em> (p. 1981).
 </div>
 <div id="ref-helland2016sql" class="csl-entry" role="doc-biblioentry">
-Helland, Pat. 2016. <span>“The Singular Success of SQL.”</span> <em>Commun. ACM</em> 59 (8). <a href="https://doi.org/10.1145/2948983">https://doi.org/10.1145/2948983</a>.
+Helland, P. (2016). The singular success of SQL. <em>Commun. ACM</em>, <em>59</em>(8). <a href="https://doi.org/10.1145/2948983">https://doi.org/10.1145/2948983</a>
 </div>
 <div id="ref-hofstede1996query" class="csl-entry" role="doc-biblioentry">
-Hofstede, Arthur HM ter, Henderik Alex Proper, and Th P van der Weide. 1996. <span>“Query Formulation as an Information Retrieval Problem.”</span> <em>The Computer Journal</em> 39 (4): 255–74.
+Hofstede, A. H. ter, Proper, H. A., &amp; Weide, T. P. van der. (1996). Query formulation as an information retrieval problem. <em>The Computer Journal</em>, <em>39</em>(4), 255–274.
 </div>
 <div id="ref-papenmeier2020" class="csl-entry" role="doc-biblioentry">
-Papenmeier, Andrea, Alfred Sliwa, Dagmar Kern, Daniel Hienert, Ahmet Aker, and Norbert Fuhr. 2020. <span>“’A Modern up-to-Date Laptop’ - Vagueness in Natural Language Queries for Product Search.”</span> In <em>Proceedings of the 2020 ACM Designing Interactive Systems Conference</em>, 2077–89. DIS ’20. New York, NY, USA: Association for Computing Machinery. <a href="https://doi.org/10.1145/3357236.3395489">https://doi.org/10.1145/3357236.3395489</a>.
+Papenmeier, A., Sliwa, A., Kern, D., Hienert, D., Aker, A., &amp; Fuhr, N. (2020). ’A modern up-to-date laptop’ - vagueness in natural language queries for product search. <em>Proceedings of the 2020 ACM Designing Interactive Systems Conference</em>, 2077–2089. <a href="https://doi.org/10.1145/3357236.3395489">https://doi.org/10.1145/3357236.3395489</a>
 </div>
 <div id="ref-vygotsky1962thought" class="csl-entry" role="doc-biblioentry">
-Vygotsky, Lev S. 1962. <em>Thought and Language</em>.
+Vygotsky, L. S. (1962). <em>Thought and language</em>.
 </div>
 <div id="ref-wittgenstein1986investigations" class="csl-entry" role="doc-biblioentry">
-Wittgenstein, L., and G. E. M. Anscombe. 1986. <em>Philosophical Investigations</em>. 3rd ed. Basil Blackwell Ltd.
+Wittgenstein, L., &amp; Anscombe, G. E. M. (1986). <em>Philosophical investigations</em> (3rd ed.). Basil Blackwell Ltd.
 </div>
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>I use the term <em>instrument</em> because it has conceptual links with activity theory and instrumental interaciton. One could use <em>tool</em> or <em>technology</em> as well, but then the theory-ladenness and point of the analysis would disappear.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Well, this is a bit of a rethoric question. <span class="citation" data-cites="vygotsky1962thought">Vygotsky (<a href="#ref-vygotsky1962thought" role="doc-biblioref">1962</a>)</span> and <span class="citation" data-cites="wittgenstein1986investigations">Wittgenstein and Anscombe (<a href="#ref-wittgenstein1986investigations" role="doc-biblioref">1986</a>)</span>, and others discuss language as an instrument or tool<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Well, this is a bit of a rethoric question. <span class="citation" data-cites="vygotsky1962thought">Vygotsky (<a href="#ref-vygotsky1962thought" role="doc-biblioref">1962</a>)</span> and <span class="citation" data-cites="wittgenstein1986investigations">Wittgenstein &amp; Anscombe (<a href="#ref-wittgenstein1986investigations" role="doc-biblioref">1986</a>)</span>, and others discuss language as an instrument or tool<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>We do not refer to it as <em>speaking</em> SQL in course descriptions, textbooks, tutorials, job postings and on stack-overflow<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>At the time of writing there are 231 job postings in Denmark specifically requiring SQL<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
@@ -241,7 +241,8 @@ Wittgenstein, L., and G. E. M. Anscombe. 1986. <em>Philosophical Investigations<
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-korsgaard2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Henrik Korsgaard. 2022. <span>“Instrumental Data Interaction.”</span> <a href="http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html">http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html</a>.
+Henrik Korsgaard. (2022). <em>Instrumental Data Interaction</em>
+(Version 0.5). <a href="http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html">http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html</a>
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

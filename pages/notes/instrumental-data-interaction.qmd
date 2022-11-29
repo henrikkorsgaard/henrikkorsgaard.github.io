@@ -32,5 +32,6 @@ var shell = new SQLShell(el, "/data/publications.sqlite.db")
 </script>
 </div>
 
+
 We know it's at tool because so much is about using: query formulation problem or query writing challenge.
 

@@ -32,7 +32,7 @@
     "href": "pages/notes/instrumental-data-interaction.html",
     "title": "Instrumental Data Interaction",
     "section": "",
-    "text": "- motivation - HDI\n- instrumental interaction\n- instrumental data interaction"
+    "text": "Status: Early draft ## Introduction"
   },
   {
     "objectID": "pages/notes/converstaion-about-hci-interdisciplinarity-core-and-being-kicked-around-by-technology.html",
@@ -46,6 +46,6 @@
     "href": "pages/notes/instrumental-data-interaction.html#instrumental-interaction-with-databases",
     "title": "Instrumental Data Interaction",
     "section": "Instrumental interaction with databases",
-    "text": "Instrumental interaction with databases\nOne of the most fundamental way to interact with data is by using the Structured Query Language (SQL). Together with the relationel database, it was developed to help the non-professional user into effective communication with a formatted database (Chamberlin and Boyce 1974, p250) and to put end users into direct touch with the information stored in computers (Codd 2007, p109). SQL was considered an ideal way for non-programmers to access and query data. It was developed with an onset in English (Structured English Query Language – SEQUEL) and a declarative approach to data querying. While SQL turned out to be hugely succesful (Helland 2016) and is one of the commonly used technologies today, the idea that it would be commonplace for non-programmers to use SQL to interact directly with a database has not come true.\n\n\nInteraction 1: SQL shell connected to a publication database"
+    "text": "Instrumental interaction with databases\nOne of the most fundamental way to interact with data is by using the Structured Query Language (SQL). Together with the relationel database, it was developed to help the non-professional user into effective communication with a formatted database (Chamberlin and Boyce 1974, p250) and to put end users into direct touch with the information stored in computers (Codd 2007, p109). SQL was considered an ideal way for non-programmers to access and query data. It was developed with an onset in English (Structured English Query Language – SEQUEL) and a declarative approach to data querying. While SQL turned out to be hugely succesful (Helland 2016) and is one of the commonly used technologies today, the idea that it would be commonplace for non-programmers to use SQL to interact directly with a database has not come true.\n\n\nInteraction 1: SQL shell connected to a publication database\n\n\n\n\n\n\n\n\n\nWe know it’s at tool because so much is about using: query formulation problem or query writing challenge."
   }
 ]

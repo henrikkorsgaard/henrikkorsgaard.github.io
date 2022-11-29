@@ -1,0 +1,33 @@
+
+/* Publication css */
+
+.pub {
+    margin-left:40px;
+    font-size:1em;
+}
+
+.pub i.bi {
+    margin-left:-40px;
+    padding:8px;
+}
+
+.pub .pub-title {
+    display:inline-block;
+    font-weight: bold;
+}
+
+.pub author {
+    display:block;
+    font-size: 0.8em;
+}
+
+.pub .published-at {
+    display:block;
+    font-size: 0.8em;
+    color:#666;
+}
+
+.pub a{
+    display:inline-block;
+    font-size: 0.8em;
+}

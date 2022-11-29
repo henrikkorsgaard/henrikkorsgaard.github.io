@@ -58,6 +58,10 @@ class SQLShell {
         
         this.input.value = ""
         this.input.addEventListener("keydown", this.inputHandler.bind(this))
+        this.parent.addEventListener("click", function(e){
+            this.input.focus()
+        }.bind(this))
+        
     }
 
     inputHandler(e){

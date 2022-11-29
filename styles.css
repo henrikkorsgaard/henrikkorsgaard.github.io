@@ -24,16 +24,19 @@ body {
 
 main#quarto-document-content {
     margin-left:-50px !important;
-    width:900px !important;
-    min-width:900px !important;
+    width:850px !important;
+    min-width:850px !important;
 }
 
 main#quarto-document-content p{
     line-height: 1.6 !important;
 }
 
+
+/* Move to a particular CSS */
 main#quarto-document-content div.interactive-element{
     text-align:center;
+    margin-bottom:50px;
 }
 
 main#quarto-document-content div.interactive-element div.caption {
@@ -42,7 +45,6 @@ main#quarto-document-content div.interactive-element div.caption {
     margin:10px;
     font-size:14px !important;
 }
-
 
 .navbar-nav {
     margin-top:28px;
@@ -54,7 +56,7 @@ header#quarto-header {
 
 .navbar .menu-text {
     color: #222255;
-    margin-right:5px;
+    margin:0px 50px;
     font-size: 1.1em;
     background:none;
 }
@@ -80,36 +82,4 @@ header#quarto-header {
 
 .footer .nav-footer {
     border:none !important;
-}
-/* Publication css */
-
-.pub {
-    margin-left:40px;
-    font-size:1em;
-}
-
-.pub i.bi {
-    margin-left:-40px;
-    padding:8px;
-}
-
-.pub .pub-title {
-    display:inline-block;
-    font-weight: bold;
-}
-
-.pub author {
-    display:block;
-    font-size: 0.8em;
-}
-
-.pub .published-at {
-    display:block;
-    font-size: 0.8em;
-    color:#666;
-}
-
-.pub a{
-    display:inline-block;
-    font-size: 0.8em;
 }

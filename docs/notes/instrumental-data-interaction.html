@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Henrik Korsgaard - Instrumental Data Interaction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../css/instrumental-data-interaction.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../" class="navbar-brand navbar-brand-logo">
+    <img src="../public/images/henrik-transparent.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../notes.html">
+ <span class="menu-text">NOTES</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html">
+ <span class="menu-text">RESEARCH</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">ABOUT</span></a>
+  </li>  
+</ul>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Instrumental Data Interaction</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Status: Early draft ## Introduction</p>
+<p>Explore some theoretical ideas from Human-Computer Interaction See what new light they cast on Human-Data Interaction and beyond (in this case database)</p>
+<pre><code>- motivation - HDI
+- instrumental interaction
+- instrumental data interaction</code></pre>
+<p>Disclaimer: This is a thinking-draft. I skip over some parts and ignore some aspects of both the theoretical foundation for instrumental interaction and an entire section of reviewing other tools for manipulating databases and related work exploring different interaction techniques. Those I will dive into elsewhere in a proper related work section.</p>
+<section id="instrumental-interaction-with-databases" class="level2">
+<h2 class="anchored" data-anchor-id="instrumental-interaction-with-databases">Instrumental interaction with databases</h2>
+<p>One of the most fundamental ways to interact with data is by using the <strong>S</strong>tructured <strong>Q</strong>uery <strong>L</strong>anguage (SQL). Together with the relationel database, it was developed to help <em>“the non-professional user into effective communication with a formatted database”</em> <span class="citation" data-cites="chamberlin1974sequel">(<a href="#ref-chamberlin1974sequel" role="doc-biblioref">Chamberlin and Boyce 1974, p250</a>)</span> and <em>“to put end users into direct touch with the information stored in computers”</em> <span class="citation" data-cites="codd2007relational">(<a href="#ref-codd2007relational" role="doc-biblioref">Codd 2007, p109</a>)</span>. SQL was considered an ideal way for non-programmers to access and query data. It was developed with an onset in English (Structured English Query Language – SEQUEL) and a declarative approach to data querying. While SQL turned out to be hugely succesful <span class="citation" data-cites="helland2016sql">(<a href="#ref-helland2016sql" role="doc-biblioref">Helland 2016</a>)</span> and is one of the commonly used technologies <a href="https://survey.stackoverflow.co/2022/#most-popular-technologies-language">today</a>. However, the vision that the casual user without programming experience would use SQL to interact with databases on a frequent basis have not come true (yet).</p>
+<div class="interactive-element">
+<div class="caption" label="interaction 1">
+Interaction 1: SQL shell connected to a publication database
+</div>
+<div id="shell" style="height:300px;">
+
+</div>
+<script type="text/javascript" src="../js/sql/sql-wasm.js"></script>
+<script type="application/wasm" src="../js/sql/sql-wasm.wasm"></script>
+<script type="text/javascript" src="../js/sql-shell.js"></script>
+<script type="text/javascript">
+var el = document.querySelector("#shell")
+var shell = new SQLShell(el, "/public/data/publications.sqlite.db")
+</script>
+</div>
+<p>In the interactive example above, you can use SQL as an <em>instrument</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> for interacting with the database. <strong>Try it – click on the terminal above and start typing.</strong> You can also click on the SQL code fields below and see the result.</p>
+<p><code class="runnable">SELECT * FROM publications LIMIT 5;</code></p>
+<p>When we have to interact with an unfamiliar and undocumented database (like this one), we try to use the instrument to poke around to explore and discover how the data is organized and how to query for the information we need. This often involves multiple steps of trail-and-error to identify appropriate tables, their fields, relations and data:</p>
+<p><code class="runnable">SELECT name FROM sqlite_master;</code></p>
+<p><code class="runnable">SELECT * FROM authors LIMIT 5;</code></p>
+<p><code class="runnable">SELECT * FROM sqlite_master WHERE name='authors';</code></p>
+<p>And you can do more complex stuff like querying multiple tables for specific results:</p>
+<p><code class="runnable">SELECT publications.title, authors.first, authors.last, publications.year FROM publications INNER JOIN authorship ON publications.wid=authorship.wid INNER JOIN authors ON authorship.aid=authors.aid WHERE authors.last='Dewey'; </code></p>
+<script type="text/javascript">
+  let codeboxes = document.querySelectorAll("code.runnable")
+  let sqlinput = document.querySelector("input[type='text'].sqlshell")
+  for(var i = 0, n =  codeboxes.length; i < n; i++){
+    let  box = codeboxes[i]
+    box.addEventListener("click", runHandler)
+  }
+
+  function runHandler(e){
+      console.log(e.target.innerHTML)
+      sqlinput.value = e.target.innerHTML
+      sqlinput.dispatchEvent(new KeyboardEvent('keydown',  {'keyCode':13}));
+
+  }
+  console.log(codeboxes)
+
+</script>
+<p>TODO: Interactive quiz SQL -&gt; Database quiz</p>
+<section id="sql-as-an-instrument-for-interacting-with-data" class="level3">
+<h3 class="anchored" data-anchor-id="sql-as-an-instrument-for-interacting-with-data">SQL as an instrument for interacting with data</h3>
+<p>I know, I know – SQL has <em>language</em> in its name. How is it an instrument then<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>? It is a formal language that can be used to communicate between entities that can interpret it. However, it is not a natual language and the query formulation problem – the act of translating a question from a natural language into a formalized language – is a still a challenging problem under research <span class="citation" data-cites="hofstede1996query papenmeier2020">(<a href="#ref-hofstede1996query" role="doc-biblioref">Hofstede, Proper, and Weide 1996</a>; <a href="#ref-papenmeier2020" role="doc-biblioref">Papenmeier et al. 2020</a>)</span>. I am not sure recasting SQL from a language to an instrument will resolve the query formulation problem, but thinking about it conceptually can be illuminating (which I will return to below)</p>
+<p>There are many small signs that one could discuss SQL as an instrument. It is an invention, a technology that has undergone significant development since its inception in 1975. Knowing how to <em>use</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> SQL is also a highly valuable skill<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> and it is something that needs to be learned in order to use it proficiently, and the way we learn it is through using it.</p>
+<p>These losely collected observations are just hints. The main reason I think it makes sense to consider SQL as an instrument is that SQL is a means to an end; we <em>use</em> SQL <em>on</em> a database towards a desired <em>outcome</em>. If we venture a bit into activity theory,</p>
+<p>Vygotsky has his famous -&gt; continue from slides</p>
+<p>We know it’s at tool because so much is about using: query formulation problem or query writing challenge.</p>
+</section>
+<section id="what-does-considering-sql-as-an-instrument-do-for-us" class="level3">
+<h3 class="anchored" data-anchor-id="what-does-considering-sql-as-an-instrument-do-for-us">What does considering SQL as an instrument do for us?</h3>
+<ul>
+<li>First, if SQL is an instrument for interacting with data, why should it be constrained to databases?</li>
+<li>Second,</li>
+</ul>
+<p>I consider Instrumental Interaction a “foot in the door” to a significant class of topics and problems that are highly relevant to Human-Data Interaction, and can be <em>solved</em> to the benefit of…</p>
+<ul>
+<li>Activity theory – what if the query formulation problem is a too parter: A guestion of familiarity with the instrument and the object it is used upon: SQL as a means to explore querying (SQL),</li>
+<li>Query formulation problem, not as something that can be solved by building better technologies (SQL, tools for exploration etc), but a fundamental dialectical interacition (dialogue with resistance/trial and error -&gt;</li>
+</ul>
+<p>Trial-and-error as a phenomenon Trial-and-error as prototyping Trial-and-error as experiment Trial-and-error as seeing-moving-seeing (Schön -&gt; consider also the Alan Dix paper) &lt;- this is the pragmatism angle Trial-and-error as failure or inability (this is the anti-thesis)</p>
+
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-chamberlin1974sequel" class="csl-entry" role="doc-biblioentry">
+Chamberlin, Donald D, and Raymond F Boyce. 1974. <span>“SEQUEL: A Structured English Query Language.”</span> In <em>Proceedings of the 1974 ACM SIGFIDET (Now SIGMOD) Workshop on Data Description, Access and Control</em>, 249–64.
+</div>
+<div id="ref-codd2007relational" class="csl-entry" role="doc-biblioentry">
+Codd, Edgar F. 2007. <span>“Relational Database: A Practical Foundation for Productivity.”</span> In <em>ACM Turing Award Lectures</em>, 1981.
+</div>
+<div id="ref-helland2016sql" class="csl-entry" role="doc-biblioentry">
+Helland, Pat. 2016. <span>“The Singular Success of SQL.”</span> <em>Commun. ACM</em> 59 (8). <a href="https://doi.org/10.1145/2948983">https://doi.org/10.1145/2948983</a>.
+</div>
+<div id="ref-hofstede1996query" class="csl-entry" role="doc-biblioentry">
+Hofstede, Arthur HM ter, Henderik Alex Proper, and Th P van der Weide. 1996. <span>“Query Formulation as an Information Retrieval Problem.”</span> <em>The Computer Journal</em> 39 (4): 255–74.
+</div>
+<div id="ref-papenmeier2020" class="csl-entry" role="doc-biblioentry">
+Papenmeier, Andrea, Alfred Sliwa, Dagmar Kern, Daniel Hienert, Ahmet Aker, and Norbert Fuhr. 2020. <span>“’A Modern up-to-Date Laptop’ - Vagueness in Natural Language Queries for Product Search.”</span> In <em>Proceedings of the 2020 ACM Designing Interactive Systems Conference</em>, 2077–89. DIS ’20. New York, NY, USA: Association for Computing Machinery. <a href="https://doi.org/10.1145/3357236.3395489">https://doi.org/10.1145/3357236.3395489</a>.
+</div>
+<div id="ref-vygotsky1962thought" class="csl-entry" role="doc-biblioentry">
+Vygotsky, Lev S. 1962. <em>Thought and Language</em>.
+</div>
+<div id="ref-wittgenstein1986investigations" class="csl-entry" role="doc-biblioentry">
+Wittgenstein, L., and G. E. M. Anscombe. 1986. <em>Philosophical Investigations</em>. 3rd ed. Basil Blackwell Ltd.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I use the term <em>instrument</em> because it has conceptual links with activity theory and instrumental interaciton. One could use <em>tool</em> or <em>technology</em> as well, but then the theory-ladenness and point of the analysis would disappear.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Well, this is a bit of a rethoric question. <span class="citation" data-cites="vygotsky1962thought">Vygotsky (<a href="#ref-vygotsky1962thought" role="doc-biblioref">1962</a>)</span> and <span class="citation" data-cites="wittgenstein1986investigations">Wittgenstein and Anscombe (<a href="#ref-wittgenstein1986investigations" role="doc-biblioref">1986</a>)</span>, and others discuss language as an instrument or tool<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>We do not refer to it as <em>speaking</em> SQL in course descriptions, textbooks, tutorials, job postings and on stack-overflow<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>At the time of writing there are 231 job postings in Denmark specifically requiring SQL<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{korsgaard2022,
+  author = {Henrik Korsgaard},
+  title = {Instrumental {Data} {Interaction}},
+  date = {2022-11-01},
+  url = {http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-korsgaard2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Henrik Korsgaard. 2022. <span>“Instrumental Data Interaction.”</span> <a href="http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html">http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://hci.social/web/@heenrik">
+      <i class="bi bi-mastodon" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:korsgaard@protonmail.com?Subject=I%20saw%20your%20website...">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/henrikkorsgaard">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
+
+
+
+</body></html>

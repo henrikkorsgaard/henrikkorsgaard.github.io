@@ -1,7 +1,6 @@
 project:
   type: website
   output-dir: docs
-  resources: data
   preview:
     port: 4200
     browser: false
@@ -20,16 +19,14 @@ website:
     collapse: false
     pinned: false
     title: false
-    logo: "images/henrik-transparent.png"
+    logo: "/public/images/henrik-transparent.png"
     logo-href: /
     left:
-      - href: pages/notes.qmd
+      - href: notes.qmd
         text: NOTES
-      - href: pages/things.qmd
-        text: THINGS
-      - href: pages/research.qmd
+      - href: research.qmd
         text: RESEARCH
-      - href: pages/about.qmd
+      - href: about.qmd
         text: ABOUT
        
 format:

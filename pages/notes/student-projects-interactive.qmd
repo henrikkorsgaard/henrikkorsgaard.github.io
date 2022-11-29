@@ -1,0 +1,15 @@
+---
+title: "student projects interactive"
+---
+
+- Select a topic
+    - Human-Data Interaction
+    - Computer Supported Cooperative Work
+    - HCI theory 
+- Select a methodology
+    - Constructive
+        - If HDI, then select process step, interaction modality and data
+        - if CSCW, I dont
+        - if HCI theory, then select a theory to focus on -- bibliometric analysis
+    - Design project
+    - Field study

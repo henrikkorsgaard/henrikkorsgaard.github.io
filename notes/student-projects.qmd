@@ -6,7 +6,7 @@ bibliography:
 ---
 Status: draft^[Feedback is welcome. Will be iterated upon when next supervision round is over by June 2023]
 
-If you want to do a student project with me as a supervisor there are a couple of topics (X) that I am interested in at the moment:
+Here is a list of the topics (X) that I am interested in and have student projects available on at the moment:
 
 - Human-Data Interaction
 - Computer Supported Cooperative Work
@@ -14,12 +14,15 @@ If you want to do a student project with me as a supervisor there are a couple o
 
 Contact me for details on current projects and ideas.
 
+## What happens when you do a project with me?
+Below are some details on the different genres of projects I typically supervise, the process and some details on my approach to supervision.
+
 ### Chosing an approach
-When doing a project, it is important to consider which approach to take. This will determine the kind of project, required steps and outcomes, how the work is evaluated and assessed, and the activities that will take priority in the project. I supervise three different types of projects or combinations thereof. If you have taken the course I teach on [Experimental Systems Developement](https://kursuskatalog.au.dk/en/course/117940/Experimental-System-Development), they should be familiar:
+When doing a project, it is important to consider which approach to take. This will determine the kind of project, required steps and outcomes, how the work is evaluated and assessed, and the activities that will take priority in the project. I supervise three different types of projects or combinations thereof. If you have taken the course I teach on [Experimental Systems Developement](https://kursuskatalog.au.dk/en/course/117940/Experimental-System-Development), the approches should be familiar:
 
 - Experimental prototyping: Develop and evaluate tools and technigues for X 
 - Design project: Involve users (U) in exploring and designing a prototype on X for U
-- Empirical research: Study X within a specific context
+- Empirical research: Study X within a specific context and activity
 
 For **experimental prototyping**, you will spend time reading related work, developing various experimental prototypes [@floyd1984systematic] and evaluate these in a user study [@mackenzie2012human]. This involves designing the study and analysing the qualitative and quantitative results. 
 

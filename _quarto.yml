@@ -24,6 +24,8 @@ website:
     left:
       - href: notes.qmd
         text: NOTES
+      - href: things.qmd
+        text: THINGS
       - href: research.qmd
         text: RESEARCH
       - href: about.qmd

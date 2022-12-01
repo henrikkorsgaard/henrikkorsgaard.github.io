@@ -36,7 +36,7 @@ For data-centric projects exploring interaction techniques, I recommend chosing 
 
 - A step in the data analysis process: discovery, exploration, wrangling, analysis and/or presentation
 - A genre of interaction techniques: traditional user interface, visual programing or interaction, physicalizations, sketching, colleborative, natural language, embodied interaction etc?
-- Data set/platform: [traffic-](https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API), [weather-](https://www.dmi.dk/kontakt/frie-data/), [energy-](https://www.energidataservice.dk/datasets), [statistical-](https://www.dst.dk/da/Statistik/brug-statistikken/muligheder-i-statistikbanken/api), [cultural-](https://www.kb.dk/find-materiale/tjenester/api), [political-](https://www.ft.dk/da/dokumenter/aabne_data), [bibliographic](https://openalex.org/) or other data.
+- Data set/platform: [traffic-](https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API), [weather-](https://www.dmi.dk/kontakt/frie-data/), [energy-](https://www.energidataservice.dk/Groups), [statistical-](https://www.dst.dk/da/Statistik/brug-statistikken/muligheder-i-statistikbanken/api), [cultural-](https://www.kb.dk/find-materiale/tjenester/api), [political-](https://www.ft.dk/da/dokumenter/aabne_data), [bibliographic](https://openalex.org/) or other data.
 
 ### Developing the problem statement
 The first step is to develop a problem statement. I follow the approach outlined in the book "Craft of Research" [@booth2016craft] on moving from topics to questions to problems (section II). Before we start the project, I will guide you in and ask you to write a short half/full page synopsis outlining the project. The synopsis should contain the following elements:

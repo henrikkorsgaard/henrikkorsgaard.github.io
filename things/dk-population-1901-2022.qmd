@@ -1,0 +1,11 @@
+---
+title: "Visualizing the population of Denmark from 1901 to 2022"
+---
+
+```{ojs}
+
+data = FileAttachment("/public/data/dk-population-1901-2022.csv").csv({ typed: true })
+
+
+
+```

@@ -1,8 +1,4 @@
 Hi section
 
-Invitation to collaborate
-
-### Teaching stuff
-
-### CV
-
+- Developing new applications based on data
+- 

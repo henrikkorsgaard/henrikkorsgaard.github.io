@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Henrik Korsgaard - Electricity bill and predictive analytics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../css/electricity-bill-demos.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../" class="navbar-brand navbar-brand-logo">
+    <img src="../public/images/henrik-transparent.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../notes.html">
+ <span class="menu-text">NOTES</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../things.html">
+ <span class="menu-text">THINGS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html">
+ <span class="menu-text">RESEARCH</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">ABOUT</span></a>
+  </li>  
+</ul>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Electricity bill and predictive analytics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>When I pay for electricity I pay one month in advance based on my estimated consumption and the estimated market price on electricity. If I consume more or less, or if the prices are higher or lower than expected, the difference in payment is adjusted for the coming months. Roughly translated, my bill looks something like this:</p>
+<div id="electricity-bill-prediction">
+<p>
+Dear customer
+</p>
+<p>
+It is time to pay for your electricity at Denmarkstreet 10, 8100 Aarhus
+</p>
+<div class="bill-divider">
+
+</div>
+<h4 class="anchored">
+Your prepayment for the next period: 01.07.2022 – 31.07.2022
+</h4>
+
+<table style="width:100%">
+<tbody><tr>
+<td style="width:60%">
+We estimate that you will use
+</td>
+<td>
+305.649 kWh
+</td>
+<td>
+1151.01 DKK
+</td>
+</tr>
+
+</tbody></table>
+<div class="bill-note">
+The consumption includes subscribtion and fixed fees.
+</div>
+<div class="bill-divider">
+
+</div>
+<h4 class="anchored">
+Your statement from last period: 01.06.2022 – 30.06.2022
+</h4>
+
+<table style="width:100%">
+<tbody><tr>
+<td style="width:60%">
+We estimated you to use
+</td>
+<td>
+315.096 kWh
+</td>
+<td>
+1182.98 DKK
+</td>
+</tr>
+<tr>
+<td style="width:60%">
+You used
+</td>
+<td>
+316.802 kWh
+</td>
+<td>
+1189.07 DKK
+</td>
+</tr>
+<tr>
+<td style="width:60%">
+Difference to be paid
+</td>
+<td>
+</td>
+<td>
+6.09 DKK
+</td>
+</tr>
+
+</tbody></table>
+<div class="bill-note">
+The consumption includes subscribtion and fixed fees.
+</div>
+<h2 class="anchored">
+Your total payment <span>(including vat)</span> 1157.11 DKK
+</h2>
+<div class="bill-note">
+Notice that you may experience a small difference between the totals and sums of each item, because the calculation is done using more decimal places than reflected on the bill.
+</div>
+</div>
+<p>From a everyday case of interacting with data (and from a data design perspective), there are quite a few things to unpack. Let’s invent some design principles<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<section id="first-principle-if-you-present-the-user-with-a-prediction-about-consumption-you-have-to-explain-the-basis-of-that-prediction." class="level3">
+<h3 class="anchored" data-anchor-id="first-principle-if-you-present-the-user-with-a-prediction-about-consumption-you-have-to-explain-the-basis-of-that-prediction.">First principle: If you present the user with a prediction about consumption you have to explain the basis of that prediction.</h3>
+<p>Why? Because that will ensure transparency and allow the consumer to engage with the data, seek out more information and potentially use the information to act in their best interest. Secondly, one could argue that the right to an explanation is in effect here, given that there are financial implications, but that is just a detail.</p>
+<p>Now, what do the provider give in terms of information about the estimation? From the bill and the website, we learn that it is based on <em>“my expected consumption and the expected price per kWH for the next period.”</em> This is supplemented by a general statement about recent increase in prices and consumption: <em>“if you experience your bill to be higher than usual in the coming montsh, it is because the prices on electricity has gone up in the last months. The winter season also impact your consumption leading to a higher electricity bill”</em></p>
+<p>We <em>do</em> learn that the bill combines two estimates. They estimate my consumption and then the electricity price one month out. The first – consumption – I should be able to influence, so lets take a look at that. I went through all my bills back to April 2020 when they introduced the estimate model and collected the data.</p>
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>actual2021 <span class="op">=</span> np.array([<span class="fl">302.024</span>,<span class="fl">308.978</span>,<span class="fl">266.689</span>,<span class="fl">332.947</span>,<span class="fl">317.887</span>,<span class="fl">299.468</span>,<span class="fl">333.479</span>,<span class="fl">360.479</span>,<span class="fl">406.004</span>])</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>predicted2021 <span class="op">=</span> np.array([<span class="fl">288.835</span>,<span class="fl">290.35</span>,<span class="fl">257.746</span>,<span class="fl">274.158</span>,<span class="fl">317.961</span>,<span class="fl">314.396</span>,<span class="fl">383.261</span>,<span class="fl">380.969</span>,<span class="fl">422.834</span>])</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>actual2022 <span class="op">=</span> np.array([<span class="fl">413.49</span>,<span class="fl">347.342</span>,<span class="fl">342.519</span>,<span class="fl">321.065</span>,<span class="fl">335.04</span>,<span class="fl">316.802</span>,<span class="fl">254.906</span>,<span class="fl">308.2</span>,<span class="fl">280.031</span>,<span class="fl">294.629</span>, <span class="dv">307</span>])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>predicted2022 <span class="op">=</span> np.array([<span class="fl">430.406</span>,<span class="fl">364.626</span>,<span class="fl">354.423</span>,<span class="fl">340.85</span>,<span class="fl">330.57</span>,<span class="fl">315.096</span>,<span class="fl">305.642</span>,<span class="fl">309.731</span>,<span class="fl">313.22</span>,<span class="fl">336.317</span>, <span class="fl">347.14</span>])</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>x2020 <span class="op">=</span> np.arange(<span class="dv">9</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>x2021 <span class="op">=</span> np.arange(<span class="dv">11</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>fig,axes <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"Electricity consumption: Predicted (blue) versus actual (green) consumption"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#fig.ylabel("Kwh per month")</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].plot(x2020, actual2021, color<span class="op">=</span><span class="st">"green"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].plot(x2020, predicted2021, color<span class="op">=</span><span class="st">"blue"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"Kwh per month"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_xticks(np.arange(<span class="dv">9</span>), [<span class="st">"Apr"</span>,<span class="st">"May"</span>, <span class="st">"Jun"</span>, <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>])</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"2021"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].plot(x2021, actual2022, color<span class="op">=</span><span class="st">"green"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].plot(x2021, predicted2022, color<span class="op">=</span><span class="st">"blue"</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">"Kwh per month"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_xticks(np.arange(<span class="dv">11</span>), [<span class="st">"Jan"</span>,<span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>, <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>])</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"2022"</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="electricity-bill-and-prediction_files/figure-html/cell-2-output-1.png" width="816" height="459"></p>
+</div>
+</div>
+<p>This indicates that the estimation is not particularly accurate. The example bill from June 2022 above is one of three where the estimation have been somewhat spot on (August 2021 and May 2022 are similar). Based on this, I tried to poke around with a bit of basic math to see if there was a pattern to the estimate, e.g.&nbsp;that they used my consumption from the same month last year, did some sort of mean across multiple years or months, or if there was some trend analysis going on.</p>
+<p>Based on this, I could not explain the estimate directly.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I’m just pulling these out of thin, yet very experience, air. I will synthesise these and present more examples elsewhere<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://hci.social/web/@heenrik">
+      <i class="bi bi-mastodon" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:korsgaard@protonmail.com?Subject=I%20saw%20your%20website...">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/henrikkorsgaard">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
+
+
+
+</body></html>

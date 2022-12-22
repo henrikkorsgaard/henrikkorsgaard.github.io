@@ -1,0 +1,26 @@
+#electricity-bill-prediction {
+    width:100%;
+    border: 1px solid grey;
+    padding:10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 20px;
+}
+
+#electricity-bill-prediction .bill-divider {
+    border-bottom: 1px dashed grey;
+    height: 1px !important;
+}
+
+#electricity-bill-prediction h2 {
+    border:none !important;
+}
+
+#electricity-bill-prediction h2 span {
+    font-size:0.8em;
+}
+
+#electricity-bill-prediction .bill-note {
+    margin-bottom:10px !important;
+    margin-top:-20px !important;
+    font-size:0.8em;
+}

@@ -34,7 +34,7 @@ website:
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css: css/styles.css
     toc: false
     email-obfuscation: "javascript"
 

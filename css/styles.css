@@ -32,6 +32,12 @@ main#quarto-document-content p{
     line-height: 1.6 !important;
 }
 
+main#quarto-document-content div.note-publish-date {
+    display:inline-block;
+    color:#666;
+    font-size:0.8em;
+}
+
 
 /* Move to a particular CSS */
 main#quarto-document-content div.interactive-element{

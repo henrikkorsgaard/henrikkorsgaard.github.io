@@ -1,6 +1,4 @@
-"Nøgletal om befolkningen efter tid og bevægelsesart"
-
-" ","Befolkning 1. januar (i 1000)"
+"year","population"
 "1901",2447
 "1902",2477
 "1903",2506
@@ -123,8 +121,3 @@
 "2020",5823
 "2021",5840
 "2022",5873
-
-"Antal fødte i 2017 er rettet med 125 flere fødte den 21. februar "
-"2018.  Dødfødte piger og drenge summer ikke op til dødfødte i alt, da "
-"det ikke er muligt at sætte køn på alle dødfødte børn "
-

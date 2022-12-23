@@ -4,6 +4,7 @@ project:
   preview:
     port: 4200
     browser: false
+  resources: public
 website:
   title: "Henrik Korsgaard"
   search: false

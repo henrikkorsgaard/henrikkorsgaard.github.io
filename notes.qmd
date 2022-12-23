@@ -1,2 +1,5 @@
+#### [Comparing Observable Plot, Vega-lite API, Vega and D3 part I](/notes/comparing-d3plot-vegalite-d3.qmd)
+<author>Henrik Korsgaard</author><div class="note-publish-date">December, 2022</div>
+
 #### [Conversation about HCI interdisciplinarity, its ‘core’, pedagogy and being kicked around by technology](/notes/conversation-about-hci-interdisciplinarity-core-and-being-kicked-around-by-technology.qmd)
 <author>By Stuart Reeves and Henrik Korsgaard</author><div class="note-publish-date">November, 2022</div>

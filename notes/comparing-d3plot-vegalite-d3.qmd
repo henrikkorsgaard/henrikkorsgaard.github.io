@@ -17,7 +17,6 @@ I also have a small list of additional requirements supporting a production, col
 
 The best way to figure out which libraries that fit my needs is to make a few examples to get a feel for the flow, constructs, documentation, and hurdles. In this note, I will explore [Observable Plot](https://github.com/observablehq/plot), [Vega-lite API](https://vega.github.io/vega-lite-api/), [vega](https://github.com/vega/vega) and [D3](https://d3js.org/).
 
-## Line graph visualisation
 
 ### Data
 I will be using population data from the [Danish Statistical Service](https://www.statistikbanken.dk/statbank5a/SelectVarVal/Define.asp?MainTable=HISB3) to generate a simple line chart. 

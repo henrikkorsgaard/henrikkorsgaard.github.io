@@ -1,0 +1,137 @@
+---
+title: "Comparing Observable Plot, Vega-lite API and D3 on Interactivity"
+code-fold: true
+---
+
+This is a continuation of [_me trying to figure out which library to use for information visualization_](/notes/comparing-d3plot-vegalite-d3.qmd). In this note I will look at how a few common visualization libraries -- [Observable Plot](https://github.com/observablehq/plot), [vega](https://github.com/vega/vega) and [D3](https://d3js.org/) -- support interaction. I skipped Vega-lite API from my last post because it proved very difficault for me to make visualizations due to the state of the documentation, examples and my lack of familiarity with Vega.
+
+```{ojs}
+//| output: false
+raw = FileAttachment("/public/data/dk-births-1901-2022.csv").csv({typed:true})
+data = raw.map(function(el){
+    console.log(el)
+    return [{year:el.year, type:"levendefødte drenge", value: el["levendefødte drenge"]},{year:el.year, type:"levendefødte piger", value: el["levendefødte piger"],{year:el.year, type:"fødte uden for ægteskab", value: el["fødte uden for ægteskab"]}]
+}).flat()
+
+//console.log(data)
+/*
+raw.forEach( el => {
+    console.log(Object.keys(el))
+})
+
+console.log(data)
+*/
+//Target should be {type:}
+
+```
+### Observable Plot
+... does not seem to have any features supporting interactivity, but let's plot the data to get an overview and become a bit more familiar with the API. Turns out, it is not as usable as I initially experienced. The color/legend implementation does not fit my data^[Given a csv file and wanting to plot individual colums, you need to add consistent keys in order to make the legend/color assignment work. I dislike libraries that force you to wrangle commonly organized data to fit its oddities. This makes me want to avoid Observable Plot in the future]. 
+
+```{ojs}
+
+Plot.plot({
+    width:800,
+    height:400,
+    marginLeft: 50, 
+    x: {
+        ticks: 10,
+        tickFormat: function(d){return ""+d},
+        domain: [1900, 2025],
+        grid: true
+    },
+    color: {
+        legend: true,
+        type: "categorical",
+        scheme: "tableau10"
+
+    },
+    y: {
+        label: "Births",
+        grid: true
+    },
+    caption: html`Figure 1. Danish births from 1901 - 2022. Source: <a href="https://www.statistikbanken.dk/statbank5a/SelectVarVal/Define.asp?MainTable=HISB3" target="new">Danish statistical service</a>.`,
+    marks: [
+        Plot.line(data, {x: "year", y: "levendefødte drenge", stroke: "ckey1", strokeWidth: 2}), 
+        Plot.line(data, {x: "year", y: "levendefødte piger", stroke: "ckey2", strokeWidth: 2}),
+        Plot.line(data, {x: "year", y: "fødte uden for ægteskab", stroke: "ckey3", strokeWidth: 2}),
+    ]
+})
+
+```
+
+### Vega
+```{ojs}
+vega = require("@observablehq/vega")
+
+vega({
+    $schema: "https://vega.github.io/schema/vega/v5.json",
+    description: "DK Population Growth 1901 - 2022",
+    width: 760,
+    height: 400,
+    padding: 5,
+    title: "Danish population growth from 1901 to 2022",
+    subtitle: "Source: https://www.statistikbanken.dk/statbank5a/SelectVarVal/Define.asp?MainTable=HISB3",
+    data: [{name: "DK Population 1901 - 2022", values: data}],
+    axes: [
+        {orient: "bottom", scale: "x", values:Array.from({length: 13}, (x, i) => 1900 + i*10), grid: true},
+        {orient: "left", scale: "y", grid: true, title: "Population (in 1000s)"}
+    ],
+    scales: [
+        {
+            name: "x",
+            type: "point",
+            nice: "year",
+            range: "width",
+            domain: {data:"DK Population 1901 - 2022",field:"year"},
+            domainMin: 1900
+        },
+        {
+            name: "y",
+            type: "linear",
+            range: "height",
+            domain: {data:"DK Population 1901 - 2022",field:"levendefødte drenge"},
+            domainMin: 0,
+            domainMax: 50000
+        }
+    ],
+    marks: [
+        {
+            type: "line",
+            from: {data: "DK Population 1901 - 2022"},
+            encode: {
+                enter: {
+                    x: {scale: "x", field: "year"},
+                    y: {scale: "y", field: "levendefødte drenge"},
+                    stroke: {"value": "#d7191c"},
+                    strokeWidth: {"value": 2}
+                }
+            }
+        },
+        {
+            type: "line",
+            from: {data: "DK Population 1901 - 2022"},
+            encode: {
+                enter: {
+                    x: {scale: "x", field: "year"},
+                    y: {scale: "y", field: "levendefødte piger"},
+                    stroke: {"value": "#2C7BB6"},
+                    strokeWidth: {"value": 2}
+                }
+            }
+        },
+        {
+            type: "line",
+            from: {data: "DK Population 1901 - 2022"},
+            encode: {
+                enter: {
+                    x: {scale: "x", field: "year"},
+                    y: {scale: "y", field: "fødte uden for ægteskab"},
+                    stroke: {"value": "#4dac26"},
+                    strokeWidth: {"value": 2}
+                }
+            }
+        }
+    ]
+})
+
+```

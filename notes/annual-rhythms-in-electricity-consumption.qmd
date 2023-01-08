@@ -3,11 +3,10 @@ title: "Annual rhythms in electricity consumption?"
 code-fold: true
 code-summary: "Show the code"
 ---
-[Note: this is still a working draft]
 
 Data reflect the world and the systems that generate it. A lot of the patterns that can be identified using various analytic methods are not surprising, but quite obvious if looking at the practices producing the data. In many ways, it makes more sense to talk about rhythms and routines when considering patterns in data. The patterns are weak or strong signals, or residue or traces of the people and practices, and not isolated patterns only visible in the data. This note is part about me learning to use D3 to visualize data and part of me trying to figure out if our electricity consumption follows the annual changes in daylight. 
 
-## Data on electricity consumption
+### Data on electricity consumption
 In Denmark, anyone can download data on their electricity consumption from [El Overblik](https://eloverblik.dk/welcome). You can download data for your household meter with a resolution from the year, over month and day, to an hour and even every 15 minutes in some cases. We start with a dataset of my household's electricity consumption since November 2017 per month. Some wrangling is required to reduce the object and format the data. 
 
 <script type="text/javascript" src='/js/suncalc.js'></script>
@@ -76,8 +75,8 @@ data = FileAttachment("/public/data/el-consumption-days-all.csv").csv({typed:tru
 ``` 
 
 
-## Annual electricity consumption
-For our annual consumption, I expect it to follow the available daylight. With the bright summer nights, we need less light and as the days get shorter towards the winter we need more. This assumes that a significant amount of our electricity is consumed by sources that somehow map to this rhythm. Lights are one source, but indoor entertainment (gaming, streaming, television, etc.) would also increase during the winter. I created a radial chart over our annual consumption and daylight hours in @fig-radial-annual below.
+### Annual electricity consumption
+I wanted to plot our annual consumption in a way that followed the calendar year and carried across into the new year. The annual radial visualization in figure @fig-radial-annual below captures our energy consumption from 2018 to 2022 and daylight hours from the calendar year 2022. 
 
 ```{ojs}
 // | output: all
@@ -176,21 +175,6 @@ radial_chart = {
             .innerRadius(d => y(0))
             .outerRadius(d => y(d.day_hs))
         (data))
-        .on('mouseover', d => {
-            svg.selectAll(".median").attr("stroke-width",3)
-            svg.append("path")
-                .attr("fill", "none")
-                .attr("class", "highlight")
-                .attr("stroke", "yellow")
-                .attr("stroke-width", 3)
-                .attr("d", line
-                    .radius(d => y(d.day_hs))
-                (data));
-        })
-        .on('mouseout', d => {
-            svg.selectAll(".median").attr("stroke-width",1)
-            svg.selectAll(".highlight").remove()
-        })
 
     svg.append("path")
         .attr("fill", "lightsteelblue")
@@ -285,25 +269,41 @@ radial_chart = {
 }
 ```
 
-It is easy to observe the rhythm of the daylight changes in @fig-radial-annual, but the correlation with energy consumption is less obvious. Or rather, the erratic nature of the energy data obscures whatever might be there. If you hover over the daylight hours two accented lines highlight the daylight cycle and the median consumption. If tracing around the circle along the 10 kwhs line, then a slight change can be observed. It looks like the summer months are slightly below the 10 kwhs line, with the spring and fall months sitting on the line, and the winter months moving slightly above the 10 kwhs line. Turns out that when computing the correlation coefficient, then there is hardly any correlation between daylight and electricity consumption data.
+I did the visualisation with the _hypothesis_ that our electricity consumption would correlate with the available daylight. With the bright summer nights, we need less light and as the days get shorter towards the winter we need more. This assumes that a significant amount of our electricity is consumed by sources that somehow map to this rhythm. Lights are one source, but indoor entertainment (gaming, streaming, television, etc.) would also increase during the winter.
+
+It is easy to observe the rhythm of the daylight changes in @fig-radial-annual, but the correlation with energy consumption is less obvious. Or rather, the erratic nature of the energy data obscures whatever might be there. It looks like the summer months are slightly below the 10 kwhs line, with the spring and fall months sitting on the line, and the winter months moving slightly above the 10 kwhs line. Turns out that when computing the correlation coefficient (r=0.243, see below), then there is hardly any correlation between daylight and electricity consumption data.
+
+<script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
 
 ```{ojs}
 // | output: all
 correlation_coeffecient = {
-    const kwhs_array = days.map((o)=>{
-        return o.kwhs
+
+    const kwhs_array = days.map(d =>{
+        return d.kwhs
     })
 
-    const daylight_array = days.map((o)=>{
-        return o.daylight
+    const daylight_array = days.map( d =>{
+        return d.daylight
     })
+
     const correlation = simplestats.sampleCorrelation(kwhs_array,daylight_array)
     return correlation
 }
 
 ```
 
-I must say, that I am a little disappointed on the weak correlation and the fact that there is not a strong pattern or skewness towards the winter months in the consumption data. I guess I will have to [zoom in a bit to figure out if there are other patterns in our electricity consumption.]()
+While dissapointed that the visualisation does not show a clear pattern, this also hightligt the benefits of visualising the data. While the correlation coefficient tell me that there is no correlation between daylight and electricity consumption, the visualisation (and making it) has a lot of additional benefits:
+
+- I am learning useful information about the particular data from crafting the visualisation. Information that is useful for future experiments and visualisations.
+- The visualisation and data forces me to reflect on my hypothesis and look for alternative explanations
+- The visualisation provide hints and information useful for speculating about explanations on the relationship between consumption and annual patterns. 
+
+### So, why does our annual electricity consumption not correlate with available daylight?
+
+The hypothesis assumes that a significant amount of our electricity consumption goes to sources that decrease with an increase in available daylight and increase when it gets darker outside during the winther. That would mostly be electrical lights and indoor entertainment. First, I do not think that lights account for a significant amount of our consumption. This would go to refriguation, laundry and cooking. On top of that, most of our indoor lighting is LED based which consume only a few watts per unit per hour and our use of entertainment likely only changes marginally from summer to winther. I still play computer games and we still stream during the summer.
+
+This pose an interesting question. We are often told that private consumers should [change habits](https://energypost.eu/residential-energy-use-interventions-that-alter-daily-habits-vs-top-down-regulations/) and [implement various micro-initiatives](https://nrgi.dk/privat/energivenlig/8-lette-spareraad-til-underholdning/) as part of solutions toward the climate and energy crisis. While some initatives do work, the savings seem minimal. My guestimate is that we can properly optimize our consumption to save a couple of kilowatts per day at most. A lot of our consumption is not something we can change at the moment. We still need a freezer and refrigerator, and we need to cook meals. A lot of larger initiatives do not make economic sense. So, is it even possible to optimize household consumption in a meaningful way so it contributes to lowering the energy demand? I do not think so. Not without heavy economic incentives. I will try to explore everyday habits, theoretical savings and impact in a future post.
 
 ```{ojs}
 // | output: none
@@ -343,11 +343,3 @@ days = FileAttachment("/public/data/el-consumption-days-all.csv").csv({typed:tru
     return raw
 })
 ```
-
-
-
-
-
-
-
-

@@ -12,7 +12,7 @@ I'm rebuilding my website. As an homage to the wonderful 1990-2005 internet era:
 - [x] Update publication list
 - [ ] Move and update project pages
 - [ ] Write catchy About page
-- [ ] Move notes
-- [ ] Setup references.bib
+- [x] Move notes
+- [x] Setup references.bib
 - [ ] Do I need an index page or is my about page my index page?
 - [ ] Start writing

@@ -4,6 +4,6 @@ code-fold: true
 code-summary: "Show the code"
 ---
 
-I have been visualising energy data for our hoursehold as a way of [experimenting a bit with different visualisation types](/notes/electricity-data-visualisation-experiments.qmd) and trying to see if there is a connection between our electricity consumption and daylight across multiple years. Spoiler -- there is only a [weak (r=-0.24) correlation](/notes/annual-rhythms-in-electricity-consumption.qmd). 
+I have been visualising energy data for our hoursehold as a way of [experimenting a bit with different visualisation types](/notes/electricity-data-visualisation-experiments.qmd) and trying to see if there is a connection between our electricity consumption and daylight across multiple years. Spoiler -- there is [no correlation (r=-0.24)](/notes/annual-rhythms-in-electricity-consumption.qmd). 
 
 In this follow-up note I will zoom in and look at the weekly and daily patterns in our electricity data.

@@ -2,9 +2,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Henrik Korsgaard",
+    "title": "Hi!",
     "section": "",
-    "text": "Hi section\n\nDeveloping new applications based on data"
+    "text": "I am an Assistant Professor in Computer Science at Aarhus University, with human-data interaction as my research focus. I try to understand how to better integrate data into application design, interactive systems, analytics, visualization, and interaction design from an end-user perspective. I research how people use data and explore new tools to support analytics, visualization, and data-driven approaches. I teach experimental system development, design research, user-driven agile software development, co-design, and prototyping.\nThere are two trends that I find exciting: The increased availability of (open) data APIs and the increase in potential users – from specialists to practically everyone. You can download data on your electricity consumption with a few clicks – what we need is better tools and innovative services that integrate analytics and visualization for everyday decision-making.\nI have an MSc in Information Technology on Interaction Design, Open Data, and Smart City technologies. I hold a PhD in Computer Science from Aarhus University in Human-Computer Interaction (Interaction Design, User Experience, User-centered design, and design research). My thesis focus on the theoretical and empirical foundations for location-based services and community software."
   },
   {
     "objectID": "drafts/human-data-interaction-process-models.html",
@@ -51,9 +51,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Henrik Korsgaard",
+    "title": "Hi!",
     "section": "",
-    "text": "I’m rebuilding my website. As an homage to the wonderful 1990-2005 internet era:\n\nThis site is under construction\n\nTODO\n\nLearn Quarto\nSet up github page\nImplement custom style sheet\nUpdate publication list\nMove and update project pages\nWrite catchy About page\nMove notes\nSetup references.bib\nDo I need an index page or is my about page my index page?\nStart writing"
+    "text": "I am an Assistant Professor in Computer Science at Aarhus University, with human-data interaction as my research focus. I try to understand how to better integrate data into application design, interactive systems, analytics, visualization, and interaction design from an end-user perspective. I research how people use data and explore new tools to support analytics, visualization, and data-driven approaches. I teach experimental system development, design research, user-driven agile software development, co-design, and prototyping.\nThere are two trends that I find exciting: The increased availability of (open) data APIs and the increase in potential users – from specialists to practically everyone. You can download data on your electricity consumption with a few clicks – what we need is better tools and innovative services that integrate analytics and visualization for everyday decision-making.\nI have an MSc in Information Technology on Interaction Design, Open Data, and Smart City technologies. I hold a PhD in Computer Science from Aarhus University in Human-Computer Interaction (Interaction Design, User Experience, User-centered design, and design research). My thesis focus on the theoretical and empirical foundations for location-based services and community software."
   },
   {
     "objectID": "research.html",
@@ -74,7 +74,7 @@
     "href": "notes/weekly-rhythms-and-daily-routines-in-data.html",
     "title": "Weekly rhythms and routines in electricity data?",
     "section": "",
-    "text": "I have been visualising energy data for our hoursehold as a way of experimenting a bit with different visualisation types and trying to see if there is a connection between our electricity consumption and daylight across multiple years. Spoiler – there is no correlation (r=-0.24).\nIn this follow-up note I will zoom in and look at the weekly and daily patterns in our electricity data."
+    "text": "I have been visualising energy data for our hoursehold as a way of experimenting a bit with different visualisation types and trying to see if there is a connection between our electricity consumption and daylight across multiple years. Spoiler – there is no correlation (r=-0.24).\nIn this follow-up note I will zoom in and look at the weekly and daily patterns in our electricity data.\nTodo:\n\nDays\nWeeks\nLows and highs\nTheoretical savings"
   },
   {
     "objectID": "notes/instrumental-data-interaction.html",

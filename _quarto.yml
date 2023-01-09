@@ -8,6 +8,7 @@ project:
 website:
   title: "Henrik Korsgaard"
   search: false
+  site-path: /about.qmd
   page-footer:
     center:
       - href: https://hci.social/web/@heenrik
@@ -21,7 +22,7 @@ website:
     pinned: false
     title: false
     logo: "/public/images/henrik-transparent.png"
-    logo-href: /
+    logo-href: /index.qmd
     left:
       - href: notes.qmd
         text: NOTES
@@ -29,7 +30,7 @@ website:
         text: THINGS
       - href: research.qmd
         text: RESEARCH
-      - href: about.qmd
+      - href: index.qmd
         text: ABOUT
        
 format:

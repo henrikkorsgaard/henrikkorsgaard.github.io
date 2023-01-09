@@ -1,18 +1,10 @@
+---
+title: "Hi!"
+---
 
+I am an Assistant Professor in Computer Science at Aarhus University, with human-data interaction as my research focus. I try to understand how to better integrate data into application design, interactive systems, analytics, visualization, and interaction design from an end-user perspective. I research how people use data and explore new tools to support analytics, visualization, and data-driven approaches. I teach experimental system development, design research, user-driven agile software development, co-design, and prototyping. 
 
-I'm rebuilding my website. As an homage to the wonderful 1990-2005 internet era:
+There are two trends that I find exciting: The increased availability of (open) data APIs and the increase in potential users -- from specialists to practically everyone. You can download data on your electricity consumption with a few clicks -- what we need is better tools and innovative services that integrate analytics and visualization for everyday decision-making.
 
-### This site is under construction
+I have an MSc in Information Technology on Interaction Design, Open Data, and Smart City technologies. I hold a PhD in Computer Science from Aarhus University in Human-Computer Interaction (Interaction Design, User Experience, User-centered design, and design research). My thesis focus on the theoretical and empirical foundations for location-based services and community software.
 
-##### TODO
-
-- [x] Learn [Quarto](https://quarto.org/)
-- [x] Set up github page
-- [x] Implement custom style sheet
-- [x] Update publication list
-- [ ] Move and update project pages
-- [ ] Write catchy About page
-- [x] Move notes
-- [x] Setup references.bib
-- [ ] Do I need an index page or is my about page my index page?
-- [ ] Start writing

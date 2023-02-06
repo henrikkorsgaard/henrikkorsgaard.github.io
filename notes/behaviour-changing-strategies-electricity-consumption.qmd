@@ -18,3 +18,5 @@ Personally, I think a lot can be done (and a lot is being done). The smartgrid e
 ## Understanding different strategies
 
 ![Sketch of intervention strategies on the consumer side]("consumption-behaviour-change-strategy-space.png")
+
+There is a nice paper from HCI, but it does not tackle collective efforts (households, companies etc.)

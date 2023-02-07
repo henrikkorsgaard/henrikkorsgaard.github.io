@@ -10,6 +10,51 @@ Two key trends offer an extraoridinary oppertunity for thinking about strategies
 
 At the same time, energy producers, grid companies and energy providers are investing billions into Smart grid solutions -- using digitization, modelling, prediction etc. to make the best out of the current grid infrastructure in order to supply and increased demand. There are two key challenges: Dirst, switching to green energy mean changes in the supply side -- energy when the wind is blowing and sun is shining -- that does not always fit demand. Second, challenges on the demand side. Just like traffic there are peak consumption, in particular from households. We use power when we get up in the morning and when we come home and cook dinner. This consumption pattern is not as flexible as we imagine -- kids go to school at the same time and most families have to cook between 17 - 19. Generally speaking, out habits are collective. And it might worsen when everyone switches to electrical cars -- what happens when everyone return home and plug in their EV at the same time? Peak is gonna happen. And peak is bad -- the energy need surges and the infrastructure is struggling to meet the demands at the neccesary throughput.
 
+## Motivation
+
+### Climate anxiety
+
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3918955
+
+https://projekter.aau.dk/projekter/files/342788027/De_klimabevidste_unge_.pdf
+
+https://climatecommunication.yale.edu/about/projects/climate-change-in-the-american-mind/
+
+- https://www.nature.com/articles/s41558-021-01251-y
+
+"Parents should be oriented to available resources that may support them in discussing and responding to climate change with their children in developmentally appropriate ways"
+
+- Burke, S., Sanson, A. & Van Hoorn, J. Guide for Parents on the Climate Crisis: an APS Information Sheet (Australian Psychological Society, 2018).
+
+
+- Grønhøj, A. og J. Thøgersen (2009): Like father, like son? Intergenerational transmission of values,
+attitudes, and behaviours in the environmental domain. Journal of Environmental Psychology 29 .
+Pp. 414-421.
+- Grønhøj, A. og J. Thøgersen (2011): Action speaks louder than words. The effects of personal
+attitudes and family norms on adolescents’ pro-environmental behaviour. Journal of Economic
+Psychology 33 (2012) pp. 292-302.
+- Grønhøj, A. og J. Thøgersen (2017): Why young people do things for the environment: The role of
+parenting for adolescents’ motivation to engage in pro-environmental behaviour. Journal of
+Economic Psychology 54 (2017) pp. 11-19.
+
+### Economic incentives
+
+https://www.sciencedirect.com/science/article/pii/S0167268116302979
+
+https://www.sciencedirect.com/science/article/pii/S0301421512003758
+
+https://www.sciencedirect.com/science/article/pii/S1364032114007990
+
+https://www.sciencedirect.com/science/article/pii/S0739885920302055
+
+https://dergipark.org.tr/en/pub/ijeeep/issue/31902/350694?publisher=http-www-cag-edu-tr-ilhan-ozturk;
+
+https://www.tandfonline.com/doi/abs/10.3763/cpol.2007.0441
+
+#### Numbers
+
+
+
 ## So, what can we do about it?
 
 Personally, I think a lot can be done (and a lot is being done). The smartgrid efforts will likely optimize our infrastructure as best as possible (save [Jevons Paradox](https://en.wikipedia.org/wiki/Jevons_paradox) and [Khazzoom-Brookes postulate](https://en.wikipedia.org/wiki/Khazzoom%E2%80%93Brookes_postulate)^[the postulate states that "energy efficiency improvements that, on the broadest considerations, are economically justified at the microlevel, lead to higher levels of energy consumption at the macrolevel" [Herring 1998](http://www.privatebanking.com/published_data/account/0/0/_uploads_/1162.pdf). See also[Fich et al.](https://www.mdpi.com/1996-1073/15/16/5821)]). Still, there are lot of strategies to visit and revisit on the consumer side, in particular for households (to address the peak-problem) and small and medium sized business (SMVs). 

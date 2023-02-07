@@ -8,3 +8,27 @@ There are two trends that I find exciting: The increased availability of (open) 
 
 I have an MSc in Information Technology on Interaction Design, Open Data, and Smart City technologies. I hold a PhD in Computer Science from Aarhus University in Human-Computer Interaction (Interaction Design, User Experience, User-centered design, and design research). My thesis focus on the theoretical and empirical foundations for location-based services and community software.
 
+
+## Looking for new challenges
+My contract with Aarhus University ends this year. It has been an exciting and incredible ride, but every time I have visited collaborators and folks outside the university walls, in the software industry, digitization projects, the public sector, and other initiatives, I have been struck with all the amazing projects, talented people, and exciting challenges. Now I would like to try out the challenge -- how far can my skills and experience bring the projects I engage in and contribute to?
+
+If this sounds interesting to you or your organization, then reach out. I would love to connect and have a chat about future possibilities. 
+
+#### **Software engineering and IT-projects** 
+Constructing better software that generates value for the client *and* users is important to me. It drives my teaching and some of my early research projects. The challenge of moving from client and user needs to a solution that provides the right user experience is fascinating to me. It is all about translating needs and early ideas into requirements, features, and user stories. This involves both design research and aligning client and stakeholder expectations in the process, and tailoring the (agile) development process to the task and expectations. 
+
+I have experience with multiple EU projects, research projects, and collaborations with the public sector. I have worked with various methods for identifying requirements in close collaboration with clients, through design research and user-centered methods, and software engineering. I am currently running a course on [Experimental Systems Development](https://kursuskatalog.au.dk/da/course/117940/Eksperimentel-systemudvikling) where students are thought how to identify needs and solutions, write scenarios, explore prototypes, write user-stories and go through an agile process. I have supervised over 100 student projects within this course, multiple thesis projects, and other design projects.
+
+When I have the opportunity to participate in IT projects, I bring my strong communication skills, a rich set of methods, a strong analytical mindset, and experience in software development and multi-stakeholder projects.
+
+#### **User-centered initiatives around data and data-driven projects**
+Becoming data-driven has become a requirement. This involves combining existing and new data, with both strong technical analysis and knowledge from multiple domain experts. Identifying new use cases and valuable analyses for client and/or organizational data is a challenging task that involves an understanding of the technical infrastructure and how organizations work with data and information. 
+
+In this role, I have experience with multiple data-oriented projects and research involving domain-experts in analytics and co-designing novel applications. I have an interest in the role of visualization, how people interact with and make sense of data, and strategic approaches in identifying the right technical- and organizational (governance) model for becoming more data-driven.
+
+In addition to my skills in facilitating co-design processes and exploring novel use cases for (open) data, I also find it engaging to develop data visualizations as means to understanding data (model-fitness-use) and identify important insights.
+
+
+
+
+

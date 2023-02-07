@@ -2,7 +2,9 @@
 title: "Hi!"
 ---
 
-I am an Assistant Professor in Computer Science at Aarhus University, with human-data interaction as my research focus. I try to understand how to better integrate data into application design, interactive systems, analytics, visualization, and interaction design from an end-user perspective. I research how people use data and explore new tools to support analytics, visualization, and data-driven approaches. I teach experimental system development, design research, user-driven agile software development, co-design, and prototyping. 
+<img style="width:240px;border-radius:120px;float:right;margin:0px 20px 0px 20px;" src="./public/images/henrik-portrait.jpg">
+
+I'm an Assistant Professor in Computer Science at Aarhus University, with human-data interaction as my research focus. I try to understand how to better integrate data into application design, interactive systems, analytics, visualization, and interaction design from an end-user perspective. I research how people use data and explore new tools to support analytics, visualization, and data-driven approaches. I teach experimental system development, design research, user-driven agile software development, co-design, and prototyping. 
 
 There are two trends that I find exciting: The increased availability of (open) data APIs and the increase in potential users -- from specialists to practically everyone. You can download data on your electricity consumption with a few clicks -- what we need is better tools and innovative services that integrate analytics and visualization for everyday decision-making.
 

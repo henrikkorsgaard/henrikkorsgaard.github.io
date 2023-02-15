@@ -1,0 +1,95 @@
+---
+title: "A partnership model for optimizing energy consumption?"
+code-fold: true
+code-summary: "Show the code"
+---
+
+Status: Rough draft!
+
+Så, hvad har jeg af åbne spørgsmål:
+
+- Hvad ved vi om informationskamagner:
+    - virker de alene
+    - er der en langtidseffekt?
+    - skal det times/samarbejde med andre initiativeR?
+
+- Forbrugerens rolle og forbrugerens impact i forhold til adfærdsændringer
+- Hvad motiverer adfærdsændring?
+    - Er der fx forskel på fornemmelsen af at gøre noget og så et reelt observerbart impact?
+    - Er der forskel på et lokalt impact (også selvom det er ubetydeligt ift. systemet) og så systemiske impact?
+    - Hvad betyder det for initiativer: 
+        - fokus på nuværende forbrug?
+        - fokus på investeringer i ting (elbil, varmepumpe etc.)
+        - fokus på accept af ændringer i priser og tilgængelighed? (user-acceptance)
+
+- Der er direkte gevinster (off-peak, mindre forbrug etc.) og så er der afledte ikke-kvantificerbare effekter: energibevidsthed -- systemisk forståelse -- etc. 
+    - Det er svært at påvise en relation og/eller effekt, så det må være et spørgsmål om tro.
+
+- Hvad er forbrugerens matter of concern?
+    - Komfortabelt liv?
+    - Økonomi?
+    - Klima-bekymringer?
+
+- Hvad er Smart grids matter of concern?
+    - Forsyningssikkerhed
+    - Grid integritet
+    - Optimizering
+    - Omstilling til variable grønne energikilder?
+
+- Hvordan er business-casen for:
+    - Husholdningen
+    - Virksomheder
+        - how does it scale?
+    - Produktion
+    - Transimission
+    - Distribution
+    - I fremtiden?
+
+- Hvad er problemet med peak?
+    - Forbruger: dyrere
+    - Transmission/distribution: load?
+    - Produktion: Keep up? /assymetrical production?
+
+- Hvilke strategier virker ift adfærdsændring:
+    - Generel oplysning
+    - Rådgivning til specifik situation/bruger
+    - Visuelle virkemidler
+    - Interaktive virkemidler?
+    - Situerede virkemidler?
+    - Økonomi (men rammer skævt)?
+    - Nudging / gamification
+    - Partnerskaber - meddesign?
+
+- Hvordan kan vi eksperimentelt afdække en effekt?
+    - Eksperiment med kontrol gruppe
+    - Eksperiment med baseline
+    - Hvordan vil det se ud?
+    - Husk: Livsændringer -- børn bliver ældre etc. korrigeret for forbrug!
+
+- Hvad er udfordringen med at uddelegere adfærdsændringen til forbrugeren?
+
+- Hvad er udfordringens historie?
+    - Foreslået løsninger fra grid-siden
+    - Foreslået løsninger mod forbruger siden
+    - Foreslået løsninger fra hackatons
+    - Foreslået løsninger fra forbrugerne selv?
+
+There is a socket in the wall that supply electricity to your household. You use it for plugging in appliances -- refriguators, routers, smart TVs, phone chargers and what not. The socket, or rather the smart meter registrering your hourly electricity consumption, is the interface between two worlds. One world consist of everyday life in the household. A family following a rythm of daily activites -- getting up in the morning, making breakfirst and lunch, going off to work and school, and then returning to cook dinner and leisure in front of screens or reading under a lamp or both.
+
+Infovis -- households in Denmark
+
+
+Another world consisting of grid infrastructure, 
+
+The two worlds rarely interact beyond the simple interface, the smart meter and the billing system. Beyond that, they are pretty different. The smartgrid operates on the scale of the grid, is driven by production and distribution of energy, and increasingly datafication of the infrastructure. The concern is balancing stability and integrity of the grid with optimizing througput of energy, in particular around peak consumption. The household is concerned with, well, living a comfortable daily life with 
+
+
+Man kan sige de har en fælles interesse:
+
+Smart grud 
+
+Så, hvad er den interessante fortælling. Det er at stikkontakten er et interface mellem to verdner der har meget få berøringspunkter -- stikkontakten, måleren og elregningen. Der kunne ikke være mere forskellige, men de har en fælles interesse -- at ændre forbruget. I huset er det drevet af klima-bekymring 
+
+
+
+ Everytime you consume electricity, it is registered by a smart meter. And every month you pay.

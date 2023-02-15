@@ -54,6 +54,5 @@ Finally, we arrive at the proposed dialogue-centric approach:
 - with pricing awareness and _volunteer_ nudging initiatives
 
 
-
 ## Working with behaviour change
 There is a nice paper from HCI, but it does not tackle collective efforts (households, companies etc.)

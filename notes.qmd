@@ -1,3 +1,6 @@
+#### [Garmin Public Transport Notification App I](/notes/garmin-public-transport-notification-app-part-I.qmd)
+<author>Henrik Korsgaard</author><div class="note-publish-date">February, 2023</div>´
+
 #### [Annual Rhythms in Electricity Consumption?](/notes/annual-rhythms-in-electricity-consumption.qmd)
 <author>Henrik Korsgaard</author><div class="note-publish-date">December, 2022</div>
 

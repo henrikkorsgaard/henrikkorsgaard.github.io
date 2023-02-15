@@ -53,7 +53,7 @@
     "href": "notes.html",
     "title": "Henrik Korsgaard",
     "section": "",
-    "text": "Annual Rhythms in Electricity Consumption?\nHenrik Korsgaard\n\nDecember, 2022\n\n\n\nElectricity Data Visualisation Experiments\nHenrik Korsgaard\n\nDecember, 2022\n\n\n\nConversation about HCI interdisciplinarity, its ‘core’, pedagogy and being kicked around by technology\nBy Stuart Reeves and Henrik Korsgaard\n\nNovember, 2022"
+    "text": "Garmin Public Transport Notification App I\nHenrik Korsgaard\n\nFebruary, 2023\n\n´\n\n\nAnnual Rhythms in Electricity Consumption?\nHenrik Korsgaard\n\nDecember, 2022\n\n\n\nElectricity Data Visualisation Experiments\nHenrik Korsgaard\n\nDecember, 2022\n\n\n\nConversation about HCI interdisciplinarity, its ‘core’, pedagogy and being kicked around by technology\nBy Stuart Reeves and Henrik Korsgaard\n\nNovember, 2022"
   },
   {
     "objectID": "index.html",
@@ -88,7 +88,7 @@
     "href": "notes/garmin-public-transport-notification-app-part-I.html",
     "title": "Garmin Public Transport Notification App I",
     "section": "",
-    "text": "I want to be better at using public transport. One of the main hurdles is that I do not take the bus or train frequently enough to remember the bus and train schedule. In my commute, I have a few combinations of options and connections depending on the time of day. On top of that, the schedule tend to change frequent enough for me to lose a sense of when the bus or train runs in relation to the next connection etc.\nI figured that I could build a small app to help me leave my office or home in time to catch the right connection at the right time.\nI have a few high-level design requirements:"
+    "text": "This post is part of a three part series looking at how to move from scenarios to user stories and prototypes (and hopefully a finished application) in user-centered application design. It is a writeup of some of the examples and points I make in a course I teach at Aarhus University on Experimental Systems Development. This post focus on moving from scenarios to identifying high level features and doing a quick feasibility study (or technical research).\nI want to be better at using public transport. One of the main hurdles is that I do not take the bus or train frequently enough to remember the bus and train schedule. In my commute, I have a few combinations of options and connections depending on the time of day. On top of that, the schedule tend to change frequent enough for me to lose a sense of when the bus or train runs in relation to the next connection etc.\nI figured that I could build a small app to help me leave my office or home in time to catch the right connection at the right time.\nI have a few high-level design requirements:"
   },
   {
     "objectID": "notes/garmin-public-transport-notification-app-part-I.html#a-couple-of-scenarios-to-get-us-started",

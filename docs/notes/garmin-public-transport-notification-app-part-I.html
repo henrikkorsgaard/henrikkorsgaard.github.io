@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Henrik Korsgaard - Garmin Public Transport Notification App I</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../public/images/henrik-transparent.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../notes.html">
+ <span class="menu-text">NOTES</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../things.html">
+ <span class="menu-text">THINGS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html">
+ <span class="menu-text">RESEARCH</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">ABOUT</span></a>
+  </li>  
+</ul>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Garmin Public Transport Notification App I</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>I want to be better at using public transport. One of the main hurdles is that I do not take the bus or train frequently enough to remember the bus and train schedule. In my commute, I have a few combinations of options and connections depending on the time of day. On top of that, the schedule tend to change frequent enough for me to lose a sense of when the bus or train runs in relation to the next connection etc.</p>
+<p>I figured that I could build a small app to help me leave my office or home in time to catch the <em>right</em> connection at the <em>right</em> time.</p>
+<p>I have a few high-level design requirements:</p>
+<ul>
+<li><strong>Personalizable:</strong> I need to be able to filter line info and timeslots</li>
+<li><strong>Situated:</strong> The application need to consider contextual parameters such as week, time of day, location and maybe even factor in delays?</li>
+<li><strong>Fast interaction:</strong> Given it’s about transit and quick decision, interacting with the app should be fast and simple.</li>
+</ul>
+<section id="a-couple-of-scenarios-to-get-us-started" class="level2">
+<h2 class="anchored" data-anchor-id="a-couple-of-scenarios-to-get-us-started">A couple of scenarios to get us started</h2>
+<p>Lets start of with some scenearios. That will allow us to identify design features, platform and other early decisions. I will start with a scenario that describes the current situation (a so-called <em>problem scenario</em> <span class="citation" data-cites="rossen2007">(see <a href="#ref-rossen2007" role="doc-biblioref">Rossen and Carroll 2007</a>)</span>)</p>
+<p><em>Henrik (that’s me) is a 40-some white male who work as a researcher at a Computer Science department in the city. He lives in suberbia outside the city with his family. Every morning, Henrik get up around 6, do a short run, and then shower and eats. He helps his family get ready and some days he walks the dog. He usually leave for work between 8 and 9 in the morning (except when he is teaching early) and leaves for home around 16. He wants to commute more often, as a flexible option and to lower his CO2 footprint. However, planning the commute and experiences with frequent delays and lost connections make him chose the comforts of his car over public transport.</em></p>
+<p>That gives us a bit of information on the context, the user and the challenge. Here are two future scenarios:</p>
+<p><em>Henrik is getting ready in the morning. His smartwatch notifies him that the bus for work is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He snoozes the notification. 4 minutes later the notification goes off again. Henrik decides that he is not ready yet, so he press next on the smart watch app. 10 minutes later, his Garmin smartwatch notifices him that the train is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He cancels the notification and pack the last things in his back. 5 minutes later he leaves for the train.</em></p>
+<p><em>Henrik is at work. He promised his familty that he would be home by 17. Around 16 his watch notifies him that a train is leaving in 20 minutes, so he has to walk in 5 minutes to catch it. He presses `options’ and the watch shows that a bus is leaving in 30 minutes. He presses ‘accept’ on his smartwatch. 10 minutes later the smartwatch reminds him that he needs to walk within 5 minutes to catch the bus. On the way to the bus, the watch notifies him that the bus is 5 minutes delayed.</em></p>
+<p>Whoa, that’s a lot of information. Let’s break it down a bit:</p>
+<ol type="1">
+<li><p>The application is running on a Garmin smartwatch.</p></li>
+<li><p>The application ‘knows’ something about the bus departures relative to the location of the user and the destination.</p></li>
+<li><p>The application ‘knows’ something about the walking distance and time relative to the location fo the user and the location of the stop.</p></li>
+<li><p>The application need to support a couple of simple interactions: <em>snooze</em>, <em>next</em>, <em>accept</em> and <em>options</em>.</p></li>
+<li><p>The application ‘knows’ something about the delay of the bus in real time.</p></li>
+<li><p>The application ‘knows’ something about the user’s typical departures and destinations (and transit connections).</p></li>
+</ol>
+<p>These are mixes of high level design features (it needs to be a smartwatch application), requirements (integrate location, transit data etc.) and specific interaction design features (<em>snooze</em> notification). We can break it down even further:</p>
+<ul>
+<li>Garmin smartwatch application
+<ul>
+<li>Need to access the user location</li>
+<li>Notification support</li>
+<li>Simple user interaction</li>
+</ul></li>
+<li>Transit information
+<ul>
+<li>Lines / routes</li>
+<li>Destinations (stops)</li>
+<li>Depature times</li>
+<li>Delay time</li>
+</ul></li>
+<li>Geographical information
+<ul>
+<li>User location</li>
+<li>Transit information</li>
+<li>Walking distance</li>
+</ul></li>
+<li>User profile or setting
+<ul>
+<li>Destination preferences</li>
+</ul></li>
+</ul>
+<p>I added the last point on geographical information (a map service), because the application need to combine geographical information, e.g.&nbsp;“the user location relative to the stop”.</p>
+</section>
+<section id="feasibility-study" class="level2">
+<h2 class="anchored" data-anchor-id="feasibility-study">Feasibility Study</h2>
+<p>The next step is to conduct a small feasibility study. We need to know if the crude design features are realistic and anticipate challenges. We can take the five design features above and go through them one by one. This can also include some early assessment of the complexity of the application, individual components and estimates.</p>
+<section id="garmin-smartwatch" class="level3">
+<h3 class="anchored" data-anchor-id="garmin-smartwatch">Garmin smartwatch</h3>
+<p>A quick search reveals that <a href="https://developer.garmin.com/connect-iq/sdk/">Garmin has an SDK for their smartwatches</a>. It does not seem to require extensive license fees or any cost up front that need to be factored in. Writing applications for a Garmin Smartwatch is done in <a href="https://developer.garmin.com/connect-iq/monkey-c/">Monkey C</a>, a high-level programming similar to C++, Java and Python. The documentation show that it is relatively trivial to access the user <a href="https://developer.garmin.com/connect-iq/api-docs/Toybox/Position.html">location</a> and a module for notification in the <a href="https://developer.garmin.com/connect-iq/api-docs/Toybox/Attention.html">Attention module</a>.</p>
+<p>A bit more research reveals that Garmin use the Connect IQ application (for Android and iOS) to distribute smartwatch applications. When installed on the watch, the Connect IQ shows the application on your smartphone and <em>can include additional settings and options.</em> This might be the way to handle user profiles or preferences.</p>
+</section>
+<section id="transit-information" class="level3">
+<h3 class="anchored" data-anchor-id="transit-information">Transit information</h3>
+<p>The backbone and value-proposition of the application is the ability to provide personalized notifications about transit. In Denmark we have a General Transit Feed Specification (GTFS) <a href="https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API">API provided by RejsePlanen</a>. Again, the is no up front cost with using this (except the time invested in familiarizing yourself with the API).</p>
+<p>This API should be able to provide the majority of the data we need, either as raw GTFS data or from the REST API. This includes destinations, stops, connections and other information on public transit.</p>
+<p>The official API does not provide information on delays as far as I can tell now. <a href="https://www.rejseplanen.dk/bin/help.exe/mn?L=vs_dot.vs_livemap&amp;tpl=fullscreenmap&amp;custom=sydtrafik_Regionen&amp;view=dsb">Some services do use delay information</a>, so it could be available, but undocumented. Providing delay information is not a primary feature, but a nice to have feature. This can be further investigated when the first version is ready.</p>
+</section>
+<section id="geographical-information" class="level3">
+<h3 class="anchored" data-anchor-id="geographical-information">Geographical information</h3>
+<p>We have a couple of requirement that need to establish a travel-time connection between the user’s current location and the nearest bus stop. We need a way to estimate the walk time.</p>
+<p>There are multiple services for that:</p>
+<ul>
+<li><a href="https://www.rejseplanen.dk/bin/help.exe/mn?L=vs_dot.vs_livemap&amp;tpl=fullscreenmap&amp;custom=sydtrafik_Regionen&amp;view=dsb">Google Distance API</a></li>
+<li><a href="https://www.graphhopper.com/products/">Graphhopper API</a></li>
+<li><a href="https://openrouteservice.org/plans/">OpenRouteservice API</a></li>
+<li><a href="https://wiki.openstreetmap.org/wiki/Routing">Other OSM based services</a></li>
+</ul>
+<p>We can calculate which service and plan that makes most sense. For now, a free tier of something like Open Route Service or Graphhopper would suffice. This depends on how often we need to calculate the walking distance (e.g.&nbsp;home and work is often stable).</p>
+</section>
+</section>
+<section id="summary-and-bootstrapping-user-stories" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-bootstrapping-user-stories">Summary and bootstrapping user-stories</h2>
+<p>Now we have an overview over the high level features and the components involve. A lot still need to be figured out, but we can start writing some <em>bootstrapping</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> user-stories. These are often to large and involves a lot of prototyping, which we will deal with in the next post.</p>
+<p>We know that a large part of the interface and interaction design should focus on the Garmin smartwatch, which means that the next couple of tasks will involve developing a <em>hello world</em> application using the Garmin SDK and prototyping some simple interactive prototypes with notifications, snooze, cancel, accept etc.</p>
+<p>We know that user preferences and the data for the application will use the RejsePlanen API. This means that a couple of prototypes should focus on specifying the specific data model for the application and exploring how to integrate the GTFS data.</p>
+<p>And once all those bits are figured out, we can explore how to integrate some walking distance estimates into the application.</p>
+<p>I will return to these in the next post that looks at user-stories in more detail, and a subsequent post on prototypes.</p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-rossen2007" class="csl-entry" role="doc-biblioentry">
+Rossen, Mary Beth, and John M. Carroll. 2007. <span>“Scenario-Based Design.”</span> Edited by Andrew Sears and Julie A Jacko, 1032–50.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This is what I call early user-stories that are not neccesary user-stories that users or costumers articulate or recognize, but need to be figured out anyways<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://hci.social/web/@heenrik">
+      <i class="bi bi-mastodon" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:korsgaard@protonmail.com?Subject=I%20saw%20your%20website...">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/henrikkorsgaard">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
+
+
+
+</body></html>

@@ -1,7 +1,6 @@
 ---
 title: "Garmin Public Transport Notification App I"
-code-fold: true
-code-summary: "Show the code"
+bibliography: ../references/hci.bib
 ---
 
 I want to be better at using public transport. One of the main hurdles is that I do not take the bus or train frequently enough to remember the bus and train schedule. In my commute, I have a few combinations of options and connections depending on the time of day. On top of that, the schedule tend to change frequent enough for me to lose a sense of when the bus or train runs in relation to the next connection etc.
@@ -15,27 +14,86 @@ I have a few high-level design requirements:
 - **Fast interaction:** Given it's about transit and quick decision, interacting with the app should be fast and simple. 
 
 ## A couple of scenarios to get us started
+Lets start of with some scenearios. That will allow us to identify design features, platform and other early decisions. I will start with a scenario that describes the current situation (a so-called _problem scenario_ [see @rossen2007])
 
-Lets start of with some scenearios. That will allow us to identify design features, platform and other early decisions. I will start with a scenario that describes the current situation (a so-called _problem scenario_~\cite{rossen})
-
-_Henrik (that's me) is a 40-some white male who work as a researcher at a Computer Science department in the city. He lives in suberbia outside the city with his family. Every morning, Henrik get up around 6, do a short run for about 20 minutes, and then shower and eats. He helps his family get ready and some days he walks the dog. He usually leave for work between 8 and 9 in the morning (except when he is teaching early) and leaves for home around 16. He wants to commute more often, as a flexible option and to lower his CO2 footprint. However, planning the commute and experiences with frequent delays and lost connections make him chose the comforts of his car over public transport._ 
+_Henrik (that's me) is a 40-some white male who work as a researcher at a Computer Science department in the city. He lives in suberbia outside the city with his family. Every morning, Henrik get up around 6, do a short run, and then shower and eats. He helps his family get ready and some days he walks the dog. He usually leave for work between 8 and 9 in the morning (except when he is teaching early) and leaves for home around 16. He wants to commute more often, as a flexible option and to lower his CO2 footprint. However, planning the commute and experiences with frequent delays and lost connections make him chose the comforts of his car over public transport._ 
 
 That gives us a bit of information on the context, the user and the challenge. Here are two future scenarios:
 
-_Henrik is getting ready in the morning. His smartwatch notifies him that the bus for work is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He snoozes the notification. 4 minutes later the notification goes off again. Henrik decides that he is not ready yet, so he press next on the smart watch app. 10 minutes later, his smartwatch notifices him that the train is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He cancels the notification and pack the last things in his back. 5 minutes later he leaves for the train._
+_Henrik is getting ready in the morning. His smartwatch notifies him that the bus for work is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He snoozes the notification. 4 minutes later the notification goes off again. Henrik decides that he is not ready yet, so he press next on the smart watch app. 10 minutes later, his Garmin smartwatch notifices him that the train is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He cancels the notification and pack the last things in his back. 5 minutes later he leaves for the train._
 
 _Henrik is at work. He promised his familty that he would be home by 17. Around 16 his watch notifies him that a train is leaving in 20 minutes, so he has to walk in 5 minutes to catch it. He presses `options' and the watch shows that a bus is leaving in 30 minutes. He presses 'accept' on his smartwatch. 10 minutes later the smartwatch reminds him that he needs to walk within 5 minutes to catch the bus. On the way to the bus, the watch notifies him that the bus is 5 minutes delayed._ 
 
-Whoa, that's a lot of information. Let's break it down a bit.
+Whoa, that's a lot of information. Let's break it down a bit:
 
-- The application is running on a smartwatch.
+1. The application is running on a Garmin smartwatch.
 
-- The application 'knows' something about the bus departures relative to the location of the user and the destination.
+2. The application 'knows' something about the bus departures relative to the location of the user and the destination.
 
-- The application 'knows' something about the walking distance and time relative to the location fo the user and the location of the stop.
+3. The application 'knows' something about the walking distance and time relative to the location fo the user and the location of the stop.
 
-- The application need to support a couple of simple interactions: _snooze_, _next_, _accept_ and _options_.
+4. The application need to support a couple of simple interactions: _snooze_, _next_, _accept_ and _options_.
 
-- The application 'knows' something about the delay of the bus in real time.
+5. The application 'knows' something about the delay of the bus in real time.
 
-These are mixes of high level design features (it needs to be a smartwatch application), requirements (integrate location, transit data etc.) and specific interaction design features (_snooze_ notification).
+6. The application 'knows' something about the user's typical departures and destinations (and transit connections).
+
+These are mixes of high level design features (it needs to be a smartwatch application), requirements (integrate location, transit data etc.) and specific interaction design features (_snooze_ notification). We can break it down even further:
+
+- Garmin smartwatch application
+    - Need to access the user location
+    - Notification support
+    - Simple user interaction
+- Transit information
+    - Lines / routes
+    - Destinations (stops)
+    - Depature times
+    - Delay time
+- Geographical information
+    - User location
+    - Transit information 
+    - Walking distance
+- User profile or setting
+    - Destination preferences
+
+I added the last point on geographical information (a map service), because the application need to combine geographical information, e.g. "the user location relative to the stop".
+
+## Feasibility Study
+The next step is to conduct a small feasibility study. We need to know if the crude design features are realistic and anticipate challenges. We can take the five design features above and go through them one by one. This can also include some early assessment of the complexity of the application, individual components and estimates.
+
+### Garmin smartwatch
+A quick search reveals that [Garmin has an SDK for their smartwatches](https://developer.garmin.com/connect-iq/sdk/). It does not seem to require extensive license fees or any cost up front that need to be factored in. Writing applications for a Garmin Smartwatch is done in [Monkey C](https://developer.garmin.com/connect-iq/monkey-c/), a high-level programming similar to C++, Java and Python. The documentation show that it is relatively trivial to access the user [location](https://developer.garmin.com/connect-iq/api-docs/Toybox/Position.html) and a module for notification in the [Attention module](https://developer.garmin.com/connect-iq/api-docs/Toybox/Attention.html).
+
+A bit more research reveals that Garmin use the Connect IQ application (for Android and iOS) to distribute smartwatch applications. When installed on the watch, the Connect IQ shows the application on your smartphone and _can include additional settings and options._ This might be the way to handle user profiles or preferences.
+
+### Transit information
+The backbone and value-proposition of the application is the ability to provide personalized notifications about transit. In Denmark we have a General Transit Feed Specification (GTFS) [API provided by RejsePlanen](https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API). Again, the is no up front cost with using this (except the time invested in familiarizing yourself with the API).
+
+This API should be able to provide the majority of the data we need, either as raw GTFS data or from the REST API. This includes destinations, stops, connections and other information on public transit.
+
+The official API does not provide information on delays as far as I can tell now. [Some services do use delay information](https://www.rejseplanen.dk/bin/help.exe/mn?L=vs_dot.vs_livemap&tpl=fullscreenmap&custom=sydtrafik_Regionen&view=dsb), so it could be available, but undocumented. Providing delay information is not a primary feature, but a nice to have feature. This can be further investigated when the first version is ready.
+
+### Geographical information
+We have a couple of requirement that need to establish a travel-time connection between the user's current location and the nearest bus stop. We need a way to estimate the walk time. 
+
+There are multiple services for that:
+
+- [Google Distance API](https://www.rejseplanen.dk/bin/help.exe/mn?L=vs_dot.vs_livemap&tpl=fullscreenmap&custom=sydtrafik_Regionen&view=dsb)
+- [Graphhopper API](https://www.graphhopper.com/products/)
+- [OpenRouteservice API](https://openrouteservice.org/plans/)
+- [Other OSM based services](https://wiki.openstreetmap.org/wiki/Routing)
+
+We can calculate which service and plan that makes most sense. For now, a free tier of something like Open Route Service or Graphhopper would suffice. This depends on how often we need to calculate the walking distance (e.g. home and work is often stable). 
+
+## Summary and bootstrapping user-stories
+Now we have an overview over the high level features and the components involve. A lot still need to be figured out, but we can start writing some _bootstrapping_^[This is what I call early user-stories that are not neccesary user-stories that users or costumers articulate or recognize, but need to be figured out anyways] user-stories. These are often to large and involves a lot of prototyping, which we will deal with in the next post.
+
+We know that a large part of the interface and interaction design should focus on the Garmin smartwatch, which means that the next couple of tasks will involve developing a _hello world_ application using the Garmin SDK and prototyping some simple interactive prototypes with notifications, snooze, cancel, accept etc.
+
+We know that user preferences and the data for the application will use the RejsePlanen API. This means that a couple of prototypes should focus on specifying the specific data model for the application and exploring how to integrate the GTFS data.
+
+And once all those bits are figured out, we can explore how to integrate some walking distance estimates into the application.
+
+I will return to these in the next post that looks at user-stories in more detail, and a subsequent post on prototypes. 
+
+

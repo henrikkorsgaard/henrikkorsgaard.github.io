@@ -1,22 +1,26 @@
 ---
-title: "Garmin Public Transport Notification App I"
-bibliography: ../references/hci.bib
+title: "\"When is my next bus home?\""
+subtitle: "Developing a personalized Garmin smartwatch app for travel info (part I)"
+bibliography:
+- ../references/software-engineering.bib
+- ../references/hci.bib
+csl: ../references/sigchi.csl
 ---
-
-This post is part of a three part series looking at how to move from _scenarios_ to _user stories_ and _prototypes_ (and hopefully a finished application) in user-centered application design. It is a writeup of some of the examples and points I make in a course I teach at Aarhus University on Experimental Systems Development. This post focus on moving from scenarios to identifying high level features and doing a quick feasibility study (or technical research).
 
 I want to be better at using public transport. One of the main hurdles is that I do not take the bus or train frequently enough to remember the bus and train schedule. In my commute, I have a few combinations of options and connections depending on the time of day. On top of that, the schedule tend to change frequent enough for me to lose a sense of when the bus or train runs in relation to the next connection etc.
 
 I figured that I could build a small app to help me leave my office or home in time to catch the _right_ connection at the _right_ time. 
 
-I have a few high-level design requirements:
+This post is the first one in a series. I hope to go through some of the stages I recommend to my students when they develop application as part of their project in the course on Experimental Systems Development course at Aarhus University. Typically, we send the students out to do design ethnography[@benyon2005designing] or [contextual inquiry](https://www.nngroup.com/articles/contextual-inquiry/) to identify relevant challenges to work on. In this example I'm designing something for myself, so we can skip that step. In this post I will work my way downwards from scenarios to identifying high-level requirements and modules. This will inform early prototyping activities and the first collection of user-stories, which I will discuss in an upcoming post. 
 
-- **Personalizable:** I need to be able to filter line info and timeslots
-- **Situated:** The application need to consider contextual parameters such as week, time of day, location and maybe even factor in delays?
-- **Fast interaction:** Given it's about transit and quick decision, interacting with the app should be fast and simple. 
+Now, back to my application. I have a few design requirements:
 
-## A couple of scenarios to get us started
-Lets start of with some scenearios. That will allow us to identify design features, platform and other early decisions. I will start with a scenario that describes the current situation (a so-called _problem scenario_ [see @rossen2007])
+- **Personalizable:** I need to be able to filter line info and timeslots. I don't want to deal with all the lines in my city nor all the hours of the relevant lines. I need to know "when the next bus to my preferred destination leaves".
+- **Situated:** The application need to consider contextual parameters such as week, time of day, location and maybe even factor in delays.
+- **Fast interaction:** Given it's about transit and quick decision, interacting with the app should be fast and simple. It should offer decisions support, but not overcomplicate things.
+
+## A couple of scenarios to get us started {#sec-scenarios}
+I'm using a scenario-based approach to design[@rossen2007], where the first goal is to develop a scenario that describes the current situation. Secondly, we will generate a couple of future scenarios. These scenarios will help us anchor the design in the present and address concrete needs, and explore future solutions that allow us identify and make early decisions on design features, technologies, critical prototypes and bootstrapping user-stories.
 
 _Henrik (that's me) is a 40-some white male who work as a researcher at a Computer Science department in the city. He lives in suberbia outside the city with his family. Every morning, Henrik get up around 6, do a short run, and then shower and eats. He helps his family get ready and some days he walks the dog. He usually leave for work between 8 and 9 in the morning (except when he is teaching early) and leaves for home around 16. He wants to commute more often, as a flexible option and to lower his CO2 footprint. However, planning the commute and experiences with frequent delays and lost connections make him chose the comforts of his car over public transport._ 
 
@@ -24,9 +28,11 @@ That gives us a bit of information on the context, the user and the challenge. H
 
 _Henrik is getting ready in the morning. His smartwatch notifies him that the bus for work is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He snoozes the notification. 4 minutes later the notification goes off again. Henrik decides that he is not ready yet, so he press next on the smart watch app. 10 minutes later, his Garmin smartwatch notifices him that the train is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He cancels the notification and pack the last things in his back. 5 minutes later he leaves for the train._
 
-_Henrik is at work. He promised his familty that he would be home by 17. Around 16 his watch notifies him that a train is leaving in 20 minutes, so he has to walk in 5 minutes to catch it. He presses `options' and the watch shows that a bus is leaving in 30 minutes. He presses 'accept' on his smartwatch. 10 minutes later the smartwatch reminds him that he needs to walk within 5 minutes to catch the bus. On the way to the bus, the watch notifies him that the bus is 5 minutes delayed._ 
+_Henrik is at work. He promised his familty that he would be home by 17. Around 16 his watch notifies him that a train is leaving in 20 minutes, so he has to walk in 5 minutes to catch it. He presses `next' and the watch shows that a bus is leaving in 30 minutes. He presses 'accept' on his smartwatch. 10 minutes later the smartwatch reminds him that he needs to walk within 5 minutes to catch the bus. On the way to the bus, the watch notifies him that the bus is 5 minutes delayed._ 
 
-Whoa, that's a lot of information. Let's break it down a bit:
+These scenarios allow us to discuss and think about the design before we make too many decisions about the solution. Scenarios are excellent for early internal and external feedback. We can discuss them in our design team, with users, clients, developers and other stakeholders. We can invite users into the process and ask them to inform or co-write scenarios. Scenarios can be acted out and explored through embodied and contextual design methods, and we can develop scenarios as sketches, story-boards and even short movies to help illustrate the future use. If future users recognize their situation in the current scenario and agree that the future scenario is a compelling solution, then we have a good stakeholder _alignment_ and can proceed.
+
+## Identifying high-level requirements^[I have not found a good consistent way to represent requirements. @rossen2007 put them in a table, others do elaborate documentation with list of R0-Rn requirements. This is something I want to [read up on](https://www.sciencedirect.com/topics/computer-science/requirement-engineering), but haven't had the time or need yet.]
 
 1. The application is running on a Garmin smartwatch.
 
@@ -34,7 +40,7 @@ Whoa, that's a lot of information. Let's break it down a bit:
 
 3. The application 'knows' something about the walking distance and time relative to the location fo the user and the location of the stop.
 
-4. The application need to support a couple of simple interactions: _snooze_, _next_, _accept_ and _options_.
+4. The application need to support a couple of simple interactions: _snooze_, _next_, and _accept_.
 
 5. The application 'knows' something about the delay of the bus in real time.
 
@@ -42,60 +48,120 @@ Whoa, that's a lot of information. Let's break it down a bit:
 
 These are mixes of high level design features (it needs to be a smartwatch application), requirements (integrate location, transit data etc.) and specific interaction design features (_snooze_ notification). We can break it down even further:
 
-- Garmin smartwatch application
+1 Garmin smartwatch application
     - Need to access the user location
     - Notification support
     - Simple user interaction
-- Transit information
+2 Transit information
     - Lines / routes
     - Destinations (stops)
     - Depature times
     - Delay time
-- Geographical information
+3 Geographical information
     - User location
     - Transit information 
     - Walking distance
-- User profile or setting
+4 User profile or setting
     - Destination preferences
 
-I added the last point on geographical information (a map service), because the application need to combine geographical information, e.g. "the user location relative to the stop".
+I added the last point on geographical information (a map service), because the application need to combine geographical information, e.g. "the user location relative to the stop". If we identify additional features in the scenarios or write new scenarios, we can return to this step or do it again isolated for the new feature. The lists above is enough to move to the next step. At this point we would skip to a feasibility study if the project contain too many unknowns or high-risk aspect that might mean stopping the project. I see nothing on the list above that shy me away from moving forward^[Perhaps aside for the transit information, but I know from other projects that there is a [public API for GTFS data in Denmark](https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API)]. 
 
-## Feasibility Study
-The next step is to conduct a small feasibility study. We need to know if the crude design features are realistic and anticipate challenges. We can take the five design features above and go through them one by one. This can also include some early assessment of the complexity of the application, individual components and estimates.
+## Context and container diagrams
+The requirment list above is not complete and a bit abstract. And the list format is not telling about the relationship between the design features of the application. We need a bit more detail before we can start writing code. Recently, I've started using the [C4 Model](https://c4model.com/) approach as a way to visualise the relationship between requirements, application design and software architecture^[There is a tool for creating these visualizations under [Structurizer](https://structurizr.com/dsl). I export mine to [GraphViz](https://graphviz.org/) for this post.]. For this application, it makes sense to sketch out the context and container level because the application draw on a couple of external services. Sketching out the context represent "the different persons or actors involved and external systems that provide any kind of service to our system" and the container level "decomposes the software system in containers. This view outlines the necessary components to provide the services that the system would offer"[@vazquez2020c4]^[The paper is far less informative compared to the [website and videos](https://c4model.com/).]. Containers can then be further decomposed into a component (modules) design for each container and subsequently into the familiar code-level diagrams from the UML family.
 
-### Garmin smartwatch
-A quick search reveals that [Garmin has an SDK for their smartwatches](https://developer.garmin.com/connect-iq/sdk/). It does not seem to require extensive license fees or any cost up front that need to be factored in. Writing applications for a Garmin Smartwatch is done in [Monkey C](https://developer.garmin.com/connect-iq/monkey-c/), a high-level programming similar to C++, Java and Python. The documentation show that it is relatively trivial to access the user [location](https://developer.garmin.com/connect-iq/api-docs/Toybox/Position.html) and a module for notification in the [Attention module](https://developer.garmin.com/connect-iq/api-docs/Toybox/Attention.html).
+While some of the diagrams can be replaced with e.g. sequence diagrams _once we know how everything will work_ they provide a better way of sketching rough ideas and _what we currently know_ about the application than traditional UML (in my opinion).
 
-A bit more research reveals that Garmin use the Connect IQ application (for Android and iOS) to distribute smartwatch applications. When installed on the watch, the Connect IQ shows the application on your smartphone and _can include additional settings and options._ This might be the way to handle user profiles or preferences.
+### Context diagram
+The context diagram allow us to focus on the user and application, and the other systems that they interact with as part of the use. 
 
-### Transit information
-The backbone and value-proposition of the application is the ability to provide personalized notifications about transit. In Denmark we have a General Transit Feed Specification (GTFS) [API provided by RejsePlanen](https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API). Again, the is no up front cost with using this (except the time invested in familiarizing yourself with the API).
+```{dot}
+//| label: fig-context
+//| fig-cap: System Context Garmin GTFS Notification App.
 
-This API should be able to provide the majority of the data we need, either as raw GTFS data or from the REST API. This includes destinations, stops, connections and other information on public transit.
+digraph {
+  compound=true
+  graph [fontname="Arial", rankdir=TB, ranksep=1.0, nodesep=1.0]
+  node [fontname="Arial", shape=box, margin="0.4,0.3"]
+  edge [fontname="Arial"]
+  
+  { rank=same 1 }
+  { rank=same 4 6 }
 
-The official API does not provide information on delays as far as I can tell now. [Some services do use delay information](https://www.rejseplanen.dk/bin/help.exe/mn?L=vs_dot.vs_livemap&tpl=fullscreenmap&custom=sydtrafik_Regionen&view=dsb), so it could be available, but undocumented. Providing delay information is not a primary feature, but a nice to have feature. This can be further investigated when the first version is ready.
+  1 [id=1,shape=rect, label=<<font point-size="34">Henrik</font><br /><font point-size="19">[Person]</font><br /><br /><font point-size="24">A user of the Garmin GTFS<br />notification app</font>>, style=filled, color="#052e56", fillcolor="#08427b", fontcolor="#ffffff"]
+  2 [id=2,shape=rect, label=<<font point-size="34">RejsePlanen API</font><br /><font point-size="19">[Software System]</font><br /><br /><font point-size="24">GTFS data API. Provides lines,<br />stops, departuer and arrival<br />times, connections etc.</font>>, style=filled, color="#6b6b6b", fillcolor="#999999", fontcolor="#ffffff"]
+  3 [id=3,shape=rect, label=<<font point-size="34">GIS Distance API</font><br /><font point-size="19">[Software System]</font><br /><br /><font point-size="24">Provides distance and walking<br />time estimates from user<br />location to nearest departure<br />point.</font>>, style=filled, color="#6b6b6b", fillcolor="#999999", fontcolor="#ffffff"]
+  4 [id=4,shape=rect, label=<<font point-size="34">Garmin Connect</font><br /><font point-size="19">[Software System]</font><br /><br /><font point-size="24">Garmin smartphone application<br />for distributing smartwatch<br />applications</font>>, style=filled, color="#6b6b6b", fillcolor="#999999", fontcolor="#ffffff"]
+  6 [id=6,shape=rect, label=<<font point-size="34">Garmin App</font><br /><font point-size="19">[Software System]</font><br /><br /><font point-size="24">Provides personalized public<br />transit notifications. Allow<br />user to query next public<br />transit from current location<br />to predefined destination.</font>>, style=filled, color="#0b4884", fillcolor="#1168bd", fontcolor="#ffffff"]
 
-### Geographical information
-We have a couple of requirement that need to establish a travel-time connection between the user's current location and the nearest bus stop. We need a way to estimate the walk time. 
+  1 -> 6 [id=10, label=<<font point-size="24">Uses app to query next<br />transit connection.</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  6 -> 1 [id=11, label=<<font point-size="24">Notifies user on transit<br />option within personal<br />preference</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  6 -> 2 [id=12, label=<<font point-size="24">Gets GTFS data on request.</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  6 -> 3 [id=13, label=<<font point-size="24">Query walking estimates</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  1 -> 4 [id=14, label=<<font point-size="24">Install Garmin app on<br />smartwatch.</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  4 -> 6 [id=15, label=<<font point-size="24">Installs Garmin App on<br />smartwatch.</font>>, style="dashed", color="#707070", fontcolor="#707070"]
 
-There are multiple services for that:
+}
+
+```
+
+The above figure give a high level overview of how the user will interact with the various parts of the application and how the application will interact with other systems it depends on. 
+A bit of research reveal that Garmin use their Connect IQ application (for Android and iOS) to distribute smartwatch applications. When installed on the watch, the Connect IQ shows the application on your smartphone and provide ways of configuring the application. This way, the user avoid having to do the personalization on a small device like a smartwatch and can leverage the larger display, better input and network connection of their smartphone.
+
+The requirements also tell us that we need some external services. One for getting all the information on public transit and one for estimating time and distance from the user location to the nearest stop. We can get the public transit data from the Danish provider of General Transit Feed Specification (GTFS) data [RejsePlanen](https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API). For walking time and distance estimation, we can use on of several distance API providers:
 
 - [Google Distance API](https://www.rejseplanen.dk/bin/help.exe/mn?L=vs_dot.vs_livemap&tpl=fullscreenmap&custom=sydtrafik_Regionen&view=dsb)
 - [Graphhopper API](https://www.graphhopper.com/products/)
 - [OpenRouteservice API](https://openrouteservice.org/plans/)
 - [Other OSM based services](https://wiki.openstreetmap.org/wiki/Routing)
 
-We can calculate which service and plan that makes most sense. For now, a free tier of something like Open Route Service or Graphhopper would suffice. This depends on how often we need to calculate the walking distance (e.g. home and work is often stable). 
+Which one will likely be determined depending on pricing and developer usability, i.e. how easy it is to integrate the API.
 
-## Summary and bootstrapping user-stories
-Now we have an overview over the high level features and the components involve. A lot still need to be figured out, but we can start writing some _bootstrapping_^[This is what I call early user-stories that are not neccesary user-stories that users or costumers articulate or recognize, but need to be figured out anyways] user-stories. These are often to large and involves a lot of prototyping, which we will deal with in the next post.
+### Container diagram
+Container diagrams show the different independent units (e.g. a separate processes) that executes code or stores data^[I'm still trying to find a balance between what to disclose at this level and what to leave out. For instance, the database might end up being a key/value store on the smartphone and then more a component than a container.]. If we zoom in one level, we get more details about the bits and pieces that needs to be developed in the applications. We are still not dealing with neither components (e.g. a location-based service component) or the actual implemented code. 
 
-We know that a large part of the interface and interaction design should focus on the Garmin smartwatch, which means that the next couple of tasks will involve developing a _hello world_ application using the Garmin SDK and prototyping some simple interactive prototypes with notifications, snooze, cancel, accept etc.
-
-We know that user preferences and the data for the application will use the RejsePlanen API. This means that a couple of prototypes should focus on specifying the specific data model for the application and exploring how to integrate the GTFS data.
-
-And once all those bits are figured out, we can explore how to integrate some walking distance estimates into the application.
-
-I will return to these in the next post that looks at user-stories in more detail, and a subsequent post on prototypes. 
+```{dot}
+//| label: fig-container
+//| fig-cap: Container View Garmin GTFS Notification App.
 
 
+digraph {
+  compound=true
+  graph [fontname="Arial", rankdir=TB, ranksep=1.0, nodesep=1.0]
+  node [fontname="Arial", shape=box, margin="0.4,0.3"]
+  edge [fontname="Arial"]
+
+  1 [id=1,shape=rect, label=<<font point-size="34">Henrik</font><br /><font point-size="19">[Person]</font><br /><br /><font point-size="24">A user of the Garmin GTFS<br />notification app</font>>, style=filled, color="#052e56", fillcolor="#08427b", fontcolor="#ffffff"]
+  2 [id=2,shape=rect, label=<<font point-size="34">RejsePlanen API</font><br /><font point-size="19">[Software System]</font><br /><br /><font point-size="24">GTFS data API. Provides lines,<br />stops, departuer and arrival<br />times, connections etc.</font>>, style=filled, color="#6b6b6b", fillcolor="#999999", fontcolor="#ffffff"]
+  3 [id=3,shape=rect, label=<<font point-size="34">GIS Distance API</font><br /><font point-size="19">[Software System]</font><br /><br /><font point-size="24">Provides distance and walking<br />time estimates from user<br />location to nearest departure<br />point.</font>>, style=filled, color="#6b6b6b", fillcolor="#999999", fontcolor="#ffffff"]
+  4 [id=4,shape=rect, label=<<font point-size="34">Garmin Connect</font><br /><font point-size="19">[Software System]</font><br /><br /><font point-size="24">Garmin smartphone application<br />for distributing smartwatch<br />applications</font>>, style=filled, color="#6b6b6b", fillcolor="#999999", fontcolor="#ffffff"]
+
+  subgraph cluster_6 {
+    margin=25
+    label=<<font point-size="24"><br />Garmin App</font><br /><font point-size="19">[Software System]</font>>
+    labelloc=b
+    color="#444444"
+    fontcolor="#444444"
+    fillcolor="#444444"
+
+    7 [id=7,shape=rect, label=<<font point-size="34">Garmin Smartwatch app</font><br /><font point-size="19">[Container: Monkey C SDK]</font><br /><br /><font point-size="24">The smartwatch application<br />that is the primary on-the-go<br />way of interacting with the<br />system.</font>>, style=filled, color="#0b4884", fillcolor="#1168bd", fontcolor="#ffffff"]
+    8 [id=8,shape=rect, label=<<font point-size="34">Webapplication</font><br /><font point-size="19">[Container: JavaScript]</font><br /><br /><font point-size="24">A web application that helps<br />the user define their<br />preferences by providing<br />IF-THIS-THEN-THAT rules for<br />the garmin app.</font>>, style=filled, color="#0b4884", fillcolor="#1168bd", fontcolor="#ffffff"]
+    9 [id=9,shape=cylinder, label=<<font point-size="34">Database</font><br /><font point-size="19">[Container: Garmin SDK DB API]</font><br /><br /><font point-size="24">Stores user preferences<br />(time/destination)</font>>, style=filled, color="#0b4884", fillcolor="#1168bd", fontcolor="#ffffff"]
+  }
+
+  1 -> 4 [id=14, label=<<font point-size="24">Install Garmin app on<br />smartwatch.</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  4 -> 7 [id=19, label=<<font point-size="24">Transfers user<br />configuration</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  7 -> 9 [id=20, label=<<font point-size="24">Store user preferences</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  7 -> 1 [id=21, label=<<font point-size="24">Notifies user about next<br />possible transit</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  7 -> 3 [id=22, label=<<font point-size="24">Estimates walking time and<br />distance</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  1 -> 8 [id=23, label=<<font point-size="24">Create IF-THIS-THEN-THAT<br />rules</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  8 -> 4 [id=25, label=<<font point-size="24">Transfer user preferences<br />to device</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  8 -> 2 [id=29, label=<<font point-size="24">Get travel time info from<br />API</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+}
+```
+
+Most of these will need to be implemented, but there are a lot of things that needs to be prototyped first. For instance, I have introduced a Webapplication for configuring the different rules that wil trigger the notification in the scenarios in section @sec-scenarios. This is because I don't know yet if Garmin Connect support more complex configurations of the smartwatch app and if the kind of configurations make sense without a dedicated interaction design and application.
+
+## Summary
+Ok, so now we know a bit more about the application idea from the beginning of the notes. We know what it should do following out scenarios. We know a lot more about the requirements. And we have a rough overview of some of the relationship with other systems from the context diagram and a bit about the inner workings from our container diagram. All in a couple of nights work. 
+
+The two next posts will look at identifying _prototypes_ that can inform our design decisions and how to write _user-stories_ from the scenarios. Stay tuned.

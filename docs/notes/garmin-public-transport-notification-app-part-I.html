@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Henrik Korsgaard - Garmin Public Transport Notification App I</title>
+<title>Henrik Korsgaard - “When is my next bus home?”</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,8 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Garmin Public Transport Notification App I</h1>
+<h1 class="title">“When is my next bus home?”</h1>
+<p class="subtitle lead">Developing a personalized Garmin smartwatch app for travel info (part I)</p>
 </div>
 
 
@@ -129,107 +130,225 @@ div.csl-indent {
 
 </header>
 
-<p>This post is part of a three part series looking at how to move from <em>scenarios</em> to <em>user stories</em> and <em>prototypes</em> (and hopefully a finished application) in user-centered application design. It is a writeup of some of the examples and points I make in a course I teach at Aarhus University on Experimental Systems Development. This post focus on moving from scenarios to identifying high level features and doing a quick feasibility study (or technical research).</p>
 <p>I want to be better at using public transport. One of the main hurdles is that I do not take the bus or train frequently enough to remember the bus and train schedule. In my commute, I have a few combinations of options and connections depending on the time of day. On top of that, the schedule tend to change frequent enough for me to lose a sense of when the bus or train runs in relation to the next connection etc.</p>
 <p>I figured that I could build a small app to help me leave my office or home in time to catch the <em>right</em> connection at the <em>right</em> time.</p>
-<p>I have a few high-level design requirements:</p>
+<p>This post is the first one in a series. I hope to go through some of the stages I recommend to my students when they develop application as part of their project in the course on Experimental Systems Development course at Aarhus University. Typically, we send the students out to do design ethnography<span class="citation" data-cites="benyon2005designing">[<a href="#ref-benyon2005designing" role="doc-biblioref">1</a>]</span> or <a href="https://www.nngroup.com/articles/contextual-inquiry/">contextual inquiry</a> to identify relevant challenges to work on. In this example I’m designing something for myself, so we can skip that step. In this post I will work my way downwards from scenarios to identifying high-level requirements and modules. This will inform early prototyping activities and the first collection of user-stories, which I will discuss in an upcoming post.</p>
+<p>Now, back to my application. I have a few design requirements:</p>
 <ul>
-<li><strong>Personalizable:</strong> I need to be able to filter line info and timeslots</li>
-<li><strong>Situated:</strong> The application need to consider contextual parameters such as week, time of day, location and maybe even factor in delays?</li>
-<li><strong>Fast interaction:</strong> Given it’s about transit and quick decision, interacting with the app should be fast and simple.</li>
+<li><strong>Personalizable:</strong> I need to be able to filter line info and timeslots. I don’t want to deal with all the lines in my city nor all the hours of the relevant lines. I need to know “when the next bus to my preferred destination leaves”.</li>
+<li><strong>Situated:</strong> The application need to consider contextual parameters such as week, time of day, location and maybe even factor in delays.</li>
+<li><strong>Fast interaction:</strong> Given it’s about transit and quick decision, interacting with the app should be fast and simple. It should offer decisions support, but not overcomplicate things.</li>
 </ul>
-<section id="a-couple-of-scenarios-to-get-us-started" class="level2">
-<h2 class="anchored" data-anchor-id="a-couple-of-scenarios-to-get-us-started">A couple of scenarios to get us started</h2>
-<p>Lets start of with some scenearios. That will allow us to identify design features, platform and other early decisions. I will start with a scenario that describes the current situation (a so-called <em>problem scenario</em> <span class="citation" data-cites="rossen2007">(see <a href="#ref-rossen2007" role="doc-biblioref">Rossen and Carroll 2007</a>)</span>)</p>
+<section id="sec-scenarios" class="level2">
+<h2 class="anchored" data-anchor-id="sec-scenarios">A couple of scenarios to get us started</h2>
+<p>I’m using a scenario-based approach to design<span class="citation" data-cites="rossen2007">[<a href="#ref-rossen2007" role="doc-biblioref">2</a>]</span>, where the first goal is to develop a scenario that describes the current situation. Secondly, we will generate a couple of future scenarios. These scenarios will help us anchor the design in the present and address concrete needs, and explore future solutions that allow us identify and make early decisions on design features, technologies, critical prototypes and bootstrapping user-stories.</p>
 <p><em>Henrik (that’s me) is a 40-some white male who work as a researcher at a Computer Science department in the city. He lives in suberbia outside the city with his family. Every morning, Henrik get up around 6, do a short run, and then shower and eats. He helps his family get ready and some days he walks the dog. He usually leave for work between 8 and 9 in the morning (except when he is teaching early) and leaves for home around 16. He wants to commute more often, as a flexible option and to lower his CO2 footprint. However, planning the commute and experiences with frequent delays and lost connections make him chose the comforts of his car over public transport.</em></p>
 <p>That gives us a bit of information on the context, the user and the challenge. Here are two future scenarios:</p>
 <p><em>Henrik is getting ready in the morning. His smartwatch notifies him that the bus for work is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He snoozes the notification. 4 minutes later the notification goes off again. Henrik decides that he is not ready yet, so he press next on the smart watch app. 10 minutes later, his Garmin smartwatch notifices him that the train is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He cancels the notification and pack the last things in his back. 5 minutes later he leaves for the train.</em></p>
-<p><em>Henrik is at work. He promised his familty that he would be home by 17. Around 16 his watch notifies him that a train is leaving in 20 minutes, so he has to walk in 5 minutes to catch it. He presses `options’ and the watch shows that a bus is leaving in 30 minutes. He presses ‘accept’ on his smartwatch. 10 minutes later the smartwatch reminds him that he needs to walk within 5 minutes to catch the bus. On the way to the bus, the watch notifies him that the bus is 5 minutes delayed.</em></p>
-<p>Whoa, that’s a lot of information. Let’s break it down a bit:</p>
+<p><em>Henrik is at work. He promised his familty that he would be home by 17. Around 16 his watch notifies him that a train is leaving in 20 minutes, so he has to walk in 5 minutes to catch it. He presses `next’ and the watch shows that a bus is leaving in 30 minutes. He presses ‘accept’ on his smartwatch. 10 minutes later the smartwatch reminds him that he needs to walk within 5 minutes to catch the bus. On the way to the bus, the watch notifies him that the bus is 5 minutes delayed.</em></p>
+<p>These scenarios allow us to discuss and think about the design before we make too many decisions about the solution. Scenarios are excellent for early internal and external feedback. We can discuss them in our design team, with users, clients, developers and other stakeholders. We can invite users into the process and ask them to inform or co-write scenarios. Scenarios can be acted out and explored through embodied and contextual design methods, and we can develop scenarios as sketches, story-boards and even short movies to help illustrate the future use. If future users recognize their situation in the current scenario and agree that the future scenario is a compelling solution, then we have a good stakeholder <em>alignment</em> and can proceed.</p>
+</section>
+<section id="identifying-high-level-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-high-level-requirements">Identifying high-level requirements<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h2>
 <ol type="1">
 <li><p>The application is running on a Garmin smartwatch.</p></li>
 <li><p>The application ‘knows’ something about the bus departures relative to the location of the user and the destination.</p></li>
 <li><p>The application ‘knows’ something about the walking distance and time relative to the location fo the user and the location of the stop.</p></li>
-<li><p>The application need to support a couple of simple interactions: <em>snooze</em>, <em>next</em>, <em>accept</em> and <em>options</em>.</p></li>
+<li><p>The application need to support a couple of simple interactions: <em>snooze</em>, <em>next</em>, and <em>accept</em>.</p></li>
 <li><p>The application ‘knows’ something about the delay of the bus in real time.</p></li>
 <li><p>The application ‘knows’ something about the user’s typical departures and destinations (and transit connections).</p></li>
 </ol>
 <p>These are mixes of high level design features (it needs to be a smartwatch application), requirements (integrate location, transit data etc.) and specific interaction design features (<em>snooze</em> notification). We can break it down even further:</p>
-<ul>
-<li>Garmin smartwatch application
-<ul>
-<li>Need to access the user location</li>
-<li>Notification support</li>
-<li>Simple user interaction</li>
-</ul></li>
-<li>Transit information
-<ul>
-<li>Lines / routes</li>
-<li>Destinations (stops)</li>
-<li>Depature times</li>
-<li>Delay time</li>
-</ul></li>
-<li>Geographical information
-<ul>
-<li>User location</li>
-<li>Transit information</li>
-<li>Walking distance</li>
-</ul></li>
-<li>User profile or setting
-<ul>
-<li>Destination preferences</li>
-</ul></li>
-</ul>
-<p>I added the last point on geographical information (a map service), because the application need to combine geographical information, e.g.&nbsp;“the user location relative to the stop”.</p>
+<p>1 Garmin smartwatch application - Need to access the user location - Notification support - Simple user interaction 2 Transit information - Lines / routes - Destinations (stops) - Depature times - Delay time 3 Geographical information - User location - Transit information - Walking distance 4 User profile or setting - Destination preferences</p>
+<p>I added the last point on geographical information (a map service), because the application need to combine geographical information, e.g.&nbsp;“the user location relative to the stop”. If we identify additional features in the scenarios or write new scenarios, we can return to this step or do it again isolated for the new feature. The lists above is enough to move to the next step. At this point we would skip to a feasibility study if the project contain too many unknowns or high-risk aspect that might mean stopping the project. I see nothing on the list above that shy me away from moving forward<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 </section>
-<section id="feasibility-study" class="level2">
-<h2 class="anchored" data-anchor-id="feasibility-study">Feasibility Study</h2>
-<p>The next step is to conduct a small feasibility study. We need to know if the crude design features are realistic and anticipate challenges. We can take the five design features above and go through them one by one. This can also include some early assessment of the complexity of the application, individual components and estimates.</p>
-<section id="garmin-smartwatch" class="level3">
-<h3 class="anchored" data-anchor-id="garmin-smartwatch">Garmin smartwatch</h3>
-<p>A quick search reveals that <a href="https://developer.garmin.com/connect-iq/sdk/">Garmin has an SDK for their smartwatches</a>. It does not seem to require extensive license fees or any cost up front that need to be factored in. Writing applications for a Garmin Smartwatch is done in <a href="https://developer.garmin.com/connect-iq/monkey-c/">Monkey C</a>, a high-level programming similar to C++, Java and Python. The documentation show that it is relatively trivial to access the user <a href="https://developer.garmin.com/connect-iq/api-docs/Toybox/Position.html">location</a> and a module for notification in the <a href="https://developer.garmin.com/connect-iq/api-docs/Toybox/Attention.html">Attention module</a>.</p>
-<p>A bit more research reveals that Garmin use the Connect IQ application (for Android and iOS) to distribute smartwatch applications. When installed on the watch, the Connect IQ shows the application on your smartphone and <em>can include additional settings and options.</em> This might be the way to handle user profiles or preferences.</p>
-</section>
-<section id="transit-information" class="level3">
-<h3 class="anchored" data-anchor-id="transit-information">Transit information</h3>
-<p>The backbone and value-proposition of the application is the ability to provide personalized notifications about transit. In Denmark we have a General Transit Feed Specification (GTFS) <a href="https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API">API provided by RejsePlanen</a>. Again, the is no up front cost with using this (except the time invested in familiarizing yourself with the API).</p>
-<p>This API should be able to provide the majority of the data we need, either as raw GTFS data or from the REST API. This includes destinations, stops, connections and other information on public transit.</p>
-<p>The official API does not provide information on delays as far as I can tell now. <a href="https://www.rejseplanen.dk/bin/help.exe/mn?L=vs_dot.vs_livemap&amp;tpl=fullscreenmap&amp;custom=sydtrafik_Regionen&amp;view=dsb">Some services do use delay information</a>, so it could be available, but undocumented. Providing delay information is not a primary feature, but a nice to have feature. This can be further investigated when the first version is ready.</p>
-</section>
-<section id="geographical-information" class="level3">
-<h3 class="anchored" data-anchor-id="geographical-information">Geographical information</h3>
-<p>We have a couple of requirement that need to establish a travel-time connection between the user’s current location and the nearest bus stop. We need a way to estimate the walk time.</p>
-<p>There are multiple services for that:</p>
+<section id="context-and-container-diagrams" class="level2">
+<h2 class="anchored" data-anchor-id="context-and-container-diagrams">Context and container diagrams</h2>
+<p>The requirment list above is not complete and a bit abstract. And the list format is not telling about the relationship between the design features of the application. We need a bit more detail before we can start writing code. Recently, I’ve started using the <a href="https://c4model.com/">C4 Model</a> approach as a way to visualise the relationship between requirements, application design and software architecture<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. For this application, it makes sense to sketch out the context and container level because the application draw on a couple of external services. Sketching out the context represent “the different persons or actors involved and external systems that provide any kind of service to our system” and the container level “decomposes the software system in containers. This view outlines the necessary components to provide the services that the system would offer”<span class="citation" data-cites="vazquez2020c4">[<a href="#ref-vazquez2020c4" role="doc-biblioref">3</a>]</span><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Containers can then be further decomposed into a component (modules) design for each container and subsequently into the familiar code-level diagrams from the UML family.</p>
+<p>While some of the diagrams can be replaced with e.g.&nbsp;sequence diagrams <em>once we know how everything will work</em> they provide a better way of sketching rough ideas and <em>what we currently know</em> about the application than traditional UML (in my opinion).</p>
+<section id="context-diagram" class="level3">
+<h3 class="anchored" data-anchor-id="context-diagram">Context diagram</h3>
+<p>The context diagram allow us to focus on the user and application, and the other systems that they interact with as part of the use.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-context" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p>
+<svg width="672" height="480" viewbox="0.00 0.00 1314.18 864.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 860.2)"> <polygon fill="white" stroke="transparent" points="-4,4 -4,-860.2 1310.18,-860.2 1310.18,4 -4,4"></polygon> <!-- 1 --> <g id="1" class="node">
+<title>
+1
+</title>
+<polygon fill="#08427b" stroke="#052e56" points="738.84,-856.2 388.66,-856.2 388.66,-697.2 738.84,-697.2 738.84,-856.2"></polygon> <text text-anchor="start" x="514.63" y="-804.6" font-family="Arial" font-size="34.00" fill="#ffffff">Henrik</text> <text text-anchor="start" x="528.37" y="-784.1" font-family="Arial" font-size="19.00" fill="#ffffff">[Person]</text> <text text-anchor="start" x="417.71" y="-746.6" font-family="Arial" font-size="24.00" fill="#ffffff">A user of the Garmin GTFS</text> <text text-anchor="start" x="483.03" y="-722.6" font-family="Arial" font-size="24.00" fill="#ffffff">notification app</text> </g> <!-- 4 --> <g id="4" class="node">
+<title>
+4
+</title>
+<polygon fill="#999999" stroke="#6b6b6b" points="391.26,-514.8 0.25,-514.8 0.25,-331.8 391.26,-331.8 391.26,-514.8"></polygon> <text text-anchor="start" x="71.98" y="-463.2" font-family="Arial" font-size="34.00" fill="#ffffff">Garmin Connect</text> <text text-anchor="start" x="118.67" y="-442.7" font-family="Arial" font-size="19.00" fill="#ffffff">[Software System]</text> <text text-anchor="start" x="29" y="-405.2" font-family="Arial" font-size="24.00" fill="#ffffff">Garmin smartphone application</text> <text text-anchor="start" x="55.7" y="-381.2" font-family="Arial" font-size="24.00" fill="#ffffff">for distributing smartwatch</text> <text text-anchor="start" x="132.38" y="-357.2" font-family="Arial" font-size="24.00" fill="#ffffff">applications</text> </g> <!-- 1&#45;&gt;4 --> <g id="14" class="edge">
+<title>
+1-&gt;4
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M388.52,-728.46C351.3,-711.98 314.8,-690.09 286.63,-661.2 250.54,-624.17 228.43,-571.28 215.08,-524.87"></path> <polygon fill="#707070" stroke="#707070" points="218.41,-523.77 212.36,-515.07 211.66,-525.64 218.41,-523.77"></polygon> <text text-anchor="start" x="286.75" y="-625.2" font-family="Arial" font-size="24.00" fill="#707070">Install Garmin app on</text> <text text-anchor="start" x="336.13" y="-596.4" font-family="Arial" font-size="24.00" fill="#707070">smartwatch.</text> </g> <!-- 6 --> <g id="6" class="node">
+<title>
+6
+</title>
+<polygon fill="#1168bd" stroke="#0b4884" points="1069.26,-538.8 706.24,-538.8 706.24,-307.8 1069.26,-307.8 1069.26,-538.8"></polygon> <text text-anchor="start" x="797.05" y="-487.2" font-family="Arial" font-size="34.00" fill="#ffffff">Garmin App</text> <text text-anchor="start" x="810.67" y="-466.7" font-family="Arial" font-size="19.00" fill="#ffffff">[Software System]</text> <text text-anchor="start" x="735" y="-429.2" font-family="Arial" font-size="24.00" fill="#ffffff">Provides personalized public</text> <text text-anchor="start" x="753.03" y="-405.2" font-family="Arial" font-size="24.00" fill="#ffffff">transit notifications. Allow</text> <text text-anchor="start" x="757.01" y="-381.2" font-family="Arial" font-size="24.00" fill="#ffffff">user to query next public</text> <text text-anchor="start" x="742.36" y="-357.2" font-family="Arial" font-size="24.00" fill="#ffffff">transit from current location</text> <text text-anchor="start" x="752.99" y="-333.2" font-family="Arial" font-size="24.00" fill="#ffffff">to predefined destination.</text> </g> <!-- 1&#45;&gt;6 --> <g id="10" class="edge">
+<title>
+1-&gt;6
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M537.73,-697.11C529.55,-657.49 527.84,-610.43 550.94,-574.8 584.36,-523.26 640.02,-489.22 696.56,-466.79"></path> <polygon fill="#707070" stroke="#707070" points="697.93,-470.01 706,-463.15 695.41,-463.48 697.93,-470.01"></polygon> <text text-anchor="start" x="551.75" y="-625.2" font-family="Arial" font-size="24.00" fill="#707070">Uses app to query next</text> <text text-anchor="start" x="577.77" y="-596.4" font-family="Arial" font-size="24.00" fill="#707070">transit connection.</text> </g> <!-- 4&#45;&gt;6 --> <g id="15" class="edge">
+<title>
+4-&gt;6
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M391.28,-423.3C486.72,-423.3 601.13,-423.3 696.06,-423.3"></path> <polygon fill="#707070" stroke="#707070" points="696.06,-426.8 706.06,-423.3 696.06,-419.8 696.06,-426.8"></polygon> <text text-anchor="start" x="427.36" y="-462.3" font-family="Arial" font-size="24.00" fill="#707070">Installs Garmin App on</text> <text text-anchor="start" x="484.07" y="-433.5" font-family="Arial" font-size="24.00" fill="#707070">smartwatch.</text> </g> <!-- 6&#45;&gt;1 --> <g id="11" class="edge">
+<title>
+6-&gt;1
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M870.99,-538.88C859.99,-581.28 841.8,-627.23 811.75,-661.2 793.84,-681.44 771.61,-698.35 747.87,-712.4"></path> <polygon fill="#707070" stroke="#707070" points="746,-709.44 739.06,-717.45 749.48,-715.51 746,-709.44"></polygon> <text text-anchor="start" x="857.75" y="-639.6" font-family="Arial" font-size="24.00" fill="#707070">Notifies user on transit</text> <text text-anchor="start" x="861.06" y="-610.8" font-family="Arial" font-size="24.00" fill="#707070">option within personal</text> <text text-anchor="start" x="919.77" y="-582" font-family="Arial" font-size="24.00" fill="#707070">preference</text> </g> <!-- 2 --> <g id="2" class="node">
+<title>
+2
+</title>
+<polygon fill="#999999" stroke="#6b6b6b" points="853.88,-195 463.62,-195 463.62,-12 853.88,-12 853.88,-195"></polygon> <text text-anchor="start" x="530.23" y="-143.4" font-family="Arial" font-size="34.00" fill="#ffffff">RejsePlanen API</text> <text text-anchor="start" x="581.67" y="-122.9" font-family="Arial" font-size="19.00" fill="#ffffff">[Software System]</text> <text text-anchor="start" x="492.69" y="-85.4" font-family="Arial" font-size="24.00" fill="#ffffff">GTFS data API. Provides lines,</text> <text text-anchor="start" x="512.67" y="-61.4" font-family="Arial" font-size="24.00" fill="#ffffff">stops, departuer and arrival</text> <text text-anchor="start" x="536.7" y="-37.4" font-family="Arial" font-size="24.00" fill="#ffffff">times, connections etc.</text> </g> <!-- 6&#45;&gt;2 --> <g id="12" class="edge">
+<title>
+6-&gt;2
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M709.15,-307.66C699.01,-296.47 689.88,-284.51 682.28,-271.8 670.4,-251.96 663.61,-228.47 659.9,-205.47"></path> <polygon fill="#707070" stroke="#707070" points="663.33,-204.7 658.45,-195.3 656.4,-205.69 663.33,-204.7"></polygon> <text text-anchor="start" x="681.75" y="-250.2" font-family="Arial" font-size="24.00" fill="#707070">Gets GTFS data on request.</text> </g> <!-- 3 --> <g id="3" class="node">
+<title>
+3
+</title>
+<polygon fill="#999999" stroke="#6b6b6b" points="1306.1,-207 925.4,-207 925.4,0 1306.1,0 1306.1,-207"></polygon> <text text-anchor="start" x="983.48" y="-155.4" font-family="Arial" font-size="34.00" fill="#ffffff">GIS Distance API</text> <text text-anchor="start" x="1038.67" y="-134.9" font-family="Arial" font-size="19.00" fill="#ffffff">[Software System]</text> <text text-anchor="start" x="954.33" y="-97.4" font-family="Arial" font-size="24.00" fill="#ffffff">Provides distance and walking</text> <text text-anchor="start" x="984.38" y="-73.4" font-family="Arial" font-size="24.00" fill="#ffffff">time estimates from user</text> <text text-anchor="start" x="962.99" y="-49.4" font-family="Arial" font-size="24.00" fill="#ffffff">location to nearest departure</text> <text text-anchor="start" x="1086.4" y="-25.4" font-family="Arial" font-size="24.00" fill="#ffffff">point.</text> </g> <!-- 6&#45;&gt;3 --> <g id="13" class="edge">
+<title>
+6-&gt;3
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M970.07,-307.57C991.58,-277.58 1014.72,-245.32 1036.09,-215.53"></path> <polygon fill="#707070" stroke="#707070" points="1039.09,-217.37 1042.07,-207.2 1033.4,-213.29 1039.09,-217.37"></polygon> <text text-anchor="start" x="1014.75" y="-250.2" font-family="Arial" font-size="24.00" fill="#707070">Query walking estimates</text> </g> </g>
+</svg>
+</p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: System Context Garmin GTFS Notification App.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above figure give a high level overview of how the user will interact with the various parts of the application and how the application will interact with other systems it depends on. A bit of research reveal that Garmin use their Connect IQ application (for Android and iOS) to distribute smartwatch applications. When installed on the watch, the Connect IQ shows the application on your smartphone and provide ways of configuring the application. This way, the user avoid having to do the personalization on a small device like a smartwatch and can leverage the larger display, better input and network connection of their smartphone.</p>
+<p>The requirements also tell us that we need some external services. One for getting all the information on public transit and one for estimating time and distance from the user location to the nearest stop. We can get the public transit data from the Danish provider of General Transit Feed Specification (GTFS) data <a href="https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API">RejsePlanen</a>. For walking time and distance estimation, we can use on of several distance API providers:</p>
 <ul>
 <li><a href="https://www.rejseplanen.dk/bin/help.exe/mn?L=vs_dot.vs_livemap&amp;tpl=fullscreenmap&amp;custom=sydtrafik_Regionen&amp;view=dsb">Google Distance API</a></li>
 <li><a href="https://www.graphhopper.com/products/">Graphhopper API</a></li>
 <li><a href="https://openrouteservice.org/plans/">OpenRouteservice API</a></li>
 <li><a href="https://wiki.openstreetmap.org/wiki/Routing">Other OSM based services</a></li>
 </ul>
-<p>We can calculate which service and plan that makes most sense. For now, a free tier of something like Open Route Service or Graphhopper would suffice. This depends on how often we need to calculate the walking distance (e.g.&nbsp;home and work is often stable).</p>
+<p>Which one will likely be determined depending on pricing and developer usability, i.e.&nbsp;how easy it is to integrate the API.</p>
+</section>
+<section id="container-diagram" class="level3">
+<h3 class="anchored" data-anchor-id="container-diagram">Container diagram</h3>
+<p>Container diagrams show the different independent units (e.g.&nbsp;a separate processes) that executes code or stores data<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. If we zoom in one level, we get more details about the bits and pieces that needs to be developed in the applications. We are still not dealing with neither components (e.g.&nbsp;a location-based service component) or the actual implemented code.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-container" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p>
+<svg width="672" height="480" viewbox="0.00 0.00 2394.82 1058.83" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1054.83)"> <polygon fill="white" stroke="transparent" points="-4,4 -4,-1054.83 2390.82,-1054.83 2390.82,4 -4,4"></polygon> <g id="clust1" class="cluster">
+<title>
+cluster_6
+</title>
+<polygon fill="none" stroke="#444444" points="593.75,-8 593.75,-787.23 1519.75,-787.23 1519.75,-8 593.75,-8"></polygon> <text text-anchor="start" x="992.73" y="-34.4" font-family="Arial" font-size="24.00" fill="#444444">Garmin App</text> <text text-anchor="start" x="979.67" y="-14.9" font-family="Arial" font-size="19.00" fill="#444444">[Software System]</text> </g> <!-- 1 --> <g id="1" class="node">
+<title>
+1
+</title>
+<polygon fill="#08427b" stroke="#052e56" points="990.84,-1050.83 640.66,-1050.83 640.66,-891.83 990.84,-891.83 990.84,-1050.83"></polygon> <text text-anchor="start" x="766.63" y="-999.23" font-family="Arial" font-size="34.00" fill="#ffffff">Henrik</text> <text text-anchor="start" x="780.37" y="-978.73" font-family="Arial" font-size="19.00" fill="#ffffff">[Person]</text> <text text-anchor="start" x="669.71" y="-941.23" font-family="Arial" font-size="24.00" fill="#ffffff">A user of the Garmin GTFS</text> <text text-anchor="start" x="735.03" y="-917.23" font-family="Arial" font-size="24.00" fill="#ffffff">notification app</text> </g> <!-- 4 --> <g id="4" class="node">
+<title>
+4
+</title>
+<polygon fill="#999999" stroke="#6b6b6b" points="391.26,-738.23 0.25,-738.23 0.25,-555.23 391.26,-555.23 391.26,-738.23"></polygon> <text text-anchor="start" x="71.98" y="-686.62" font-family="Arial" font-size="34.00" fill="#ffffff">Garmin Connect</text> <text text-anchor="start" x="118.67" y="-666.12" font-family="Arial" font-size="19.00" fill="#ffffff">[Software System]</text> <text text-anchor="start" x="29" y="-628.62" font-family="Arial" font-size="24.00" fill="#ffffff">Garmin smartphone application</text> <text text-anchor="start" x="55.7" y="-604.62" font-family="Arial" font-size="24.00" fill="#ffffff">for distributing smartwatch</text> <text text-anchor="start" x="132.38" y="-580.62" font-family="Arial" font-size="24.00" fill="#ffffff">applications</text> </g> <!-- 1&#45;&gt;4 --> <g id="14" class="edge">
+<title>
+1-&gt;4
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M640.68,-959.65C484.69,-946.23 272.66,-917.06 216.63,-855.83 190.54,-827.3 182.54,-786.5 182.09,-748.57"></path> <polygon fill="#707070" stroke="#707070" points="185.59,-748.5 182.15,-738.48 178.59,-748.46 185.59,-748.5"></polygon> <text text-anchor="start" x="216.75" y="-834.23" font-family="Arial" font-size="24.00" fill="#707070">Install Garmin app on</text> <text text-anchor="start" x="266.13" y="-805.43" font-family="Arial" font-size="24.00" fill="#707070">smartwatch.</text> </g> <!-- 8 --> <g id="8" class="node">
+<title>
+8
+</title>
+<polygon fill="#1168bd" stroke="#0b4884" points="1494.58,-762.23 1114.92,-762.23 1114.92,-531.23 1494.58,-531.23 1494.58,-762.23"></polygon> <text text-anchor="start" x="1188.52" y="-710.62" font-family="Arial" font-size="34.00" fill="#ffffff">Webapplication</text> <text text-anchor="start" x="1208.65" y="-690.12" font-family="Arial" font-size="19.00" fill="#ffffff">[Container: JavaScript]</text> <text text-anchor="start" x="1155.32" y="-652.62" font-family="Arial" font-size="24.00" fill="#ffffff">A web application that helps</text> <text text-anchor="start" x="1198.69" y="-628.62" font-family="Arial" font-size="24.00" fill="#ffffff">the user define their</text> <text text-anchor="start" x="1173.34" y="-604.62" font-family="Arial" font-size="24.00" fill="#ffffff">preferences by providing</text> <text text-anchor="start" x="1144.09" y="-580.62" font-family="Arial" font-size="24.00" fill="#ffffff">IF-THIS-THEN-THAT rules for</text> <text text-anchor="start" x="1221.37" y="-556.62" font-family="Arial" font-size="24.00" fill="#ffffff">the garmin app.</text> </g> <!-- 1&#45;&gt;8 --> <g id="23" class="edge">
+<title>
+1-&gt;8
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M783.85,-891.67C776.06,-858.75 775.68,-822.57 799.08,-798.23 820.64,-775.81 1049.01,-796.3 1078.75,-787.23 1096.15,-781.92 1113.55,-774.93 1130.54,-766.91"></path> <polygon fill="#707070" stroke="#707070" points="1132.46,-769.87 1139.93,-762.36 1129.41,-763.57 1132.46,-769.87"></polygon> <text text-anchor="start" x="798.75" y="-834.23" font-family="Arial" font-size="24.00" fill="#707070">Create IF-THIS-THEN-THAT</text> <text text-anchor="start" x="926.08" y="-805.43" font-family="Arial" font-size="24.00" fill="#707070">rules</text> </g> <!-- 2 --> <g id="2" class="node">
+<title>
+2
+</title>
+<polygon fill="#999999" stroke="#6b6b6b" points="2386.88,-383.81 1996.62,-383.81 1996.62,-200.81 2386.88,-200.81 2386.88,-383.81"></polygon> <text text-anchor="start" x="2063.23" y="-332.21" font-family="Arial" font-size="34.00" fill="#ffffff">RejsePlanen API</text> <text text-anchor="start" x="2114.67" y="-311.71" font-family="Arial" font-size="19.00" fill="#ffffff">[Software System]</text> <text text-anchor="start" x="2025.69" y="-274.21" font-family="Arial" font-size="24.00" fill="#ffffff">GTFS data API. Provides lines,</text> <text text-anchor="start" x="2045.67" y="-250.21" font-family="Arial" font-size="24.00" fill="#ffffff">stops, departuer and arrival</text> <text text-anchor="start" x="2069.7" y="-226.21" font-family="Arial" font-size="24.00" fill="#ffffff">times, connections etc.</text> </g> <!-- 3 --> <g id="3" class="node">
+<title>
+3
+</title>
+<polygon fill="#999999" stroke="#6b6b6b" points="1925.1,-395.81 1544.4,-395.81 1544.4,-188.81 1925.1,-188.81 1925.1,-395.81"></polygon> <text text-anchor="start" x="1602.48" y="-344.21" font-family="Arial" font-size="34.00" fill="#ffffff">GIS Distance API</text> <text text-anchor="start" x="1657.67" y="-323.71" font-family="Arial" font-size="19.00" fill="#ffffff">[Software System]</text> <text text-anchor="start" x="1573.33" y="-286.21" font-family="Arial" font-size="24.00" fill="#ffffff">Provides distance and walking</text> <text text-anchor="start" x="1603.38" y="-262.21" font-family="Arial" font-size="24.00" fill="#ffffff">time estimates from user</text> <text text-anchor="start" x="1581.99" y="-238.21" font-family="Arial" font-size="24.00" fill="#ffffff">location to nearest departure</text> <text text-anchor="start" x="1705.4" y="-214.21" font-family="Arial" font-size="24.00" fill="#ffffff">point.</text> </g> <!-- 7 --> <g id="7" class="node">
+<title>
+7
+</title>
+<polygon fill="#1168bd" stroke="#0b4884" points="1042.83,-750.23 618.67,-750.23 618.67,-543.23 1042.83,-543.23 1042.83,-750.23"></polygon> <text text-anchor="start" x="647.46" y="-698.62" font-family="Arial" font-size="34.00" fill="#ffffff">Garmin Smartwatch app</text> <text text-anchor="start" x="714.07" y="-678.12" font-family="Arial" font-size="19.00" fill="#ffffff">[Container: Monkey C SDK]</text> <text text-anchor="start" x="684.68" y="-640.62" font-family="Arial" font-size="24.00" fill="#ffffff">The smartwatch application</text> <text text-anchor="start" x="680.68" y="-616.62" font-family="Arial" font-size="24.00" fill="#ffffff">that is the primary on-the-go</text> <text text-anchor="start" x="692.68" y="-592.62" font-family="Arial" font-size="24.00" fill="#ffffff">way of interacting with the</text> <text text-anchor="start" x="789.41" y="-568.62" font-family="Arial" font-size="24.00" fill="#ffffff">system.</text> </g> <!-- 4&#45;&gt;7 --> <g id="19" class="edge">
+<title>
+4-&gt;7
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M391.45,-646.73C460.05,-646.73 537.59,-646.73 608.22,-646.73"></path> <polygon fill="#707070" stroke="#707070" points="608.59,-650.23 618.59,-646.73 608.59,-643.23 608.59,-650.23"></polygon> <text text-anchor="start" x="427.63" y="-685.72" font-family="Arial" font-size="24.00" fill="#707070">Transfers user</text> <text text-anchor="start" x="436.27" y="-656.92" font-family="Arial" font-size="24.00" fill="#707070">configuration</text> </g> <!-- 7&#45;&gt;1 --> <g id="21" class="edge">
+<title>
+7-&gt;1
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M998.84,-750.28C1025.03,-763.9 1052.22,-776.75 1078.75,-787.23 1097.9,-794.79 1111.04,-782.03 1123.75,-798.23 1139.56,-818.36 1138.36,-834.8 1123.75,-855.83 1094.68,-897.65 1048.41,-924.23 1000.48,-941.11"></path> <polygon fill="#707070" stroke="#707070" points="999.23,-937.84 990.88,-944.36 1001.47,-944.47 999.23,-937.84"></polygon> <text text-anchor="start" x="1134.75" y="-834.23" font-family="Arial" font-size="24.00" fill="#707070">Notifies user about next</text> <text text-anchor="start" x="1180.78" y="-805.43" font-family="Arial" font-size="24.00" fill="#707070">possible transit</text> </g> <!-- 7&#45;&gt;3 --> <g id="22" class="edge">
+<title>
+7-&gt;3
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M1042.91,-545.15C1054.96,-540.26 1066.96,-535.58 1078.75,-531.23 1277.59,-457.77 1341.61,-482.01 1537.75,-401.62 1539.16,-401.05 1540.58,-400.46 1541.99,-399.87"></path> <polygon fill="#707070" stroke="#707070" points="1543.55,-403.01 1551.37,-395.85 1540.8,-396.57 1543.55,-403.01"></polygon> <text text-anchor="start" x="1433.75" y="-473.62" font-family="Arial" font-size="24.00" fill="#707070">Estimates walking time and</text> <text text-anchor="start" x="1534.45" y="-444.82" font-family="Arial" font-size="24.00" fill="#707070">distance</text> </g> <!-- 9 --> <g id="9" class="node">
+<title>
+9
+</title>
+<path fill="#1168bd" stroke="#0b4884" d="M998.46,-381.6C998.46,-392.54 923.29,-401.44 830.75,-401.44 738.21,-401.44 663.04,-392.54 663.04,-381.6 663.04,-381.6 663.04,-203.03 663.04,-203.03 663.04,-192.08 738.21,-183.19 830.75,-183.19 923.29,-183.19 998.46,-192.08 998.46,-203.03 998.46,-203.03 998.46,-381.6 998.46,-381.6"></path> <path fill="none" stroke="#0b4884" d="M998.46,-381.6C998.46,-370.65 923.29,-361.76 830.75,-361.76 738.21,-361.76 663.04,-370.65 663.04,-381.6"></path> <text text-anchor="start" x="757.98" y="-320.21" font-family="Arial" font-size="34.00" fill="#ffffff">Database</text> <text text-anchor="start" x="691.9" y="-299.71" font-family="Arial" font-size="19.00" fill="#ffffff">[Container: Garmin SDK DB API]</text> <text text-anchor="start" x="702.69" y="-262.21" font-family="Arial" font-size="24.00" fill="#ffffff">Stores user preferences</text> <text text-anchor="start" x="738.71" y="-238.21" font-family="Arial" font-size="24.00" fill="#ffffff">(time/destination)</text> </g> <!-- 7&#45;&gt;9 --> <g id="20" class="edge">
+<title>
+7-&gt;9
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M830.75,-542.85C830.75,-501.75 830.75,-454.18 830.75,-411.66"></path> <polygon fill="#707070" stroke="#707070" points="834.25,-411.54 830.75,-401.54 827.25,-411.54 834.25,-411.54"></polygon> <text text-anchor="start" x="830.75" y="-459.22" font-family="Arial" font-size="24.00" fill="#707070">Store user preferences</text> </g> <!-- 8&#45;&gt;2 --> <g id="29" class="edge">
+<title>
+8-&gt;2
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M1494.8,-622.83C1682.65,-597.43 1954.51,-552.37 2043.75,-495.23 2083.22,-469.95 2115.7,-430.14 2140.08,-392.52"></path> <polygon fill="#707070" stroke="#707070" points="2143.06,-394.35 2145.47,-384.03 2137.15,-390.6 2143.06,-394.35"></polygon> <text text-anchor="start" x="2103.75" y="-473.62" font-family="Arial" font-size="24.00" fill="#707070">Get travel time info from</text> <text text-anchor="start" x="2212.45" y="-444.82" font-family="Arial" font-size="24.00" fill="#707070">API</text> </g> <!-- 8&#45;&gt;4 --> <g id="25" class="edge">
+<title>
+8-&gt;4
+</title>
+<path fill="none" stroke="#707070" stroke-dasharray="5,2" d="M1136.71,-762.37C1117.73,-772.01 1098.21,-780.59 1078.75,-787.23 948.98,-831.5 594.07,-861.07 462.69,-821.83 409.2,-805.85 356.47,-775.33 312.19,-744.19"></path> <polygon fill="#707070" stroke="#707070" points="314.2,-741.33 304.03,-738.38 310.14,-747.03 314.2,-741.33"></polygon> <text text-anchor="start" x="462.69" y="-834.23" font-family="Arial" font-size="24.00" fill="#707070">Transfer user preferences</text> <text text-anchor="start" x="552.72" y="-805.43" font-family="Arial" font-size="24.00" fill="#707070">to device</text> </g> </g>
+</svg>
+</p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Container View Garmin GTFS Notification App.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Most of these will need to be implemented, but there are a lot of things that needs to be prototyped first. For instance, I have introduced a Webapplication for configuring the different rules that wil trigger the notification in the scenarios in section <a href="#sec-scenarios">Section&nbsp;1</a>. This is because I don’t know yet if Garmin Connect support more complex configurations of the smartwatch app and if the kind of configurations make sense without a dedicated interaction design and application.</p>
 </section>
 </section>
-<section id="summary-and-bootstrapping-user-stories" class="level2">
-<h2 class="anchored" data-anchor-id="summary-and-bootstrapping-user-stories">Summary and bootstrapping user-stories</h2>
-<p>Now we have an overview over the high level features and the components involve. A lot still need to be figured out, but we can start writing some <em>bootstrapping</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> user-stories. These are often to large and involves a lot of prototyping, which we will deal with in the next post.</p>
-<p>We know that a large part of the interface and interaction design should focus on the Garmin smartwatch, which means that the next couple of tasks will involve developing a <em>hello world</em> application using the Garmin SDK and prototyping some simple interactive prototypes with notifications, snooze, cancel, accept etc.</p>
-<p>We know that user preferences and the data for the application will use the RejsePlanen API. This means that a couple of prototypes should focus on specifying the specific data model for the application and exploring how to integrate the GTFS data.</p>
-<p>And once all those bits are figured out, we can explore how to integrate some walking distance estimates into the application.</p>
-<p>I will return to these in the next post that looks at user-stories in more detail, and a subsequent post on prototypes.</p>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Ok, so now we know a bit more about the application idea from the beginning of the notes. We know what it should do following out scenarios. We know a lot more about the requirements. And we have a rough overview of some of the relationship with other systems from the context diagram and a bit about the inner workings from our container diagram. All in a couple of nights work.</p>
+<p>The two next posts will look at identifying <em>prototypes</em> that can inform our design decisions and how to write <em>user-stories</em> from the scenarios. Stay tuned.</p>
 
 
 
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-benyon2005designing" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">David Benyon, Phil Turner, and Susan Turner. 2005. <em>Designing interactive systems: People, activities, contexts, technologies</em>. Pearson Education.</div>
+</div>
 <div id="ref-rossen2007" class="csl-entry" role="doc-biblioentry">
-Rossen, Mary Beth, and John M. Carroll. 2007. <span>“Scenario-Based Design.”</span> Edited by Andrew Sears and Julie A Jacko, 1032–50.
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Mary Beth Rossen and John M. Carroll. 2007. Scenario-based design. 1032–1050.</div>
+</div>
+<div id="ref-vazquez2020c4" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Andrea Vázquez-Ingelmo, Alicia Garcı́a-Holgado, and Francisco J Garcı́a-Peñalvo. 2020. C4 model in a software engineering subject to ease the comprehension of UML and the software. In <em>2020 IEEE global engineering education conference (EDUCON)</em>, 919–924.</div>
 </div>
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>This is what I call early user-stories that are not neccesary user-stories that users or costumers articulate or recognize, but need to be figured out anyways<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>I have not found a good consistent way to represent requirements. <span class="citation" data-cites="rossen2007">[<a href="#ref-rossen2007" role="doc-biblioref">2</a>]</span> put them in a table, others do elaborate documentation with list of R0-Rn requirements. This is something I want to <a href="https://www.sciencedirect.com/topics/computer-science/requirement-engineering">read up on</a>, but haven’t had the time or need yet.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Perhaps aside for the transit information, but I know from other projects that there is a <a href="https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API">public API for GTFS data in Denmark</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>There is a tool for creating these visualizations under <a href="https://structurizr.com/dsl">Structurizer</a>. I export mine to <a href="https://graphviz.org/">GraphViz</a> for this post.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>The paper is far less informative compared to the <a href="https://c4model.com/">website and videos</a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>I’m still trying to find a balance between what to disclose at this level and what to leave out. For instance, the database might end up being a key/value store on the smartphone and then more a component than a container.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -141,7 +141,7 @@ div.csl-indent {
 </ul>
 <section id="sec-scenarios" class="level2">
 <h2 class="anchored" data-anchor-id="sec-scenarios">A couple of scenarios to get us started</h2>
-<p>I’m using a scenario-based approach to design<span class="citation" data-cites="rossen2007">[<a href="#ref-rossen2007" role="doc-biblioref">2</a>]</span>, where the first goal is to develop a scenario that describes the current situation. Secondly, we will generate a couple of future scenarios. These scenarios will help us anchor the design in the present and address concrete needs, and explore future solutions that allow us identify and make early decisions on design features, technologies, critical prototypes and bootstrapping user-stories.</p>
+<p>I’m using a scenario-based approach to design<span class="citation" data-cites="rossen2007">[<a href="#ref-rossen2007" role="doc-biblioref">3</a>]</span>, where the first goal is to develop a scenario that describes the current situation. Secondly, we will generate a couple of future scenarios. These scenarios will help us anchor the design in the present and address concrete needs, and explore future solutions that allow us identify and make early decisions on design features, technologies, critical prototypes and bootstrapping user-stories.</p>
 <p><em>Henrik (that’s me) is a 40-some white male who work as a researcher at a Computer Science department in the city. He lives in suberbia outside the city with his family. Every morning, Henrik get up around 6, do a short run, and then shower and eats. He helps his family get ready and some days he walks the dog. He usually leave for work between 8 and 9 in the morning (except when he is teaching early) and leaves for home around 16. He wants to commute more often, as a flexible option and to lower his CO2 footprint. However, planning the commute and experiences with frequent delays and lost connections make him chose the comforts of his car over public transport.</em></p>
 <p>That gives us a bit of information on the context, the user and the challenge. Here are two future scenarios:</p>
 <p><em>Henrik is getting ready in the morning. His smartwatch notifies him that the bus for work is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He snoozes the notification. 4 minutes later the notification goes off again. Henrik decides that he is not ready yet, so he press next on the smart watch app. 10 minutes later, his Garmin smartwatch notifices him that the train is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He cancels the notification and pack the last things in his back. 5 minutes later he leaves for the train.</em></p>
@@ -159,13 +159,38 @@ div.csl-indent {
 <li><p>The application ‘knows’ something about the user’s typical departures and destinations (and transit connections).</p></li>
 </ol>
 <p>These are mixes of high level design features (it needs to be a smartwatch application), requirements (integrate location, transit data etc.) and specific interaction design features (<em>snooze</em> notification). We can break it down even further:</p>
-<p>1 Garmin smartwatch application - Need to access the user location - Notification support - Simple user interaction 2 Transit information - Lines / routes - Destinations (stops) - Depature times - Delay time 3 Geographical information - User location - Transit information - Walking distance 4 User profile or setting - Destination preferences</p>
+<ol type="1">
+<li>Garmin smartwatch application
+<ul>
+<li>Need to access the user location</li>
+<li>Notification support</li>
+<li>Simple user interaction</li>
+</ul></li>
+<li>Transit information
+<ul>
+<li>Lines / routes</li>
+<li>Destinations (stops)</li>
+<li>Depature times</li>
+<li>Delay time |</li>
+</ul></li>
+<li>Geographical information
+<ul>
+<li>User location</li>
+<li>Transit information</li>
+<li>Walking distance</li>
+</ul></li>
+<li>User profile or setting
+<ul>
+<li>Destination preferences</li>
+</ul></li>
+</ol>
 <p>I added the last point on geographical information (a map service), because the application need to combine geographical information, e.g.&nbsp;“the user location relative to the stop”. If we identify additional features in the scenarios or write new scenarios, we can return to this step or do it again isolated for the new feature. The lists above is enough to move to the next step. At this point we would skip to a feasibility study if the project contain too many unknowns or high-risk aspect that might mean stopping the project. I see nothing on the list above that shy me away from moving forward<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 </section>
-<section id="context-and-container-diagrams" class="level2">
-<h2 class="anchored" data-anchor-id="context-and-container-diagrams">Context and container diagrams</h2>
-<p>The requirment list above is not complete and a bit abstract. And the list format is not telling about the relationship between the design features of the application. We need a bit more detail before we can start writing code. Recently, I’ve started using the <a href="https://c4model.com/">C4 Model</a> approach as a way to visualise the relationship between requirements, application design and software architecture<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. For this application, it makes sense to sketch out the context and container level because the application draw on a couple of external services. Sketching out the context represent “the different persons or actors involved and external systems that provide any kind of service to our system” and the container level “decomposes the software system in containers. This view outlines the necessary components to provide the services that the system would offer”<span class="citation" data-cites="vazquez2020c4">[<a href="#ref-vazquez2020c4" role="doc-biblioref">3</a>]</span><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Containers can then be further decomposed into a component (modules) design for each container and subsequently into the familiar code-level diagrams from the UML family.</p>
-<p>While some of the diagrams can be replaced with e.g.&nbsp;sequence diagrams <em>once we know how everything will work</em> they provide a better way of sketching rough ideas and <em>what we currently know</em> about the application than traditional UML (in my opinion).</p>
+<section id="a-bit-of-early-software-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="a-bit-of-early-software-architecture">A bit of early software architecture</h2>
+<p>The requirement list above is not complete and a bit abstract. And the list format is not telling about the relationship between the design features of the application. We need a bit more detail before we can start writing code. While UX folks might start developing user journeys or interface sketches, or even better user stories, we need to do some high-level sketching of the software architecture to figure out the building blocks of our application, where the user interacts with the system, critical parts that needs to be prototyped and figured out etc. All this would happen anyways as a consequence of the obvious user story <em>“the user wants to define frequently used transit routes based on location and time of day”</em>. And likely, a lot of this will happen either in parallel with close coordination or in a series of design meetings in the release planning part of the agile process<span class="citation" data-cites="beyer2010user">[<a href="#ref-beyer2010user" role="doc-biblioref">2</a>]</span>.</p>
+<p>When sketching high-level architecture, I’ve started using the <a href="https://c4model.com/">C4 Model</a> approach as a way to visualise the relationship between requirements, application design and software architecture<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. For this application, it makes sense to sketch out the context and container level because the application draw on a couple of external services. Sketching out the context represent <em>“the different persons or actors involved and external systems that provide any kind of service to our system”</em> and the container level <em>“decomposes the software system in containers. This view outlines the necessary components to provide the services that the system would offer”</em><span class="citation" data-cites="vazquez2020c4">[<a href="#ref-vazquez2020c4" role="doc-biblioref">4</a>]</span><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Containers can then be further decomposed into a component (modules) design for each container and subsequently into the familiar code-level diagrams from the UML family.</p>
+<p>While some of the diagrams can be replaced with e.g.&nbsp;sequence diagrams <em>once we know how everything will work</em>, context and container diagrams provide a better way of sketching rough ideas and <em>what we currently know</em> about the application than traditional UML (in my opinion).</p>
 <section id="context-diagram" class="level3">
 <h3 class="anchored" data-anchor-id="context-diagram">Context diagram</h3>
 <p>The context diagram allow us to focus on the user and application, and the other systems that they interact with as part of the use.</p>
@@ -335,16 +360,19 @@ cluster_6
 <div id="ref-benyon2005designing" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">1. </div><div class="csl-right-inline">David Benyon, Phil Turner, and Susan Turner. 2005. <em>Designing interactive systems: People, activities, contexts, technologies</em>. Pearson Education.</div>
 </div>
+<div id="ref-beyer2010user" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Hugh Beyer. 2010. <em>User-centered agile methods</em>. Morgan &amp; Claypool Publishers. <a href="https://doi.org/10.2200/S00286ED1V01Y201002HCI010">https://doi.org/10.2200/S00286ED1V01Y201002HCI010</a></div>
+</div>
 <div id="ref-rossen2007" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">Mary Beth Rossen and John M. Carroll. 2007. Scenario-based design. 1032–1050.</div>
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Mary Beth Rossen and John M. Carroll. 2007. Scenario-based design. 1032–1050.</div>
 </div>
 <div id="ref-vazquez2020c4" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline">Andrea Vázquez-Ingelmo, Alicia Garcı́a-Holgado, and Francisco J Garcı́a-Peñalvo. 2020. C4 model in a software engineering subject to ease the comprehension of UML and the software. In <em>2020 IEEE global engineering education conference (EDUCON)</em>, 919–924.</div>
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Andrea Vázquez-Ingelmo, Alicia Garcı́a-Holgado, and Francisco J Garcı́a-Peñalvo. 2020. C4 model in a software engineering subject to ease the comprehension of UML and the software. In <em>2020 IEEE global engineering education conference (EDUCON)</em>, 919–924.</div>
 </div>
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>I have not found a good consistent way to represent requirements. <span class="citation" data-cites="rossen2007">[<a href="#ref-rossen2007" role="doc-biblioref">2</a>]</span> put them in a table, others do elaborate documentation with list of R0-Rn requirements. This is something I want to <a href="https://www.sciencedirect.com/topics/computer-science/requirement-engineering">read up on</a>, but haven’t had the time or need yet.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>I have not found a good consistent way to represent requirements. <span class="citation" data-cites="rossen2007">[<a href="#ref-rossen2007" role="doc-biblioref">3</a>]</span> put them in a table, others do elaborate documentation with list of R0-Rn requirements. This is something I want to <a href="https://www.sciencedirect.com/topics/computer-science/requirement-engineering">read up on</a>, but haven’t had the time or need yet.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Perhaps aside for the transit information, but I know from other projects that there is a <a href="https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API">public API for GTFS data in Denmark</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>There is a tool for creating these visualizations under <a href="https://structurizr.com/dsl">Structurizer</a>. I export mine to <a href="https://graphviz.org/">GraphViz</a> for this post.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>The paper is far less informative compared to the <a href="https://c4model.com/">website and videos</a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

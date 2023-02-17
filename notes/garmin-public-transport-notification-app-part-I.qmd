@@ -48,28 +48,33 @@ These scenarios allow us to discuss and think about the design before we make to
 
 These are mixes of high level design features (it needs to be a smartwatch application), requirements (integrate location, transit data etc.) and specific interaction design features (_snooze_ notification). We can break it down even further:
 
-1 Garmin smartwatch application
+
+1. Garmin smartwatch application
     - Need to access the user location
     - Notification support
     - Simple user interaction
-2 Transit information
+2. Transit information
     - Lines / routes
     - Destinations (stops)
     - Depature times
-    - Delay time
-3 Geographical information
+    - Delay time |
+3. Geographical information
     - User location
     - Transit information 
     - Walking distance
-4 User profile or setting
+4. User profile or setting
     - Destination preferences
 
 I added the last point on geographical information (a map service), because the application need to combine geographical information, e.g. "the user location relative to the stop". If we identify additional features in the scenarios or write new scenarios, we can return to this step or do it again isolated for the new feature. The lists above is enough to move to the next step. At this point we would skip to a feasibility study if the project contain too many unknowns or high-risk aspect that might mean stopping the project. I see nothing on the list above that shy me away from moving forward^[Perhaps aside for the transit information, but I know from other projects that there is a [public API for GTFS data in Denmark](https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API)]. 
 
-## Context and container diagrams
-The requirment list above is not complete and a bit abstract. And the list format is not telling about the relationship between the design features of the application. We need a bit more detail before we can start writing code. Recently, I've started using the [C4 Model](https://c4model.com/) approach as a way to visualise the relationship between requirements, application design and software architecture^[There is a tool for creating these visualizations under [Structurizer](https://structurizr.com/dsl). I export mine to [GraphViz](https://graphviz.org/) for this post.]. For this application, it makes sense to sketch out the context and container level because the application draw on a couple of external services. Sketching out the context represent "the different persons or actors involved and external systems that provide any kind of service to our system" and the container level "decomposes the software system in containers. This view outlines the necessary components to provide the services that the system would offer"[@vazquez2020c4]^[The paper is far less informative compared to the [website and videos](https://c4model.com/).]. Containers can then be further decomposed into a component (modules) design for each container and subsequently into the familiar code-level diagrams from the UML family.
 
-While some of the diagrams can be replaced with e.g. sequence diagrams _once we know how everything will work_ they provide a better way of sketching rough ideas and _what we currently know_ about the application than traditional UML (in my opinion).
+## A bit of early software architecture
+
+The requirement list above is not complete and a bit abstract. And the list format is not telling about the relationship between the design features of the application. We need a bit more detail before we can start writing code. While UX folks might start developing user journeys or interface sketches, or even better user stories, we need to do some high-level sketching of the software architecture to figure out the building blocks of our application, where the user interacts with the system, critical parts that needs to be prototyped and figured out etc. All this would happen anyways as a consequence of the obvious user story _"the user wants to define frequently used transit routes based on location and time of day"_. And likely, a lot of this will happen either in parallel with close coordination or in a series of design meetings in the release planning part of the agile process[@beyer2010user].
+
+When sketching high-level architecture, I've started using the [C4 Model](https://c4model.com/) approach as a way to visualise the relationship between requirements, application design and software architecture^[There is a tool for creating these visualizations under [Structurizer](https://structurizr.com/dsl). I export mine to [GraphViz](https://graphviz.org/) for this post.]. For this application, it makes sense to sketch out the context and container level because the application draw on a couple of external services. Sketching out the context represent _"the different persons or actors involved and external systems that provide any kind of service to our system"_ and the container level _"decomposes the software system in containers. This view outlines the necessary components to provide the services that the system would offer"_[@vazquez2020c4]^[The paper is far less informative compared to the [website and videos](https://c4model.com/).]. Containers can then be further decomposed into a component (modules) design for each container and subsequently into the familiar code-level diagrams from the UML family.
+
+While some of the diagrams can be replaced with e.g. sequence diagrams _once we know how everything will work_, context and container diagrams provide a better way of sketching rough ideas and _what we currently know_ about the application than traditional UML (in my opinion).
 
 ### Context diagram
 The context diagram allow us to focus on the user and application, and the other systems that they interact with as part of the use. 

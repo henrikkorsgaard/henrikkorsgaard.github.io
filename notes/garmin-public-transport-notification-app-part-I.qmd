@@ -72,13 +72,15 @@ I added the last point on geographical information (a map service), because the 
 
 The requirement list above is not complete and a bit abstract. And the list format is not telling about the relationship between the design features of the application. We need a bit more detail before we can start writing code. While UX folks might start developing user journeys or interface sketches, or even better user stories, we need to do some high-level sketching of the software architecture to figure out the building blocks of our application, where the user interacts with the system, critical parts that needs to be prototyped and figured out etc. All this would happen anyways as a consequence of the obvious user story _"the user wants to define frequently used transit routes based on location and time of day"_. And likely, a lot of this will happen either in parallel with close coordination or in a series of design meetings in the release planning part of the agile process[@beyer2010user].
 
-When sketching high-level architecture, I've started using the [C4 Model](https://c4model.com/) approach as a way to visualise the relationship between requirements, application design and software architecture^[There is a tool for creating these visualizations under [Structurizer](https://structurizr.com/dsl). I export mine to [GraphViz](https://graphviz.org/) for this post.]. For this application, it makes sense to sketch out the context and container level because the application draw on a couple of external services. Sketching out the context represent _"the different persons or actors involved and external systems that provide any kind of service to our system"_ and the container level _"decomposes the software system in containers. This view outlines the necessary components to provide the services that the system would offer"_[@vazquez2020c4]^[The paper is far less informative compared to the [website and videos](https://c4model.com/).]. Containers can then be further decomposed into a component (modules) design for each container and subsequently into the familiar code-level diagrams from the UML family.
+When sketching high-level architecture, I've started using the [C4 Model](https://c4model.com/) approach as a way to visualise the relationship between requirements, application design and software architecture^[There is a tool for creating these visualizations under [Structurizer](https://structurizr.com/dsl). I export mine to [GraphViz](https://graphviz.org/) for this post.]. For this application, it makes sense to sketch out the context and container level because the application draw on a couple of external services. 
 
-While some of the diagrams can be replaced with e.g. sequence diagrams _once we know how everything will work_, context and container diagrams provide a better way of sketching rough ideas and _what we currently know_ about the application than traditional UML (in my opinion).
+
+Sketching out the context includes the people (actors, roles, personas etc.) and the software systems that build up the application and and the context. This include additional systems the users and future system interacts with.The container diagram are the neccesary building blocks that provides the services that the system would offer. This level focus on high-level technologies and seperated deployable units such as a service, database, web-application etc. Containers can then be further decomposed into a component (modules) design for each container and subsequently into the familiar code-level diagrams from the UML family^[See the [website and videos](https://c4model.com/) for details and examples.]
+
+The diagrams can move from sketches (that is how I use them right now) to documentation that reflects how the actual system work. While some of the diagrams do show stuff that a sequence diagram would also capture _once we know how everything will work_, context and container diagrams provide a better way of sketching rough ideas and _what we currently know_ about the application than traditional UML (in my opinion).
 
 ### Context diagram
 The context diagram allow us to focus on the user and application, and the other systems that they interact with as part of the use. 
-
 ```{dot}
 //| label: fig-context
 //| fig-cap: System Context Garmin GTFS Notification App.
@@ -108,7 +110,6 @@ digraph {
 }
 
 ```
-
 The above figure give a high level overview of how the user will interact with the various parts of the application and how the application will interact with other systems it depends on. 
 A bit of research reveal that Garmin use their Connect IQ application (for Android and iOS) to distribute smartwatch applications. When installed on the watch, the Connect IQ shows the application on your smartphone and provide ways of configuring the application. This way, the user avoid having to do the personalization on a small device like a smartwatch and can leverage the larger display, better input and network connection of their smartphone.
 
@@ -123,7 +124,6 @@ Which one will likely be determined depending on pricing and developer usability
 
 ### Container diagram
 Container diagrams show the different independent units (e.g. a separate processes) that executes code or stores data^[I'm still trying to find a balance between what to disclose at this level and what to leave out. For instance, the database might end up being a key/value store on the smartphone and then more a component than a container.]. If we zoom in one level, we get more details about the bits and pieces that needs to be developed in the applications. We are still not dealing with neither components (e.g. a location-based service component) or the actual implemented code. 
-
 ```{dot}
 //| label: fig-container
 //| fig-cap: Container View Garmin GTFS Notification App.
@@ -163,7 +163,6 @@ digraph {
   8 -> 2 [id=29, label=<<font point-size="24">Get travel time info from<br />API</font>>, style="dashed", color="#707070", fontcolor="#707070"]
 }
 ```
-
 Most of these will need to be implemented, but there are a lot of things that needs to be prototyped first. For instance, I have introduced a Webapplication for configuring the different rules that wil trigger the notification in the scenarios in section @sec-scenarios. This is because I don't know yet if Garmin Connect support more complex configurations of the smartwatch app and if the kind of configurations make sense without a dedicated interaction design and application.
 
 ## Summary

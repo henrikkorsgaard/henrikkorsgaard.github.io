@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Henrik Korsgaard – vota-si</title>
+<title>Henrik Korsgaard - Vota-si: Replaying Twitter Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,10 +93,102 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Vota-si: Replaying Twitter Data</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<br>
+<figure style="margin:auto; margin-left:90px;text-align:center;display:inline-block;" class="figure">
+<iframe src="https://player.vimeo.com/video/240658332" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="" style="margin:auto;display:block;">
+</iframe>
+<figcaption class="figure-caption">
+Cassolada Robótica by <a href="https://josecarlosflorez.com/"> Josecarlos Florez</a>
+</figcaption>
+</figure>
+<p><br></p>
+<p>In 2017, I helped artist <a href="https://josecarlosflorez.com/">Josecarlos Florez</a> create an installation that replays Twitter data from the Catalan independece referendum vote in October 2017.</p>
+<p>Josecarlos created the lovely video above on the project. I really like the project and the kind of spur-of-the-moment connection we made. It is Josecarlos’s idea, I’m just happy that I got a chance to collaborate with him.</p>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>In 2017, I was in Barcelona to conduct interviews with people involved in a civic data collection and visualisation project. This was during the Catalan independece referendum vote in October 2017. At that point the city was full of signs and posters encouraging either “Vota Si” or “Vota No”. The first night I was startled by loud metallic banging at 22.00 in the city. I soon learned that the people of Barcelona bang their pots and pans outside in support for the referendum.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../public/images/vota-si/vota-si.jpg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>A few days later I ended up interviewing a designer and media artist named Josecarlos Florez on his participation in the data project. He participated in the project because he was fascinated by data and how it can be used to influence local political issues. After the interview he started talking about an idea he had for an upcoming installation involving people’s conversation on the referendum on social media. He asked if I knew how to mine Twitter data. I do and I liked the idea and started working on it as soon as I came back to my hotel.</p>
+</section>
+<section id="replaying-twittert-data" class="level2">
+<h2 class="anchored" data-anchor-id="replaying-twittert-data">Replaying Twittert Data</h2>
+<p>Josecarlos’ idea was simple. He wanted to capture tweets based on hashtags associated with the vote and in particular the two sides. Then he wanted to record the timestamps of the tweets and store the timing. This would then be used to play back the tweets on pots and pans, while a display would show the tweets.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hastags associated with yes voters</th>
+<th>Hastags associated with no voters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>#Votarem</td>
+<td>#NoVotarem</td>
+</tr>
+<tr class="even">
+<td>#ReferendumCatalan</td>
+<td>#NoVotareis</td>
+</tr>
+<tr class="odd">
+<td>#CatalanReferendum</td>
+<td>#EspanaSeLevanta</td>
+</tr>
+<tr class="even">
+<td>#Independencia</td>
+<td>#EspanaSaleALaCalle</td>
+</tr>
+<tr class="odd">
+<td>#CatalunaLibre</td>
+<td>#EspanaUnida</td>
+</tr>
+<tr class="even">
+<td>#1oct</td>
+<td>#CatalunaEsEspana</td>
+</tr>
+<tr class="odd">
+<td>#1o</td>
+<td>#Referendumilegal</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>#EspanaNoSeRompe</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>#Unidad</td>
+</tr>
+</tbody>
+</table>
+<p>I set up a simple data mining script in preperation for October 1st and captured the data. I used NodeJS to mine the data using the Twitter API and the keywords above. I stored each tweet in a MongoDB and checked for dublicates, e.g.&nbsp;retweets without any comments etc. In order to allow Josecarlos to replay the data, I created a small websocket server, also using NodeJS, and create an entry-point on my website. This allowed him to connect his Arduino setup and replay the data in his installation.</p>
+<p>Josecarlos made the brilliant setup in the video above to replay the data on pots using an Arduino and home-made drum-like actuators. The tweets are replayed on the laptop as well.</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

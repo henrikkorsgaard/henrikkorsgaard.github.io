@@ -89,3 +89,34 @@ header#quarto-header {
 .footer .nav-footer {
     border:none !important;
 }
+
+.thing {
+    vertical-align: top;
+    border:1px solid #222255;
+    display:inline-block;
+    width:400px;
+    height:300px;
+    margin:10px;
+}
+.thing img {
+    width:100%;
+}
+
+.thing h1 {
+    position: relative;
+    top:-100px;
+    background:#222255;
+    color:white;
+    font-family: 'Work Sans', sans-serif;
+    font-size:1.3em;
+    text-align: center;
+    margin:0px;
+    padding:10px;
+}
+
+.thing a {
+    text-decoration: none;
+    margin:0;
+    padding:0;
+}
+

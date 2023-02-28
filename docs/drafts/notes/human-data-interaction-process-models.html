@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Henrik Korsgaard - Human-Data Interaction Process models</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../public/images/henrik-transparent.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../notes.html">
+ <span class="menu-text">NOTES</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../things.html">
+ <span class="menu-text">THINGS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research.html">
+ <span class="menu-text">RESEARCH</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">ABOUT</span></a>
+  </li>  
+</ul>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Human-Data Interaction Process models</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In this note I am trying to identify a useful design or process model for Human-Data Interaction. I am not going to claim that HDI <em>need</em> a process model that stand a part from all the others, rather I would argue that we need an integrative one given that HDI is defined as <em>“the human manipulation, analysis and sense-making of data.”</em> Elmqvist (2011). My own interest can be formulated as the challenge of asking good questions to data, or rather, supporting citizens in asking good questions to public data. This involves examining the genesis of the question (information need) and how this interacts with data and the answer, and the process in between. A process model is useful tool in many ways:</p>
+<p>Because different disciplines are concerned with different stages and have identified specific challenges and solutions, a process model is a tool for identifying and organize particular challenges, prior work, useful techniques and representations across multiple perspectives. For instance, knowledge discovery concerns itself with the early part of the data analytics process (Fayyad et al.&nbsp;1996), (visual) analytics with the middle part (Sacha et al.&nbsp;2014) and information visualization with the presentation (McKenna et al.&nbsp;2014). None of these areas ignore the other steps, but take particular interest in challenges and solutions for a few primary aspects of the process.</p>
+<p>Process models also describe and organize <em>work</em> and <em>division of labor</em>. They say something about what needs to be done when and by whom. This can be between collaborators, specialties, and consequently, the different tools and approaches applied in the process. Some pipeline models, like visualization or machine learning pipelines, describe technical systems, the <em>flow</em> of data and how this is processed once the system have been implemented (Moreland 2013). These can also be considered process models, because the individual components need to be developed and appropriated to the data and task at some point. A <em>pipeline</em> is also an object of design<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Finally, there are a class of process models that deal with the challenge of moving from an articulated need to a solutions through a series of activities that inform both the need and the solution (they all do). While Royces’ (1960) initial waterfall model describe a software engineering process, it also grapples with the inherent challenge of dealing with internal and external change in the process. When we start working on a problem, the work changes the articulation and nature of the problem as well as informing the solution (Dewey 1933, Popper 1966, Simon 1973, Rittel and Webber 1973, Schön 1983). While the models do not all take the iterative nature of the work into account, it is fundamental to the process <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Design process models often put a strong emphasis on iteration, agile software engineering similarly, and a lot of the classical models also acknowledge the need for revisiting previous steps (e.g.&nbsp;Li et al.&nbsp;2016). This is perhaps more about process thinking, sense-making, problem-solution formulation and dialectic reasoning, but this underscores any process.</p>
+<p>The intent is to focus on relevance for human-data interaction, without venturing too far into specific topic areas or entire fields. I will include works that talk about ‘information’ (needs, seeking, behaviour) and knowledge discovery as well, as it plays a crucial role in motivating HDI and is a part of the outcome of the process – one want to be informed, know more about something than before and/or get a new perspective.</p>
+<section id="a-simple-organizing-model" class="level2">
+<h2 class="anchored" data-anchor-id="a-simple-organizing-model">A simple organizing model</h2>
+<p>The primary focus will be to describe a working model that allow us to identify and organize prior work and important problems for research <em>and</em> application. The model combine multiple models and I will do my best to pay attention to language and differences in the emphasis.</p>
+<section id="information-need" class="level3">
+<h3 class="anchored" data-anchor-id="information-need">Information need</h3>
+<p>The process and model begin with an <em>information need</em>. What an information is or can be is an open question and pertains to the individual case. <span class="citation" data-cites="hofstede1996query">@hofstede1996query</span> argue that it can be that of an organisation or individuals, which suggest that it is already articulated (which may be the case). It is also common that the information need comes from someone else, e.g.&nbsp;a client (find research on this) or someone else in the organization that <em>needs to know something</em> (find research on this). Regardless, an information need is often open and vague, and <em>“a subjective experience that occurs only in the mind of the person in need and, consequently, is not directly accessible to an observer”</em> <span class="citation" data-cites="wilson1997information">[@wilson1997information]</span>. Articulating the neeed is therefor inherently challenging and prone to <em>“I don’t know what I’m looking for, but I’ll know when I find it”</em> <span class="citation" data-cites="hofstede1996query">[@hofstede1996query]</span>. This means that an information need can start with something puzzeling that needs to be informed before a concret question can be articulated: <em>“A question well put is half answered”</em> <span class="citation" data-cites="dewey1933">[@dewey1933]</span>. This is a dialectical process that involves taking initial steps into the process: <em>“In fact, a number of the real world analysts we have interviewed strongly emphasized the fact that interation with the data leads to the formation of hypotheses.”</em> <span class="citation" data-cites="brachman1994process">[@brachman1994process]</span> And it is assumed that it is a social process and involves collaborative sensemaking <span class="citation" data-cites="paul2010understanding">[@paul2010understanding]</span>.</p>
+<p>There are seveal things to consider here. First, the information need does not come out of the void. It comes from everyday experiences, and often when confronted with something that is puzzling and prompts further inquery. I speculate that when it comes to data-centric information needs, it can be triggered by being exposed to something that is already data-laden:</p>
+<ul>
+<li>When seeing ones electricity bill, one may wonder how the electricity price is determined or how much of the consumption is green energy?</li>
+<li>When experiencing delays in public transport, one may wonder how frequent such delays are or if there is a way to determine where the bus is currently?</li>
+<li>When discussing the climate crisis, one may question how much impact the individual have or what kind of habit changes make the biggest difference?</li>
+</ul>
+<p>In the context of HDI, we assume that the user is somewhat motivated to find the information within a structure database or trusted source, and will not just be satisfied by searching the web. This is likely the case in a majority of instances, but we are only interested in supporting the transition from information need to interacting with data.</p>
+<p>So, the first challenge and research theme in HDI interaction should be how people construct their information need – what is it they need to know? Why? and how does this develop and change througout the process? Is the final outcome an answer to the original information need or did it change?</p>
+<p>Important readings here are both within philosophy on reasoning, problem formulation, dialectices etc. and traditional work within information sciences on information need and information seeking behaviour.</p>
+<p>I am not sure this is so relevant in understanding HDI, but for background stuff it might be.</p>
+</section>
+<section id="data-discovery" class="level3">
+<h3 class="anchored" data-anchor-id="data-discovery">Data discovery</h3>
+<p>Once some initial information need is articulated, the user will need to find some data that can inform this. In early work on knowledge discovery it was assumed that this involved consulting familiar data sources, e.g.&nbsp;a database within the organization or similar. For a subset of scenarios, this is also the case today, e.g.&nbsp;within business analysis, analytics, applied data science and modelling. However, with all the available data and the likelyhood that the information needer is not someone working close to a specific domain-specific database, this can easily involve trying to discover data that can inform the question.</p>
+<p>People within KDD talk about this step in the same way as they talk about wrangling.</p>
+<p>I think that this is more of an issue of identifying and establishing initial ideas about data platforms.</p>
+<ul>
+<li>consensus data</li>
+<li>open data</li>
+<li>world et.c</li>
+</ul>
+<p>– search – assessment</p>
+<p>– Reddit study – Open data study</p>
+</section>
+<section id="data-exploration" class="level3">
+<h3 class="anchored" data-anchor-id="data-exploration">Data exploration</h3>
+</section>
+<section id="data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling">Data wrangling</h3>
+</section>
+<section id="data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="data-analysis">Data analysis</h3>
+</section>
+<section id="data-products-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="data-products-outcomes">Data products (outcomes)</h3>
+<ul>
+<li><p>what</p></li>
+<li><p>representation</p></li>
+<li><p>application</p></li>
+<li><p>what are the key elements</p></li>
+<li><p>what are the vision</p></li>
+<li><p>what are the challenges</p></li>
+<li><p>what are the empirical studies</p></li>
+<li><p>what are the technical studies</p></li>
+<li><p>what are the key challenges</p></li>
+</ul>
+<p>Currently, I am drawing on a basic step model that intends to describe the many places in common data analysis processes people may interact with data:</p>
+</section>
+</section>
+<section id="existing-models" class="level2">
+<h2 class="anchored" data-anchor-id="existing-models">Existing models</h2>
+</section>
+<section id="kdd" class="level2">
+<h2 class="anchored" data-anchor-id="kdd">KDD</h2>
+<p>“Data mining and knowledge discovery in databases (KDD) are concerned with extracting models and patterns of interest from large databases.” [[KDD-datamining-fayyad-1997.pdf]]</p>
+<p>Traditional use of data has been limited to querying a reliable store vial some well-circumscribed application or report generating entity. - High degree of familiarity with the data and the processes the data are a product of - High degree of familiarity with the data model, storage and infrastucture.</p>
+<p>While the traditional mode of interaction is satisfactory for a wide-class of well-defined processes, it was not designed to support data exploration and ad hoc querying of the data.</p>
+<ul>
+<li>How can we understand the data?</li>
+</ul>
+<p>“These questions become particularly important in the presence of massive data sets since they represent a large body of information that is presumed to be valuable, yet is far from accessible. The currently available interfaces between humans and machines give little support to navigation, exploration, summarization, or modeling of large databases.” [[KDD-datamining-fayyad-1997.pdf]]</p>
+<p>Data mining as computer-driven exploration of the data.</p>
+<p>Problem in database research is the</p>
+<p>“A problem that has not received much attention in database research is the <em>query formulation problem</em>: how can we provide access to data when the user does not know how to describe the goal in terms of a specific query?” [[KDD-datamining-fayyad-1997.pdf]]</p>
+</section>
+<section id="visualisation-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="visualisation-pipeline">Visualisation pipeline</h2>
+<p>So, essentially “Making open data more available” is a research challenge that spans the following disciplines</p>
+<ul>
+<li>Databases and datamining: information retrival paradigme and knowledge</li>
+</ul>
+<p>While each community have addressed the problem within their topic area, the nature of the problems and solutions beyond speciality-oriented solutions, have not been studied.</p>
+<p>The different stages, models and areas have some commonalities:</p>
+<ul>
+<li>The interaction is highly dialectical</li>
+<li>Solutions focus (indirectly) on multimodal interation oppertunities on all levels</li>
+<li>It is always a socio-technical challenge where idealized proces models are crystalized into tooling and the advocacy is moving from human-processes, to computer-mediated processes to automation of as many steps as possible.</li>
+<li></li>
+</ul>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>“Contrary to the more common notion that the output of a knowledge discovery system is simply some fragment of ‘knowledge’, the output of the knowledge discovery process in a commercial setting, at leaast, wodul more typically be the specification for a knowledge discovery <em>application</em>” <span class="citation" data-cites="brachman1994process">[@brachman1994process]</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>“While there may be a nominal canonical order for the above phases, the entire process is iterative and the analyst can move from almost any phase to almost any other at any time.”<span class="citation" data-cites="brachman1994process">[@brachman1994process]</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Henrik: This will challenge any instance where the project is collaborative, see <span class="citation" data-cites="choi2017characteristics">@choi2017characteristics</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{korsgaard2022,
+  author = {Henrik Korsgaard},
+  title = {Human-Data {Interaction} {Process} Models},
+  date = {2022-11-01},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-korsgaard2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Henrik Korsgaard. 2022. <span>“Human-Data Interaction Process
+Models.”</span>
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://hci.social/web/@heenrik">
+      <i class="bi bi-mastodon" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:korsgaard@protonmail.com?Subject=I%20saw%20your%20website...">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/henrikkorsgaard">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
+
+
+
+</body></html>

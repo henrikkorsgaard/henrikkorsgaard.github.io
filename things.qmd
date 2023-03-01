@@ -1,13 +1,20 @@
 <div class="thing" style="overflow:hidden;">
+<a href="./things/collaborative-writing.html">
+<img style="margin-top:0px; width:1400px;position:relative;left:-40px;top:0px;" src="/public/images/collaborative-writing/collaborative-writing-vis-1.png">
+<h1>Visualizing Collaboration Collaborative Writing</h1></a>
+</div>
+
+
+<div class="thing" style="overflow:hidden;">
 <a href="./things/vota-si.html">
 <img style="margin-top:0px; width:550px;position:relative;left:-80px;" src="/public/images/vota-si/vota-si.gif">
-<h1 style="margin-top:-8px;">Vota Si: Replaying Twitter Data</h1></a>
+<h1>Vota Si: Replaying Twitter Data</h1></a>
 </div>
 
 <div class="thing" style="overflow:hidden;">
 <a href="./things/cbr-installation.html">
 <img style="margin-top:0px; width:550px;position:relative;left:-40px;top:-50px;" src="/public/images/cbr/cbr-city-hall.png">
-<h1 style="margin-top:-72px;">City Bug Report: Visualizing Civic Data</h1></a>
+<h1>City Bug Report: Visualizing Civic Data</h1></a>
 </div>
 
 

@@ -1,0 +1,60 @@
+---
+title: "Visualizing Collaborative Writing Patterns"
+bibliography:
+ - ../references/self.bib
+csl: ../references/apa.csl
+---
+
+#### _What can we learn about collaboration and collaborative writing from visualizing document revisions?_
+
+![](/public/images/collaborative-writing/collaborative-writing-vis-2.png){fig-align="center"}
+
+We can learn a lot, it turns out. In this research project, we developed a series of visualizations of document revisions to support qualitative interviews and analysis related to collaborative writing, approches, division of labour and contributions to a shared text.
+
+We interviewed multiple groups of people writing together and got access to their shared document. From there, we downloaded the revisions and analyzed them using tools (scripts) developed for the task.
+
+The main focus of the visualizations was to identify _where_ in the document authors worked and _when_ in relation to the _work of their co-authors_. We hypothesized that authors divided the writing into tasks centered around particular sections in the document, e.g. being responsible for a specific section. What we call "territories" in the research publication.
+
+To inform this hypotheses and identify territories and collaborative writing patterns (hand-over, edits etc.), we analyzed Google Document text revisions. These consist of one insert or remove operation with n characters. Google Document text operations are _chronological_, so the main challenge is to analyse the revisions in terms of where they are in the document. 
+
+## Insights
+
+The visualizations helped us identify a few interesting patterns on how co-authors write together over time. These correlate with the themes from the qualitative interviews, see @larsen2019territorial. Figure @fig-reading show how to read the visualizations. Each line in the visualizations corresponds to a paragraph in the text and the order the spatial/indexical order of the edits. For some paragraphs, we only see a few blocks, e.g. one for a copy-paste, whereas for other we see significantly more edits (both characters currently in the paragraph and deleted character).
+
+::: {#fig-reading}
+![](/public/images/collaborative-writing/collaborative-writing-explaination.png){fig-align="center"}
+
+How to read the visualizations. Each line in the visualization corresponds to a paragraph in the shared document.
+:::
+
+First, we observed the territories hypothesized in the research. Figure @fig-territories show how several authors (blue, yellow and green) work in different parts of a larger document, with few edits in the blocks of the co-authors.
+
+::: {#fig-territories}
+![](/public/images/collaborative-writing/collaborative-writing-vis-1.png){fig-align="center"}
+
+A visual example of author territories. 
+:::
+
+Second, we observed that collaborative writing often means people divide the sections and do the bulk of the writing in their part of the document. When writing in other people's paragraphs, the visualization show that this is typically smaller edits (typos, wording etc.) and/or transitions between different paragraphs. Figure @fig-edits illustrate this with a lot of small fragmented edits and transition edits in the beginning or end of the paragraph (see e.g. the second line in figure @fig-edits).
+
+::: {#fig-edits}
+![](/public/images/collaborative-writing/collaborative-writing-vis-2.png){fig-align="center"}
+
+A a visual example with a fragmented edit history.
+:::
+
+
+Third, the visualizations helped us to identify the temporal patterns of collaborative writing. Figure @fig-temporal-edits show how two collaborators -- author A and author B -- write together. A started writing, then added a few bits here and there, and then B take over and adds text in the middle and end of the paragraph (and then later C -- green joins and add text in the beginning).
+
+::: {#fig-temporal-edits}
+![](/public/images/collaborative-writing/turntaking.png){fig-align="center"}
+
+Temporal analysis examining turn-taking in document revisions.
+:::
+
+## Publication
+The work and visualizations are primary research instruments to answer a research questions. The work is available in our paper on ["Territorial Functioning in Collaborative Writing"](/public/pdfs/territorial-functioning-in-collaborative-writing.pdf).
+
+My main contribution to the work was developing the analysis and visualizations of the Google Document revisions.
+
+I have considered further developing this work toward a tool, but the incentives are a bit absent at the moment. 

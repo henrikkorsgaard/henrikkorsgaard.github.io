@@ -1,7 +1,7 @@
 <div class="thing" style="overflow:hidden;">
 <a href="./things/collaborative-writing.html">
 <img style="margin-top:0px; width:1400px;position:relative;left:-40px;top:0px;" src="/public/images/collaborative-writing/collaborative-writing-vis-1.png">
-<h1>Visualizing Collaboration Collaborative Writing</h1></a>
+<h1>Visualizing Collaborative Writing</h1></a>
 </div>
 
 

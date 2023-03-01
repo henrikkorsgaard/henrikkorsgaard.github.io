@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Henrik Korsgaard - City Bug Report: Visualizing Public Data</title>
+<title>Henrik Korsgaard - City Bug Report: Visualizing Civic Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,18 +23,20 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -50,7 +52,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -60,25 +62,25 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../public/images/henrik-transparent.png" alt="" class="navbar-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../public/images/henrik-transparent.png" alt="" class="navbar-logo">
     </a>
   </div>
           <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../notes.html">
+    <a class="nav-link" href="../notes.html">
  <span class="menu-text">NOTES</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../things.html">
+    <a class="nav-link" href="../things.html">
  <span class="menu-text">THINGS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research.html">
+    <a class="nav-link" href="../research.html">
  <span class="menu-text">RESEARCH</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
+    <a class="nav-link" href="../index.html">
  <span class="menu-text">ABOUT</span></a>
   </li>  
 </ul>
@@ -95,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">City Bug Report: Visualizing Public Data</h1>
+<h1 class="title">City Bug Report: Visualizing Civic Data</h1>
 </div>
 
 
@@ -110,15 +112,42 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Insert four images from different sources</p>
+<div id="fig-cbr" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="../public/images/cbr/cbr-city-hall.png" class="img-fluid figure-img"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="../public/images/cbr/CBR_sign_crop.png" class="img-fluid figure-img"></p>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Left: Data visualization on City Hall Tower. Right: Smart Aarhus Poster below the tower.</figcaption><p></p>
+</figure>
+</div>
+<p>In 2012, I helped develop a media facade installation on the icon city hall tower in Aarhus. The installation was part of the Media Architecture Biennale 2012 hosted in Aarhus. The installation on the city hall tower consisted of 5500 LEDs. We used these to show an animated data visualization of incoming and outgoing communication via the municipal <a href="https://www.aarhus.dk/demokrati/abenhed/postlister/">“Postliste” data</a>. Whenever a citizen makes an inquiry to the municipality, they have to reply in a timely manner. With the visualization of the response rate for individual requests, the media facade shows how some citizen requests are handled timely (blue dots), whereas others are delayed beyond the set reply rate (red dots).</p>
+<p>The project was part of a broader effort in my work at Smart Aarhus on open data and my research and work within Urban Interaction design. The installation was accompanied by a platform where citizens of Aarhus could report issues or what we called “Urban Bugs”.</p>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>The concept was developed through a participatory design workshop involving students, researchers, stakeholders from the city, designers and participatns from Smart Aarhus.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../public/images/cbr/concepts.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>The key goal was to develop a project that could connect our efforts in working with and making more civic data publicly available, and create visibility around Smart Aarhus and the Media Architecture Biennale.</p>
 </section>
-<section id="insights" class="level2">
-<h2 class="anchored" data-anchor-id="insights">Insights</h2>
+<section id="data-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualization">Data visualization</h2>
+<p>The media facade visualize data from the public mailing list within the city. It cycles through a year of communication between citizens and municipal departments. The video below is a live capture from the installation.</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="/public/images/cbr/cbr-short.mp4"></video></div>
+<p>The key idea is that blue dots represents incoming requests from citizens and red dots represents outgoing replies from the municipality. The larger the dot, the longer the timespan in the reply.</p>
+<p>The data visualization is more artisitic than communicative, mainly because of the challenge involved in communicating the complexities of the data on a low resolution LED-dot display.</p>
 </section>
-<section id="publications" class="level2">
-<h2 class="anchored" data-anchor-id="publications">Publications</h2>
+<section id="project-and-publications" class="level2">
+<h2 class="anchored" data-anchor-id="project-and-publications">Project and publications</h2>
+<p>My main role in the project was to develop the design concept and help the different stakeholders align input and expectations. The project developed quite rapidly over a couple of months with a workshop, design meetings, collaborations within the city on data sources etc. One of our students at the time, Kristian, developed the animation (in Flash no less!) and volunteers helped install the LED rails on the tower. I contributed with data analysis, 3D mock-ups, back-end development (primarily with the sister-project). The project turned out to be one of the two projects that ended up forming my Master thesis.</p>
+<p>There is more about the project in our MAB’2014 publication <a href="../public/pdfs/city-bug-report.pdf">“City Bug Report: Urban Prototyping as Participatory Process and Practice”</a> and my Master thesis <a href="&quot;/public/pdfs/thesis.pdf">“Digital Urban Development: Reconceptualising the Smart City as a Design Challenge from an Interaction Design Perspective”</a>. You can also read a small piece on the project in our <a href="https://stiften.dk/aarhus/raadhuset-lyser-af-kunstnerisk-demokrati">local news paper</a> (in Danish).</p>
 
 
 </section>
@@ -284,6 +313,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </div>
   </div>
 </footer>
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 

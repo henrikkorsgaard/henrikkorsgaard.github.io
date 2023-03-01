@@ -221,7 +221,7 @@
     "href": "things.html",
     "title": "Henrik Korsgaard",
     "section": "",
-    "text": "Vota Si: Replaying Twitter Data"
+    "text": "Vota Si: Replaying Twitter Data\n\n\n\n\n \n\nCity Bug Report: Visualizing Civic Data"
   },
   {
     "objectID": "notes.html",
@@ -266,34 +266,6 @@
     "text": "Visualisation pipeline\nSo, essentially “Making open data more available” is a research challenge that spans the following disciplines\n\nDatabases and datamining: information retrival paradigme and knowledge\n\nWhile each community have addressed the problem within their topic area, the nature of the problems and solutions beyond speciality-oriented solutions, have not been studied.\nThe different stages, models and areas have some commonalities:\n\nThe interaction is highly dialectical\nSolutions focus (indirectly) on multimodal interation oppertunities on all levels\nIt is always a socio-technical challenge where idealized proces models are crystalized into tooling and the advocacy is moving from human-processes, to computer-mediated processes to automation of as many steps as possible."
   },
   {
-    "objectID": "drafts/things/cbr.html",
-    "href": "drafts/things/cbr.html",
-    "title": "City Bug Report: Visualizing Public Data",
-    "section": "",
-    "text": "Insert four images from different sources"
-  },
-  {
-    "objectID": "drafts/things/cbr.html#background",
-    "href": "drafts/things/cbr.html#background",
-    "title": "City Bug Report: Visualizing Public Data",
-    "section": "Background",
-    "text": "Background"
-  },
-  {
-    "objectID": "drafts/things/cbr.html#insights",
-    "href": "drafts/things/cbr.html#insights",
-    "title": "City Bug Report: Visualizing Public Data",
-    "section": "Insights",
-    "text": "Insights"
-  },
-  {
-    "objectID": "drafts/things/cbr.html#publications",
-    "href": "drafts/things/cbr.html#publications",
-    "title": "City Bug Report: Visualizing Public Data",
-    "section": "Publications",
-    "text": "Publications"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Hi!",
@@ -306,6 +278,34 @@
     "title": "Hi!",
     "section": "Looking for new challenges",
     "text": "Looking for new challenges\nMy contract with Aarhus University ends this year. It has been an exciting and incredible ride, but every time I have visited collaborators and folks outside the university walls, in the software industry, digitization projects, the public sector, and other initiatives, I have been struck with all the amazing projects, talented people, and exciting challenges. Now I would like to try out the challenge – how far can my skills and experience bring the projects I engage in and contribute to?\nIf this sounds interesting to you or your organization, then reach out. I would love to connect and have a chat about future possibilities.\n\nSoftware engineering and IT-projects\nConstructing better software that generates value for the client and users is important to me. It drives my teaching and some of my early research projects. The challenge of moving from client and user needs to a solution that provides the right user experience is fascinating to me. It is all about translating needs and early ideas into requirements, features, and user stories. This involves both design research and aligning client and stakeholder expectations in the process, and tailoring the (agile) development process to the task and expectations.\nI have experience with multiple EU projects, research projects, and collaborations with the public sector. I have worked with various methods for identifying requirements in close collaboration with clients, through design research and user-centered methods, and software engineering. I am currently running a course on Experimental Systems Development where students are thought how to identify needs and solutions, write scenarios, explore prototypes, write user-stories and go through an agile process. I have supervised over 100 student projects within this course, multiple thesis projects, and other design projects.\nWhen I have the opportunity to participate in IT projects, I bring my strong communication skills, a rich set of methods, a strong analytical mindset, and experience in software development and multi-stakeholder projects.\n\n\nUser-centered initiatives around data and data-driven projects\nBecoming data-driven has become a requirement. This involves combining existing and new data, with both strong technical analysis and knowledge from multiple domain experts. Identifying new use cases and valuable analyses for client and/or organizational data is a challenging task that involves an understanding of the technical infrastructure and how organizations work with data and information.\nIn this role, I have experience with multiple data-oriented projects and research involving domain-experts in analytics and co-designing novel applications. I have an interest in the role of visualization, how people interact with and make sense of data, and strategic approaches in identifying the right technical- and organizational (governance) model for becoming more data-driven.\nIn addition to my skills in facilitating co-design processes and exploring novel use cases for (open) data, I also find it engaging to develop data visualizations as means to understanding data (model-fitness-use) and identify important insights."
+  },
+  {
+    "objectID": "things/cbr-installation.html",
+    "href": "things/cbr-installation.html",
+    "title": "City Bug Report: Visualizing Civic Data",
+    "section": "",
+    "text": "Figure 1: Left: Data visualization on City Hall Tower. Right: Smart Aarhus Poster below the tower.\nIn 2012, I helped develop a media facade installation on the icon city hall tower in Aarhus. The installation was part of the Media Architecture Biennale 2012 hosted in Aarhus. The installation on the city hall tower consisted of 5500 LEDs. We used these to show an animated data visualization of incoming and outgoing communication via the municipal “Postliste” data. Whenever a citizen makes an inquiry to the municipality, they have to reply in a timely manner. With the visualization of the response rate for individual requests, the media facade shows how some citizen requests are handled timely (blue dots), whereas others are delayed beyond the set reply rate (red dots).\nThe project was part of a broader effort in my work at Smart Aarhus on open data and my research and work within Urban Interaction design. The installation was accompanied by a platform where citizens of Aarhus could report issues or what we called “Urban Bugs”."
+  },
+  {
+    "objectID": "things/cbr-installation.html#background",
+    "href": "things/cbr-installation.html#background",
+    "title": "City Bug Report: Visualizing Civic Data",
+    "section": "Background",
+    "text": "Background\nThe concept was developed through a participatory design workshop involving students, researchers, stakeholders from the city, designers and participatns from Smart Aarhus.\n\n\n\n\n\nThe key goal was to develop a project that could connect our efforts in working with and making more civic data publicly available, and create visibility around Smart Aarhus and the Media Architecture Biennale."
+  },
+  {
+    "objectID": "things/cbr-installation.html#data-visualization",
+    "href": "things/cbr-installation.html#data-visualization",
+    "title": "City Bug Report: Visualizing Civic Data",
+    "section": "Data visualization",
+    "text": "Data visualization\nThe media facade visualize data from the public mailing list within the city. It cycles through a year of communication between citizens and municipal departments. The video below is a live capture from the installation.\n\nThe key idea is that blue dots represents incoming requests from citizens and red dots represents outgoing replies from the municipality. The larger the dot, the longer the timespan in the reply.\nThe data visualization is more artisitic than communicative, mainly because of the challenge involved in communicating the complexities of the data on a low resolution LED-dot display."
+  },
+  {
+    "objectID": "things/cbr-installation.html#project-and-publications",
+    "href": "things/cbr-installation.html#project-and-publications",
+    "title": "City Bug Report: Visualizing Civic Data",
+    "section": "Project and publications",
+    "text": "Project and publications\nMy main role in the project was to develop the design concept and help the different stakeholders align input and expectations. The project developed quite rapidly over a couple of months with a workshop, design meetings, collaborations within the city on data sources etc. One of our students at the time, Kristian, developed the animation (in Flash no less!) and volunteers helped install the LED rails on the tower. I contributed with data analysis, 3D mock-ups, back-end development (primarily with the sister-project). The project turned out to be one of the two projects that ended up forming my Master thesis.\nThere is more about the project in our MAB’2014 publication “City Bug Report: Urban Prototyping as Participatory Process and Practice” and my Master thesis “Digital Urban Development: Reconceptualising the Smart City as a Design Challenge from an Interaction Design Perspective”. You can also read a small piece on the project in our local news paper (in Danish)."
   },
   {
     "objectID": "things/vota-si.html",

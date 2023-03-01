@@ -91,6 +91,7 @@ header#quarto-header {
 }
 
 .thing {
+    position:relative;
     vertical-align: top;
     border:1px solid #222255;
     display:inline-block;
@@ -103,8 +104,9 @@ header#quarto-header {
 }
 
 .thing h1 {
-    position: relative;
-    top:-100px;
+    position: absolute;
+    bottom:30px;
+    width:100%;
     background:#222255;
     color:white;
     font-family: 'Work Sans', sans-serif;

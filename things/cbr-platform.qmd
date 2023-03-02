@@ -17,6 +17,7 @@ Left: City Bug Report on desktop browser. Right: City Bug Report on mobile.
 
 In 2012 I participated in the [Media Architecture Biennale](https://mab12.mediaarchitecture.org/) in Aarhus, Denmark. As part of the biennale, we wanted to develop a few media architecture installations to promote the festival and show-case perspectives related to smart city approaches. We develop a project centered around the idea that citizens should be able to inform the city (municipality) about issues as ``City Bugs''. The project consists of two components – [a media facade installation](./things/cbr-installation.html) and a bug reporting platform. The background was developed in collaboration with people from the citizen service department at the municipality of Aarhus and participants in a two-day workshop hosted by Smart Aarhus. I  developed the initial idea and concept together with Martin Brynskov, and was technical lead on developing the service platform.
 
+### Urban Bugs
 The platform borrows the notion of 'bug' reporting from the world of software and aim to enrol citizens in Aarhus as a help in identifying, qualifying and discussing urban and municipal issues.
 
 When encountering an urban `bug', citizens could report is using the online tool by selecting a category and provide a description _and_ propose a solution. Once reported, the bug was available on the website and people could share it via social media. Each of the provided categories correspond to one of the responsible departments within the municipality, e.g. citizen service, waste management, culture and library services. The vision was that the reports could help management identify and prioritize issues, as well as provide more direct feedback to the citizens. Examples could be potholes, broken signs, missing translations, broken links etc.
@@ -24,7 +25,7 @@ When encountering an urban `bug', citizens could report is using the online tool
 I cannot take credit for *any* further developments^[The idea itself is perhaps not novel aside from the pragmatic inspiration casting urban issues as "bugs". The devil is in the implementation and in particular the organizational integration. Turns out, that external requests wreack havoc on any existing development and maintanence plans and budgets.], but a representative from the citizen service section of the municipality told us that the project at the time inspired them to do further explorations into more direct digital participation from citizens. Today, the municipality of Aarhus still maintain the ["postlist" service](https://www.aarhus.dk/demokrati/abenhed/postlister/) for citizen inquries and a modern hearing portal for [public participation](https://deltag.aarhus.dk/hoering).
 
 
-## Bugs and challenges
+### Examples and challenges
 The  platform was open for a couple of weeks and advertised in connection to the media facade installation on city hall. We recieved quite a lot of reports -- with a significant amount of spam. A couple of examples are in figure @fig-bugs below. 
 
 ::: {#fig-bugs layout-ncol=2}

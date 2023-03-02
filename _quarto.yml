@@ -17,6 +17,11 @@ website:
         icon: "envelope"
       - href: https://github.com/henrikkorsgaard
         icon: "github"
+      - href: https://twitter.com/heenrik
+        icon: "twitter"
+      - href: https://www.linkedin.com/in/henrik-korsgaard-77a0831b/
+        icon: "linkedin"
+
   navbar:
     collapse: false
     pinned: false

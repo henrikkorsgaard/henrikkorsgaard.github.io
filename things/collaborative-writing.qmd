@@ -7,9 +7,11 @@ csl: ../references/apa.csl
 
 #### _What can we learn about collaboration and collaborative writing from visualizing document revisions?_
 
+<br />
+
 ![](/public/images/collaborative-writing/collaborative-writing-vis-2.png){fig-align="center"}
 
-We can learn a lot, it turns out. In this research project, we developed a series of visualizations of document revisions to support qualitative interviews and analysis related to collaborative writing, approches, division of labour and contributions to a shared text.
+We can learn a lot, it turns out. In this research project, I developed a series of visualizations of document revisions to support qualitative interviews and analysis related to collaborative writing, approches, division of labour and contributions to a shared text.
 
 We interviewed multiple groups of people writing together and got access to their shared document. From there, we downloaded the revisions and analyzed them using tools (scripts) developed for the task.
 

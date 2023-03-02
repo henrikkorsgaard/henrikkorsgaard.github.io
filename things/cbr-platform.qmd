@@ -1,0 +1,165 @@
+---
+title: "City Bug Report: Report Urban Issues"
+---
+
+#### _What happens if we crowd-source identifying, documenting and reporting potholes, broken streetlights and other urban issues with a city bug reporting platform?_
+
+<br />
+
+::: {#fig-cbr layout-ncol=2}
+
+![](/public/images/cbr/cbr-desktop.png){fig-align="left" width=500}
+
+![](/public/images/cbr/cbr-smartphone.png){width=150 fig-align="left"}
+
+Left: City Bug Report on desktop browser. Right: City Bug Report on mobile.
+:::
+
+In 2012 I participated in the [Media Architecture Biennale](https://mab12.mediaarchitecture.org/) in Aarhus, Denmark. As part of the biennale, we wanted to develop a few media architecture installations to promote the festival and show-case perspectives related to smart city approaches. We develop a project centered around the idea that citizens should be able to inform the city (municipality) about issues as ``City Bugs''. The project consists of two components – [a media facade installation](./things/cbr-installation.html) and a bug reporting platform. The background was developed in collaboration with people from the citizen service department at the municipality of Aarhus and participants in a two-day workshop hosted by Smart Aarhus. I  developed the initial idea and concept together with Martin Brynskov, and was technical lead on developing the service platform.
+
+The platform borrows the notion of 'bug' reporting from the world of software and aim to enrol citizens in Aarhus as a help in identifying, qualifying and discussing urban and municipal issues.
+
+When encountering an urban `bug', citizens could report is using the online tool by selecting a category and provide a description _and_ propose a solution. Once reported, the bug was available on the website and people could share it via social media. Each of the provided categories correspond to one of the responsible departments within the municipality, e.g. citizen service, waste management, culture and library services. The vision was that the reports could help management identify and prioritize issues, as well as provide more direct feedback to the citizens. Examples could be potholes, broken signs, missing translations, broken links etc.
+
+I cannot take credit for *any* further developments^[The idea itself is perhaps not novel aside from the pragmatic inspiration casting urban issues as "bugs". The devil is in the implementation and in particular the organizational integration. Turns out, that external requests wreack havoc on any existing development and maintanence plans and budgets.], but a representative from the citizen service section of the municipality told us that the project at the time inspired them to do further explorations into more direct digital participation from citizens. Today, the municipality of Aarhus still maintain the ["postlist" service](https://www.aarhus.dk/demokrati/abenhed/postlister/) for citizen inquries and a modern hearing portal for [public participation](https://deltag.aarhus.dk/hoering).
+
+
+## Bugs and challenges
+The  platform was open for a couple of weeks and advertised in connection to the media facade installation on city hall. We recieved quite a lot of reports -- with a significant amount of spam. A couple of examples are in figure @fig-bugs below. 
+
+::: {#fig-bugs layout-ncol=2}
+![](/public/images/cbr/bug-example.png){}
+
+![](/public/images/cbr/bug-example-2.png){}
+
+Examples of reported bugs from the system. The left discuss problematic markings pavement for cyclist and the right complains about missing lines on the pavement. 
+:::
+
+There are a few important lessons from implementing the system and engaging with the various stakeholders in the project. The system demonstrates that you can get qualified input from citizens, and I speculate, over time could have a more direct communication with citizens around urban issues. But, this comes with expectations that the issues are addressed, which in turn require significant design efforts on the organizational side. Often citizens report issues that the different municipal departs are already aware of and have procedures in place for handling. However, the reported bugs may interrupt existing procedures and priorities with the city -- annual maintanence plans, budgets, political decisions etc. Designing the municipal interface and procedures to catch incoming reports would be a significant and complex undertaking that would involve developing a new administrative system, **and** rethinking part of the organizational design and flow, budgeting, decision-making and in some cases policy. 
+
+## Implementation
+The system was implemented as a traditional web-application with HTML/CSS/JavaScript on the client layer, PHP on the backend and a My SQL database as a persistence layer.
+
+The [C4 Container view](https://c4model.com/) looks something like figure @fig-container. The application did expose a REST api to the [media facade on the City Hall](./things/cbr-installation.html), but we never linked the visualization because of the uncertainty in how many incoming bug reports we would receive. The connection to the municipal systems are speculative, but have been included in the diagram because that was a significant point of discussions with the stakeholders during and after the project. 
+
+```{dot}
+//| label: fig-container
+//| fig-cap: Container View of the City Bug Report implementation (the integration into the municipal system is only conceptual)
+
+digraph {
+  compound=true
+  graph [fontname="Arial", rankdir=TB, ranksep=1.0, nodesep=1.0]
+  node [fontname="Arial", shape=box, margin="0.4,0.3"]
+  edge [fontname="Arial"]
+  label=<<br /><font point-size="34">City Bug Report - Containers</font>>
+
+  { rank=same 1 2 }
+
+  { rank=same 4 5 }
+
+  { rank=same 6 }
+
+  { rank=same 7 8 }
+
+ 
+  1 [id=1,shape=rect, label=<<font point-size="34">Citizen</font><br /><font point-size="19">[Person]</font><br /><br /><font point-size="24">A citizen who wants to<br />improve the city.</font>>, style=filled, color="#052e56", fillcolor="#08427b", fontcolor="#ffffff"]
+  2 [id=2,shape=rect, label=<<font point-size="34">Municipal Admin</font><br /><font point-size="19">[Person]</font><br /><br /><font point-size="24">A public administrator who<br />schedules maintanence</font>>, style=filled, color="#052e56", fillcolor="#08427b", fontcolor="#ffffff"]
+  7 [id=7,shape=rect, label=<<font point-size="34">City Hall Media<br />Facade</font><br /><font point-size="19">[Software System]</font><br /><br /><font point-size="24">The data visualization on city<br />hall.</font>>, style=filled, color="#6b6b6b", fillcolor="#999999", fontcolor="#ffffff"]
+  8 [id=8,shape=rect, label=<<font point-size="34">Municipal system(s)</font><br /><font point-size="19">[Software System]</font><br /><br /><font point-size="24">The various administrative<br />case- and maintanence systems<br />within the municipality</font>>, style=filled, color="#6b6b6b", fillcolor="#999999", fontcolor="#ffffff"]
+
+  subgraph cluster_3 {
+    margin=25
+    label=<<font point-size="24"><br />City Bug Report</font><br /><font point-size="19">[Software System]</font>>
+    labelloc=b
+    color="#444444"
+    fontcolor="#444444"
+    fillcolor="#444444"
+
+    4 [id=4,shape=rect, label=<<font point-size="34">City Bug Report</font><br /><font point-size="19">[Container: PHP: HTML/CSS/JS]</font><br /><br /><font point-size="24">webapp where bugs can be<br />reported, listed, voted and<br />discussed</font>>, style=filled, color="#0b4884", fillcolor="#1168bd", fontcolor="#ffffff"]
+    5 [id=5,shape=rect, label=<<font point-size="34">List view of bugs for<br />discussion, voting<br />and sharing</font><br /><font point-size="19">[Container]</font><br /><br /><font point-size="24">PHP: HTML/CSS/JS</font>>, style=filled, color="#0b4884", fillcolor="#1168bd", fontcolor="#ffffff"]
+    6 [id=6,shape=cylinder, label=<<font point-size="34">Database</font><br /><font point-size="19">[Container: MySQL database]</font><br /><br /><font point-size="24">persist reported bugs</font>>, style=filled, color="#0b4884", fillcolor="#1168bd", fontcolor="#ffffff"]
+  }
+
+  1 -> 5 [id=11, label=<<font point-size="24">Comment and vote on bugs.</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  2 -> 5 [id=12, label=<<font point-size="24">Reviews and comment on<br />bugs</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  4 -> 6 [id=14, label=<<font point-size="24">Saves report</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  6 -> 5 [id=15, label=<<font point-size="24">list reports</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  6 -> 8 [id=16, label=<<font point-size="24">Import cases into admin<br />system for planning and<br />solution.</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  6 -> 7 [id=18, label=<<font point-size="24">Notifies about incoming<br />reports and status.</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+  1 -> 4 [id=9, label=<<font point-size="24">Citizen reports issue.</font>>, style="dashed", color="#707070", fontcolor="#707070"]
+}
+ 
+```
+
+<!--
+https://structurizr.com/dsl
+workspace {
+
+    model {
+        user = person "Citizen" "A citizen who wants to improve the city."
+        admin = person "Municipal Admin" "A public administrator who schedules maintanence"
+        
+        softwareSystem = softwareSystem "City Bug Report" "City Bug Report webapplication" {
+            reportApp = container "City Bug Report" "webapp where bugs can be reported, listed, voted and discussed" "PHP: HTML/CSS/JS"
+            adminApp = container "List view of bugs for discussion, voting and sharing" "PHP: HTML/CSS/JS"
+            db = container "Database" "persist reported bugs" "MySQL database" "Database"
+        }
+    
+        cityHallVisualization = softwareSystem "City Hall Media Facade" "The data visualization on city hall." "existing system"
+        manucipalAdmin = softwareSystem "Municipal system(s)" "The various administrative case- and maintanence systems within the municipality" "existing system"
+
+        user -> reportApp "Citizen reports issue."
+        user -> adminApp "Comment and vote on bugs."
+        admin -> adminApp "Reviews and comment on bugs"
+        
+        reportApp -> db "Saves report"
+        db -> adminApp "list reports"
+        
+        db -> manucipalAdmin "Import cases into admin system for planning and solution."
+        db -> cityHallVIsualization "Notifies about incoming reports and status."
+    }
+
+    views {
+        systemContext softwareSystem "SystemContext" {
+            include *
+            autoLayout
+        }
+        
+         container softwaresystem "Containers" {
+            include *
+            autoLayout
+        }
+
+        styles {
+            element "Software System" {
+                background #1168bd
+                color #ffffff
+            }
+            element "Person" {
+                shape person
+                background #08427b
+                color #ffffff
+            }
+            
+            element "Container" {
+                background #1168bd
+                color #ffffff
+            }
+            
+            element "Database" {
+                shape Cylinder
+            }
+            
+            
+            element "existing system" {
+                background #999999
+                color #ffffff
+            }
+        }
+    }
+}
+
+-->
+
+## Publications
+There is more about the project in our MAB'2014 publication ["City Bug Report: Urban Prototyping as Participatory Process and Practice"](/public/pdfs/city-bug-report.pdf) and my Master thesis ["Digital Urban Development: Reconceptualising the Smart City as a Design Challenge from an Interaction Design Perspective"]("/public/pdfs/thesis.pdf). You can also read a small piece on the project in our [local news paper](https://stiften.dk/aarhus/raadhuset-lyser-af-kunstnerisk-demokrati) (in Danish).

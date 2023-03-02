@@ -169,3 +169,4 @@ Most of these will need to be implemented, but there are a lot of things that ne
 Ok, so now we know a bit more about the application idea from the beginning of the notes. We know what it should do following out scenarios. We know a lot more about the requirements. And we have a rough overview of some of the relationship with other systems from the context diagram and a bit about the inner workings from our container diagram. All in a couple of nights work. 
 
 The two next posts will look at identifying _prototypes_ that can inform our design decisions and how to write _user-stories_ from the scenarios. Stay tuned.
+

@@ -93,14 +93,6 @@ The following is a list of the publications I have co-authored together with col
 </div>
 
 <div class="pub">
-<div class="pub-title">PARTICIPATE: Capturing Knowledge in Public Library Activities</div> 
-<author>Carla Gröschel, Peter Dalsgaard, Clemens N. Klokmose, Henrik Korsgaard, Eva Eriksson, Raphaëlle Bats, Aurélien Tabard, Alix Ducros and Sofia E. Serholt</author>
-<div class="published-at">Extended Abstracts of the 2018 CHI Conference on Human Factors in Computing Systems (2018)</div>
-<a href="/public/pdfs/Participate2018.pdf" target="new">[PDF]</a> 
-<a href="https://dl.acm.org/doi/abs/10.1145/3170427.3188605" target="new">[doi:10.1145/3170427.3188605]</a>
-</div>
-
-<div class="pub">
 <div class="pub-title">Proxemic Transitions: Designing Shape-changing Furniture for Informal Meetings</div> 
 <author>Jens Emil Grønbæk, Henrik Korsgaard, Marianne Graves Petersen, Morten Henriksen Birk and Peter Gall Krogh</author>
 <div class="published-at">Proceedings of the 2017 CHI conference on human factors in computing systems (2017)</div>

@@ -30,4 +30,10 @@ In this role, I have experience with multiple data-oriented projects and researc
 In addition to my skills in facilitating co-design processes and exploring novel use cases for (open) data, I also find it engaging to develop data visualizations as means to understanding data (model-fitness-use) and identify important insights.
 
 
+<!--
 
+TODO:
+Add a full CV page
+Add a post about the kind of work I'm looking for
+
+-->

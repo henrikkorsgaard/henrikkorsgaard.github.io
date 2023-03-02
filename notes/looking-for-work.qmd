@@ -1,0 +1,24 @@
+---
+title: "Looking for work"
+---
+
+My contract with Aarhus University ends this year. It has been an exciting and incredible ride, but every time I have visited collaborators and folks outside the university walls, in the software industry, digitization projects, the public sector, and other initiatives, I have been struck with all the amazing projects, talented people, and exciting challenges. Now I would like to try out the challenge – see how far can my skills and experience can bring the projects I engage in and contribute to!
+
+If this sounds interesting to you or your organization, then reach out. I would love to connect and have a chat about future possibilities.
+
+I have a few ideas, but am also open to other suggestions, so please reach out.
+
+Here is a link to my very [detailed resume.](/notes/full-resume.qmd)
+
+#### Software engineering
+Constructing better software that generates value for the client and users is important to me. I would be happy to take on the role within software engineering. This could be anything from project managment, requirement identification, user- and design research, to a role as a solution architect, developer or similar.
+
+I have experience with multiple EU projects, research projects, and collaborations with the public sector. I have worked with various methods for identifying business-cases and requirements in close collaboration with clients, from facilitating workshops and design meetings, to developing concepts, scenarios, user-stories, architecture etc. and implementing systems. My strongest skills in this space are moving from an early need or design into the (agile) development process with documentation, architecture decisions, user-stories and code. In addition to that I can identify features, design user experiences and interaction design, and develop user-stories etc. for a team.
+
+#### User-centered initiatives around data and data-driven projects
+Becoming data-driven has become a requirement. This involves combining existing and new data, with both strong technical analysis and knowledge from multiple domain experts. Identifying new use cases and valuable analyses for client and/or organizational data is a challenging task that involves an understanding of the technical infrastructure and how organizations work with data and information.
+
+In this role, I have experience with multiple data-oriented projects and research involving domain-experts in analytics and co-designing novel applications. I have an interest in the role of visualization, how people interact with and make sense of data, and strategic approaches in identifying the right technical- and organizational (governance) model for becoming more data-driven.
+
+In addition to my skills in facilitating co-design processes and exploring novel use cases for (open) data, I also find it engaging to develop data visualizations as means to understanding data (model-fitness-use) and identify important insights.
+

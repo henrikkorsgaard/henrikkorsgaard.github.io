@@ -26,7 +26,7 @@ _Henrik (that's me) is a 40-some white male who work as a researcher at a Comput
 
 That gives us a bit of information on the context, the user and the challenge. Here are two future scenarios:
 
-_Henrik is getting ready in the morning. His smartwatch notifies him that the bus for work is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He snoozes the notification. 4 minutes later the notification goes off again. Henrik decides that he is not ready yet, so he press next on the smart watch app. 10 minutes later, his Garmin smartwatch notifices him that the train is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He cancels the notification and pack the last things in his back. 5 minutes later he leaves for the train._
+_Henrik is getting ready in the morning. His smartwatch notifies him that the bus for work is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He snoozes the notification. 4 minutes later the notification goes off again. Henrik decides that he is not ready yet, so he press next on the smart watch app. 10 minutes later, his Garmin smartwatch notifices him that the train is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He accepts the notification and pack the last things in his back. 5 minutes later he leaves for the train._
 
 _Henrik is at work. He promised his familty that he would be home by 17. Around 16 his watch notifies him that a train is leaving in 20 minutes, so he has to walk in 5 minutes to catch it. He presses `next' and the watch shows that a bus is leaving in 30 minutes. He presses 'accept' on his smartwatch. 10 minutes later the smartwatch reminds him that he needs to walk within 5 minutes to catch the bus. On the way to the bus, the watch notifies him that the bus is 5 minutes delayed._ 
 
@@ -47,7 +47,6 @@ These scenarios allow us to discuss and think about the design before we make to
 6. The application 'knows' something about the user's typical departures and destinations (and transit connections).
 
 These are mixes of high level design features (it needs to be a smartwatch application), requirements (integrate location, transit data etc.) and specific interaction design features (_snooze_ notification). We can break it down even further:
-
 
 1. Garmin smartwatch application
     - Need to access the user location

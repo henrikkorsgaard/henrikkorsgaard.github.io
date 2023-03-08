@@ -15,10 +15,11 @@ Map generator
 -->
 
 
-<!-- 
-InPlenary
-Local.here
--->
+<div class="thing" style="overflow:hidden;">
+<a href="./things/inplenary.html">
+<img style="margin-top:0px; width:550px;position:relative;left:-40px;top:-50px;" src="/public/images/inplenary/inplenary-interaction.png">
+<h1>Interactive location-based lecturing system</h1></a>
+</div>
 
 <div class="thing" style="overflow:hidden;">
 <a href="./things/cbr-installation.html">

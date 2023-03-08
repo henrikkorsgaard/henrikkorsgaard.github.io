@@ -495,5 +495,26 @@
     "title": "City Bug Report: Report Urban Issues",
     "section": "Publications",
     "text": "Publications\nThere is more about the project in our MAB’2014 publication “City Bug Report: Urban Prototyping as Participatory Process and Practice” and my Master thesis “Digital Urban Development: Reconceptualising the Smart City as a Design Challenge from an Interaction Design Perspective”. You can also read a small piece on the project in our local news paper (in Danish)."
+  },
+  {
+    "objectID": "things/inplenary.html",
+    "href": "things/inplenary.html",
+    "title": "InPlenary: Co-located Interactive Lectures",
+    "section": "",
+    "text": "(a)\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n(c)\n\n\n\n\nFigure 1: Pictures from InPlenary lecture. (a) Me lecturing, (b) Screen with delegated navigation and interaction, (c) Screen with discussion slide and comment field.\nIn my PhD I explored various ways to design for places and co-located interaction. One of the systems we developed was a co-located lecturing system that distributed the lecture slides and interaction widgets to client devices using the local network access point as a signer for location-based content.\nThe project explored two things. First, how to augment ordinary slides with interaction widget (voting, discussions, delegated navigation, learning feedback etc.) and second, how to distribute these based on physical location. With the system, a lecturer would prepare their slides as usual and then upload the slides to the platform.\nWithin the lecture module, they could add different interaction widgets to the slides. This could be clicker-like voting mechanisms, free text feedback, learning-progression feedback etc. We also developed a way to delegate slide navigation to individuals, e.g. in a scenario where a participants wanted to refer back to previous slides or simply give access to local navigation of the slide deck in cases where the students do a learning exercise with content on multiple slides."
+  },
+  {
+    "objectID": "things/inplenary.html#using-the-local-network-to-provide-access",
+    "href": "things/inplenary.html#using-the-local-network-to-provide-access",
+    "title": "InPlenary: Co-located Interactive Lectures",
+    "section": "Using the local network to provide access",
+    "text": "Using the local network to provide access\nIn the system, each classroom access point (AP) is assigned an unique key that is exposed through a small webserver running on the AP. When participants use the network, background services can query the AP for the key and send that along to the lecture system backend. This would match the user with a classroom, and when the lecture starts, a collection of slides.\nClients would listen to slide changes and update the slides on each client device. With a personalized loging, students can write notes for each slide, answer interactive quizzes and provide feedback for classroom assignments etc. These would be persisted with the slides, so that the information is available when students review the lecture material later."
+  },
+  {
+    "objectID": "things/inplenary.html#implementation",
+    "href": "things/inplenary.html#implementation",
+    "title": "InPlenary: Co-located Interactive Lectures",
+    "section": "Implementation",
+    "text": "Implementation\nI implemented the front-end and interaction widget. Our programmers at CAVI implemented the back-end\n\n\n\n\nsequenceDiagram\n  participant Alice\n  participant Bob\n  Alice->>John: Hello John, how are you?\n  loop Healthcheck\n    John->>John: Fight against hypochondria\n  end\n  Note right of John: Rational thoughts <br/>prevail!\n  John-->>Alice: Great!\n  John->>Bob: How about you?\n  Bob-->>John: Jolly good!"
   }
 ]

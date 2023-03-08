@@ -1,0 +1,44 @@
+---
+title: "InPlenary: Co-located Interactive Lectures"
+---
+
+::: {#fig-screenshots layout-ncol=3}
+
+![](/public/images/inplenary/inplenary-lecture.png){#fig-1}
+
+![](/public/images/inplenary/inplenary-interaction.png){#fig-2}
+
+![](/public/images/inplenary/inplenary-discussion.png){#fig-3}
+
+Pictures from InPlenary lecture. (a) Me lecturing, (b) Screen with delegated navigation and interaction, (c) Screen with discussion slide and comment field.
+:::
+
+In my PhD I explored various ways to design for places and co-located interaction. One of the systems we developed was a co-located lecturing system that distributed the lecture slides and interaction widgets to client devices using the local network access point as a signer for location-based content. 
+
+The project explored two things. First, how to augment ordinary slides with interaction widget (voting, discussions, delegated navigation, learning feedback etc.) and second, how to distribute these based on physical location. With the system, a lecturer would prepare their slides as usual and then upload the slides to the platform. 
+
+Within the lecture module, they could add different interaction widgets to the slides. This could be clicker-like voting mechanisms, free text feedback, learning-progression feedback etc. We also developed a way to delegate slide navigation to individuals, e.g. in a scenario where a participants wanted to refer back to previous slides or simply give access to local navigation of the slide deck in cases where the students do a learning exercise with content on multiple slides.
+
+
+## Using the local network to provide access
+In the system, each classroom access point (AP) is assigned an unique key that is exposed through a small webserver running on the AP. When participants use the network, background services can query the AP for the key and send that along to the lecture system backend. This would match the user with a classroom, and when the lecture starts, a collection of slides.
+
+Clients would listen to slide changes and update the slides on each client device. With a personalized loging, students can write notes for each slide, answer interactive quizzes and provide feedback for classroom assignments etc. These would be persisted with the slides, so that the information is available when students review the lecture material later.
+
+## Implementation
+I implemented the front-end and interaction widget. Our programmers at CAVI implemented the back-end 
+
+
+```{mermaid}
+sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+    John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts <br/>prevail!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+```

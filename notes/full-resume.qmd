@@ -5,7 +5,6 @@ Updated February 2023 -- contact me for further information.
 
 ## Skills and experiences
 
-
 ### Design research and evaluation
 I am an expert in interaction design and user experience, and how these two perspectives integrate with software development. I am an experienced qualitative and design researcher across multiple domains from home settings, over education and work, to communities and urban computing. I have facilitated multiple user-centered design processes involving domain studies, workshop facilitation, design meetings and requirement identification and development. I have played a leading role in multiple design projects and used various design formats for stakeholder engagement and alignment. I am familiar with and have applied multiple approches to usability and user experience design evaluation, including various walkthrough methods, heuristic evaluation, focus groups, experience sampling, think aloud, scenario-based evaluation etc. I have experience in teaching interaction design, user experience, evaluation and qualitative approches to design research. 
 

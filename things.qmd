@@ -16,7 +16,7 @@
   <source src="/public/images/proxemics/proxemics-movement-cycle.mp4" type="video/mp4" />
   <img src="/public/images/proxemics/proxemics-placeholder.png" title="Your browser does not support the <video> tag">
 </video>
-<h1>Shape-changing Interactive table </h1></a>
+<h1>Shape-changing Interactive Table </h1></a>
 </div>
 
 <!-- 
@@ -27,7 +27,7 @@ Map generator
 <div class="thing" style="overflow:hidden;">
 <a href="./things/inplenary.html">
 <img style="margin-top:0px; width:550px;position:relative;left:-40px;top:-50px;" src="/public/images/inplenary/inplenary-interaction.png">
-<h1>Interactive location-based lecturing system</h1></a>
+<h1>Interactive Location-based Lecturing System</h1></a>
 </div>
 
 <div class="thing" style="overflow:hidden;">

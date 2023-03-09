@@ -4,7 +4,7 @@
     "href": "things.html",
     "title": "Henrik Korsgaard",
     "section": "",
-    "text": "Visualizing Collaborative Writing\n\n\n\n\n \n\nVota Si: Replaying Twitter Data\n\n\n\n\n\n \n\nInteractive location-based lecturing system\n\n\n\n\n \n\nVisualizing Civic Data\n\n\n\n\n \n\nCity Bug Reporting Platform\n\n\n\n\n \n\nInteracting with real-time open data"
+    "text": "Visualizing Collaborative Writing\n\n\n\n\n \n\nVota Si: Replaying Twitter Data\n\n\n\n\n \n\nShape-changing Interactive table\n\n\n\n\n\n \n\nInteractive location-based lecturing system\n\n\n\n\n \n\nVisualizing Civic Data\n\n\n\n\n \n\nCity Bug Reporting Platform\n\n\n\n\n \n\nInteracting with real-time open data"
   },
   {
     "objectID": "drafts/notes/human-data-interaction-process-models.html",
@@ -46,7 +46,7 @@
     "href": "notes.html",
     "title": "Henrik Korsgaard",
     "section": "",
-    "text": "Garmin Public Transport Notification App I\nHenrik Korsgaard\n\nFebruary, 2023\n\n\n\nAnnual Rhythms in Electricity Consumption?\nHenrik Korsgaard\n\nDecember, 2022\n\n\n\nElectricity Data Visualisation Experiments\nHenrik Korsgaard\n\nDecember, 2022\n\n\n\nConversation about HCI interdisciplinarity, its ‘core’, pedagogy and being kicked around by technology\nBy Stuart Reeves and Henrik Korsgaard\n\nNovember, 2022"
+    "text": "Garmin Public Transit Notification App I\n\n\n\nHenrik Korsgaard February, 2023\n\n\n\nIn this note I begin designing a Garmin Smartwatch application that can notify me when I need to start walking towards the bus to make it home within a predefined time window. In this first part, I take a scenario-based design approach and move from a few scenarios to identifying high-level design features and technical components using C4 diagrams.\n\n\nIt is the first part of a series where I try to move from idea and a simple use-case scenario to a full application using the steps I teach others.\n\n\n\n\n\n\nAnnual Rhythms in Electricity Consumption?\n\n\n\nHenrik Korsgaard December, 2022\n\n\n\nI’m trying to find out how to analyse and visualize electricity consumption. I got this brilliant idea to visualize my annual consumption in correlation to daylight. Surely, when I analyze and visualise our electricity consumption, it should change significantly with the annual changes in daylight?\n\n\n\n\n\n\n\nElectricity Data Visualisation Experiments\n\n\n\nHenrik Korsgaard December, 2022\n\n\n\nWhen I need to learn a new dataset or API, I often start out by creating some smaller visualisation experiments. This way I can familirize myself with the data and get some visual feedback (and exercise my visualisations skills).\n\n\n\n\n\n\n\nConversation about HCI interdisciplinarity, its ‘core’, pedagogy and being kicked around by technology\n\n\n\nBy Stuart Reeves and Henrik Korsgaard November, 2022\n\n\n\nNote: This is a repost from the Medium post for archival purpose and to play around with the format.\n\n\nIt is a summary of conversation animated by a couple of concerns. Firstly, the long-running conversation in HCI about its ‘status’ as a field and its constitution. And secondly, the overall feeling of what it’s like being ‘kicked around’ by technology, which we sensed much of HCI have experienced for a long time. The conversation is depicted here as a series of turns between Henrik and Stuart but this is mainly for the purposes of presentation. In reality, Henrik initiated some notes, and Stuart then provided further commentary on the notes."
   },
   {
     "objectID": "index.html",
@@ -523,5 +523,12 @@
     "title": "Understanding the peak-problem",
     "section": "Strategies for changing behaviour and affecting peak",
     "text": "Strategies for changing behaviour and affecting peak\nI do not have a full overview of the research, nor do I know all the possible intervention strategies to affect peak.\n\nSystem-centric\n\n\nConsumer-centric\n\n\nCollective interventions\nI have very little information for now on the effective strategies. I hypothesise that both individual (household) behaviour change and collective (neigborhood) efforts will be effective. One common strategy is to use monitary incentives to change people’s behaviour. That is to have dynamic pricing and add a peak-tariff to encurage people to remove or move their energy use from peak hour. That is an effective strategy, but it also something that affect individual economies differently (it has a socio-economic implication).\nWhat is the economic thresshold for economic incentives? What approches do we have to counter the uneven\n\n\nMotivations?"
+  },
+  {
+    "objectID": "things/proxemics-table.html",
+    "href": "things/proxemics-table.html",
+    "title": "Shape-Changing Table for Proxemic Interactions",
+    "section": "",
+    "text": "Shape-Changing Table to support Proxemic Transitions. See Grønbæk et al. (2017) for details\n\n\n\n\n\n\n\nReferences\n\nGrønbæk, J. E., Korsgaard, H., Petersen, M. G., Birk, M. H., & Krogh, P. G. (2017). Proxemic transitions: Designing shape-changing furniture for informal meetings. Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems, 7029–7041."
   }
 ]

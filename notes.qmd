@@ -1,11 +1,40 @@
-#### [Garmin Public Transport Notification App I](/notes/garmin-public-transport-notification-app-part-I.qmd)
-<author>Henrik Korsgaard</author><div class="note-publish-date">February, 2023</div>
+<div class="note">
+<a href="/notes/garmin-public-transport-notification-app-part-I.html">
+<h2>Garmin Public Transit Notification App I</h2></a>
+<div class="note-publish-date">Henrik Korsgaard February, 2023</div>
+<div class="preview">
+<p>In this note I begin designing a Garmin Smartwatch application that can notify me when I need to start walking towards the bus to make it home within a predefined time window. In this first part, I take a scenario-based design approach and move from a few scenarios to identifying high-level design features and technical components using C4 diagrams.</p>
+<p>It is the first part of a series where I try to move from idea and a simple use-case scenario to a full application using the steps I teach others.</p>
+</div>
+</div>
 
-#### [Annual Rhythms in Electricity Consumption?](/notes/annual-rhythms-in-electricity-consumption.qmd)
-<author>Henrik Korsgaard</author><div class="note-publish-date">December, 2022</div>
+<div class="note">
+<a href="/notes/annual-rhythms-in-electricity-consumption.html">
+<h2>Annual Rhythms in Electricity Consumption?</h2></a>
+<div class="note-publish-date">Henrik Korsgaard December, 2022</div>
+<div class="preview">
+<p>I'm trying to find out how to analyse and visualize electricity consumption. I got this brilliant idea to visualize my annual consumption in correlation to daylight. Surely, when I analyze and visualise our electricity consumption, it should change significantly with the annual changes in daylight?</p>
+<img src="/public/images/note-teasers/annual-energy-teaser.png">
+</div>
+</div>
 
-#### [Electricity Data Visualisation Experiments](/notes/electricity-data-visualisation-experiments.qmd)
-<author>Henrik Korsgaard</author><div class="note-publish-date">December, 2022</div>
+<div class="note">
+<a href="/notes/electricity-data-visualisation-experiments.html">
+<h2>Electricity Data Visualisation Experiments</h2></a>
+<div class="note-publish-date">Henrik Korsgaard December, 2022</div>
+<div class="preview">
+<p>When I need to learn a new dataset or API, I often start out by creating some smaller visualisation experiments. This way I can familirize myself with the data and get some visual feedback (and exercise my visualisations skills).</p>
+<img src="/public/images/note-teasers/electricity-data-visualizations-teaser.png">
+</div>
+</div>
 
-#### [Conversation about HCI interdisciplinarity, its ‘core’, pedagogy and being kicked around by technology](/notes/conversation-about-hci-interdisciplinarity-core-and-being-kicked-around-by-technology.qmd)
-<author>By Stuart Reeves and Henrik Korsgaard</author><div class="note-publish-date">November, 2022</div>
+<div class="note">
+<a href="/notes/conversation-about-hci-interdisciplinarity-core-and-being-kicked-around-by-technology.html">
+<h2>Conversation about HCI interdisciplinarity, its ‘core’, pedagogy and being kicked around by technology</h2></a>
+<div class="note-publish-date">By Stuart Reeves and Henrik Korsgaard November, 2022</div>
+<div class="preview">
+<p>Note: This is a repost from the <a href="https://medium.com/@heenrik/conversation-about-hci-interdisciplinarity-its-core-pedagogy-and-being-kicked-around-by-b1c85818957c">Medium post</a> for archival purpose and to play around with the format.</p>
+
+<p>It is a summary of conversation animated by a couple of concerns. Firstly, the long-running conversation in HCI about its ‘status’ as a field and its constitution. And secondly, the overall feeling of what it’s like being ‘kicked around’ by technology, which we sensed much of HCI have experienced for a long time. The conversation is depicted here as a series of turns between Henrik and Stuart but this is mainly for the purposes of presentation. In reality, Henrik initiated some notes, and Stuart then provided further commentary on the notes.</p>
+</div>
+</div>

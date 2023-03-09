@@ -99,7 +99,7 @@ header#quarto-header {
     display:inline-block;
     width:400px;
     height:300px;
-    margin:10px;
+    margin: 10px;
 }
 .thing img {
     width:100%;
@@ -122,5 +122,27 @@ header#quarto-header {
     text-decoration: none;
     margin:0;
     padding:0;
+}
+
+.note {
+   margin-bottom: 60px;
+}
+
+.note h2 {
+    color:#222255;
+    text-decoration: underline;
+    border:none;
+}
+
+.note h2 a {
+    color:#222255;
+    text-decoration: none;
+    margin:0;
+    padding:0;
+}
+
+.note p a {
+    text-decoration: underline;
+    color:blue;
 }
 

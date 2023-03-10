@@ -14,7 +14,7 @@
 <div class="note-publish-date">Henrik Korsgaard December, 2022</div>
 <div class="preview">
 <p>I'm trying to find out how to analyse and visualize electricity consumption. I got this brilliant idea to visualize my annual consumption in correlation to daylight. Surely, when I analyze and visualise our electricity consumption, it should change significantly with the annual changes in daylight?</p>
-<img src="/public/images/note-teasers/annual-energy-teaser.png">
+<img src="/public/images/previews/annual-energy-preview.png">
 </div>
 </div>
 
@@ -24,7 +24,7 @@
 <div class="note-publish-date">Henrik Korsgaard December, 2022</div>
 <div class="preview">
 <p>When I need to learn a new dataset or API, I often start out by creating some smaller visualisation experiments. This way I can familirize myself with the data and get some visual feedback (and exercise my visualisations skills).</p>
-<img src="/public/images/note-teasers/electricity-data-visualizations-teaser.png">
+<img src="/public/images/previews/electricity-data-visualizations-preview.png">
 </div>
 </div>
 

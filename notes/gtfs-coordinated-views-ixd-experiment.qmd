@@ -1,0 +1,99 @@
+---
+    title: "IxD Experiment with coordinated views and GTFS data"
+---
+
+I have a bunch of small ideas based on [GTFS data](https://gtfs.org/) and one of the things they have in common is that I want to combine Map and UI interaction. In this small experiment I wanted to figure out how to coordinate views between a slider and a polyline on a map. This took way too long and involved:
+
+- Downloading and wrangling GTFS (6 hours)
+- Experimenting with Leaflet (4 hours)
+- Combining and cleaning the code (1 hour)
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+<script src="/js/leaflet.geometryutil.js"></script>
+<div id="map" style="width:100%; height:600px;"></div>
+<div id="linecontainer" style="width:100%; height:100px;margin:auto;text-align: center;">
+<input type="range" min="0" max="100" value="0" id="line" style="margin-top:20px;width:600px;" autocomplete="off">
+</div>
+
+
+<script type="text/javascript">
+    let init = async () => {
+        const map = L.map('map').setView([56.15, 10.2], 12);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        const line = document.querySelector("#line")
+        const response = await fetch('/public/data//281_23982_3_12_3142.geojson')
+        const json = await response.json()
+
+        const points = json.features[0].properties.latlngdistance
+
+        const pline = new L.Polyline(points, {
+            color: 'blue',
+            weight: 8,
+            opacity: 0.5,
+            smoothFactor: 1
+        });
+
+        pline.addTo(map);
+        map.fitBounds(pline.getBounds())
+
+        const marker = L.circleMarker(points[0], { draggable: 'true', fillOpacity: 1, color:"darkblue", fillColor: "blue", radius:8 }).addTo(map)
+
+        pline.on("click", function (e) {
+            let f = L.GeometryUtil.locateOnLine(map, pline, e.latlng)
+            marker.setLatLng(e.latlng)
+            setLineValue(f)
+        })
+
+        marker.on("mousedown", function (e) {
+            map.dragging.disable()
+            map.on("mousemove", track)
+        })
+
+        map.on("mouseup", function (e) {
+            map.dragging.enable()
+            map.off("mousemove", track)
+        })
+
+        line.oninput = function (e) {
+            let p = L.GeometryUtil.interpolateOnLine(map, pline, this.value / 100)
+            marker.setLatLng(p.latLng)
+        }
+
+        function track(e) {
+            let p = pline.closestLayerPoint(map.latLngToLayerPoint(e.latlng))
+            marker.setLatLng(map.layerPointToLatLng(p))
+
+            let f = L.GeometryUtil.locateOnLine(map, pline, e.latlng)
+            setLineValue(f)
+        }
+
+        function setLineValue(factor) {
+            line.value = factor * 100
+        }
+
+    }
+
+    init()
+
+</script>
+
+## Use-cases
+I have a few projects in mind. The main use-case is to give context to transit planing, decision-making and visualisations. Coordinated views help bind the context (map and route) to the data (in this case just a simple slider). 
+
+I want to use this for visualising GTFS real-time data, e.g. delays, transfers and hotspots. Here coordinated views allow the user to explore aggregated data on delays to identify hotspots.
+
+I also considered a time-table view where the user can see stops and route information combined with the map visualisation.
+
+## Details
+
+I downloaded the Danish GTFS data from [Rejseplanen](https://www.rejseplanen.info/labs/GTFS.zip). I wrangled it to seperate the transit routes I'm interested in (Midttrafik) and then generated the GeoJSON using a simple Python script. I generate a geojson file for each unique route within the region. 
+
+I use [Leaflet](https://leafletjs.com/) and [Leaflet.GeometryUtil](https://github.com/makinacorpus/Leaflet.GeometryUtil) to render the route as a polyline and add the interactive elements. 
+

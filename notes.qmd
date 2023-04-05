@@ -1,4 +1,13 @@
 <div class="note">
+
+<a href="/notes/gtfs-coordinated-views-ixd-experiment.html">
+<h2>IxD Experiment with coordinated views and GTFS data</h2></a>
+<div class="note-publish-date">Henrik Korsgaard April, 2023</div>
+<div class="preview">
+<p>In this short note, I explore a interaction design technique for creating coordinated views between a map visualisation (of a GTFS bus route) and a simple slider.</p>
+</div>
+</div>
+
 <a href="/notes/garmin-public-transport-notification-app-part-I.html">
 <h2>Garmin Public Transit Notification App I</h2></a>
 <div class="note-publish-date">Henrik Korsgaard February, 2023</div>

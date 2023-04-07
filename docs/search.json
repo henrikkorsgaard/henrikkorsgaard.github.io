@@ -317,23 +317,30 @@
   {
     "objectID": "notes/gtfs-coordinated-views-ixd-experiment.html",
     "href": "notes/gtfs-coordinated-views-ixd-experiment.html",
-    "title": "IxD Experiment with coordinated views and GTFS data",
+    "title": "IxD Experiments with coordinated views and GTFS data",
     "section": "",
-    "text": "I have a bunch of small ideas based on GTFS data and one of the things they have in common is that I want to combine Map and UI interaction. In this small experiment I wanted to figure out how to coordinate views between a slider and a polyline on a map. This took way too long and involved:"
+    "text": "I have a bunch of small ideas based on GTFS data and one of the things they have in common is that I want to combine Map and UI interaction. In this small experiment I wanted to figure out how to coordinate views between a map view and traditional web-components."
   },
   {
-    "objectID": "notes/gtfs-coordinated-views-ixd-experiment.html#use-cases",
-    "href": "notes/gtfs-coordinated-views-ixd-experiment.html#use-cases",
-    "title": "IxD Experiment with coordinated views and GTFS data",
-    "section": "Use-cases",
-    "text": "Use-cases\nI have a few projects in mind. The main use-case is to give context to transit planing, decision-making and visualisations. Coordinated views help bind the context (map and route) to the data (in this case just a simple slider).\nI want to use this for visualising GTFS real-time data, e.g. delays, transfers and hotspots. Here coordinated views allow the user to explore aggregated data on delays to identify hotspots.\nI also considered a time-table view where the user can see stops and route information combined with the map visualisation."
+    "objectID": "notes/gtfs-coordinated-views-ixd-experiment.html#experiment-1-coordinated-views-between-map-route-and-range-slider",
+    "href": "notes/gtfs-coordinated-views-ixd-experiment.html#experiment-1-coordinated-views-between-map-route-and-range-slider",
+    "title": "IxD Experiments with coordinated views and GTFS data",
+    "section": "Experiment 1: Coordinated views between map route and range slider",
+    "text": "Experiment 1: Coordinated views between map route and range slider"
+  },
+  {
+    "objectID": "notes/gtfs-coordinated-views-ixd-experiment.html#experiment-ii-coordinated-view-between-map-and-list-of-bus-stops",
+    "href": "notes/gtfs-coordinated-views-ixd-experiment.html#experiment-ii-coordinated-view-between-map-and-list-of-bus-stops",
+    "title": "IxD Experiments with coordinated views and GTFS data",
+    "section": "Experiment II: Coordinated view between map and list of bus stops",
+    "text": "Experiment II: Coordinated view between map and list of bus stops\n\n\n\n\n\n\n\n\n\n\n\nStop\n\n\nArrival time"
   },
   {
     "objectID": "notes/gtfs-coordinated-views-ixd-experiment.html#details",
     "href": "notes/gtfs-coordinated-views-ixd-experiment.html#details",
-    "title": "IxD Experiment with coordinated views and GTFS data",
+    "title": "IxD Experiments with coordinated views and GTFS data",
     "section": "Details",
-    "text": "Details\nI downloaded the Danish GTFS data from Rejseplanen. I wrangled it to seperate the transit routes I’m interested in (Midttrafik) and then generated the GeoJSON using a simple Python script. I generate a geojson file for each unique route within the region.\nI use Leaflet and Leaflet.GeometryUtil to render the route as a polyline and add the interactive elements."
+    "text": "Details\nI downloaded the Danish GTFS data from Rejseplanen. I wrangled the GTFS data into seperate files for the transit routes I’m interested in (Midttrafik).\nI use Leaflet and Leaflet.GeometryUtil to render the route as a polyline and add the interactive elements."
   },
   {
     "objectID": "notes/electricity-data-visualisation-experiments.html",

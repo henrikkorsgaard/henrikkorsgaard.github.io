@@ -1,9 +1,9 @@
 ---
 title: "Instrumental Data Interaction"
 bibliography:
-  - ../references/general.bib
-  - ../references/datascience.bib
-csl: ../references/apa.csl
+  - ../../references/general.bib
+  - ../../references/datascience.bib
+csl: ../../references/apa.csl
 css: /css/instrumental-data-interaction.css
 citation: 
   type: manuscript

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Henrik Korsgaard - “Who should I talk to?”: Picking the right informants in user research</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../public/images/henrik-transparent.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../notes.html">
+ <span class="menu-text">NOTES</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../things.html">
+ <span class="menu-text">THINGS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html">
+ <span class="menu-text">RESEARCH</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">ABOUT</span></a>
+  </li>  
+</ul>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">“Who should I talk to?”: Picking the right informants in user research</h1>
+<p class="subtitle lead">Moving from outsider to (partial) insider and learning from the lead users</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>A common challenge in software development is to identify and prioritize features in a feature system. Sometimes there are requriements to begin with, but they are often defined as high level specifications, and often technical in nature. The importnant details of the functions and features as they are presented to and used by future users is typically vaguely defined and negotiable. In this specification they are also underinformed in terms of what the future users <em>need</em> and <em>want</em>.</p>
+<p>Identifying requirements or specification or <em>what users need to do their work succesfully</em>, or just what would improve existing user experiences is a very hard challenge within software engineering, human-computer interaction, and in practically any project developing software; it is also a very deep challenge because of fundamental issues with problem framing and the nature of problems. Some problems <em>can</em> be well-defined (given sufficient work, knowledge and information), but people may be reluctant to do so because it requires effort<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, whereas others are hard to define or resist a single definitions<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Agile and iterative design approaches is very much a response to this challenge. We cannot specify the system to its fullest up front, so we need to be responsive and make changes as we know more. Even Royce recognize this in his original paper on <a href="https://brightspace.au.dk/content/enforced/90169-LR19032/royce1970.pdf">the waterfall model</a>.</p>
+<p>Regardless of the challenge, projects need to progress and systems need to be implemented and delivered. Someone need to drive the work of moving from loosly defined specification to getting the sufficient details to design and develop the <em>right features in the right order</em>. This is the sharp edge of the challenge – we need to go get information, and the best way to do that is to go and ask people. This is the essence of user research<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<section id="user-research-who-do-we-talk-to-then" class="level2">
+<h2 class="anchored" data-anchor-id="user-research-who-do-we-talk-to-then">User Research: Who do we talk to then?</h2>
+<p><a href="https://link.springer.com/book/10.1007/978-3-031-02186-2">Button and Sharrock (2021)</a> propose a couple of maxims to guide doing user research. The first one is most relevant here: <strong>Keep Close to the Work</strong>: ``The first rule of doing ethnographic work in workplaces is to actually be with the people who are doing the work’’. This means that if you have to build software for tracking and managing component quality in a manufacturing company, then you go a talk to the people at the manufacturing companty. If you are tasked with developing a system for archiving and handling documents within a public organisation doing case-work, the you go and talk to the case workers. If you are making scheduling applications for kindergardens or hospitals or a NGO organizing voluneer work you go and visit kindergardens, hospitals and NGO’s and talk to the people there (not all at once, that would overload you and the project with potentially diverging information).</p>
+<p>That’s will bring you half way there. If you just go and spend time within the domain and talk to people, you willl learn so much more than you bargined for and have enough to challenge ingrained assumptions that could potentially sabotage the project. The next questions is, who do you talk to then? Here, I would like to introduce two analytical (theoretical) perspectives that might guide you. They can be applied individually or in combination.</p>
+</section>
+<section id="become-an-insider-and-learning-from-the-regulars" class="level2">
+<h2 class="anchored" data-anchor-id="become-an-insider-and-learning-from-the-regulars">Become an insider and learning from the regulars</h2>
+<p>As software developers or user researchers we are often outsiders and the people we want to learn from are insiders. Edward Relph has written about the outsider-insider challenge from a place perspective in <a href="https://uk.sagepub.com/en-gb/eur/place-and-placelessness/book249276">“Place and Placelessnes”</a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Here the outsiders are people unfamiliar with a particular place and insiders are people familiar with a place. Familiarity is equally fluent – you can be familiar with a place you have not visited through reading, media, and/or by visiting similar places. This suggest considering user research as engaing with a place where the activities of interest happen.</p>
+<p><strong>First advice</strong>: Go there – you have to experience the place to understand and contextualise useful features.</p>
+<p>Relph discuss how our familiarity of a place is a matter of insiderness, and consequently, our lack of understanding a matter of being outside. As a software developer or designer, we are very much outsideres to the particularities of a domain, practice, use and users etc.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p>
+<p>Relph make a continuum of outsiderness to insiderness that is relevant for us. From this we can identify where we are (likely outsiders) and whom we should talk to to gain knowledge from an insider:</p>
+<ul>
+<li><strong>Existential outsider</strong></li>
+<li><strong>Objective outsider</strong></li>
+<li><strong>Incidential outsider</strong></li>
+<li><strong>Vicarious insider</strong></li>
+<li><strong>Behavioural insider</strong></li>
+<li><strong>Empathic insider</strong></li>
+<li><strong>Exsistential insider</strong></li>
+</ul>
+<p>The first and last – existential outsider/insider – are not crucial for us. They merely point out that there is some knowledge and experiences that are so deep and existential that only those who experience it can experience it. <em>You</em> have experiences that nobody else can truely connect with, comprehend and experince. And people have experiences that <em>you</em> will never be able to comprehend or experience. On a more simple level, we typically cannot connect fully with the experiences of people within other groups and demographies (gender, ethnicity, culture, religion, sexual orientation). At best, we can recognise that people experience the world different and acknowledge their experiences with sympathy and empath.</p>
+<p>Objective and incidental outsiders are two types of outsiderness where we do not understand the simple aspects of a practice, place, user experience etc. If we visit a company that produce products or service that we have had very knowledge of or interaciton with, or maybe are even surprised exist. Very few of us know the details of the procedures of the legal system, a heart transplant or what happens to our trash once we throw it in the bin. Objective outsiderness is when we do not care – it’s just another job and surely a scheduling system for a kindergarden should not diverge that much from a scheduling system for a hospital. Incidental outsiderness is when we make the same assumptions unconciossnessly.</p>
+<p><strong>Second advice</strong>: Don’t be an objective outsider – embrace that we all are incidental outsiders in many situations.</p>
+<p><strong>Third advice</strong>: Avoid talking to outsiders to the important practicies and activities – this might include parts of management and other stakeholders in the project.</p>
+<p>Vicarious insiders is a sort of middle groud between being and outsider and being and insider. On the one hand, vicarious insiders are curious outsiders who actively seek information about a particular domain or practice thourgh written accounts, documents, media and other sources of information. On the other hand, vicarious insiders try to get the knowledge they need through second-hand accounts, which only present partial information that is often outdated or does not reflect what happens in a <em>particular practice</em>. Relph compare it to reading travel books instead of traveling. My bet is that a lot of software projects are plagued with vicarious insiders that know enough to navigate a domain, but always fail to get it <em>just right</em> because they only rely superficial sources of information.</p>
+<p>Now we are getting to the folks that you should engage with to understand the work. The behavioural and empathic insiders. Both are people who know the domain, local practices, activities, people and procedures. A behavioural insider, implied, knows how to behave and participate in the activites, but might lack deep relations and understanding. They know <em>what to do</em>, but not the local variations and history. We all know how to conduct ourselves and successfully navigate a libary, but we might not know the local rules our who to talk to about a special subject in a particular libray we have not been at before. The empathic insiders would have this kind of knowledge. We all experience being behavioural insiders when we switch education or job. We know how to conduct and perform, but it take some time for us to get the sufficiant understanding of the local practices that empathic and existential insiders have. More importantly, from our perspective as outsiders (or vicarious insiders), everyone in a domain are behavioural insiders. As outsiders it is hard to identify empathic insiders.</p>
+<p><strong>Fourth advice</strong>: Talk to the behavioural insiders, but make it a priority to identify empathic insiders</p>
+</section>
+<section id="finding-and-learning-from-the-lead-users" class="level2">
+<h2 class="anchored" data-anchor-id="finding-and-learning-from-the-lead-users">Finding and learning from the lead users</h2>
+<p>Identifying and learning from the emphatic insiders is often discussed as <em>identifying and learning from lead users</em> in design research and innovation studies. I use the emphatic insiders simply because I like the framing better – it is telling about what they know and their relation to a practice. Lead user is forever tied to a product or technology, and marketing. So from now on think lead users as emphatic insiders with a product focus. The challenge is the same – if we want to learn from the lead users, we need to identify these. Witin commercial products one strategy is to data mine user data and social media, but for most software development dealing with a new system or a new domain or a new context, this is neither viable or a good strategy<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</p>
+<p><em>How do we identify emphatic insiders or lead users in a client organisation, domain or pracitce?</em></p>
+<p>Within organisations and social groups – we call them <a href="https://pure.itu.dk/ws/files/90412654/CollectiveArtifactEcologies.pdf">collectives in a recent publication</a> – there are people who are more familiar with the work, its history, the technologies, procedures, and the roles and politics of the organisation. They are the <strong>emphatic insiders</strong> in Relph’s terminology, <strong>lead users</strong> in innovation studies and more <strong>capable peers</strong> in activity theory. We all know examples and approach them to navigate our own organisations and get the information we need to do our work. They are the people that, often dispite their role, are capable of answering questions about the informal structure and nature of tasks and activites; They are the people other people refer to when we ask questions: “You need to talk to Pete – he’s been here for a long time and was part of the restructuring of that part back in 2010.” For software engineering, they are the folks that know and can remember obscure details about an old project and codebase because they were part of the initial whiteboard sessions and commits. <strong>You already know who they are for your organisation</strong> – we need to identify these people in the organisations and practices we develop software for.</p>
+<p><a href="https://www.tandfonline.com/doi/abs/10.2753/RSS1061-1428240261">Petrovsky</a>, a social psycologist, talk about this behaviour as <em>referentiality</em>. The collective (group) establish a shared informal reference of someone within the group who is more knowledgable about the activities and everything that entails. Sometimes this individual is recongnized through an official role or position within the organisation as a leader, mentor, coach or something else, however, that is not given. This more-capable or knowledgable peer might be hiding somewhere in the organisation because of the informal and social nature of knowledge. They may not be a node in the official organisational diagram, but they will be important nodes in the social graph of an organisation. Our research (and experiences from other contexts) show that you do this through asking the members of an organisation, community or collective who they go to if they need information, if the system breaks down, when in doubt or when they need a second opinion. Surprisingly,</p>
+<p><strong>Fifth advice</strong>: Ask people who they approach for advice and information within the organisation around the central task and/or systems – these are the lead users, emphathic insiders and more capable peers.</p>
+<section id="a-matter-of-distance-and-commitment" class="level3">
+<h3 class="anchored" data-anchor-id="a-matter-of-distance-and-commitment">A matter of distance and commitment</h3>
+<p>Up until now I have ignored some of the challenges in approaching lead users in user research with client organisations and when developing larger systems. There are several facets to this challenge – some are in the client organisation, while others are on software engineering practices and how the development process is organised.</p>
+<p>If the lead users “hides” in informal social relations and roles within the client organisation, and if the project manager in the client organisation think they are the lead user or have already lined behavioural insiders up as informants, it can be difficult to change the direction of and participants in the user research. This is something that is a challenge for research as well. I have gone through with interviews with participants that was volunteer by their manager, while they clearly and self-acknowledged that they were not the best source of information. When possible, we should try to engage with this issue with the client organisation, and if it fails, remember that <strong>a little goes a long way</strong> as Button and Sharrow say. Talking to the lead user is ideal, but we can learn <em>enough to get us started</em> from behavioural and even viscarious insiders. Then when we hit an information void on a paricular issue, we can approach the client and illustrate the problem. Sometimes this can motivate more access. Proof of work and implications can often help commit resources.</p>
+<p><strong>Sixt advice</strong>: Take the information you can get and use it to illustrate where and why you need more precise and updated information.</p>
+<p>One of the biggest challenges is the overreliance on existing assumptions and outdated knowledge within software projects. Because a lot of activities have superficial resemblence and we as humans tend to jump to conclusions, it is so tempting to rely on superficial understandings and ingrained assumptions. This is dangerous in combination with project organisation that are operating at a distance, with the wrong participants from the client organisation and with too many layers of abstraction, communication and interfaces between the future users and the developers.</p>
+<p><strong>Seventh advice</strong>: Assume you act on partial information and recognise when and where you are an outsider!</p>
+<p>Suchman talk about accountability and distance in her essay on <a href="https://aisel.aisnet.org/cgi/viewcontent.cgi?article=1082&amp;context=sjis">“Located accountabilities in technology production”</a>. She point out that software engineering often work across organisational and disciplinary boundaries (think client organisation and domain) and that introduces a distance that is maintained both by software engineering practices, clients limiting access to the users and organisational issues in how software development is organised. For software development, Suchman’s point is that design is done from “nowhere” with “detached intimacy”. That is, from Relph’s perspective, maintaining an <em>objective outsiderness</em>. Instead, Suchman argues that the only way to overcome this is to engage with the collective knowledge of the particular locations of design (software engineering project) and use (client organisation and users). The collective knowledge as Suchman says, is what Even’s talk about in establishing a shared language in Domain Driven Design and what Participatory Design call mutual learning. My addition would be the understanding that this learning process is what moves us from outsiders to partial insiders, and in that, that the relations with the client organisation and practitioners is of utmost importance.</p>
+<p><strong>Eight advice</strong>: See any project you engage with as a learning process where you have to become an expert on the challenges, needs and experiences of the client organisation and whomever will end up using the software you are building</p>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Suchman has a nice essay on this called “Located accountabilities in technology production”(https://aisel.aisnet.org/cgi/viewcontent.cgi?article=1082&amp;context=sjis)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This is a large topic with a lot of interesting readings. I would start with Rittel and Webber’s <a href="https://www.sympoetic.net/Managing_Complexity/complexity_files/1973%20Rittel%20and%20Webber%20Wicked%20Problems.pdf">“Dilemmas in a General Theory of Planning”</a>, then Karl Popper’s <a href="http://www.the-rathouse.com/2011/Clouds-and-Clocks.html">“Of Clouds and Clocks”</a> and Herbert Simon’s <a href="https://cschan.arch.iastate.edu/235/6_Simon_Ill_defined_problem.pdf">“The Structure of Ill Structured Problems</a>, and finally Schön’s chapter 2 on <a href="https://www.ics.uci.edu/~redmiles/ics203b-SQ05/papers/Schoen1983-chapter2.pdf">“From Technical Rationality to Reflection-in-Action”</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>and domain driven design, participatory design, ethnography, market research and whatever you would call identifying a need and propose a viable solution<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>I’m sure there is a long and rich discussion and multiple theoretical perspectives on outsider- and insiderness in ethnography and antropology. I like Relph because he present both perspectices, a way to move from outsider to insider, and do so in relatively few pages.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Sure, if you do software for hospitals for a decade or two, you and your organisation build up a familiarity with the domain. But when you go to a new hospital with the goal of developing a new system to a particular group of clinicians, you are still an outsider.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Sure, if you develop public services in Denmark like nemID, AULA, eboks etc. you should go check out what people say about the usability of your product on social media<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://hci.social/web/@heenrik">
+      <i class="bi bi-mastodon" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:korsgaard@protonmail.com?Subject=I%20saw%20your%20website...">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/henrikkorsgaard">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/heenrik">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/henrik-korsgaard-77a0831b/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
+
+
+
+</body></html>

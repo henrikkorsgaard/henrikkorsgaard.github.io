@@ -2,8 +2,8 @@
 title: "Identifying prototype points for Garmin Transit Notification App"
 
 bibliography:
- - ../references/hci.bib
-csl: ../references/apa.csl
+ - ../../references/hci.bib
+csl: ../../references/apa.csl
 ---
 
 (note to self: I will add graphics to the post once I have implemented stuff)

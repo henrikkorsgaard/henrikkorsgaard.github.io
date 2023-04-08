@@ -25,7 +25,6 @@ I frequently write technical tutorials for multiple levels, e.g. supporting stud
 
 One of my favorite approaches is to combine communication strategies and utilize various representations, from data visualizations to sketches and narratives, to communicate ideas and challenges. A large part of my teaching and supervision is to help students train their academic as well as technical writing.
 
-
 ## Employment
 
 <table>

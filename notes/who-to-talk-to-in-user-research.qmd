@@ -3,6 +3,8 @@
     subtitle: "Moving from outsider to (partial) insider and learning from the lead users"
 ---
 
+<!-- Spell checked -->
+
 A common challenge in software development is to identify and prioritize features in a feature system. Sometimes there are requirements, to begin with, but they are often defined as high-level specifications, and often technical. The important details of the functions and features as they are presented to and used by future users are typically vaguely defined and negotiable. In this specification, they are also underinformed in terms of what the future users _need_ and _want_.
 
 Identifying requirements or specifications of _what users need to do their work successfully_, or just what would improve existing user experiences is a very hard challenge within software engineering, human-computer interaction, and in practically any project developing software; it is also a very deep challenge because of fundamental issues with problem framing and the nature of problems. Some problems _can_ be well-defined (given sufficient work, knowledge, and information), but people may be reluctant to do so because it requires effort^[Suchman has a nice essay on this called "Located accountabilities in technology production"(https://aisel.aisnet.org/cgi/viewcontent.cgi?article=1082&context=sjis)], whereas others are hard to define or resist a single definitions^[This is a large topic with a lot of interesting readings. I would start with Rittel and Webber's ["Dilemmas in a General Theory of Planning"](https://www.sympoetic.net/Managing_Complexity/complexity_files/1973%20Rittel%20and%20Webber%20Wicked%20Problems.pdf), then Karl Popper's ["Of Clouds and Clocks"](http://www.the-rathouse.com/2011/Clouds-and-Clocks.html) and Herbert Simon's ["The Structure of Ill Structured Problems](https://cschan.arch.iastate.edu/235/6_Simon_Ill_defined_problem.pdf), and finally Schön's chapter 2 on ["From Technical Rationality to Reflection-in-Action"](https://www.ics.uci.edu/~redmiles/ics203b-SQ05/papers/Schoen1983-chapter2.pdf)]. Agile and iterative design approaches is very much a response to this challenge. We cannot specify the system to its fullest up front, so we need to be responsive and make changes as we know more. Even Royce recognizes this in his original paper on [the waterfall model](https://brightspace.au.dk/content/enforced/90169-LR19032/royce1970.pdf).
@@ -20,7 +22,6 @@ As software developers or user researchers we are often outsiders and the people
 **First advice**: Go there -- you have to experience the place to understand and contextualize useful features.
 
 Relph discusses how our familiarity with a place is a matter of insiderness, and consequently, our lack of understanding is a matter of being outside. As software developers or designers, we are very much outsiders to the particularities of a domain, practice, use, users etc.^[Sure if you do software for hospitals for a decade or two, you and your organization build up a familiarity with the domain. But when you go to a new hospital to develop a new system for a particular group of clinicians, you are still an outsider.]. 
-
 
 Relph makes a continuum of outsiderness to insiderness that is relevant for us. From this we can identify where we are (likely outsiders) and whom we should talk to gain knowledge from an insider:
 

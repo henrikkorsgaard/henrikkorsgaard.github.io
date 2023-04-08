@@ -4,7 +4,9 @@ project:
   preview:
     port: 4300
     browser: false
-  resources: public
+  resources: 
+    - public
+    - CNAME
 website:
   title: "Henrik Korsgaard"
   search: false

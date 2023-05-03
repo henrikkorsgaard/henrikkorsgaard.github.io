@@ -1,0 +1,106 @@
+---
+title: "Instrumental Data Interaction"
+bibliography:
+  - ../../references/general.bib
+  - ../../references/datascience.bib
+csl: ../../references/apa.csl
+css: /css/instrumental-data-interaction.css
+citation: 
+  type: manuscript
+  author: "Henrik Korsgaard"
+  version: "0.5"
+  issued: "November 2022"
+  url: http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html
+---
+Status: Early draft
+## Introduction
+
+Explore some theoretical ideas from Human-Computer Interaction
+See what new light they cast on Human-Data Interaction and beyond (in this case database)
+
+    - motivation - HDI
+    - instrumental interaction
+    - instrumental data interaction
+
+
+Disclaimer: This is a thinking-draft. I skip over some parts and ignore some aspects of both the theoretical foundation for instrumental interaction and an entire section of reviewing other tools for manipulating databases and related work exploring different interaction techniques. Those I will dive into elsewhere in a proper related work section. 
+
+## Instrumental interaction with databases
+One of the most fundamental ways to interact with data is by using the **S**tructured **Q**uery **L**anguage (SQL). Together with the relationel database, it was developed to help _"the non-professional user into effective communication with a formatted database"_ [@chamberlin1974sequel, p.250] and _"to put end users into direct touch with the information stored in computers"_ [@codd2007relational, p.109]. SQL was considered an ideal way for non-programmers to access and query data. It was developed with an onset in English (Structured English Query Language -- SEQUEL) and a declarative approach to data querying.  While SQL turned out to be hugely succesful [@helland2016sql] and is one of the commonly used technologies [today](https://survey.stackoverflow.co/2022/#most-popular-technologies-language). However, the vision that the casual user without programming experience would use SQL to interact with databases on a frequent basis have not come true (yet).
+
+<div class="interactive-element">
+<div class="caption" label="interaction 1">Interaction 1: SQL shell connected to a publication database</div>
+<div id="shell" style="height:300px;">
+</div>
+<script type="text/javascript" src='/js/sql/sql-wasm.js'></script>
+<script type="application/wasm" src='/js/sql/sql-wasm.wasm'></script>
+<script type="text/javascript" src='/js/sql-shell.js'></script>
+<script type="text/javascript">
+var el = document.querySelector("#shell")
+var shell = new SQLShell(el, "/public/data/publications.sqlite.db")
+</script>
+</div>
+
+In the interactive example above, you can use SQL as an _instrument_^[I use the term _instrument_ because it has conceptual links with activity theory and instrumental interaciton. One could use _tool_ or _technology_ as well, but then the theory-ladenness and point of the analysis would disappear.] for interacting with the database. **Try it -- click on the terminal above and start typing.** You can also click on the SQL code fields below and see the result.
+
+<code class="runnable">SELECT * FROM publications LIMIT 5;</code>
+
+When we have to interact with an unfamiliar and undocumented database (like this one), we try to use the instrument to poke around to explore and discover how the data is organized and how to query for the information we need. This often involves multiple steps of trail-and-error to identify appropriate tables, their fields, relations and data:
+
+<code class="runnable">SELECT name FROM sqlite_master;</code>
+
+<code class="runnable">SELECT * FROM authors LIMIT 5;</code>
+
+<code class="runnable">SELECT * FROM sqlite_master WHERE name=\'authors\';</code>
+
+And you can do more complex stuff like querying multiple tables for specific results:
+
+<code class="runnable">SELECT publications.title, authors.first, authors.last, publications.year FROM publications INNER JOIN authorship ON publications.wid=authorship.wid INNER JOIN authors ON authorship.aid=authors.aid WHERE authors.last=\'Dewey\';
+</code>
+
+
+<script type="text/javascript">
+  let codeboxes = document.querySelectorAll("code.runnable")
+  let sqlinput = document.querySelector("input[type='text'].sqlshell")
+  for(var i = 0, n =  codeboxes.length; i < n; i++){
+    let  box = codeboxes[i]
+    box.addEventListener("click", runHandler)
+  }
+
+  function runHandler(e){
+      console.log(e.target.innerHTML)
+      sqlinput.value = e.target.innerHTML
+      sqlinput.dispatchEvent(new KeyboardEvent('keydown',  {'keyCode':13}));
+
+  }
+  console.log(codeboxes)
+
+</script>
+
+TODO: Interactive quiz SQL -> Database quiz
+
+### SQL as an instrument for interacting with data
+I know, I know -- SQL has _language_ in its name. How is it an instrument then^[Well, this is a bit of a rethoric question. @vygotsky1962thought and @wittgenstein1986investigations, and others discuss language as an instrument or tool]? It is a formal language that can be used to communicate between entities that can interpret it. However, it is not a natual language and the query formulation problem -- the act of translating a question from a natural language into a formalized language -- is a still a challenging problem under research [@hofstede1996query;@papenmeier2020]. I am not sure recasting SQL from a language to an instrument will resolve the query formulation problem, but thinking about it conceptually can be illuminating (which I will return to below)  
+
+There are many small signs that one could discuss SQL as an instrument. It is an invention, a technology that has undergone significant development since its inception in 1975. Knowing how to _use_^[We do not refer to it as _speaking_ SQL in course descriptions, textbooks, tutorials, job postings and on stack-overflow] SQL is also a highly valuable skill^[At the time of writing there are 231 job postings in Denmark specifically requiring SQL] and it is something that needs to be learned in order to use it proficiently, and the way we learn it is through using it.
+
+These losely collected observations are just hints. The main reason I think it makes sense to consider SQL as an instrument is that SQL is a means to an end; we _use_ SQL _on_ a database towards a desired _outcome_. If we venture a bit into activity theory, 
+
+Vygotsky has his famous -> continue from slides
+
+We know it's at tool because so much is about using: query formulation problem or query writing challenge.
+
+### What does considering SQL as an instrument do for us?
+- First, if SQL is an instrument for interacting with data, why should it be constrained to databases?
+- Second, 
+
+I consider Instrumental Interaction a "foot in the door" to a significant class of topics and problems that are highly relevant to Human-Data Interaction, and can be _solved_ to the benefit of...
+
+- Activity theory -- what if the query formulation problem is a too parter: A guestion of familiarity with the instrument and the object it is used upon: SQL as a means to explore querying (SQL), 
+- Query formulation problem, not as something that can be solved by building better technologies (SQL, tools for exploration etc), but a fundamental dialectical interacition (dialogue with resistance/trial and error -> 
+
+Trial-and-error as a phenomenon
+Trial-and-error as prototyping
+Trial-and-error as experiment
+Trial-and-error as seeing-moving-seeing (Schön -> consider also the Alan Dix paper) <- this is the pragmatism angle
+Trial-and-error as failure or inability (this is the anti-thesis)

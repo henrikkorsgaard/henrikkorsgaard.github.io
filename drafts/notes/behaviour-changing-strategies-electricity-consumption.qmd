@@ -1,0 +1,103 @@
+---
+title: "Behaviour-changing strategies for electricity consumption"
+code-fold: true
+code-summary: "Show the code"
+---
+
+Status: Rough draft!
+
+Two key trends offer an extraoridinary oppertunity for thinking about strategies for changing or helping people change their electricity consumption habits. First, the energy-crises means that prices are increasing and will fluctuate more often due to supply and demand.  Second, the climate-crisis mean that more and more people share an interest in changing their ecological footprint and change their consumption behaviour^[I assume that young adults and families with kids have a vested interest in climate action. According to the Danish Statistical Service there are [773541 families with children](https://www.dst.dk/da/Statistik/nyheder-analyser-publ/nyt/NytHtml?cid=37837) and [786807 young adults (20-29)](https://www.statistikbanken.dk/statbank5a/selectvarval/define.asp?MainTable=FOLK1A&PLanguage=0&Tabstrip=&PXSId=0&SessID=407298487&FF=20&grouping3=201676131924174402396&tfrequency=1) in Denmark. That's a lot of people!]. That means that there are a lot of people who want to participate in understanding and changing their consumption habits -- some motivated by economy and some by a moral standpoint.
+
+At the same time, energy producers, grid companies and energy providers are investing billions into Smart grid solutions -- using digitization, modelling, prediction etc. to make the best out of the current grid infrastructure in order to supply and increased demand. There are two key challenges: Dirst, switching to green energy mean changes in the supply side -- energy when the wind is blowing and sun is shining -- that does not always fit demand. Second, challenges on the demand side. Just like traffic there are peak consumption, in particular from households. We use power when we get up in the morning and when we come home and cook dinner. This consumption pattern is not as flexible as we imagine -- kids go to school at the same time and most families have to cook between 17 - 19. Generally speaking, out habits are collective. And it might worsen when everyone switches to electrical cars -- what happens when everyone return home and plug in their EV at the same time? Peak is gonna happen. And peak is bad -- the energy need surges and the infrastructure is struggling to meet the demands at the neccesary throughput.
+
+## Motivation
+
+### Climate anxiety
+
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3918955
+
+https://projekter.aau.dk/projekter/files/342788027/De_klimabevidste_unge_.pdf
+
+https://climatecommunication.yale.edu/about/projects/climate-change-in-the-american-mind/
+
+- https://www.nature.com/articles/s41558-021-01251-y
+
+"Parents should be oriented to available resources that may support them in discussing and responding to climate change with their children in developmentally appropriate ways"
+
+- Burke, S., Sanson, A. & Van Hoorn, J. Guide for Parents on the Climate Crisis: an APS Information Sheet (Australian Psychological Society, 2018).
+
+
+- Grønhøj, A. og J. Thøgersen (2009): Like father, like son? Intergenerational transmission of values,
+attitudes, and behaviours in the environmental domain. Journal of Environmental Psychology 29 .
+Pp. 414-421.
+- Grønhøj, A. og J. Thøgersen (2011): Action speaks louder than words. The effects of personal
+attitudes and family norms on adolescents’ pro-environmental behaviour. Journal of Economic
+Psychology 33 (2012) pp. 292-302.
+- Grønhøj, A. og J. Thøgersen (2017): Why young people do things for the environment: The role of
+parenting for adolescents’ motivation to engage in pro-environmental behaviour. Journal of
+Economic Psychology 54 (2017) pp. 11-19.
+
+### Economic incentives
+
+https://www.sciencedirect.com/science/article/pii/S0167268116302979
+
+https://www.sciencedirect.com/science/article/pii/S0301421512003758
+
+https://www.sciencedirect.com/science/article/pii/S1364032114007990
+
+https://www.sciencedirect.com/science/article/pii/S0739885920302055
+
+https://dergipark.org.tr/en/pub/ijeeep/issue/31902/350694?publisher=http-www-cag-edu-tr-ilhan-ozturk;
+
+https://www.tandfonline.com/doi/abs/10.3763/cpol.2007.0441
+
+#### Numbers
+
+
+
+## So, what can we do about it?
+
+Personally, I think a lot can be done (and a lot is being done). The smartgrid efforts will likely optimize our infrastructure as best as possible (save [Jevons Paradox](https://en.wikipedia.org/wiki/Jevons_paradox) and [Khazzoom-Brookes postulate](https://en.wikipedia.org/wiki/Khazzoom%E2%80%93Brookes_postulate)^[the postulate states that "energy efficiency improvements that, on the broadest considerations, are economically justified at the microlevel, lead to higher levels of energy consumption at the macrolevel" [Herring 1998](http://www.privatebanking.com/published_data/account/0/0/_uploads_/1162.pdf). See also[Fich et al.](https://www.mdpi.com/1996-1073/15/16/5821)]). Still, there are lot of strategies to visit and revisit on the consumer side, in particular for households (to address the peak-problem) and small and medium sized business (SMVs). 
+
+Given the number of consumers interested in contributing, I think a _user-centered_ approach should supplement the producer- and grid-centered (system-centered) approach. And to develop successful intervention, we need to consider it as a partnership with empasis on dialogue and mutual learning. This points to participatory and co-design approches. But before we go into that, we need to examine the existing strategies.
+
+## Understanding different strategies
+
+![Sketch: Strategies for changing consumption behaviour](/public/images/consumption-behaviour-change-strategic-space.png){fig-align="center"}
+
+In the figure above, I have tried to sketch a intervention space and plot in different strategies. There are five strategies^[Still debating if the "nothing" strategy is the Smart Grid strategy without the consumer side]. Each strategy have a role to play, but operates with different assumptions and effects. I have split the space into a producer- and consumer side; and user-centered and system-centered approches. 
+
+### Nothing (or optimizing the Smart Grid)
+The first one is the current dominant strategy in terms of research, development and investment. The consumers will consume, while the producers and grid operators invest deeply into optimizing the infrastructure and production to meet changing demands. 
+
+The orientation toward the consumer, is as a consumer, and the efforts to understand consumption behaviour is approached from the perspective of understanding the consumption _in_ the grid and modelling consumer behaviour as group behaviour (cittion needed). As said, this is a very important effort, but it will not provide the gains needed without other efforts.
+
+### Regulating consumption through pricing
+Another common and current strategy is to regulate energy-consumption is through dynamic pricing. As the energy market changes, so does the consumer pricing. A more recent initiative in Denmark, is to increase the price between 17 and 20, in hopes that this will motivate consumers to move their flexible consumption to another hour (citation needed). This is clearly to address the peak-problem. 
+
+The is an effective strategy, because we know that economic incentives work (citation needed). However, while this strategy likely impacts all consumers, it will affect low-income groups more (citation needed). And since only a marginal part of the consumption (laundry) is flexible, it is hard to move a significant amount of consumption, unless skipping hot meals and turning of the refrigerator. 
+
+
+### Nudging consumers
+The pricing model described above will incentify consumers to change some of their behaviour. A popular term for this is to 'nudge' consumers. That is to use means to manipulate consumers into changing their behaviour. I have seperated this strategy from the above, because pricing is unavoidable, whereas nudging is a strategy that can be initiated in addition. Nudging can come in the form of reminders, competition, awards etc. geared toward promoting specific behaviours. It is different from education and information-driven intiatives, because the consumer does not neccesarily need to know or link the aspects of the nudging-campain with the intended behaviour change. 
+
+From the figure, we can notice that the nudging strategy have moved from the producer side to the consumer side. Whereas pricing is set at the producer side, nudging initiatives are most powerful within the context where the behaviour-change need to happen.
+
+Research on nudging and energy https://www.sciencedirect.com/science/article/pii/S0095069620300383
+
+### Information
+On the user-centered side we have strategies that focus on providing target information and advice for consumers.  
+
+Paragraf 14
+
+### Consultancy
+
+## Dialogue 
+Finally, we arrive at the proposed dialogue-centric approach:
+
+- mix information and consultancy
+- with pricing awareness and _volunteer_ nudging initiatives
+
+
+## Working with behaviour change
+There is a nice paper from HCI, but it does not tackle collective efforts (households, companies etc.)

@@ -9,15 +9,3 @@ If this sounds interesting to you or your organization, then reach out. I would 
 I am looking for a role within software engineering with a focus on project development/management, domain-driven design, software architecture, user-centered design, data-driven approaches and similiar. I have a few ideas but am also open to other suggestions, so please reach out.
 
 Here is a link to my [detailed resume.](/notes/full-resume.qmd)
-
-#### Software engineering
-Constructing better software that generates value for the client and users is important to me. I would be happy to take on the role within software engineering. This could be anything from project management, requirement identification, and user- and design research, to a role as a solution architect, developer, or similar.
-
-I have experience with multiple EU projects, research projects, and collaborations with the public sector. I have worked with various methods for identifying business cases and requirements in close collaboration with clients, from facilitating workshops and design meetings to developing concepts, scenarios, user stories, architecture, etc., and implementing systems. My strongest skills in this space are moving from the early phases of a software project (project development, release planning etc.) and design (user research, workshops, user-centered design etc.) into agile domain-driven/test-driven development process.
-
-#### User-centered initiatives around data and data-driven projects
-Becoming data-driven has become a requirement. This involves combining existing and new data, with both strong technical analysis and knowledge from multiple domain experts. Identifying new use cases and valuable analyses for client and/or organizational data is a challenging task that involves an understanding of the technical infrastructure and how organizations work with data and information.
-
-In this role, I have experience with multiple data-oriented projects and research involving domain experts in analytics and co-designing novel applications. I have an interest in the role of visualization, how people interact with and make sense of data, and strategic approaches in identifying the right technical- and organizational (governance) model for becoming more data-driven.
-
-In addition to my skills in facilitating co-design processes and exploring novel use cases for (open) data, I also find it engaging to develop data visualizations as means to understanding data (model-fitness-use) and identify important insights.

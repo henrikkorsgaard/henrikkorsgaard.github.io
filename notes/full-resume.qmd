@@ -5,14 +5,14 @@ Updated February 2023 -- contact me for further information.
 
 ## Skills and experiences
 
-### Design research and evaluation
+### Design, research and evaluation
 I am an expert in interaction design and user experience, and how these two perspectives integrate with software development. I am an experienced qualitative and design researcher across multiple domains from home settings, over education and work, to communities and urban computing. I have facilitated multiple user-centered design processes involving domain studies, workshop facilitation, design meetings and requirement identification and development. I have played a leading role in multiple design projects and used various design formats for stakeholder engagement and alignment. I am familiar with and have applied multiple approches to usability and user experience design evaluation, including various walkthrough methods, heuristic evaluation, focus groups, experience sampling, think aloud, scenario-based evaluation etc. I have experience in teaching interaction design, user experience, evaluation and qualitative approches to design research. 
 
 ### Software engineering
 I have a broad set of skills in design and software engineering. I developed multiple research prototypes, applications, data-driven projects, etc. applying my interaction design and software developer skills. I have developed smartphone applications from conceptual design to deployment, smaller modules, proof-of-concept systems, network-based systems, data visualisations, and much more, in a broad range of languages. I am familiar with Domain-Driven Design, Test-Driven Development, SCRUM, agile and a large host of devlopment models and principles. I have come to learn that programming languages matter less than a clear vision, well-written requirements and user stories, and the overarching system design (from high-level architecture to specific modules). I have more experience with web-based technologies but have also developed more low-level components, data APIs, and traditional applications. I have experience in teaching practical software development in a project-based course that moves from user needs and requirement identification, to a 3 spring agile process and final evaluation. 
 
 ### Project management
-I have project management experience from various research and public-private projects, as well as conference organizing and software projects. This includes managing deliverables, preparation of technical documentation, developing procedures, managing resources, and expectation alignment in international and national collaborations across multiple stakeholders. In particular, the EU project RADICAL, my work in Smart Aarhus, and organizing conferences have provided valuable lessons and experience in project management, stakeholder alignment, frequent check-ins, coordination, and the importance of appreciative and productive communication.
+I have project management experience from various research and public-private projects, as well as conference organizing events and technical projects. This includes managing deliverables, preparation of technical documentation, developing procedures, managing resources, and expectation alignment in international and national collaborations across multiple stakeholders. In particular, the EU project RADICAL, my work in Smart Aarhus, and organizing conferences have provided valuable lessons and experience in project management, stakeholder alignment, frequent check-ins, coordination, and the importance of appreciative and productive communication.
 
 I am familiar with a large selection of project and project methodologies, from agile methods (e.g. SCRUM) to more formalized approaches like (PRINCE2, LEAN and public IT-process frameworks). I have taught approaches to project management and agile software development for years, including approaches that focus on risk management, quality assurance, estimation challenges, and evaluation. 
 
@@ -24,7 +24,6 @@ I have strong communication skills in both Danish and English. I have experience
 I frequently write technical tutorials for multiple levels, e.g. supporting students in deploying with Docker on a VM somewhere in the cloud or developing diagrams and illustrations that can explain complex technical concepts. I have researched collaborative writing, information visualization, and the role various representations (text, sketches, models, user stories) play in software development and elsewhere.
 
 One of my favorite approaches is to combine communication strategies and utilize various representations, from data visualizations to sketches and narratives, to communicate ideas and challenges. A large part of my teaching and supervision is to help students train their academic as well as technical writing.
-
 
 ## Employment
 

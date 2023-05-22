@@ -1,0 +1,325 @@
+<html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Cabin+Sketch&display=swap');
+    html,
+    body,
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+        margin-top: 100;
+        text-align: center;
+    }
+
+    #process {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Cabin Sketch', cursive;
+    }
+
+    .arrow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-left: 1.5rem;
+
+        width: 225px;
+        height: 75px;
+        text-align: center;
+        position: relative;
+    }
+
+    .arrow .acontent {
+        position: absolute;
+        z-index: 2;
+        font-size: 1.5em;
+        line-height: 100%;
+        width: 100%;
+        padding-left:10px;
+        user-select: none;
+        cursor: default;
+    }
+
+    /* Arrow hover events */
+    .arrow.sketchy-1:hover .abottom,
+    .arrow.sketchy-1:hover .atop {
+        border-radius: 0;
+        background: #6d829b;
+        border: 2px solid #6d829b;
+    }
+
+    /* Arrow hover events */
+    .arrow.sketchy-2:hover .abottom,
+    .arrow.sketchy-2:hover .atop {
+        border-radius: 0;
+        background: #d1595f;
+        border: 2px solid #d1595f;
+    }
+
+    /*
+        colors: red #d1595f
+        colors: blue #6d829b
+    */
+
+    .arrow:hover .acontent {
+        font-family: 'Cabin', sans-serif;
+        font-size: 1.5em;
+        line-height: 100%;
+        color: white;
+    }
+
+    .arrow.sketchy-1:hover .abottom:before,
+    .arrow.sketchy-1:hover .atop:before {
+        content: "";
+        border: none;
+    }
+
+    .arrow.sketchy-1:hover .abottom:after,
+    .arrow.sketchy-1:hover .atop:after {
+        content: "";
+        border: none;
+    }
+
+    .arrow.sketchy-2:hover .abottom:before,
+    .arrow.sketchy-2:hover .atop:before {
+        content: "";
+        border: none;
+    }
+
+    .arrow.sketchy-2:hover .abottom:after,
+    .arrow.sketchy-2:hover .atop:after {
+        content: "";
+        border: none;
+    }
+
+    /* Arrow base */ 
+
+    .arrow .abottom {
+        transform: skew(-45deg, 0deg);
+        background-color: white;
+        width: 100%;
+        height: 52%;
+        border-left: 1px double #41403E;
+        border-right: 1px solid #41403E;
+        border-bottom: 1px double #41403E;
+        border-top: 1px solid transparent;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    }
+
+    .arrow .atop {
+        transform: skew(45deg, 0deg);
+        background-color: white;
+        width: 100%;
+        height: 50%;
+        border-left: 1px solid #41403E;
+        border-right: 1px solid #41403E;
+        border-top: 1px solid #41403E;
+        border-bottom: 1px solid transparent;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    }
+
+    .arrow .atop:before,
+    .arrow .abottom:before,
+    .arrow .atop:after,
+    .arrow .abottom:after {
+        content: "";
+        position: absolute;
+        z-index: -1;     
+        border: none;
+    }
+
+
+    /* Arrow sketchy 1 */
+
+    .arrow.sketchy-1 .atop:before {
+        top: -2px;
+        left: 1px;
+        right: 20px;
+        bottom: 10px;
+        transform: rotate(1deg);
+        border-top: 1px solid #acacab;
+        border-left: 1px solid #8e8e8c;
+        border-top-left-radius: 20px / 200px;
+    }
+
+    .arrow.sketchy-1 .abottom:before {
+        top: -2px;
+        left: 5px;
+        right: -5px;
+        bottom: 1px;
+        transform: rotate(-0.5deg);
+        border-bottom: 1px solid #acacab;
+        border-top-left-radius: 20px / 200px;
+    }
+
+    .arrow.sketchy-1 .atop:after {
+        top: 0px;
+        left: 5px;
+        right: -2px;
+        bottom: 5px;
+        transform: rotate(5deg);
+        border-right: 1px solid #acacab;
+        border-bottom-right-radius: 250px / 20px;
+    }
+
+    .arrow.sketchy-1 .abottom:after {
+        top: -9px;
+        left: 5px;
+        right: -2px;
+        bottom: 0px;
+        transform: rotate(1deg);
+        border-right: 1px solid #acacab;
+        border-bottom-right-radius: 20px / 200px;
+    }
+
+    /* Arrow sketchy 2 */
+
+    .arrow.sketchy-2 .atop:before {
+        top: -2px;
+        left: 1px;
+        right: -10px;
+        bottom: 10px;
+        transform: rotate(-0.5deg);
+        border-top: 1px solid #acacab;
+        border-left: 1px solid #8e8e8c;
+        border-top-right-radius: 20px / 200px;
+    }
+
+    .arrow.sketchy-2 .abottom:before {
+        top: -2px;
+        left: 5px;
+        right: -2px;
+        bottom: 0px;
+        transform: rotate(1deg);
+        border-bottom: 1px solid #acacab;
+        border-bottom-left-radius: 200px / 200px;
+    }
+
+    .arrow.sketchy-2 .atop:after {
+        top: -20px;
+        left: 5px;
+        right: -2px;
+        bottom: 5px;
+        transform: rotate(5deg);
+        border-right: 1px solid #acacab;
+        border-bottom-right-radius: 250px / 20px;
+    }
+
+    .arrow.sketchy-2 .abottom:after {
+        top: 0px;
+        left: 2px;
+        right: -1px;
+        bottom: 0px;
+        transform: rotate(1deg);
+        border-left: 1px solid #797979;
+        border-bottom-left-radius: 20px / 200px;
+    }
+
+    #experience p {
+        display:none;
+    }
+
+    #experience p.focus {
+        display:inherit;
+    }
+</style>
+<div>
+
+    <h1>I want to help build better software!</h1>
+
+    <div id="process">
+        <div class="arrow sketchy-1">
+            <div class="atop"></div>
+            <div class="acontent">Project</div>
+            <div class="abottom"></div>
+        </div>
+        <div class="arrow sketchy-2">
+            <div class="atop"></div>
+            <div class="acontent">Ideation</div>
+            <div class="abottom"></div>
+        </div>
+        <div class="arrow sketchy-1">
+            <div class="atop"></div>
+            <div class="acontent">Design</div>
+            <div class="abottom"></div>
+        </div>
+        <div class="arrow sketchy-2">
+            <div class="atop"></div>
+            <div class="acontent">Implementation</div>
+            <div class="abottom"></div>
+        </div>
+        <div class="arrow sketchy-1">
+            <div class="atop"></div>
+            <div class="acontent">Deployment</div>
+            <div class="abottom"></div>
+        </div>
+    </div>
+
+    <div id="experience">
+        <p id="project">
+            <b>Project management </b>
+            Manage projects - research projects, innovation initiatives, student design projects etc.
+            Agile methodologies as well as standard models
+
+        </p>
+
+        <p id="ideation">
+            <b>Ideation and business development</b>
+            
+
+            Facilitate and develop design methodologies for stakeholder engagement
+            Develop and summarise design documentation, inspiration catalogies and conduct design research
+            Pay attention to the business case 
+        </p>
+
+        <p id="design">
+            <b>Design and specification</b>
+            Scenarios, personas, 
+
+            User-stories 
+
+        </p>
+
+        <p id="implementation">
+            <b>Software development</b>
+            Agile
+            code
+
+        </p>
+
+        <p id="deployment">
+            <b>Deployment and organisational integration</b>
+            Rolling out a new system is far from trivial. I have experience with deploying applications to app stores and using common technologies like Docker to deploy applications on cloud infrastrucute. That is the easy part. The hard part is to strategically plan the the integration of the new system into the organisation.  Do you pilot a subset of the system across the organisation, pilot the full system within a single unit, or do you go for the risky full tranition all at once?
+         
+
+        </p>
+    </div>
+    <script type="text/javascript">
+        let process = document.querySelector("#process")
+        let exp = document.querySelector("#experience")
+        process.addEventListener("click", e => {
+            let t = e.target.classList.contains("arrow") ? e.target : e.target.parentNode
+            if (t.classList.length == 0) {
+                return;
+            }
+            let id = t.querySelector(".acontent").innerHTML.toLowerCase()
+            let focused = exp.querySelector("p.focus")
+            let text = exp.querySelector("p#" + id)
+
+            if (focused) {
+                focused.classList.remove("focus")
+            }
+
+            text.classList.add("focus")
+            //now we should be able to morph to something
+
+        })
+    </script>

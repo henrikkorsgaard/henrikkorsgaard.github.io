@@ -1,0 +1,103 @@
+---
+title: "Instrumental Data Interaction"
+bibliography:
+  - ../references/general.bib
+  - ../references/datascience.bib
+  - ../references/hci.bib
+csl: ../references/apa.csl
+css: /css/instrumental-data-interaction.css
+citation: 
+  type: manuscript
+  author: "Henrik Korsgaard"
+  version: "0.5"
+  issued: "November 2022"
+  url: http://henrikkorsgaard.github.io/pages/notes/instrumental-data-interaction.html
+---
+Status: Early draft
+
+I am interested in how to support people in interacting with data. Millions do it already, from querying databases, doing complext analysis in computational notebooks, working with data in spreadsheets, and interacting with information visualisations to understand a phenomena or relations through data. But in the age of the data deluge, the tools have a hard time keeping up and cognitive overload is an ever present challenge. I think we can create better tools for interacting with data, and I think there are some strong ideas from human-computer interaction and interaction design that can guide us. 
+
+In this post I explore the merits of thinking about the tools we use to interact with data as an _instrument_, based on ideas from _instrumental interaction_ [@beaudouin2000instrumental] and _activity theory_ [@kaptelinin1996activity]. As tool builders, this perspective allow us to examine the tools and how we use them, as well as exploring how we can _improve_ the tool with a focus on _what the tool can do_, the goal and quality of interaction. Building better tools for interacting with data would also make the vast amounts of available data accessible to a larger audience and groups^[When I get really excited I tend to use words like democratizing data science or fostering transparency. Another argument would be openess and transparency as a civic and legal right, see e.g. the [Aarhus convention, pillar 1](https://en.wikipedia.org/wiki/Aarhus_Convention#The_Three_Pillars)].
+
+In instrumental interaction, interface elements (e.g. a colorpicker, a scrollbar, cropping tool, text-highligthing) are tools that we use to manipulate domain objects (data, documents, images etc.) through interaction. This view is from _activity theory_, where _use_ is conceptalized as a _subject_ using an _instrument_ on a _object_ towards realizing a _goal_. This could be someone using a SQL editor to query a library database with the goal of getting information on e.g most popular books based on loan data; it could be someone using a visualization library or diagrams in Excel to create a visualization; or it could be someone exploring their energy consumption through an information visualization. In all cases, instrumental interaction offer a framing for analyzing the tool within the context of an activity for the purpose of improving the tool. 
+
+
+## SQL and instrumental interaction with data
+One of the most common and fundamental ways to interact with data, is through using the **S**tructured **Q**uery **L**anguage (SQL). Together with the relationel database, it was developed to help _"the non-professional user into effective communication with a formatted database"_ [@chamberlin1974sequel, p.250] and _"to put end users into direct touch with the information stored in computers"_ [@codd2007relational, p.109]. SQL was considered an ideal way for non-programmers to access and query data. It was developed with an onset in English (Structured English Query Language -- SEQUEL) and a declarative approach to data querying. SQL turned out to be hugely succesful [@helland2016sql] and is one of the commonly used technologies [today](https://survey.stackoverflow.co/2022/#most-popular-technologies-language). However, the idea that the casual user would use SQL to interact with databases on a frequent basis have not come true (yet). I'm not saying that SQL is the ideal tool for casual users, but if we could improve the tool to cater more to causal and non-technical users (e.g. designers, journalists, citizens), we can make the vast amount of data in SQL databases accessible to a significant larger audience^[The alternative strategy of publishing the data in more accessible formats is viable, but current initatives are slow, fragmented, lack common standars and of low quality in my opinion.].
+
+### SQL as a tool
+<div class="interactive-element">
+<div class="caption" label="interaction 1">Interaction 1: SQL shell connected to a publication database</div>
+<div id="shell" style="height:200px;">
+</div>
+<script type="text/javascript" src='/js/sql/sql-wasm.js'></script>
+<script type="application/wasm" src='/js/sql/sql-wasm.wasm'></script>
+<script type="text/javascript" src='/js/sql-shell.js'></script>
+<script type="text/javascript">
+var el = document.querySelector("#shell")
+var shell = new SQLShell(el, "/public/data/publications.sqlite.db")
+</script>
+</div>
+
+In the interactive example above, you can use SQL as an _instrument_^[I use the term _instrument_ because it has conceptual links with activity theory and instrumental interaciton. One could use _tool_ or _technology_ as well, but then the theory-ladenness and point of the analysis would disappear.] for interacting with the database. **Try it -- click on the terminal above and start typing.** You can also click on the SQL code fields below and see the result.
+
+<code class="runnable">SELECT * FROM publications LIMIT 5;</code>
+
+When we have to interact with an unfamiliar and undocumented database (like this one), we try to use the instrument to poke around to explore and discover how the data is organized and how to query for the information we need. This often involves multiple steps of trail-and-error to identify appropriate tables, their fields, relations and data:
+
+<code class="runnable">SELECT name FROM sqlite_master;</code>
+
+<code class="runnable">SELECT * FROM authors LIMIT 5;</code>
+
+<code class="runnable">SELECT * FROM sqlite_master WHERE name=\'authors\';</code>
+
+And you can do more complex stuff like querying multiple tables for specific results:
+
+<code class="runnable">SELECT publications.title, authors.first, authors.last, publications.year FROM publications INNER JOIN authorship ON publications.wid=authorship.wid INNER JOIN authors ON authorship.aid=authors.aid WHERE authors.last=\'Dewey\';
+</code>
+
+<script type="text/javascript">
+  let codeboxes = document.querySelectorAll("code.runnable")
+  let sqlinput = document.querySelector("input[type='text'].sqlshell")
+  for(var i = 0, n =  codeboxes.length; i < n; i++){
+    let  box = codeboxes[i]
+    box.addEventListener("click", runHandler)
+  }
+
+  function runHandler(e){
+      console.log(e.target.innerHTML)
+      sqlinput.value = e.target.innerHTML
+      sqlinput.dispatchEvent(new KeyboardEvent('keydown',  {'keyCode':13}));
+
+  }
+
+</script>
+
+## Improving our tool
+That is neat, but there are a couple of problems and/or improvements we can introduce to make the tool more _usable_. The first one is with the structure and syntax of the query itself. For experience users that are familiar with the data model they are interacting with, it is trivial to write `SELECT title FROM publications;`. They know that there is a table called `publications` and that it contains a column with `title`. But for novice SQL users or experience users interacting with a new database, the `SELECT` first approach does not help us before we know where we select `FROM` (using `SELECT *` as a probing strategy can help). There are a couple of interaction design ideas we can apply to solve this issue. First, for novice users, we can add something as simple as autocomplet. We know the [abstract syntax three for SQL](http://ns.inria.fr/ast/sql/index.html), so it is trival to provide users with hints to both keywords and errors. Let's try that.
+
+//DEMO
+
+There is another small problem. Early research on the usability of different query languages by @reisner1981, show that some users perform poorly due to the design choice of starting queries with `SELECT` instead of allowing `FROM` first as well^[The same is the case with the `GROUP BY` clause]. Begining with `SELECT` or `FROM` represent two fundamental query writing strategies. The former is the _translation strategy_ where the user is invited to look for approprate terms and search through trial and error (or find the data model described elsewhere). The latter is the _operations-on-tables_ where the users indicate where they want to search before they search (operate). The operations-on-tables strategy is closer to the idea of instrumental interaction, than the _translation strategy_ which focus more on semantic understanding. So it seems silly that we we require the users to remember what they want to select before they know where from. Let's just address the issue by improving out tool so that valid SQL queries can start with `FROM` as well. We change two things about the tool. We make `FROM` a valid starting operation and when the query is done swap the two components `FROM` and `SELECT` behind the curtains^[While we wait for the various vendors to update their SQL engine to cater to our needs.]. Let us see that in action.
+
+//DEMO
+
+There is another significant improvent we can make that combine the autocomplete and utalize allowing queries to start with `FROM`. In many cases we know something about _what_ the user can query. We likely have a finite number of tables that can go into our autocomplete feature, and once the user have shown intent with `FROM` we can also suggest columns. Putting `FROM` in front make the autocomplete flow easier to implement, because we can narrow the suggestions based on the table selection and not the column selection. 
+
+//DEMO
+
+## Summary: Playing language games
+Considering SQL as an instrument for interacting with data allow us to consider multiple ways we can improve the tool without ever having to change the domain object, the database. Doing so could potentially allow us to make SQL accessible to more casual non-technical users and thereby make a vast amount of data accessible as well. 
+
+While we are fiddling with the SQL language, why not introduce localization? If our future users are casual users and we do not expect them to write SQL without help, why do we expect them to use English? I know that SQL is derived from Structured English Query Language (SEQUEL), but when people use it across the globe and within a broad range of domains, I don't see why we cannot offer localization or customized queries to increase accessiblity and semantic intuition. And when the database, table and column names are already in local languages, why force people to mix and match when they try to translate their question to a query (the query formulation problem, cf @hofstede1996query)? If Danish journalists think "hent en liste over alle folketingets medlemmer, der stemte for lovforslag L87" (fetch me a list of all the members of parliament who voted for bill L87), why not make `HENT` synonymous with `SELECT`? That would be trivial.
+
+Similarly, and with more recent research into both Large Language Models and Natual Language Interfaces for Databases [@affolter2019comparative], our tool could be improved with both domain specific language features and/or a database specific LLM that supported queries based on natural language^[I'm working on it].
+
+There are other improvements to consider as well. Combining writing queries with other types of feedback, e.g. tabular views as demonstrated by [The Gamma](), visualizations and tabular views to support more complex quries like joins and group by. This is something I will investigate in a later post.
+
+Finally, when we 'detach' SQL from the database through the idea of SQL as an instrument, we can also explore multimodal interaction where our SQL tool can be used to interact with other data sources (APIs, tables, structure data etc.) and we can develop other tools that can interact with our database as well. This multi-multi scenario where users can use familiar tools with unfamilar data or people can collaborate without being forced to use the same tool (tool asymetry) is key in supporting collaboration across disciplines, e.g. in open data project [see @choi2017characteristics].
+
+
+
+
+

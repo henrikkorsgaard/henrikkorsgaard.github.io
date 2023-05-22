@@ -303,7 +303,7 @@ I have a bunch of small ideas based on [GTFS data](https://gtfs.org/) and one of
 
 ## Details
 
-I downloaded the Danish GTFS data from [Rejseplanen](https://www.rejseplanen.info/labs/GTFS.zip). I wrangled the GTFS data into seperate files for the transit routes I'm interested in (Midttrafik).
+I downloaded the Danish GTFS data from [Rejseplanen](https://www.rejseplanen.info/labs/GTFS.zip). [I wrangled the GTFS data into a seperate file](https://github.com/henrikkorsgaard/GTFS-wrangler/blob/main/parse-gtfs-trip.py) for the transit route I'm interested in (Midttrafik).
 
 I use [Leaflet](https://leafletjs.com/) and [Leaflet.GeometryUtil](https://github.com/makinacorpus/Leaflet.GeometryUtil) to render the route as a polyline and add the interactive elements. 
 

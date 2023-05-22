@@ -71,7 +71,7 @@ One of my favorite approaches is to combine communication strategies and utilize
 <tr><td>2015</td><td>Proceedings Chair at the 5th Decennial Aarhus Conference</td></tr>
 <tr><td>2013 -- 2014</td><td>PhD at Department of Computer Science, Aarhus University</td></tr>
 <tr><td>2012 -- 2013</td><td>Member of the Danish Smart City Network</td></tr>
-<tr><td>2021 -- 2022</td><td>Member of Aarhus Open Data work group</td></tr>
+<tr><td>2011 -- 2013</td><td>Member of Aarhus Open Data work group</td></tr>
 <tr><td>2011 -- 2013</td><td>Member of the Smart Aarhus Secretariat</td></tr>
 </table>
 

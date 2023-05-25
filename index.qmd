@@ -10,7 +10,7 @@ I have loved my time at Computer Science at Aarhus University, but I need new ch
 
 If this sounds interesting to you or your organization, then reach out. I would love to connect and have a chat about future possibilities.
 
-I am looking for a role within software engineering with a focus on project development/management, domain-driven design, software architecture, user-centered design, data-driven approaches, and similar. I have a few ideas but am also open to other suggestions, so please reach out.
+I love building software! I'm looking for roles within user experience (research) and/or software engineering, and everything in between. I can fill the role of strong senior UX candidate that can work on close collaboration with developers and/or a software developer that can help translate needs and ideas into user stories, software architecture and code. I have a few ideas but am also open to other suggestions, so please reach out.
 
 Here is a link to my [resume as a PDF](/public/pdfs/cv-industry-eng.pdf), see [full resume for details](/notes/full-resume.qmd)
 

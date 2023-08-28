@@ -6,11 +6,11 @@ title: "Hi!"
 
 I want to help you build better software! 
 
-After a decade as a researcher in Computer Science at Aarhus University, I'm looking for new oppertunities to apply and expand my skills.
+After a decade as a researcher in Computer Science at Aarhus University, I'm looking for new opportunities within software engineering and/or UX. 
 
-In the span of the last 10 years as a HCI researcer, I have built countless of applications, demos, distributed systems, data analysis and more. I have supervised over 100 projects within product design, user experience, systems design and development. I've lectured about UX research and design, agile methodologies, C4 models, UML, software patterns and websockets, data-driven projects, evaluation, project management and much more. I've spendt countless hours at the whiteboard grokking a particular problem or helping students identify the _right_ architecture or _why_ their current system breaks. 
+In the span of the last 10 years as an HCI researcher, I have built multiple  applications, demos, distributed systems, data analysis, and more. I have supervised over 100 projects within product design, user experience, systems design, and development. I've lectured about UX research and design, agile methodologies, C4 models, UML, software patterns and WebSockets, data-driven projects, evaluation, project management, and much more. I've spent countless hours at the whiteboard grokking a particular problem or helping students identify the _right_ architecture or _why_ their current system breaks. 
 
-I'm love building software! I want to join a team where I can contribute and learn at the same time.  I can step into a role as a senior UX or as a software developer or solution architect, or it could also be something entirely new!
+I love building software! I want to join a team where I can contribute and learn at the same time. I can step into a role as a senior UX or as a software developer or solution architect, or it could also be something entirely new!
 
 Ping me for a chat over coffee!
 

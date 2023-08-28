@@ -1,3 +1,4 @@
+<!--
 <div class="note">
 <a href="/notes/who-to-talk-to-in-user-research.html">
 <h2>"Who should I talk to?": Picking the right informants in user research</h2></a>
@@ -6,6 +7,7 @@
 <p>A common challenge in software development is to identify and prioritize features in a feature system. Sometimes there are requirements, to begin with, but they are often defined as high-level specifications, and often technical. The important details of the functions and features as they are presented to and used by future users are typically vaguely defined and negotiable. In this specification, they are also underinformed in terms of what the future users _need_ and _want_.</p>
 </div>
 </div>
+-->
 
 <div class="note">
 <a href="/notes/gtfs-coordinated-views-ixd-experiment.html">

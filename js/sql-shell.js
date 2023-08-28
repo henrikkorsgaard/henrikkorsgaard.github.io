@@ -15,6 +15,7 @@ class SQLShell {
         padding:5px !important;
         box-sizing: border-box !important;
     }
+
     div#output.sqlshell {
         width:100%;
         height:100%;
@@ -23,6 +24,11 @@ class SQLShell {
         display: flex;
         flex-direction: column-reverse;
     }
+
+    div#output.sqlshell span.sqlerror {
+        color:red;
+    }
+
     input.sqlshell {
         vertical-align: top;
         display:inline-block;
@@ -44,7 +50,7 @@ class SQLShell {
     } 
     </style>`
 
-    constructor(parent, dbfile){
+    constructor(parent, dbfile, from_flag){
         this.parent = parent 
         this.dbfile = dbfile
 
@@ -72,9 +78,25 @@ class SQLShell {
                     this.output.innerHTML += result;
                     return
                 }
-                var stmt = this.db.prepare(this.input.value);
-                stmt.getAsObject()
+                
+                let stmt;
+                
+                try {
+                    stmt = this.db.prepare(this.input.value);
+                    
+                } catch(err){
+                    console.error(err);
+                    result += `<span class="sqlerror">${err}</span><br>`;
+                    this.output.innerHTML += result;
+                    this.history.push(this.input.value)
+                    this.input.value = ""
+                    return;
+                }
+                
+                stmt.getAsObject();
                 stmt.bind();
+                
+                
                 while(stmt.step()){
                     var row = stmt.getAsObject()
                     for(let k in row){

@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora|Work+Sans&display=swap');
 
-
-
-
 body {
     --page-width: 800px;
     --menu-width: 280px;
@@ -23,7 +20,6 @@ body {
     margin: 0px auto;
     color: var(--dark-font);
     font-family: var(--font-text);
-    background-color: blue;
 }
 
 html {
@@ -42,6 +38,7 @@ menu {
     height: 100%;
     background-color: var(--dark-menu-bg);
     border-right: 1px solid var(--border-color);
+    position:fixed;
 }
 
 menu img {
@@ -80,6 +77,7 @@ content {
     display: block;
     max-width: var(--page-width);
     width: var(--page-width);
+    
 }
 
 h1, h2, h3 {
@@ -102,6 +100,8 @@ page {
     padding-left:100px;
     padding-top:60px;
     height: 100%;
+    box-sizing: border-box;   
+    margin-left:var(--menu-width);
 }
 
 

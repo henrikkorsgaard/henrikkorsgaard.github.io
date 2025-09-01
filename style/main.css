@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+body {
+    --page-width: 800px;
+    --menu-width: 280px;
+    --dark-page-bg: #262626;
+    --dark-menu-bg: #212121;
+    --dark-font: #d1d1d1;
+    --font-text: 'Inconsolata', ui-sans-serif, -apple-system, Helvetica, Arial;
+    --border-color: #333333;
+    --link-color: #889eaa;
+
+    border-radius: 0px;
+    position: relative;
+    display: flex;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    margin: 0px auto;
+    color: var(--dark-font);
+    font-family: var(--font-text);
+    background-color: blue;
+}
+
+html {
+    border-radius: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+menu {
+    border-radius: 0px;
+    margin: 0px;
+    padding-top:20px;
+    width: var(--menu-width);
+    min-width: var(--menu-width);
+    flex: 0 0 var(--menu-width);
+    height: 100%;
+    background-color: var(--dark-menu-bg);
+    border-right: 1px solid var(--border-color);
+}
+
+menu img {
+    width: 90%;
+    /*filter: invert(72%) sepia(11%) saturate(522%) hue-rotate(157deg) brightness(84%) contrast(87%);*/
+    filter: invert(76%) sepia(56%) saturate(4771%) hue-rotate(292deg) brightness(105%) contrast(104%);
+}
+
+page {
+    flex: 1 0 0;
+    flex-direction: column;
+    background-color: var(--dark-page-bg);
+    padding-left:100px;
+}
+
+content {
+    max-width: var(--page-width);
+    width: var(--page-width);
+}

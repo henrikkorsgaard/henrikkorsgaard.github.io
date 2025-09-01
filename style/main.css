@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora|Work+Sans&display=swap');
+
+
+
 
 body {
     --page-width: 800px;
@@ -7,7 +10,7 @@ body {
     --dark-page-bg: #262626;
     --dark-menu-bg: #212121;
     --dark-font: #d1d1d1;
-    --font-text: 'Inconsolata', ui-sans-serif, -apple-system, Helvetica, Arial;
+    --font-text: 'Inconsolata', Helvetica, Arial;
     --border-color: #333333;
     --link-color: #889eaa;
 
@@ -42,9 +45,54 @@ menu {
 }
 
 menu img {
-    width: 90%;
+    position: relative;
+    left:-25px;
+    margin-top:50px;
+    width: 100%;
     /*filter: invert(72%) sepia(11%) saturate(522%) hue-rotate(157deg) brightness(84%) contrast(87%);*/
-    filter: invert(76%) sepia(56%) saturate(4771%) hue-rotate(292deg) brightness(105%) contrast(104%);
+    /* filter: invert(76%) sepia(56%) saturate(4771%) hue-rotate(292deg) brightness(105%) contrast(104%); /* PINK */
+    filter: invert(57%) sepia(19%) saturate(3609%) hue-rotate(218deg) brightness(100%) contrast(102%);
+}
+
+menu ul {
+    margin-top:80px;
+    list-style-type: ">";
+    text-indent: 0.5em;
+}
+
+menu ul li a {
+    all: unset;
+}
+
+menu ul li {
+    padding:2px;
+    cursor: pointer;
+    user-select: none;
+    font-size:110%;
+}
+
+
+menu ul li.here {
+    color:var(--link-color);
+}
+
+content {
+    display: block;
+    max-width: var(--page-width);
+    width: var(--page-width);
+}
+
+h1, h2, h3 {
+    font-family: 'Computer Modern Sans', sans-serif;
+    color:#e57e43;
+}
+
+content a:link {
+    color:var(--link-color);
+}
+
+content note h2 {
+    margin-top:50px;
 }
 
 page {
@@ -52,9 +100,8 @@ page {
     flex-direction: column;
     background-color: var(--dark-page-bg);
     padding-left:100px;
+    padding-top:60px;
+    height: 100%;
 }
 
-content {
-    max-width: var(--page-width);
-    width: var(--page-width);
-}
+

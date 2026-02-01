@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/home/henrik/.vscode/extensions/ms-python.python-2022.4.1/pythonFiles/shell_exec.py", line 26, in <module>
-    subprocess.check_call(shell_args, stdout=sys.stdout, stderr=sys.stderr)
-  File "/usr/local/lib/python3.9/subprocess.py", line 373, in check_call
-    raise CalledProcessError(retcode, cmd)
-subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '-m', 'pip', 'install', '-U']' returned non-zero exit status 1.

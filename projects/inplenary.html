@@ -7,85 +7,228 @@
             href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css"
         />
         <link rel="stylesheet" type="text/css" href="../style/main.css" />
-
-        <title>InPlenary: Co-located Interactive Lectures - Henrik Korsgaard</title>
+        <script src="../js/components.js" defer></script>
+        <title>
+            InPlenary: Co-located Interactive Lectures - Henrik Korsgaard
+        </title>
     </head>
-
     <body>
-        <menu>
-            <a href="../index.html">
-                <img src="../media/images/henrik-transparent.png" />
-            </a>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../notes.html">Notes</a></li>
-                <li class="here"><a href="../projects.html">Projects</a></li>
-                <li><a href="../research.html">Research</a></li>
-            </ul>
-            <footer>
-                <a href="mailto:korsgaard@protonmail.com">Email</a>
-                <a href="https://github.com/henrikkorsgaard">GitHub</a>
-                <a href="https://linkedin.com/in/henrik-korsgaard-77a0831b">LinkedIn</a>
-            </footer>
-        </menu>
+        <site-menu current="projects" base-path="../"></site-menu>
         <page>
             <content>
                 <h1>InPlenary: Co-located Interactive Lectures</h1>
 
                 <figure class="three-col">
-                    <img src="../media/images/projects/inplenary/inplenary-lecture.png" alt="Me lecturing" />
-                    <img src="../media/images/projects/inplenary/inplenary-interaction.png" alt="Screen with delegated navigation" />
-                    <img src="../media/images/projects/inplenary/inplenary-discussion.png" alt="Screen with discussion slide" />
-                    <figcaption>Pictures from InPlenary lecture. (a) Me lecturing, (b) Screen with delegated navigation and interaction, (c) Screen with discussion slide and comment field.</figcaption>
+                    <img
+                        src="../media/images/projects/inplenary/inplenary-lecture.png"
+                        alt="Me lecturing"
+                    />
+                    <img
+                        src="../media/images/projects/inplenary/inplenary-interaction.png"
+                        alt="Screen with delegated navigation"
+                    />
+                    <img
+                        src="../media/images/projects/inplenary/inplenary-discussion.png"
+                        alt="Screen with discussion slide"
+                    />
+                    <figcaption>
+                        Pictures from InPlenary lecture. (a) Me lecturing, (b)
+                        Screen with delegated navigation and interaction, (c)
+                        Screen with discussion slide and comment field.
+                    </figcaption>
                 </figure>
 
-                <p>In my PhD I explored various ways to design for places and co-located interaction. One of the systems we developed was a co-located lecturing system that distributed the lecture slides and interaction widgets to client devices using the local network access point as a signer for location-based content. The core idea was to make the traditional university lecture an interactive object that could facilitate richer interactions between the participants in the lecture. We worked from the following scenario:</p>
+                <p>
+                    In my PhD I explored various ways to design for places and
+                    co-located interaction. One of the systems we developed was
+                    a co-located lecturing system that distributed the lecture
+                    slides and interaction widgets to client devices using the
+                    local network access point as a signer for location-based
+                    content. The core idea was to make the traditional
+                    university lecture an interactive object that could
+                    facilitate richer interactions between the participants in
+                    the lecture. We worked from the following scenario:
+                </p>
 
                 <blockquote>
-                    <p>"A lecturer enters the classroom and opens their computer. They sign into the InPlenary application and navigate to today's lecture slides. When activated, the projector in the room automatically shows the lecture. The lecturer can see a small view of their slides on their screen, their notes and a preview of the next slide. [...] The students open their computers and login to InPlenary. They can see a preview of the current lecture in the room (which is also on the projector) and open it. When opened they can see a small view with the current slide and a note-taking widget where they can make notes. As the lecturer navigates through the slides, they also change on the student's computers."</p>
+                    <p>
+                        "A lecturer enters the classroom and opens their
+                        computer. They sign into the InPlenary application and
+                        navigate to today's lecture slides. When activated, the
+                        projector in the room automatically shows the lecture.
+                        The lecturer can see a small view of their slides on
+                        their screen, their notes and a preview of the next
+                        slide. [...] The students open their computers and login
+                        to InPlenary. They can see a preview of the current
+                        lecture in the room (which is also on the projector) and
+                        open it. When opened they can see a small view with the
+                        current slide and a note-taking widget where they can
+                        make notes. As the lecturer navigates through the
+                        slides, they also change on the student's computers."
+                    </p>
                 </blockquote>
 
-                <p>To support the above scenario (and the idea of interactive widgets), we developed a slide authoring module that would ingest a PDF slideshow and transform it to an interactive lecture. In the authoring tool, the lecturer could add notes and interactive widgets to each slide. We also developed a system for coupling the lecturer and student computers to a specific room, and a module for running and distributing the slides to the client machines.</p>
+                <p>
+                    To support the above scenario (and the idea of interactive
+                    widgets), we developed a slide authoring module that would
+                    ingest a PDF slideshow and transform it to an interactive
+                    lecture. In the authoring tool, the lecturer could add notes
+                    and interactive widgets to each slide. We also developed a
+                    system for coupling the lecturer and student computers to a
+                    specific room, and a module for running and distributing the
+                    slides to the client machines.
+                </p>
 
                 <h2>Interactive widgets</h2>
 
-                <p>We developed a series of interactive widgets that could be added as an overlay to the relevant slides. We selected a couple from the research literature on Audience Response Systems: Voting, commenting and essay feedback. We added two additional widgets: <em>Navigation delegation</em> and <em>learning progression feedback</em>.</p>
+                <p>
+                    We developed a series of interactive widgets that could be
+                    added as an overlay to the relevant slides. We selected a
+                    couple from the research literature on Audience Response
+                    Systems: Voting, commenting and essay feedback. We added two
+                    additional widgets: <em>Navigation delegation</em> and
+                    <em>learning progression feedback</em>.
+                </p>
 
                 <h3>Quiz voting</h3>
 
-                <p><em>"The lecturer changes to a slide with a quiz question: Who was the proposer of the concept of Ubiquitous computing? On the student views a voting widget is introduced with options. As they enter their vote they get a confirmation. Their vote is persisted with their notes for later review, together with the correct answer. When the lecturer ends the vote, the results are overlaid on top of the current slide. They initiate a discussion of the result."</em></p>
+                <p>
+                    <em
+                        >"The lecturer changes to a slide with a quiz question:
+                        Who was the proposer of the concept of Ubiquitous
+                        computing? On the student views a voting widget is
+                        introduced with options. As they enter their vote they
+                        get a confirmation. Their vote is persisted with their
+                        notes for later review, together with the correct
+                        answer. When the lecturer ends the vote, the results are
+                        overlaid on top of the current slide. They initiate a
+                        discussion of the result."</em
+                    >
+                </p>
 
                 <h3>Comments and voting</h3>
 
-                <p><em>"The lecturer changes to a slide with an open question. They invite the students to discuss the question with the student next to them. When they have discussed the question, they enter a reply into the comment widget. Once they have added a comment, they can vote on the replies from the other students. The lecturer shows the 3 top voted replies and they discuss these."</em></p>
+                <p>
+                    <em
+                        >"The lecturer changes to a slide with an open question.
+                        They invite the students to discuss the question with
+                        the student next to them. When they have discussed the
+                        question, they enter a reply into the comment widget.
+                        Once they have added a comment, they can vote on the
+                        replies from the other students. The lecturer shows the
+                        3 top voted replies and they discuss these."</em
+                    >
+                </p>
 
                 <h3>Navigation delegation</h3>
 
-                <p><em>"The lecturer changes to a slide that asks the students to review the last 5 slides with software engineering models. They are tasked discussing the models on how each model deals with iteration. To support the students in group discussions, the lecturer delegates control of the five slides to the students, so they can navigate back and forth between the models and the guiding questions. When the exercise is over, the lecturer retakes control and navigates to a slide where the students can reorganize a list with the models from least to most agile. The students complete the exercise and the class reviews the final list."</em></p>
+                <p>
+                    <em
+                        >"The lecturer changes to a slide that asks the students
+                        to review the last 5 slides with software engineering
+                        models. They are tasked discussing the models on how
+                        each model deals with iteration. To support the students
+                        in group discussions, the lecturer delegates control of
+                        the five slides to the students, so they can navigate
+                        back and forth between the models and the guiding
+                        questions. When the exercise is over, the lecturer
+                        retakes control and navigates to a slide where the
+                        students can reorganize a list with the models from
+                        least to most agile. The students complete the exercise
+                        and the class reviews the final list."</em
+                    >
+                </p>
 
                 <h2>Supporting lectures and later review</h2>
 
-                <p>We examined statistics on slide access in our existing learning management system. We observed two things: Students download slides <em>at</em> the lecture and we saw a huge spike in downloads when they used the slides as supplementary material <em>when studying for the exam</em>. To support this use-scenario we implemented a way to persist the student notes and lecture response data with the slides and a review module where the students could review and reflect on the material when studying for the exam.</p>
+                <p>
+                    We examined statistics on slide access in our existing
+                    learning management system. We observed two things: Students
+                    download slides <em>at</em> the lecture and we saw a huge
+                    spike in downloads when they used the slides as
+                    supplementary material <em>when studying for the exam</em>.
+                    To support this use-scenario we implemented a way to persist
+                    the student notes and lecture response data with the slides
+                    and a review module where the students could review and
+                    reflect on the material when studying for the exam.
+                </p>
 
-                <p><em>"Four months after the exam a student is studying for their exam. They login to the InPlenary system and navigate to the lecture above. They can navigate through the slides, review and edit their notes, and replay the exercises. They can also review the comments, replies and input produced collectively in the class to aid their understanding of the concepts."</em></p>
+                <p>
+                    <em
+                        >"Four months after the exam a student is studying for
+                        their exam. They login to the InPlenary system and
+                        navigate to the lecture above. They can navigate through
+                        the slides, review and edit their notes, and replay the
+                        exercises. They can also review the comments, replies
+                        and input produced collectively in the class to aid
+                        their understanding of the concepts."</em
+                    >
+                </p>
 
-                <h2>Background: Designing for place and common interactive objects</h2>
+                <h2>
+                    Background: Designing for place and common interactive
+                    objects
+                </h2>
 
-                <p>The system explored several of the questions in my PhD thesis, in particular <em>how to design interactive systems and applications for places?</em> The short idea was to explore how we can design systems for particular places that serve multiple functions and multiple user demographies (e.g. libraries, community centres, educational institutions, urban spaces). InPlenary combines ideals from <em>ubiquitous computing</em> and ideas about <em>common information spaces</em> from CSCW.</p>
+                <p>
+                    The system explored several of the questions in my PhD
+                    thesis, in particular
+                    <em
+                        >how to design interactive systems and applications for
+                        places?</em
+                    >
+                    The short idea was to explore how we can design systems for
+                    particular places that serve multiple functions and multiple
+                    user demographies (e.g. libraries, community centres,
+                    educational institutions, urban spaces). InPlenary combines
+                    ideals from <em>ubiquitous computing</em> and ideas about
+                    <em>common information spaces</em> from CSCW.
+                </p>
 
-                <p>When designing for a place, we need to consider two requirements. First, the inhabitants (the students) bring their own devices into the space. We need to support multiple different devices and cross-device interaction. To address this we decided to implement the system as a web-application. Second, we need a way to establish location. In this case we utilized the existing network infrastructure to establish a connection between the devices and the room.</p>
+                <p>
+                    When designing for a place, we need to consider two
+                    requirements. First, the inhabitants (the students) bring
+                    their own devices into the space. We need to support
+                    multiple different devices and cross-device interaction. To
+                    address this we decided to implement the system as a
+                    web-application. Second, we need a way to establish
+                    location. In this case we utilized the existing network
+                    infrastructure to establish a connection between the devices
+                    and the room.
+                </p>
 
-                <p>In the system, each classroom access point (AP) is assigned a unique key that is exposed through a small webserver running on the AP. When participants use the network, background services can query the AP for the key and send that along to the lecture system backend. This would match the user with a classroom, and when the lecture starts, a collection of slides.</p>
+                <p>
+                    In the system, each classroom access point (AP) is assigned
+                    a unique key that is exposed through a small webserver
+                    running on the AP. When participants use the network,
+                    background services can query the AP for the key and send
+                    that along to the lecture system backend. This would match
+                    the user with a classroom, and when the lecture starts, a
+                    collection of slides.
+                </p>
 
                 <h2>Implementation</h2>
 
-                <p>The system is implemented across multiple modules. Each was developed as a rather thick client, with the location service and persistence happening on a web-server. The components include:</p>
+                <p>
+                    The system is implemented across multiple modules. Each was
+                    developed as a rather thick client, with the location
+                    service and persistence happening on a web-server. The
+                    components include:
+                </p>
 
                 <ul>
-                    <li>InPlenary Author module (HTML/CSS/JavaScript web-application)</li>
-                    <li>InPlenary Lecture module (HTML/CSS/JavaScript web-application)</li>
-                    <li>InPlenary Review module (HTML/CSS/JavaScript web-application)</li>
+                    <li>
+                        InPlenary Author module (HTML/CSS/JavaScript
+                        web-application)
+                    </li>
+                    <li>
+                        InPlenary Lecture module (HTML/CSS/JavaScript
+                        web-application)
+                    </li>
+                    <li>
+                        InPlenary Review module (HTML/CSS/JavaScript
+                        web-application)
+                    </li>
                     <li>Backend service for persisting lectures (PHP)</li>
                     <li>Access Point webserver (PHP)</li>
                     <li>Lecture database (MySQL)</li>
@@ -94,11 +237,24 @@
 
                 <h2>Pilot and Evaluation</h2>
 
-                <p>We piloted the system in two lectures to test the robustness of the system. Following this we invited two lecturers from a different department to test the system in their lecture.</p>
+                <p>
+                    We piloted the system in two lectures to test the robustness
+                    of the system. Following this we invited two lecturers from
+                    a different department to test the system in their lecture.
+                </p>
 
-                <p>We collected use data and surveyed and interviewed the participating students about their experience with the system. For multiple reasons the system and research was only reported in my PhD thesis.</p>
+                <p>
+                    We collected use data and surveyed and interviewed the
+                    participating students about their experience with the
+                    system. For multiple reasons the system and research was
+                    only reported in my PhD thesis.
+                </p>
 
-                <p>I have wanted to return to this project and the system multiple times to do a more elaborate writeup, but I have not had the time.</p>
+                <p>
+                    I have wanted to return to this project and the system
+                    multiple times to do a more elaborate writeup, but I have
+                    not had the time.
+                </p>
 
                 <p><a href="../projects.html">&larr; Back to Projects</a></p>
             </content>

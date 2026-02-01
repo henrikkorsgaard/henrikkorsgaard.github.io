@@ -7,95 +7,233 @@
             href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css"
         />
         <link rel="stylesheet" type="text/css" href="../style/main.css" />
-
+        <script src="../js/components.js" defer></script>
         <title>Should I Drive Now? - Henrik Korsgaard</title>
     </head>
-
     <body>
-        <menu>
-            <a href="../index.html">
-                <img src="../media/images/henrik-transparent.png" />
-            </a>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../notes.html">Notes</a></li>
-                <li class="here"><a href="../projects.html">Projects</a></li>
-                <li><a href="../research.html">Research</a></li>
-            </ul>
-            <footer>
-                <a href="mailto:korsgaard@protonmail.com">Email</a>
-                <a href="https://github.com/henrikkorsgaard">GitHub</a>
-                <a href="https://linkedin.com/in/henrik-korsgaard-77a0831b">LinkedIn</a>
-            </footer>
-        </menu>
+        <site-menu current="projects" base-path="../"></site-menu>
         <page>
             <content>
                 <h1>Should I Drive Now?</h1>
 
-                <p><em>(The Danish title of the application and project was "Skal Jeg Køre Nu?")</em></p>
+                <p>
+                    <em
+                        >(The Danish title of the application and project was
+                        "Skal Jeg Køre Nu?")</em
+                    >
+                </p>
 
                 <figure class="four-col">
-                    <img src="../media/images/projects/sjkn/frontpage4inch.png" alt="Front-page and primary interaction" />
-                    <img src="../media/images/projects/sjkn/response_yes4inch.png" alt="Yes recommendation" />
-                    <img src="../media/images/projects/sjkn/response_maybe4Inch.png" alt="Maybe recommendation" />
-                    <img src="../media/images/projects/sjkn/hotspots4inch.png" alt="Hotspot map" />
-                    <figcaption>Screenshots from the iOS app. (a) Front-page and primary interaction, (b) "yes" recommendation, (c) "maybe" recommendation, (d) hotspot map.</figcaption>
+                    <img
+                        src="../media/images/projects/sjkn/frontpage4inch.png"
+                        alt="Front-page and primary interaction"
+                    />
+                    <img
+                        src="../media/images/projects/sjkn/response_yes4inch.png"
+                        alt="Yes recommendation"
+                    />
+                    <img
+                        src="../media/images/projects/sjkn/response_maybe4Inch.png"
+                        alt="Maybe recommendation"
+                    />
+                    <img
+                        src="../media/images/projects/sjkn/hotspots4inch.png"
+                        alt="Hotspot map"
+                    />
+                    <figcaption>
+                        Screenshots from the iOS app. (a) Front-page and primary
+                        interaction, (b) "yes" recommendation, (c) "maybe"
+                        recommendation, (d) hotspot map.
+                    </figcaption>
                 </figure>
 
-                <p>The road systems and traffic infrastructure is highly instrumented with devices to capture data on flow, incidents, congestion etc. These data are used by the planning departments and vendors to develop their strategy and measure and respond to changes in traffic patterns. In this project, we wanted to investigate a use-case for some of this data as open data: <em>How could we develop an application that could support citizens in their daily lives based on open data?</em> or more specifically <em>how could citizens interact more or less directly with urban data?</em></p>
+                <p>
+                    The road systems and traffic infrastructure is highly
+                    instrumented with devices to capture data on flow,
+                    incidents, congestion etc. These data are used by the
+                    planning departments and vendors to develop their strategy
+                    and measure and respond to changes in traffic patterns. In
+                    this project, we wanted to investigate a use-case for some
+                    of this data as open data:
+                    <em
+                        >How could we develop an application that could support
+                        citizens in their daily lives based on open data?</em
+                    >
+                    or more specifically
+                    <em
+                        >how could citizens interact more or less directly with
+                        urban data?</em
+                    >
+                </p>
 
-                <p>The answer was an application where users could query live traffic data and receive driving recommendations based on congestion and flow data. The screenshots above illustrate the flow of the application: First, the user selects a predefined destination, e.g. work, and then queries the service by pressing the "Should I Drive Now?" button. Then the service would calculate the commute time between the current location and chosen destination based on real-time traffic data. Then it compares the current commute time with a precalculated ideal (normal traffic flow). If the delta was acceptable, the recommendation would be <em>"yes"</em>. If the route is congested, the application would recommend <em>"maybe"</em>, with some detailed information on specific hotspots and a recommendation on <em>"perhaps wait 15 minutes to depart"</em>. If there is a gridlock, the application would recommend similar to <em>"maybe"</em>, but add a recommendation to change commute patterns for subsequent days, e.g. <em>"if you can schedule your drive early next time, then you can avoid congestion"</em>.</p>
+                <p>
+                    The answer was an application where users could query live
+                    traffic data and receive driving recommendations based on
+                    congestion and flow data. The screenshots above illustrate
+                    the flow of the application: First, the user selects a
+                    predefined destination, e.g. work, and then queries the
+                    service by pressing the "Should I Drive Now?" button. Then
+                    the service would calculate the commute time between the
+                    current location and chosen destination based on real-time
+                    traffic data. Then it compares the current commute time with
+                    a precalculated ideal (normal traffic flow). If the delta
+                    was acceptable, the recommendation would be <em>"yes"</em>.
+                    If the route is congested, the application would recommend
+                    <em>"maybe"</em>, with some detailed information on specific
+                    hotspots and a recommendation on
+                    <em>"perhaps wait 15 minutes to depart"</em>. If there is a
+                    gridlock, the application would recommend similar to
+                    <em>"maybe"</em>, but add a recommendation to change commute
+                    patterns for subsequent days, e.g.
+                    <em
+                        >"if you can schedule your drive early next time, then
+                        you can avoid congestion"</em
+                    >.
+                </p>
 
-                <p>As an additional feature (and to provide an explanation), users could also see a map with hotspots on the current traffic situation.</p>
+                <p>
+                    As an additional feature (and to provide an explanation),
+                    users could also see a map with hotspots on the current
+                    traffic situation.
+                </p>
 
                 <h2>Smart city and open data context</h2>
 
-                <p>This project also served as a deliverable and demonstrator in a local smart city initiative <a href="https://smart.aarhus.dk/">Smart Aarhus</a>. I was a member of the secretariat and working group on open data.</p>
+                <p>
+                    This project also served as a deliverable and demonstrator
+                    in a local smart city initiative
+                    <a href="https://smart.aarhus.dk/">Smart Aarhus</a>. I was a
+                    member of the secretariat and working group on open data.
+                </p>
 
                 <p>In this context, the application should demonstrate:</p>
 
                 <ul>
                     <li>A locally developed "Smart City" application</li>
                     <li>A use-case for open data</li>
-                    <li>An internal instrument to motivate and understand the process of working with open data</li>
+                    <li>
+                        An internal instrument to motivate and understand the
+                        process of working with open data
+                    </li>
                 </ul>
 
-                <p>As part of the development of the application, I developed some of the early integrations between the Blip Systems real-time tracking software and the CKAN open data platform. The data is still maintained and available on the, now Danish, <a href="https://www.opendata.dk/city-of-aarhus/realtids-trafikdata">CKAN open data platform</a>.</p>
+                <p>
+                    As part of the development of the application, I developed
+                    some of the early integrations between the Blip Systems
+                    real-time tracking software and the CKAN open data platform.
+                    The data is still maintained and available on the, now
+                    Danish,
+                    <a
+                        href="https://www.opendata.dk/city-of-aarhus/realtids-trafikdata"
+                        >CKAN open data platform</a
+                    >.
+                </p>
 
                 <h2>Drive now application design</h2>
 
-                <p>The development of the project happened in close collaboration with people from the municipal traffic department and Smart Aarhus. The concept was developed during an inspiration card workshop and further refined through a series of design meetings.</p>
+                <p>
+                    The development of the project happened in close
+                    collaboration with people from the municipal traffic
+                    department and Smart Aarhus. The concept was developed
+                    during an inspiration card workshop and further refined
+                    through a series of design meetings.
+                </p>
 
-                <p>I was design lead and developer on the project, with frequent support and input from Smart Aarhus and the participants from the municipal traffic department.</p>
+                <p>
+                    I was design lead and developer on the project, with
+                    frequent support and input from Smart Aarhus and the
+                    participants from the municipal traffic department.
+                </p>
 
-                <p>Jacob Rosenberg developed the graphics for the interface and Martin Brynskov provided input on tricky design decisions and project management.</p>
+                <p>
+                    Jacob Rosenberg developed the graphics for the interface and
+                    Martin Brynskov provided input on tricky design decisions
+                    and project management.
+                </p>
 
                 <h2>Application implementation</h2>
 
-                <p>This is the largest system I have developed independently, with quite a lot of components and steps. The system consisted of:</p>
+                <p>
+                    This is the largest system I have developed independently,
+                    with quite a lot of components and steps. The system
+                    consisted of:
+                </p>
 
                 <ul>
                     <li>An iOS smartphone application (Objective-C)</li>
-                    <li>A backend service providing recommendations (Heroku, Node.js/CoffeeScript)</li>
-                    <li>A GIS database for route segments and precalculated travel times (PostgreSQL PostGIS)</li>
-                    <li>Integration with the CKAN open data platform for live traffic data</li>
-                    <li>Integration with a GIS distance API for address resolution</li>
+                    <li>
+                        A backend service providing recommendations (Heroku,
+                        Node.js/CoffeeScript)
+                    </li>
+                    <li>
+                        A GIS database for route segments and precalculated
+                        travel times (PostgreSQL PostGIS)
+                    </li>
+                    <li>
+                        Integration with the CKAN open data platform for live
+                        traffic data
+                    </li>
+                    <li>
+                        Integration with a GIS distance API for address
+                        resolution
+                    </li>
                 </ul>
 
-                <p>For this project, I had to learn almost all the technologies from the get-go, including Objective-C, working with GIS data, PostgreSQL PostGIS module, Heroku and to some extent CoffeeScript. Deploying the application to Heroku and Apple's App Store was also an experience.</p>
+                <p>
+                    For this project, I had to learn almost all the technologies
+                    from the get-go, including Objective-C, working with GIS
+                    data, PostgreSQL PostGIS module, Heroku and to some extent
+                    CoffeeScript. Deploying the application to Heroku and
+                    Apple's App Store was also an experience.
+                </p>
 
-                <p>I got several requests on making an Android version of the application, but at that point the project did not have any additional funding. I started developing it, but it was just not feasible at the time.</p>
+                <p>
+                    I got several requests on making an Android version of the
+                    application, but at that point the project did not have any
+                    additional funding. I started developing it, but it was just
+                    not feasible at the time.
+                </p>
 
                 <h2>Outcomes and publication</h2>
 
-                <p>The application proved useful to commuting citizens; on its release in 2014, it got almost 5000 downloads and unique users in the first six months. The underlying real-time traffic data was made available through the local data platform as part of the project and is <a href="https://www.opendata.dk/city-of-aarhus/realtids-trafikdata">still available today</a>.</p>
+                <p>
+                    The application proved useful to commuting citizens; on its
+                    release in 2014, it got almost 5000 downloads and unique
+                    users in the first six months. The underlying real-time
+                    traffic data was made available through the local data
+                    platform as part of the project and is
+                    <a
+                        href="https://www.opendata.dk/city-of-aarhus/realtids-trafikdata"
+                        >still available today</a
+                    >.
+                </p>
 
-                <p>We discuss the project in our paper on <a href="../media/pdfs/working-across-boundaries-smart-city.pdf">"Working Across Boundaries in Smart City Research"</a>.</p>
+                <p>
+                    We discuss the project in our paper on
+                    <a
+                        href="../media/pdfs/working-across-boundaries-smart-city.pdf"
+                        >"Working Across Boundaries in Smart City Research"</a
+                    >.
+                </p>
 
                 <h3>Press</h3>
 
-                <p>Danish news published multiple pieces on the project, e.g. <a href="https://ing.dk/artikel/ny-app-finder-den-hurtigste-vej-gennem-myldretiden-med-wifi-og-bluetooth-166097">Ing.dk</a> and <a href="https://stiften.dk/aarhus/aarhus-laver-skal-jeg-koere-nu-app">Stiftidende</a>. It was on the local news and was part of a larger PR event for Smart Aarhus, see <a href="../media/pdfs/AarhusKommuneSJKN.pdf">this short pamphlet from Aarhus municipality</a>.</p>
+                <p>
+                    Danish news published multiple pieces on the project, e.g.
+                    <a
+                        href="https://ing.dk/artikel/ny-app-finder-den-hurtigste-vej-gennem-myldretiden-med-wifi-og-bluetooth-166097"
+                        >Ing.dk</a
+                    >
+                    and
+                    <a
+                        href="https://stiften.dk/aarhus/aarhus-laver-skal-jeg-koere-nu-app"
+                        >Stiftidende</a
+                    >. It was on the local news and was part of a larger PR
+                    event for Smart Aarhus, see
+                    <a href="../media/pdfs/AarhusKommuneSJKN.pdf"
+                        >this short pamphlet from Aarhus municipality</a
+                    >.
+                </p>
 
                 <p><a href="../projects.html">&larr; Back to Projects</a></p>
             </content>

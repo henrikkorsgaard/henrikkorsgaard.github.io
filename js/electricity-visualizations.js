@@ -23,6 +23,7 @@ const CONFIG = {
 async function loadCSV(filename) {
     const response = await fetch(CONFIG.dataPath + filename);
     const text = await response.text();
+
     return d3.csvParse(text, d3.autoType);
 }
 
@@ -39,6 +40,7 @@ function parseValue(val) {
 // DATA TRANSFORMATIONS
 // =============================================================================
 
+
 async function loadMonthlyData() {
     const raw = await loadCSV('el-consumption-months-all.csv');
 
@@ -49,7 +51,7 @@ async function loadMonthlyData() {
         })
         .map(o => {
             const d = parseDate(o["Fra_dato"]);
-            const v = parseValue(o["Mængde"]);
+            const v = parseValue(o["Mngde"]);
             return {
                 date: d,
                 kwhs: v,
@@ -71,7 +73,7 @@ async function loadDailyData() {
         })
         .map(o => {
             const d = parseDate(o["Fra_dato"]);
-            const v = parseValue(o["Mængde"]);
+            const v = parseValue(o["Mngde"]);
             return {
                 date: d,
                 kwhs: v,
@@ -94,7 +96,7 @@ async function loadDailyDataWithDaylight() {
             const d = parseDate(o["Fra_dato"]);
             const sun = SunCalc.getTimes(d, CONFIG.lat, CONFIG.long);
             const daylight = (sun.sunset - sun.sunrise) / 1000 / 60;
-            const v = parseValue(o["Mængde"]);
+            const v = parseValue(o["Mngde"]);
             return { date: d, kwhs: v, daylight: daylight };
         })
         .sort((a, b) => a.date - b.date);
@@ -134,7 +136,7 @@ async function loadRadialData() {
             };
         }
 
-        const v = parseValue(o["Mængde"]);
+        const v = parseValue(o["Mngde"]);
         days[dateKey].kwhs_values.push(v);
         days[dateKey].kwhs_min = Math.min(v, days[dateKey].kwhs_min);
         days[dateKey].kwhs_max = Math.max(v, days[dateKey].kwhs_max);
@@ -155,21 +157,24 @@ async function loadRadialData() {
 // =============================================================================
 
 function plotMonthlyConsumption(container, months) {
+
     const plot = Plot.plot({
         width: 800,
         height: 350,
         marginLeft: 50,
-        style: { background: "transparent" },
+
         x: {
             ticks: 15,
             grid: true,
             label: "Months",
-            domain: [months[0].date, months[months.length - 1].date]
+            domain: [months[0].date, months[months.length - 1].date],
+
         },
         y: {
             label: "Consumption (kWh)",
             grid: true,
-            domain: [200, 550]
+            domain: [200, 550],
+
         },
         marks: [
             Plot.line(months, {
@@ -189,7 +194,6 @@ function plotYearlyComparison(container, months) {
         width: 800,
         height: 350,
         marginLeft: 50,
-        style: { background: "transparent" },
         color: {
             type: "categorical",
             scheme: "Tableau10",
@@ -206,6 +210,7 @@ function plotYearlyComparison(container, months) {
         y: {
             label: "Consumption (kWh)",
             grid: true,
+            color:"black",
             domain: [200, 550]
         },
         marks: [
@@ -227,10 +232,9 @@ function plotScatter(container, days) {
         height: 400,
         marginLeft: 60,
         marginBottom: 50,
-        style: { background: "transparent" },
         x: {
             label: "Consumption (kWh)",
-            grid: true
+            grid: true,
         },
         y: {
             label: "Daylight (minutes)",
@@ -241,7 +245,7 @@ function plotScatter(container, days) {
                 x: "kwhs",
                 y: "daylight",
                 fill: "#7aa2f7",
-                fillOpacity: 0.5,
+                fillOpacity: 1,
                 r: 3
             })
         ]
@@ -295,7 +299,7 @@ function plotRadialAnnualChart(container, data) {
             // Radial grid lines
             g.append("path")
                 .attr("stroke", "#444")
-                .attr("stroke-opacity", 0.3)
+                .attr("stroke-opacity", 1)
                 .attr("d", `M${d3.pointRadial(x(d), innerRadius)}L${d3.pointRadial(x(d), outerRadius)}`);
             // Month labels
             const angle = x(d) - Math.PI / 2;
@@ -314,7 +318,7 @@ function plotRadialAnnualChart(container, data) {
         .join("circle")
         .attr("fill", "none")
         .attr("stroke", "#444")
-        .attr("stroke-opacity", 0.2)
+        .attr("stroke-opacity", 0.5)
         .attr("r", y);
 
     // Y-axis labels
@@ -333,7 +337,7 @@ function plotRadialAnnualChart(container, data) {
     // Daylight hours (yellow background)
     svg.append("path")
         .attr("fill", "#ffd700")
-        .attr("fill-opacity", 0.3)
+        .attr("fill-opacity", 0.5)
         .attr("d", area
             .innerRadius(d => y(0))
             .outerRadius(d => y(d.day_hs))
@@ -342,7 +346,7 @@ function plotRadialAnnualChart(container, data) {
     // Min/max range (light blue)
     svg.append("path")
         .attr("fill", "#7aa2f7")
-        .attr("fill-opacity", 0.3)
+        .attr("fill-opacity", 0.5)
         .attr("d", area
             .innerRadius(d => y(d.kwhs_min))
             .outerRadius(d => y(d.kwhs_max))
@@ -351,7 +355,7 @@ function plotRadialAnnualChart(container, data) {
     // Quartile range (darker blue)
     svg.append("path")
         .attr("fill", "#7aa2f7")
-        .attr("fill-opacity", 0.6)
+        .attr("fill-opacity", 0.5)
         .attr("d", area
             .innerRadius(d => y(d.kwhs_q_lower))
             .outerRadius(d => y(d.kwhs_q_upper))
@@ -371,10 +375,10 @@ function plotRadialAnnualChart(container, data) {
         .attr("font-size", 12);
 
     const legendItems = [
-        { color: "rgba(122, 162, 247, 0.3)", text: "Min/max consumption" },
-        { color: "rgba(122, 162, 247, 0.6)", text: "Quartile range (25-75%)" },
+        { color: "rgba(122, 162, 247, 1)", text: "Min/max consumption" },
+        { color: "rgba(122, 162, 247, 1)", text: "Quartile range (25-75%)" },
         { color: "#3d59a1", text: "Median", isLine: true },
-        { color: "rgba(255, 215, 0, 0.3)", text: "Daylight hours" }
+        { color: "rgba(255, 215, 0, 1)", text: "Daylight hours" }
     ];
 
     legendItems.forEach((item, i) => {
@@ -390,13 +394,13 @@ function plotRadialAnnualChart(container, data) {
             g.append("rect")
                 .attr("width", 18).attr("height", 16)
                 .attr("fill", item.color)
-                .attr("stroke", "#666")
+                .attr("stroke", "#000")
                 .attr("stroke-width", 0.5);
         }
 
         g.append("text")
             .attr("x", 24).attr("y", 12)
-            .attr("fill", "#ccc")
+            .attr("fill", "#000")
             .text(item.text);
     });
 

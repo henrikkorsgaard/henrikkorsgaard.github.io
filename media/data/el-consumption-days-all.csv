@@ -1,4 +1,4 @@
-MålepunktsID,Fra_dato,Til_dato,Mængde,Måleenhed,Kvalitet,Type
+MålepunktsID,Fra_dato,Til_dato,Mngde,Måleenhed,Kvalitet,Type
 	571313115102317195,01-11-2017 00:00:00,02-11-2017 00:00:00,"11,674",KWH,Målt,Tidsserie
 	571313115102317195,02-11-2017 00:00:00,03-11-2017 00:00:00,"7,279",KWH,Målt,Tidsserie
 	571313115102317195,03-11-2017 00:00:00,04-11-2017 00:00:00,"12,959",KWH,Målt,Tidsserie

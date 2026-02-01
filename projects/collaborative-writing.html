@@ -7,78 +7,161 @@
             href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css"
         />
         <link rel="stylesheet" type="text/css" href="../style/main.css" />
-
-        <title>Visualizing Collaborative Writing Patterns - Henrik Korsgaard</title>
+        <script src="../js/components.js" defer></script>
+        <title>
+            Visualizing Collaborative Writing Patterns - Henrik Korsgaard
+        </title>
     </head>
-
     <body>
-        <menu>
-            <a href="../index.html">
-                <img src="../media/images/henrik-transparent.png" />
-            </a>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../notes.html">Notes</a></li>
-                <li class="here"><a href="../projects.html">Projects</a></li>
-                <li><a href="../research.html">Research</a></li>
-            </ul>
-            <footer>
-                <a href="mailto:korsgaard@protonmail.com">Email</a>
-                <a href="https://github.com/henrikkorsgaard">GitHub</a>
-                <a href="https://linkedin.com/in/henrik-korsgaard-77a0831b">LinkedIn</a>
-            </footer>
-        </menu>
+        <site-menu current="projects" base-path="../"></site-menu>
         <page>
             <content>
                 <h1>Visualizing Collaborative Writing Patterns</h1>
 
-                <p><em>What can we learn about collaboration and collaborative writing from visualizing document revisions?</em></p>
+                <p>
+                    <em
+                        >What can we learn about collaboration and collaborative
+                        writing from visualizing document revisions?</em
+                    >
+                </p>
 
                 <figure>
-                    <img src="../media/images/projects/collaborative-writing/collaborative-writing-vis-2.png" alt="Visualization of collaborative writing patterns" />
+                    <img
+                        src="../media/images/projects/collaborative-writing/collaborative-writing-vis-2.png"
+                        alt="Visualization of collaborative writing patterns"
+                    />
                 </figure>
 
-                <p>We can learn a lot, it turns out. In this research project, I developed a series of visualizations of document revisions to support qualitative interviews and analysis related to collaborative writing, approaches, division of labour and contributions to a shared text.</p>
+                <p>
+                    We can learn a lot, it turns out. In this research project,
+                    I developed a series of visualizations of document revisions
+                    to support qualitative interviews and analysis related to
+                    collaborative writing, approaches, division of labour and
+                    contributions to a shared text.
+                </p>
 
-                <p>We interviewed multiple groups of people writing together and got access to their shared document. From there, we downloaded the revisions and analyzed them using tools (scripts) developed for the task.</p>
+                <p>
+                    We interviewed multiple groups of people writing together
+                    and got access to their shared document. From there, we
+                    downloaded the revisions and analyzed them using tools
+                    (scripts) developed for the task.
+                </p>
 
-                <p>The main focus of the visualizations was to identify <em>where</em> in the document authors worked and <em>when</em> in relation to the <em>work of their co-authors</em>. We hypothesized that authors divided the writing into tasks centered around particular sections in the document, e.g. being responsible for a specific section. What we call "territories" in the research publication.</p>
+                <p>
+                    The main focus of the visualizations was to identify
+                    <em>where</em> in the document authors worked and
+                    <em>when</em> in relation to the
+                    <em>work of their co-authors</em>. We hypothesized that
+                    authors divided the writing into tasks centered around
+                    particular sections in the document, e.g. being responsible
+                    for a specific section. What we call "territories" in the
+                    research publication.
+                </p>
 
-                <p>To inform this hypothesis and identify territories and collaborative writing patterns (hand-over, edits etc.), we analyzed Google Document text revisions. These consist of one insert or remove operation with n characters. Google Document text operations are <em>chronological</em>, so the main challenge is to analyze the revisions in terms of where they are in the document.</p>
+                <p>
+                    To inform this hypothesis and identify territories and
+                    collaborative writing patterns (hand-over, edits etc.), we
+                    analyzed Google Document text revisions. These consist of
+                    one insert or remove operation with n characters. Google
+                    Document text operations are <em>chronological</em>, so the
+                    main challenge is to analyze the revisions in terms of where
+                    they are in the document.
+                </p>
 
                 <h2>Insights</h2>
 
-                <p>The visualizations helped us identify a few interesting patterns on how co-authors write together over time. These correlate with the themes from the qualitative interviews. Each line in the visualizations corresponds to a paragraph in the text and the spatial/indexical order of the edits. For some paragraphs, we only see a few blocks, e.g. one for a copy-paste, whereas for others we see significantly more edits (both characters currently in the paragraph and deleted characters).</p>
+                <p>
+                    The visualizations helped us identify a few interesting
+                    patterns on how co-authors write together over time. These
+                    correlate with the themes from the qualitative interviews.
+                    Each line in the visualizations corresponds to a paragraph
+                    in the text and the spatial/indexical order of the edits.
+                    For some paragraphs, we only see a few blocks, e.g. one for
+                    a copy-paste, whereas for others we see significantly more
+                    edits (both characters currently in the paragraph and
+                    deleted characters).
+                </p>
 
                 <figure>
-                    <img src="../media/images/projects/collaborative-writing/collaborative-writing-explaination.png" alt="How to read the visualizations" />
-                    <figcaption>How to read the visualizations. Each line in the visualization corresponds to a paragraph in the shared document.</figcaption>
+                    <img
+                        src="../media/images/projects/collaborative-writing/collaborative-writing-explaination.png"
+                        alt="How to read the visualizations"
+                    />
+                    <figcaption>
+                        How to read the visualizations. Each line in the
+                        visualization corresponds to a paragraph in the shared
+                        document.
+                    </figcaption>
                 </figure>
 
-                <p>First, we observed the territories hypothesized in the research. The figure below shows how several authors (blue, yellow and green) work in different parts of a larger document, with few edits in the blocks of the co-authors.</p>
+                <p>
+                    First, we observed the territories hypothesized in the
+                    research. The figure below shows how several authors (blue,
+                    yellow and green) work in different parts of a larger
+                    document, with few edits in the blocks of the co-authors.
+                </p>
 
                 <figure>
-                    <img src="../media/images/projects/collaborative-writing/collaborative-writing-vis-1.png" alt="Visual example of author territories" />
-                    <figcaption>A visual example of author territories.</figcaption>
+                    <img
+                        src="../media/images/projects/collaborative-writing/collaborative-writing-vis-1.png"
+                        alt="Visual example of author territories"
+                    />
+                    <figcaption>
+                        A visual example of author territories.
+                    </figcaption>
                 </figure>
 
-                <p>Second, we observed that collaborative writing often means people divide the sections and do the bulk of the writing in their part of the document. When writing in other people's paragraphs, the visualization shows that this is typically smaller edits (typos, wording etc.) and/or transitions between different paragraphs.</p>
+                <p>
+                    Second, we observed that collaborative writing often means
+                    people divide the sections and do the bulk of the writing in
+                    their part of the document. When writing in other people's
+                    paragraphs, the visualization shows that this is typically
+                    smaller edits (typos, wording etc.) and/or transitions
+                    between different paragraphs.
+                </p>
 
-                <p>Third, the visualizations helped us to identify the temporal patterns of collaborative writing. The figure below shows how two collaborators – author A and author B – write together. A started writing, then added a few bits here and there, and then B takes over and adds text in the middle and end of the paragraph (and then later C – green joins and adds text in the beginning).</p>
+                <p>
+                    Third, the visualizations helped us to identify the temporal
+                    patterns of collaborative writing. The figure below shows
+                    how two collaborators – author A and author B – write
+                    together. A started writing, then added a few bits here and
+                    there, and then B takes over and adds text in the middle and
+                    end of the paragraph (and then later C – green joins and
+                    adds text in the beginning).
+                </p>
 
                 <figure>
-                    <img src="../media/images/projects/collaborative-writing/turntaking.png" alt="Temporal analysis of turn-taking" />
-                    <figcaption>Temporal analysis examining turn-taking in document revisions.</figcaption>
+                    <img
+                        src="../media/images/projects/collaborative-writing/turntaking.png"
+                        alt="Temporal analysis of turn-taking"
+                    />
+                    <figcaption>
+                        Temporal analysis examining turn-taking in document
+                        revisions.
+                    </figcaption>
                 </figure>
 
                 <h2>Publication</h2>
 
-                <p>The work and visualizations are primarily research instruments to answer a research question. The work is available in our paper on <a href="../media/pdfs/territorial-functioning-in-collaborative-writing.pdf">"Territorial Functioning in Collaborative Writing"</a>.</p>
+                <p>
+                    The work and visualizations are primarily research
+                    instruments to answer a research question. The work is
+                    available in our paper on
+                    <a
+                        href="../media/pdfs/territorial-functioning-in-collaborative-writing.pdf"
+                        >"Territorial Functioning in Collaborative Writing"</a
+                    >.
+                </p>
 
-                <p>My main contribution to the work was developing the analysis and visualizations of the Google Document revisions.</p>
+                <p>
+                    My main contribution to the work was developing the analysis
+                    and visualizations of the Google Document revisions.
+                </p>
 
-                <p>I have considered further developing this work toward a tool, but the incentives are a bit absent at the moment.</p>
+                <p>
+                    I have considered further developing this work toward a
+                    tool, but the incentives are a bit absent at the moment.
+                </p>
 
                 <p><a href="../projects.html">&larr; Back to Projects</a></p>
             </content>

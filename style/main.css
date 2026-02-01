@@ -197,6 +197,9 @@ menu footer a:hover {
 /* Project page figures */
 figure {
     margin: 30px 0;
+    padding:20px;
+    border-radius:10px;
+    background-color:white;
 }
 
 figure img,
@@ -207,7 +210,7 @@ figure video {
 
 figure figcaption {
     font-size: 0.85em;
-    color: #888;
+    color: black;
     margin-top: 8px;
     font-style: italic;
 }
@@ -246,6 +249,7 @@ figure.four-col img {
     max-height: 200px;
     object-fit: contain;
 }
+
 
 blockquote {
     border-left: 3px solid var(--heading-color);

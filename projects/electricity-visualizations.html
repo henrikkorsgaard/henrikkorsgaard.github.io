@@ -9,6 +9,35 @@
         <link rel="stylesheet" type="text/css" href="../style/main.css" />
         <script src="../js/components.js" defer></script>
         <title>Electricity Data Visualizations - Henrik Korsgaard</title>
+
+        <!-- Visualization dependencies -->
+        <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-statistics@7.8.3"></script>
+        <script src="../js/electricity-visualizations.js" defer></script>
+        <style>
+            .viz-container {
+                margin: 1.5em 0;
+                min-height: 200px;
+            }
+            .viz-container svg {
+                max-width: 100%;
+                height: auto;
+            }
+            /* Observable Plot styling overrides for dark theme */
+            .viz-container [aria-label="x-axis"] text,
+            .viz-container [aria-label="y-axis"] text,
+            .viz-container [aria-label="legend"] text {
+                fill: #888;
+            }
+            .viz-container [aria-label="x-axis"] line,
+            .viz-container [aria-label="y-axis"] line,
+            .viz-container [aria-label="x-axis"] path,
+            .viz-container [aria-label="y-axis"] path {
+                stroke: #444;
+            }
+        </style>
     </head>
     <body>
         <site-menu current="projects" base-path="../"></site-menu>
@@ -21,27 +50,6 @@
                         >Exploring household electricity consumption patterns
                         through interactive visualizations.</em
                     >
-                </p>
-
-                <figure>
-                    <img
-                        src="../media/images/projects/electricity-visualizations/annual-energy-preview.png"
-                        alt="Annual radial visualization of electricity consumption"
-                    />
-                    <figcaption>
-                        Annual household electricity consumption and daylight
-                        hours - a radial visualization.
-                    </figcaption>
-                </figure>
-
-                <p>
-                    I produced a number of visualizations of our household's
-                    electricity data to explore patterns in consumption and
-                    learn D3.js/Observable for data visualization. The data
-                    comes from
-                    <a href="https://eloverblik.dk/welcome">El Overblik</a>,
-                    Denmark's electricity data portal where anyone can download
-                    their consumption data.
                 </p>
 
                 <h2>Annual Rhythms in Consumption</h2>
@@ -57,8 +65,16 @@
                     entertainment) and decrease during bright summer months.
                 </p>
 
+                <figure>
+                    <div id="viz-radial" class="viz-container"></div>
+                    <figcaption>
+                        Annual household electricity consumption and daylight
+                        hours - a radial visualization.
+                    </figcaption>
+                </figure>
+
                 <p>
-                    The radial visualization above shows consumption data from
+                    The radial visualization shows consumption data from
                     2018-2022 overlaid with daylight hours for Aarhus, Denmark.
                     The visualization reveals:
                 </p>
@@ -125,56 +141,40 @@
 
                 <h2>Additional Visualizations</h2>
 
+                <h3>Monthly Consumption (2018-2022)</h3>
                 <figure>
-                    <img
-                        src="../media/images/projects/electricity-visualizations/electricity-data-visualizations-preview.png"
-                        alt="Various electricity consumption charts"
-                    />
+                    <div id="viz-monthly" class="viz-container"></div>
                     <figcaption>
-                        Various visualization experiments with the electricity
-                        data.
+                        Monthly electricity consumption over time.
                     </figcaption>
                 </figure>
 
-                <p>
-                    Beyond the annual radial chart, I created several other
-                    visualizations:
-                </p>
+                <h3>Yearly Comparison</h3>
+                <figure>
+                    <div id="viz-yearly" class="viz-container"></div>
+                    <figcaption>
+                        Each year's monthly consumption overlaid for comparison.
+                    </figcaption>
+                </figure>
 
-                <ul>
-                    <li>
-                        <strong>Monthly consumption line chart:</strong> Shows
-                        consumption trends from 2018-2022
-                    </li>
-                    <li>
-                        <strong>Yearly comparison:</strong> Overlays each year's
-                        monthly data for comparison
-                    </li>
-                    <li>
-                        <strong>Weekly consumption:</strong> Aggregates data by
-                        week with median line
-                    </li>
-                    <li>
-                        <strong>Daily with median:</strong> Daily consumption
-                        across years with calculated median
-                    </li>
-                    <li>
-                        <strong>Scatterplot:</strong> Consumption vs daylight
-                        minutes to visualize correlation
-                    </li>
-                </ul>
+                <h3>Consumption vs Daylight</h3>
+                <figure>
+                    <div id="viz-scatter" class="viz-container"></div>
+                    <figcaption>
+                        Scatterplot showing the relationship between daily
+                        consumption and available daylight.
+                    </figcaption>
+                </figure>
 
                 <h2>Technical Implementation</h2>
 
-                <p>The visualizations were built using:</p>
+                <p>The visualizations are built using:</p>
 
                 <ul>
-                    <li>
-                        <strong>D3.js:</strong> For the radial chart and
-                        scatterplot
-                    </li>
+                    <li><strong>D3.js:</strong> For the radial chart</li>
                     <li>
                         <strong>Observable Plot:</strong> For the line charts
+                        and scatterplot
                     </li>
                     <li>
                         <strong>SunCalc.js:</strong> For calculating
@@ -187,14 +187,16 @@
                 </ul>
 
                 <p>
-                    The original implementation used Quarto with Observable's
-                    reactive runtime. The Observable/D3 code has been preserved
-                    in
+                    The data comes from
+                    <a href="https://eloverblik.dk/welcome">El Overblik</a>,
+                    Denmark's electricity data portal. The visualization code is
+                    available in
+                    <a href="../js/electricity-visualizations.js"
+                        >electricity-visualizations.js</a
+                    >. The original Observable notebook code is preserved in
                     <a href="./electricity-visualizations.observable.js"
                         >electricity-visualizations.observable.js</a
-                    >
-                    for future reference and potential migration to a standalone
-                    interactive version.
+                    >.
                 </p>
 
                 <h2>Data</h2>

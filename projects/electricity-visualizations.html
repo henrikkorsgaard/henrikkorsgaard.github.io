@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css"
+        />
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+
+        <title>Electricity Data Visualizations - Henrik Korsgaard</title>
+    </head>
+
+    <body>
+        <menu>
+            <a href="../index.html">
+                <img src="../media/images/henrik-transparent.png" />
+            </a>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../notes.html">Notes</a></li>
+                <li class="here"><a href="../projects.html">Projects</a></li>
+                <li><a href="../research.html">Research</a></li>
+            </ul>
+            <footer>
+                <a href="mailto:korsgaard@protonmail.com">Email</a>
+                <a href="https://github.com/henrikkorsgaard">GitHub</a>
+                <a href="https://linkedin.com/in/henrik-korsgaard-77a0831b">LinkedIn</a>
+            </footer>
+        </menu>
+        <page>
+            <content>
+                <h1>Electricity Data Visualizations</h1>
+
+                <p><em>Exploring household electricity consumption patterns through interactive visualizations.</em></p>
+
+                <figure>
+                    <img src="../media/images/projects/electricity-visualizations/annual-energy-preview.png" alt="Annual radial visualization of electricity consumption" />
+                    <figcaption>Annual household electricity consumption and daylight hours - a radial visualization.</figcaption>
+                </figure>
+
+                <p>I produced a number of visualizations of our household's electricity data to explore patterns in consumption and learn D3.js/Observable for data visualization. The data comes from <a href="https://eloverblik.dk/welcome">El Overblik</a>, Denmark's electricity data portal where anyone can download their consumption data.</p>
+
+                <h2>Annual Rhythms in Consumption</h2>
+
+                <p>The main question I wanted to explore was: <em>Does our electricity consumption correlate with available daylight?</em> The hypothesis was that consumption would increase during darker winter months (more lights, more indoor entertainment) and decrease during bright summer months.</p>
+
+                <p>The radial visualization above shows consumption data from 2018-2022 overlaid with daylight hours for Aarhus, Denmark. The visualization reveals:</p>
+
+                <ul>
+                    <li><strong>Light blue area:</strong> Minimum and maximum daily consumption across all years</li>
+                    <li><strong>Dark blue area:</strong> Upper and lower quartiles (the middle 50% of consumption)</li>
+                    <li><strong>Dark blue line:</strong> Median daily consumption</li>
+                    <li><strong>Yellow area:</strong> Daylight hours throughout the year</li>
+                </ul>
+
+                <p>The result was somewhat surprising: the correlation between daylight and electricity consumption is weak (r = 0.243). While you can observe the rhythm of daylight changes clearly, the consumption data is more erratic. Summer months sit slightly below 10 kWh, winter months slightly above, but the pattern is not as strong as expected.</p>
+
+                <h2>Why the Weak Correlation?</h2>
+
+                <p>The hypothesis assumed that lighting and indoor entertainment account for a significant portion of consumption. In reality:</p>
+
+                <ul>
+                    <li>Most indoor lighting is LED-based, consuming only a few watts per unit</li>
+                    <li>The bulk of consumption goes to refrigeration, laundry, and cooking – activities that don't vary much with seasons</li>
+                    <li>Entertainment usage (gaming, streaming) doesn't change dramatically between summer and winter</li>
+                </ul>
+
+                <p>This raises interesting questions about household energy optimization. While we're often told to change habits and implement micro-initiatives for energy savings, the actual potential savings seem minimal – perhaps a couple of kilowatts per day at most.</p>
+
+                <h2>Additional Visualizations</h2>
+
+                <figure>
+                    <img src="../media/images/projects/electricity-visualizations/electricity-data-visualizations-preview.png" alt="Various electricity consumption charts" />
+                    <figcaption>Various visualization experiments with the electricity data.</figcaption>
+                </figure>
+
+                <p>Beyond the annual radial chart, I created several other visualizations:</p>
+
+                <ul>
+                    <li><strong>Monthly consumption line chart:</strong> Shows consumption trends from 2018-2022</li>
+                    <li><strong>Yearly comparison:</strong> Overlays each year's monthly data for comparison</li>
+                    <li><strong>Weekly consumption:</strong> Aggregates data by week with median line</li>
+                    <li><strong>Daily with median:</strong> Daily consumption across years with calculated median</li>
+                    <li><strong>Scatterplot:</strong> Consumption vs daylight minutes to visualize correlation</li>
+                </ul>
+
+                <h2>Technical Implementation</h2>
+
+                <p>The visualizations were built using:</p>
+
+                <ul>
+                    <li><strong>D3.js:</strong> For the radial chart and scatterplot</li>
+                    <li><strong>Observable Plot:</strong> For the line charts</li>
+                    <li><strong>SunCalc.js:</strong> For calculating sunrise/sunset times at Aarhus coordinates</li>
+                    <li><strong>simple-statistics:</strong> For correlation calculations</li>
+                </ul>
+
+                <p>The original implementation used Quarto with Observable's reactive runtime. The Observable/D3 code has been preserved in <a href="./electricity-visualizations.observable.js">electricity-visualizations.observable.js</a> for future reference and potential migration to a standalone interactive version.</p>
+
+                <h2>Data</h2>
+
+                <p>The underlying data files are available:</p>
+
+                <ul>
+                    <li><a href="../media/data/el-consumption-days-all.csv">Daily consumption data (CSV)</a></li>
+                    <li><a href="../media/data/el-consumption-months-all.csv">Monthly consumption data (CSV)</a></li>
+                </ul>
+
+                <p><a href="../projects.html">&larr; Back to Projects</a></p>
+            </content>
+        </page>
+    </body>
+</html>

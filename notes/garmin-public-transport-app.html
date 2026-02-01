@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css"
+        />
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+
+        <title>When is my next bus home? - Henrik Korsgaard</title>
+    </head>
+
+    <body>
+        <menu>
+            <a href="../index.html">
+                <img src="../media/images/henrik-transparent.png" />
+            </a>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li class="here"><a href="../notes.html">Notes</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../research.html">Research</a></li>
+            </ul>
+            <footer>
+                <a href="mailto:korsgaard@protonmail.com">Email</a>
+                <a href="https://github.com/henrikkorsgaard">GitHub</a>
+                <a href="https://linkedin.com/in/henrik-korsgaard-77a0831b">LinkedIn</a>
+            </footer>
+        </menu>
+        <page>
+            <content>
+                <h1>"When is my next bus home?"</h1>
+                <p class="subtitle">Developing a personalized Garmin smartwatch app for travel info (part I)</p>
+
+                <p>I want to be better at using public transport. One of the main hurdles is that I do not take the bus or train frequently enough to remember the bus and train schedule. In my commute, I have a few combinations of options and connections depending on the time of day. On top of that, the schedule tend to change frequent enough for me to lose a sense of when the bus or train runs in relation to the next connection etc.</p>
+
+                <p>I figured that I could build a small app to help me leave my office or home in time to catch the <em>right</em> connection at the <em>right</em> time.</p>
+
+                <p>This post is the first one in a series. I hope to go through some of the stages I recommend to my students when they develop application as part of their project in the course on Experimental Systems Development course at Aarhus University. Typically, we send the students out to do design ethnography or contextual inquiry to identify relevant challenges to work on. In this example I'm designing something for myself, so we can skip that step. In this post I will work my way downwards from scenarios to identifying high-level requirements and modules. This will inform early prototyping activities and the first collection of user-stories, which I will discuss in an upcoming post.</p>
+
+                <p>Now, back to my application. I have a few design requirements:</p>
+
+                <ul>
+                    <li><strong>Personalizable:</strong> I need to be able to filter line info and timeslots. I don't want to deal with all the lines in my city nor all the hours of the relevant lines. I need to know "when the next bus to my preferred destination leaves".</li>
+                    <li><strong>Situated:</strong> The application need to consider contextual parameters such as week, time of day, location and maybe even factor in delays.</li>
+                    <li><strong>Fast interaction:</strong> Given it's about transit and quick decision, interacting with the app should be fast and simple. It should offer decisions support, but not overcomplicate things.</li>
+                </ul>
+
+                <h2>A couple of scenarios to get us started</h2>
+
+                <p>I'm using a scenario-based approach to design, where the first goal is to develop a scenario that describes the current situation. Secondly, we will generate a couple of future scenarios. These scenarios will help us anchor the design in the present and address concrete needs, and explore future solutions that allow us identify and make early decisions on design features, technologies, critical prototypes and bootstrapping user-stories.</p>
+
+                <p><em>Henrik (that's me) is a 40-some white male who work as a researcher at a Computer Science department in the city. He lives in suburbia outside the city with his family. Every morning, Henrik get up around 6, do a short run, and then shower and eats. He helps his family get ready and some days he walks the dog. He usually leave for work between 8 and 9 in the morning (except when he is teaching early) and leaves for home around 16. He wants to commute more often, as a flexible option and to lower his CO2 footprint. However, planning the commute and experiences with frequent delays and lost connections make him chose the comforts of his car over public transport.</em></p>
+
+                <p>That gives us a bit of information on the context, the user and the challenge. Here are two future scenarios:</p>
+
+                <p><em>Henrik is getting ready in the morning. His smartwatch notifies him that the bus for work is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He snoozes the notification. 4 minutes later the notification goes off again. Henrik decides that he is not ready yet, so he press next on the smart watch app. 10 minutes later, his Garmin smartwatch notifies him that the train is leaving in 15 minutes, so he has to walk in 5 minutes to catch it. He accepts the notification and pack the last things in his back. 5 minutes later he leaves for the train.</em></p>
+
+                <p><em>Henrik is at work. He promised his family that he would be home by 17. Around 16 his watch notifies him that a train is leaving in 20 minutes, so he has to walk in 5 minutes to catch it. He presses 'next' and the watch shows that a bus is leaving in 30 minutes. He presses 'accept' on his smartwatch. 10 minutes later the smartwatch reminds him that he needs to walk within 5 minutes to catch the bus. On the way to the bus, the watch notifies him that the bus is 5 minutes delayed.</em></p>
+
+                <p>These scenarios allow us to discuss and think about the design before we make too many decisions about the solution. Scenarios are excellent for early internal and external feedback. We can discuss them in our design team, with users, clients, developers and other stakeholders. We can invite users into the process and ask them to inform or co-write scenarios. Scenarios can be acted out and explored through embodied and contextual design methods, and we can develop scenarios as sketches, story-boards and even short movies to help illustrate the future use. If future users recognize their situation in the current scenario and agree that the future scenario is a compelling solution, then we have a good stakeholder <em>alignment</em> and can proceed.</p>
+
+                <h2>Identifying high-level requirements</h2>
+
+                <ol>
+                    <li>The application is running on a Garmin smartwatch.</li>
+                    <li>The application 'knows' something about the bus departures relative to the location of the user and the destination.</li>
+                    <li>The application 'knows' something about the walking distance and time relative to the location of the user and the location of the stop.</li>
+                    <li>The application need to support a couple of simple interactions: <em>snooze</em>, <em>next</em>, and <em>accept</em>.</li>
+                    <li>The application 'knows' something about the delay of the bus in real time.</li>
+                    <li>The application 'knows' something about the user's typical departures and destinations (and transit connections).</li>
+                </ol>
+
+                <p>These are mixes of high level design features (it needs to be a smartwatch application), requirements (integrate location, transit data etc.) and specific interaction design features (<em>snooze</em> notification). We can break it down even further:</p>
+
+                <ol>
+                    <li>Garmin smartwatch application
+                        <ul>
+                            <li>Need to access the user location</li>
+                            <li>Notification support</li>
+                            <li>Simple user interaction</li>
+                        </ul>
+                    </li>
+                    <li>Transit information
+                        <ul>
+                            <li>Lines / routes</li>
+                            <li>Destinations (stops)</li>
+                            <li>Departure times</li>
+                            <li>Delay time</li>
+                        </ul>
+                    </li>
+                    <li>Geographical information
+                        <ul>
+                            <li>User location</li>
+                            <li>Transit information</li>
+                            <li>Walking distance</li>
+                        </ul>
+                    </li>
+                    <li>User profile or setting
+                        <ul>
+                            <li>Destination preferences</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <p>I added the last point on geographical information (a map service), because the application need to combine geographical information, e.g. "the user location relative to the stop". If we identify additional features in the scenarios or write new scenarios, we can return to this step or do it again isolated for the new feature. The lists above is enough to move to the next step. At this point we would skip to a feasibility study if the project contain too many unknowns or high-risk aspect that might mean stopping the project. I see nothing on the list above that shy me away from moving forward.</p>
+
+                <h2>A bit of early software architecture</h2>
+
+                <p>The requirement list above is not complete and a bit abstract. And the list format is not telling about the relationship between the design features of the application. We need a bit more detail before we can start writing code. While UX folks might start developing user journeys or interface sketches, or even better user stories, we need to do some high-level sketching of the software architecture to figure out the building blocks of our application, where the user interacts with the system, critical parts that needs to be prototyped and figured out etc.</p>
+
+                <p>When sketching high-level architecture, I've started using the <a href="https://c4model.com/">C4 Model</a> approach as a way to visualise the relationship between requirements, application design and software architecture. For this application, it makes sense to sketch out the context and container level because the application draw on a couple of external services.</p>
+
+                <p>Sketching out the context includes the people (actors, roles, personas etc.) and the software systems that build up the application and and the context. This include additional systems the users and future system interacts with. The container diagram are the necessary building blocks that provides the services that the system would offer. This level focus on high-level technologies and separated deployable units such as a service, database, web-application etc.</p>
+
+                <h3>Context diagram</h3>
+
+                <p>The context diagram allow us to focus on the user and application, and the other systems that they interact with as part of the use. A bit of research reveal that Garmin use their Connect IQ application (for Android and iOS) to distribute smartwatch applications. When installed on the watch, the Connect IQ shows the application on your smartphone and provide ways of configuring the application. This way, the user avoid having to do the personalization on a small device like a smartwatch and can leverage the larger display, better input and network connection of their smartphone.</p>
+
+                <p>The requirements also tell us that we need some external services. One for getting all the information on public transit and one for estimating time and distance from the user location to the nearest stop. We can get the public transit data from the Danish provider of General Transit Feed Specification (GTFS) data <a href="https://help.rejseplanen.dk/hc/da/articles/214174465-Rejseplanens-API">RejsePlanen</a>. For walking time and distance estimation, we can use one of several distance API providers:</p>
+
+                <ul>
+                    <li>Google Distance API</li>
+                    <li>Graphhopper API</li>
+                    <li>OpenRouteservice API</li>
+                    <li>Other OSM based services</li>
+                </ul>
+
+                <p>Which one will likely be determined depending on pricing and developer usability, i.e. how easy it is to integrate the API.</p>
+
+                <h3>Container diagram</h3>
+
+                <p>Container diagrams show the different independent units (e.g. separate processes) that executes code or stores data. If we zoom in one level, we get more details about the bits and pieces that needs to be developed in the applications. We are still not dealing with neither components (e.g. a location-based service component) or the actual implemented code.</p>
+
+                <p>Most of these will need to be implemented, but there are a lot of things that needs to be prototyped first. For instance, I have introduced a Webapplication for configuring the different rules that will trigger the notification in the scenarios. This is because I don't know yet if Garmin Connect support more complex configurations of the smartwatch app and if the kind of configurations make sense without a dedicated interaction design and application.</p>
+
+                <h2>Summary</h2>
+
+                <p>Ok, so now we know a bit more about the application idea from the beginning of the notes. We know what it should do following our scenarios. We know a lot more about the requirements. And we have a rough overview of some of the relationship with other systems from the context diagram and a bit about the inner workings from our container diagram. All in a couple of nights work.</p>
+
+                <p>The two next posts will look at identifying <em>prototypes</em> that can inform our design decisions and how to write <em>user-stories</em> from the scenarios. Stay tuned.</p>
+
+                <p><a href="../notes.html">&larr; Back to Notes</a></p>
+            </content>
+        </page>
+    </body>
+</html>

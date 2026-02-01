@@ -1,6 +1,7 @@
 # Website Redesign Plan: Design & Structure
 
 ## Overview
+
 Plan for henrikkorsgaard.dk - a professional profile site with blog, demos, and research archive. Hand-coded HTML/CSS, no build system (deliberate choice).
 
 ---
@@ -8,17 +9,21 @@ Plan for henrikkorsgaard.dk - a professional profile site with blog, demos, and 
 ## Part 1: Site Structure
 
 ### Proposed Navigation
+
 ```
-index.html      → About/Home (intro, current role, brief bio)
-notes.html      → Blog/Notes (personal writing, musings)
-projects.html   → Projects/Things (demos, interactive experiments, past work)
+index.html      → Home (minimal intro, current role, links to resume/services, last 5 notes/projects)
+about.html      → About (expanded profile, services, contact info)
+notes.html      → Notes index (short notes + essays, tagged, sorted by date)
+projects.html   → Projects grid (visual thumbnails)
 research.html   → Research (publications, dissertation) [exists]
 ```
 
 ### File Organization
+
 ```
 /
 ├── index.html
+├── about.html
 ├── notes.html
 ├── projects.html
 ├── research.html
@@ -38,10 +43,12 @@ research.html   → Research (publications, dissertation) [exists]
 ### Content Organization Questions
 
 **Notes/Blog:**
+
 - Current: All notes in single `notes.html` file
 - Alternative: Individual files per note with index listing
 
 **Projects:**
+
 - New section for demos and past work
 - Each project gets its own page with description, images/video, links
 
@@ -50,6 +57,7 @@ research.html   → Research (publications, dissertation) [exists]
 ## Part 2: Design Direction
 
 ### Current Design Elements (to keep/refine)
+
 - Dark theme (page: #262626, menu: #212121)
 - Fixed left sidebar with logo
 - Monospace font (Inconsolata) for body
@@ -60,31 +68,34 @@ research.html   → Research (publications, dissertation) [exists]
 
 ### Design Decisions Needed
 
-**1. Homepage content:**
-- Brief intro paragraph?
-- Photo?
-- Current role/affiliation?
-- Featured/recent content?
+**1. Homepage content:** ✓ DECIDED
 
-**2. Notes layout:**
-- Keep all notes on one page (current)?
-- Or index page with links to individual note pages?
-- Date display format?
-- Preview text for index?
+- Minimal intro paragraph
+- Current role/affiliation section
+- Links to resume and services
+- List of last 5 notes/projects sorted by date
 
-**3. Projects presentation:**
-- Grid of thumbnails/previews?
-- List format like notes?
-- Tags/categories?
+**2. Notes layout:** ✓ DECIDED
 
-**4. Responsive design:**
-- Current: Fixed sidebar (not mobile-friendly)
-- Need mobile breakpoint for sidebar collapse?
+- Two types: short notes and longer essays
+- Individual pages per note/essay
+- Index page with listing
+- Tagged and sorted by date
 
-**5. Footer/contact:**
-- Add contact info?
-- Social links (GitHub, etc.)?
-- In sidebar or footer?
+**3. Projects presentation:** ✓ DECIDED
+
+- Visual grid with thumbnails
+- Individual project pages
+
+**4. Responsive design:** ✓ DECIDED
+
+- Desktop first
+- Mobile responsiveness later (but planned for)
+
+**5. Footer/contact:** ✓ DECIDED
+
+- Contact info and social links in site footer
+- Separate about page with expanded profile/services info
 
 ---
 
@@ -94,7 +105,6 @@ research.html   → Research (publications, dissertation) [exists]
    - 6+ blog posts with data visualizations
    - 7 project showcases with images/videos
    - Resume page
-   
 2. **Writing format decision** - Stay pure HTML or add minimal Markdown tooling
 
 ---
@@ -103,12 +113,12 @@ research.html   → Research (publications, dissertation) [exists]
 
 Before finalizing the design/structure plan:
 
-1. **Homepage** - What should visitors see first? Just a brief intro, or also featured content?
+1. ~~**Homepage** - What should visitors see first? Just a brief intro, or also featured content?~~ ✓ DECIDED
 
-2. **Notes organization** - Single page with all notes (current), or split into individual pages with an index?
+2. ~~**Notes organization** - Single page with all notes (current), or split into individual pages with an index?~~ ✓ DECIDED
 
-3. **Projects section** - What presentation style appeals to you? Visual grid with thumbnails, or text-based list?
+3. ~~**Projects section** - What presentation style appeals to you? Visual grid with thumbnails, or text-based list?~~ ✓ DECIDED
 
-4. **Mobile** - Do you care about mobile responsiveness, or is this primarily a desktop experience?
+4. ~~**Mobile** - Do you care about mobile responsiveness, or is this primarily a desktop experience?~~ ✓ DECIDED
 
-5. **Contact/social** - Should there be contact info or links to GitHub/LinkedIn somewhere?
+5. ~~**Contact/social** - Should there be contact info or links to GitHub/LinkedIn somewhere?~~ ✓ DECIDED

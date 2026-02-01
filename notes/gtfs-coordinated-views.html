@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css"
+        />
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+
+        <title>IxD Experiments with coordinated views and GTFS data - Henrik Korsgaard</title>
+    </head>
+
+    <body>
+        <menu>
+            <a href="../index.html">
+                <img src="../media/images/henrik-transparent.png" />
+            </a>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li class="here"><a href="../notes.html">Notes</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../research.html">Research</a></li>
+            </ul>
+            <footer>
+                <a href="mailto:korsgaard@protonmail.com">Email</a>
+                <a href="https://github.com/henrikkorsgaard">GitHub</a>
+                <a href="https://linkedin.com/in/henrik-korsgaard-77a0831b">LinkedIn</a>
+            </footer>
+        </menu>
+        <page>
+            <content>
+                <h1>IxD Experiments with coordinated views and GTFS data</h1>
+
+                <p>I have a bunch of small ideas based on <a href="https://gtfs.org/">GTFS data</a> and one of the things they have in common is that I want to combine Map and UI interaction. In this small experiment I wanted to figure out how to coordinate views between a map view and traditional web-components.</p>
+
+                <p><em>Note: The original version of this note contained interactive demos using Leaflet.js. These have been removed during migration. The code is preserved below for reference.</em></p>
+
+                <h2>Experiment 1: Coordinated views between map route and range slider</h2>
+
+                <p>The first experiment coordinates a map polyline (bus route) with a range slider. Dragging the slider moves a marker along the route, and clicking/dragging on the route updates the slider position.</p>
+
+                <h2>Experiment 2: Coordinated view between map and list of bus stops</h2>
+
+                <p>The second experiment coordinates a map with a scrollable table of bus stops. Hovering over a row in the table moves the marker to that stop on the map. Clicking or dragging on the route highlights the nearest stop in the table and scrolls it into view.</p>
+
+                <h2>Details</h2>
+
+                <p>I downloaded the Danish GTFS data from <a href="https://www.rejseplanen.info/labs/GTFS.zip">Rejseplanen</a>. I wrangled the GTFS data into a separate file using a <a href="https://github.com/henrikkorsgaard/GTFS-wrangler/blob/main/parse-gtfs-trip.py">Python script</a> for the transit route I'm interested in (Midttrafik).</p>
+
+                <p>I use <a href="https://leafletjs.com/">Leaflet</a> and <a href="https://github.com/makinacorpus/Leaflet.GeometryUtil">Leaflet.GeometryUtil</a> to render the route as a polyline and add the interactive elements.</p>
+
+                <h2>Code Reference</h2>
+
+                <p>The key interactions involve:</p>
+
+                <ul>
+                    <li>Using <code>L.GeometryUtil.locateOnLine()</code> to find the position factor (0-1) of a point on a polyline</li>
+                    <li>Using <code>L.GeometryUtil.interpolateOnLine()</code> to find a point at a given factor along the polyline</li>
+                    <li>Using <code>pline.closestLayerPoint()</code> to snap dragged markers to the polyline</li>
+                    <li>Bidirectional updates between map interactions and UI components</li>
+                </ul>
+
+                <h3>Experiment 1 - Slider coordination</h3>
+
+                <pre><code>// When slider changes, update marker position
+line.oninput = function (e) {
+    let p = L.GeometryUtil.interpolateOnLine(map, pline, this.value / 100)
+    marker.setLatLng(p.latLng)
+}
+
+// When clicking on polyline, update slider
+pline.on("click", function (e) {
+    let f = L.GeometryUtil.locateOnLine(map, pline, e.latlng)
+    marker.setLatLng(e.latlng)
+    line.value = f * 100
+})</code></pre>
+
+                <h3>Experiment 2 - Table coordination</h3>
+
+                <pre><code>// When hovering table row, update marker
+function tableOver(evt) {
+    let t = evt.target.nodeName == "TD" ? evt.target.parentNode : evt.target
+    if (t.nodeName == "TH" || t.nodeName == "TABLE") return
+
+    // Update focus styling
+    let focus = document.querySelector("table tr.focus")
+    if (focus) focus.classList = ""
+    t.classList = "focus"
+
+    // Move marker to stop location
+    let latlng = L.latLng([t.dataset.lat, t.dataset.lng])
+    marker.setLatLng(latlng)
+}
+
+// Find closest stop to a point on the line
+function findClosestStopID(point, stops, map) {
+    let lowestDistance = 1000
+    let closestStopId = -1
+
+    for (i in stops) {
+        let s = stops[i]
+        let distance = map.latLngToLayerPoint(
+            L.latLng([s.lat, s.lng])
+        ).distanceTo(point)
+        if (distance < lowestDistance) {
+            closestStopId = s.stop_id
+            lowestDistance = distance
+        }
+    }
+    return closestStopId
+}</code></pre>
+
+                <p><a href="../notes.html">&larr; Back to Notes</a></p>
+            </content>
+        </page>
+    </body>
+</html>

@@ -8,27 +8,39 @@
         />
         <link rel="stylesheet" type="text/css" href="../style/main.css" />
         <script src="../js/components.js" defer></script>
-        <title>Hardening and Triangulation: Defensive Strategies for AI Workflows - Henrik Korsgaard</title>
+        <title>
+            Hardening and Triangulation: Defensive Strategies for AI Workflows -
+            Henrik Korsgaard
+        </title>
     </head>
     <body>
         <site-menu current="notes" base-path="../"></site-menu>
         <page>
             <content>
-                <h1>Hardening and Triangulation: Defensive Strategies for AI Workflows</h1>
-
+                <h1>
+                    Hardening and Triangulation: Defensive Strategies for AI
+                    Workflows
+                </h1>
+                <i>Note: Draft – still thinking and drawing...</i>
                 <p>
                     We have all experienced the oddities of developing with AI.
                     A few hours deep into a coding session, AI does something
-                    randomly – maybe it changes assumptions about the port
-                    of the application, revises the CSS files in a
-                    counterintuitive way or decides to expand the refactoring
-                    task that you have so carefully planned, scoped and fenced
-                    off with RULES.md and prompts.
+                    randomly – maybe it changes assumptions about the port of
+                    the application, revises the CSS files in a counterintuitive
+                    way or decides to expand the refactoring task that you have
+                    so carefully planned, scoped and fenced off with RULES.md
+                    and prompts.
                 </p>
 
                 <figure>
-                    <img src="../media/images/ai-port-assumption.png" alt="Claude confidently assumes port 5000, then discovers the application is configured for entirely different ports." />
-                    <figcaption>Claude confidently assumes port 5000, then discovers the application is configured for entirely different ports.</figcaption>
+                    <img
+                        src="../media/images/umbraco-port-5000.png"
+                        alt="Claude confidently assumes port 5000, then discovers the application is configured for entirely different ports."
+                    />
+                    <figcaption>
+                        Claude confidently assumes port 5000, then discovers the
+                        application is configured for entirely different ports.
+                    </figcaption>
                 </figure>
 
                 <p>
@@ -37,8 +49,8 @@
                     pulling in context, iterating over input and output, adding
                     variance at every step. The system is probabilistic in
                     theory, but non-deterministic in practice. It may be spot on
-                    for hours until it is completely off, in a place you
-                    weren’t watching. Some things never change: chasing a missing
+                    for hours until it is completely off, in a place you weren’t
+                    watching. Some things never change: chasing a missing
                     <code>;</code> is a shameful experience shared by humans and
                     AI alike.
                 </p>
@@ -54,8 +66,8 @@
                     appear at random in places you weren’t looking or never
                     expected to break, anticipation breaks down as a strategy.
                     This post introduces two ways to think about this:
-                    <em>hardening</em> — moving each step in an agentic
-                    workflow to the right level of determinism — and
+                    <em>hardening</em> — moving each step in an agentic workflow
+                    to the right level of determinism — and
                     <em>quality triangulation</em> — combining multiple
                     strategies when no single check is sufficient.
                 </p>
@@ -197,7 +209,7 @@
                 </p>
 
                 <p>
-                    In a <a href="developing-with-ai.html">previous post</a>, I
+                    I've <a href="developing-with-ai.html">previously</a>,
                     described building a workflow that generates Lit frontend
                     components from Figma designs. After hardening, the workflow
                     was reliable. Claude followed skills and rules, extracted

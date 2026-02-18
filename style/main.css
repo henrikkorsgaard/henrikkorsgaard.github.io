@@ -307,6 +307,18 @@ table th {
 .notes-list li {
     padding: 8px 0;
     border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.notes-list li a {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+.notes-list li a:hover {
+    color: var(--link-color);
 }
 
 .notes-list .date {
@@ -317,6 +329,7 @@ table th {
 
 .notes-list .tags {
     margin-left: 10px;
+    flex-shrink: 0;
 }
 
 .tag {

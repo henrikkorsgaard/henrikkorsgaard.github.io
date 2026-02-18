@@ -5,15 +5,15 @@
 body {
     --page-width: 800px;
     --menu-width: 280px;
-    --dark-page-bg: #1e1e1e;
-    --dark-menu-bg: #181818;
-    --dark-font: #c8c8c8;
+    --page-bg: #ffffff;
+    --menu-bg: #f8f8f8;
+    --font-color: #222222;
     --font-text: "Lora", Georgia, serif;
     --font-heading: "Inter", sans-serif;
     --font-code: "Inconsolata", monospace;
-    --border-color: #333333;
-    --link-color: #9ab4e0;
-    --heading-color: #7aa2f7;
+    --border-color: #e0e0e0;
+    --link-color: #4a7cc9;
+    --heading-color: #3b6fd4;
 
     border-radius: 0px;
     position: relative;
@@ -22,8 +22,10 @@ body {
     min-height: 100%;
     width: 100%;
     margin: 0px auto;
-    color: var(--dark-font);
+    color: var(--font-color);
     font-family: var(--font-text);
+    font-size: 18px;
+    line-height: 1.7;
 }
 
 html {
@@ -40,7 +42,7 @@ menu {
     min-width: var(--menu-width);
     flex: 0 0 var(--menu-width);
     height: 100vh;
-    background-color: var(--dark-menu-bg);
+    background-color: var(--menu-bg);
     border-right: 1px solid var(--border-color);
     position: fixed;
     display: flex;
@@ -52,8 +54,8 @@ menu img {
     margin-top: 50px;
     width: calc(100% + 20px);
     margin-left: -5px;
-    filter: invert(57%) sepia(19%) saturate(3609%) hue-rotate(218deg)
-        brightness(100%) contrast(102%);
+    filter: invert(32%) sepia(60%) saturate(1200%) hue-rotate(200deg)
+        brightness(90%) contrast(95%);
 }
 
 menu ul {
@@ -76,7 +78,7 @@ menu ul li {
 
 menu ul li::before {
     content: "> ";
-    color: var(--dark-font);
+    color: var(--font-color);
 }
 
 menu ul li.here {
@@ -103,6 +105,10 @@ pre {
     font-family: var(--font-code);
 }
 
+p {
+    margin-bottom: 1.2em;
+}
+
 content a:link {
     color: var(--link-color);
 }
@@ -119,7 +125,7 @@ page {
     flex: 1 0 0;
     display: flex;
     flex-direction: column;
-    background-color: var(--dark-page-bg);
+    background-color: var(--page-bg);
     padding-left: 100px;
     padding-top: 60px;
     padding-bottom: 100px;
@@ -150,13 +156,13 @@ menu footer {
 }
 
 menu footer a {
-    color: #666;
+    color: #999;
     text-decoration: none;
     margin: 0 5px;
 }
 
 menu footer a:hover {
-    color: #888;
+    color: #666;
 }
 
 /* Projects grid */
@@ -169,7 +175,7 @@ menu footer a:hover {
 
 .project-card {
     text-decoration: none;
-    color: var(--dark-font);
+    color: var(--font-color);
 }
 
 .project-card:hover h3 {
@@ -184,7 +190,7 @@ menu footer a:hover {
     justify-content: center;
     margin-bottom: 10px;
     overflow: hidden;
-    background-color: #2a2a2a;
+    background-color: #f0f0f0;
     border-radius: 4px;
 }
 
@@ -197,9 +203,10 @@ menu footer a:hover {
 /* Project page figures */
 figure {
     margin: 30px 0;
-    padding:20px;
-    border-radius:10px;
-    background-color:white;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid var(--border-color);
 }
 
 figure img,
@@ -210,7 +217,7 @@ figure video {
 
 figure figcaption {
     font-size: 0.85em;
-    color: black;
+    color: #444;
     margin-top: 8px;
     font-style: italic;
 }
@@ -250,13 +257,12 @@ figure.four-col img {
     object-fit: contain;
 }
 
-
 blockquote {
     border-left: 3px solid var(--heading-color);
     margin: 20px 0;
     padding-left: 20px;
     font-style: italic;
-    color: #aaa;
+    color: #555;
 }
 
 table {
@@ -273,7 +279,7 @@ table td {
 }
 
 table th {
-    background-color: var(--dark-menu-bg);
+    background-color: var(--menu-bg);
     font-family: var(--font-heading);
 }
 
@@ -289,7 +295,7 @@ table th {
 }
 
 .placeholder-text {
-    color: #666;
+    color: #999;
 }
 
 /* Notes index */
@@ -304,7 +310,7 @@ table th {
 }
 
 .notes-list .date {
-    color: #888;
+    color: #777;
     font-size: 0.85em;
     margin-right: 15px;
 }
@@ -316,10 +322,10 @@ table th {
 .tag {
     font-size: 0.75em;
     padding: 2px 6px;
-    background: var(--dark-menu-bg);
+    background: #eee;
     border-radius: 3px;
     margin-left: 5px;
-    color: #888;
+    color: #666;
 }
 
 /* Recent list on homepage */
@@ -333,7 +339,7 @@ table th {
 }
 
 .recent-list .date {
-    color: #888;
+    color: #777;
     font-size: 0.85em;
     margin-right: 15px;
 }

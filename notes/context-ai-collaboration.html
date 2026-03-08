@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../style/main.css" />
+        <script src="../js/components.js" defer></script>
+        <title>
+            What I talk about when I talk about context - Henrik Korsgaard
+        </title>
+    </head>
+    <body>
+        <site-menu current="notes" base-path="../"></site-menu>
+        <page>
+            <content>
+                <h1>
+                    What I talk about when I talk about context
+                </h1>
+
+                <p>
+                    I've been thinking a lot about <em>context</em> recently. A
+                    lot of recent AI tools support working in a particular
+                    folder and pulling in files to provide the AI with context.
+                    I use files a lot to establish and deliberately construct the
+                    context for projects and tasks where I collaborate with AI.
+                    <a
+                        href="https://madalitso.me/notes/why-everyone-is-talking-about-filesystems/"
+                        >This is an emergent pattern worth discussing</a
+                    >. Files are becoming the meeting point between users and
+                    AIs. While <em>context</em> operates differently for both of
+                    us, the files that populate the folder feel like our shared
+                    <em>context</em>.
+                </p>
+
+                <p>
+                    But calling them files misses something. I've researched how
+                    people collaborate across
+                    <a
+                        href="../media/pdfs/development-community-artifact-ecologies.pdf"
+                        >collections of tools and documents</a
+                    >
+                    and how
+                    <a
+                        href="../media/pdfs/collaborative-writing-artifact-ecologies.pdf"
+                        >co-writers navigate across multiple applications</a
+                    >
+                    when working on a shared text. The interesting concept here
+                    isn't filesystems. It's something researchers in
+                    Computer-Supported Cooperative Work have been talking about
+                    for decades: <em>Common Information Spaces</em>.
+                </p>
+
+                <h2>Common Information Spaces</h2>
+
+                <p>
+                    Schmidt and Bannon (1992) define common information spaces
+                    in connection with cooperative and collaborative work:
+                </p>
+
+                <blockquote>
+                    "Cooperative work is not facilitated simply by the
+                    provisioning of a shared database, but rather requires the
+                    <strong>active construction</strong> by the participants of a
+                    <strong>common information space</strong> where the meanings
+                    of the shared objects are debated and resolved, at least
+                    locally and temporarily."
+                </blockquote>
+
+                <p>
+                    Whenever people collaborate on the same project they need to
+                    organise the relevant information and tools. Different roles
+                    and tasks require different pieces of information: some folks
+                    care about PowerPoints and legal documents; some about EPICs
+                    and Features; and others about typescript and markdown files.
+                    All of this information is deemed relevant and important to
+                    the project by someone. And all of it reveals something
+                    about what the project is about.
+                </p>
+
+                <p>
+                    A lot of projects have a repository, internal documentation,
+                    Slack and similar communication channels, and maybe Figma
+                    files and Google Workspace. This is the common information
+                    space. Some of it is given by the infrastructure the team
+                    and organisation are used to. But a lot of the project
+                    information is established in files and links that the
+                    participants create and organise as they work.
+                </p>
+
+                <p>
+                    The important point here is that the common information
+                    space is <strong>constructed</strong> by those participating
+                    in the project. The knowledge work generates files
+                    (presentations, designs, code etc.) and organising and
+                    collaborating around the work generates files (plans, tasks,
+                    reports, messages). All this is relevant context for the
+                    project.
+                </p>
+
+                <h2>What about AI</h2>
+
+                <p>
+                    When I start a task with AI, a large part of the work is
+                    <strong>constructing</strong> the context. I pull in
+                    specification, documentation, user-stories, reference
+                    implementations, designs etc. and when I work with Claude I
+                    generate additional documents to steer and guide the work
+                    (.claude files, plans.md, persisted context documents,
+                    research etc.). And Claude is an active participant on its
+                    own. I let Claude update Jira tickets and documentation.
+                    Claude and I are actively constructing the context and the
+                    work as we go.
+                </p>
+
+                <p>
+                    So, by merit of this, I would argue that the
+                    <em>common information space</em> of a project is
+                    <strong>co-constructed</strong> by the participants including
+                    AI agents. Bingo.
+                </p>
+
+                <h2>The importance of scaffolding contexts</h2>
+
+                <p>
+                    When we join a project, we know where to look. There's a
+                    Slack channel, a Jira space, maybe a shared folder
+                    somewhere. We know that because we've worked in offices
+                    before.
+                </p>
+
+                <p><strong>AI does not know where to find stuff.</strong></p>
+
+                <p>
+                    So it helps to think about two kinds of information spaces:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Project information space</strong>: The entire
+                        information space pertaining to the project: the Slack
+                        channel, the Jira project, the Github repo, the
+                        OneDrive folder, the Figma files. All the services and
+                        their contents.
+                    </li>
+                    <li>
+                        <strong>Task context</strong>: The specific information
+                        drawn from the project information space for a given
+                        task, plus what gets produced along the way.
+                    </li>
+                </ul>
+
+                <p>
+                    Tasks produce information for the project and subsequent
+                    tasks (user-stories are a good example). The project
+                    information space is the sum of all the information drawn in
+                    and produced across tasks.
+                </p>
+
+                <p>
+                    If you want AI to be a useful collaborator, the first step
+                    is telling it where things live. Make the project
+                    information space explicit: list the sources, set up the
+                    integrations, give the AI access to search across them. This
+                    allows AI to fetch a Jira ticket and, when needed, search
+                    for additional information in OneDrive or recent
+                    conversations in Slack.
+                </p>
+
+                <p>
+                    This should not be a project task. Your IT-infrastructure
+                    and ways-of-working should be aligned so that every new
+                    project follows the same model. And this model is part of
+                    the AI-directed rules you initialise the project with.
+                </p>
+
+                <h2>Structuring and prioritizing information spaces</h2>
+
+                <p>
+                    If your organisation has rules for folder structure and
+                    other principles that help humans discover and connect the
+                    dots between information, then you should communicate these
+                    to your AI collaborators too. Not just the structure, but
+                    <em>the meaning behind the structure</em>.
+                </p>
+
+                <p>
+                    If you have a folder for Architectural Decision Records,
+                    tell the AI that's where technical decisions are documented
+                    and why. If you have a <em>client</em> folder for material
+                    shared with the client, make clear that anything in there is
+                    external-facing and should be treated differently from
+                    internal working documents. If your Confluence space
+                    separates requirements from delivery documentation, explain
+                    which is the source of truth for what.
+                </p>
+
+                <p>
+                    The more the AI understands the intent behind the
+                    organisation of information, the more likely it is to look
+                    in the right places when searching for context on a task.
+                </p>
+
+                <h2>Different roles, different slices</h2>
+
+                <p>
+                    The project information space is shared, but different roles
+                    draw from it differently. A PM assembling a status report
+                    needs recent Jira activity, Github commits, and maybe the
+                    latest Figma progress. A developer picking up a ticket needs
+                    the design file, the requirements document, and the relevant
+                    parts of the codebase. A designer needs brand guidelines,
+                    the component library, and client feedback from Confluence
+                    or email.
+                </p>
+
+                <p>
+                    These are all slices of the same information space. Today,
+                    each role navigates their own familiar corners and ignores
+                    the rest. AI can reach across those boundaries, but only if
+                    it knows the full space exists and which parts matter for
+                    which kind of work.
+                </p>
+
+                <p>
+                    This is where task-specific rules become practical. As the
+                    project information space grows, you don't want AI searching
+                    through deliveries from 2020 when you need last week's
+                    sprint activity. Write rules that prioritise the right
+                    sources for the task at hand:
+                </p>
+
+                <ul>
+                    <li>
+                        For status reporting: prioritise Jira, Figma and Github
+                        with the latest activities.
+                    </li>
+                    <li>
+                        For coding: prioritise Jira tickets, the Github repo,
+                        and relevant design files.
+                    </li>
+                    <li>
+                        For design work: link the existing website and keep
+                        design material (brand manual, personas,
+                        domain-specific insights) in a designated folder.
+                    </li>
+                    <li>
+                        For project documentation: prioritise Confluence and
+                        shared documents over tickets and commits.
+                    </li>
+                    <li>
+                        For all of the above: let AI access Slack. A lot of
+                        important information and links are shared by the team
+                        in channels and threads that never reach the more
+                        structured spaces.
+                    </li>
+                </ul>
+
+                <p>
+                    These rules can be formalised as task-specific
+                    configurations that any team member can invoke when starting
+                    a piece of work with AI.
+                </p>
+
+                <h2>Get started</h2>
+
+                <p>
+                    If you already have human-readable best practices for
+                    organising your key information spaces, then you are set to
+                    onboard AI collaborators with the following steps:
+                </p>
+
+                <ol>
+                    <li>
+                        <strong>Map your project information space.</strong>
+                        List every service and source that holds project
+                        information. Put it somewhere the AI can read it. Make
+                        this part of how you set up every new project, not a
+                        one-off effort.
+                    </li>
+                    <li>
+                        <strong
+                            >Document the structure and its meaning.</strong
+                        >
+                        Don't just tell the AI where things are. Tell it what
+                        the organisation means: what's client-facing, what's
+                        internal, what's the source of truth for requirements
+                        versus delivery.
+                    </li>
+                    <li>
+                        <strong>Write task-specific context rules.</strong>
+                        Different roles and tasks need different slices. Make it
+                        easy to point the AI at the right sources for the work
+                        at hand.
+                    </li>
+                </ol>
+
+                <p>
+                    If you do not have shared guidelines for how the different
+                    spaces are organised, then you need to fix that as fast as
+                    possible. For the sake of humans and AIs alike.
+                </p>
+
+                <h2>Read more</h2>
+
+                <ul>
+                    <li>
+                        Vannevar Bush,
+                        "<a
+                            href="https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+                            >As We May Think</a
+                        >," The Atlantic, July 1945.
+                    </li>
+                    <li>
+                        Ikujiro Nonaka, "A Dynamic Theory of Organizational
+                        Knowledge Creation," <em>Organization Science</em>,
+                        Vol. 5, No. 1, pp. 14-37, 1994.
+                    </li>
+                    <li>
+                        Herbert Simon, "Designing Organizations for an
+                        Information-Rich World," in Martin Greenberger (ed.),
+                        <em
+                            >Computers, Communications, and the Public
+                            Interest</em
+                        >, 1971.
+                    </li>
+                    <li>
+                        John Seely Brown and Paul Duguid,
+                        <em>The Social Life of Information</em>, Harvard
+                        Business School Press, 2000.
+                    </li>
+                    <li>
+                        Kjeld Schmidt and Liam Bannon, "Taking CSCW Seriously:
+                        Supporting Articulation Work,"
+                        <em>Computer Supported Cooperative Work</em>, Vol. 1,
+                        No. 1-2, pp. 7-40, 1992.
+                    </li>
+                    <li>
+                        Lucy Suchman,
+                        <em
+                            >Plans and Situated Actions: The Problem of
+                            Human-Machine Communication</em
+                        >, Cambridge University Press, 1987.
+                    </li>
+                </ul>
+
+                <p><a href="../notes.html">&larr; Back to Notes</a></p>
+            </content>
+        </page>
+    </body>
+</html>
